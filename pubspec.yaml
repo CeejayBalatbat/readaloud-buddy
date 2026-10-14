@@ -1,0 +1,30 @@
+name: readaloud_buddy
+description: "ReadAloud Buddy – an intelligent read-aloud companion for early-grade learners."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  drift: ^2.35.2
+  drift_flutter: ^0.3.1
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.4.3
+  flutter_tts: ^4.2.5
+  google_fonts: 8.0.0
+  speech_to_text: ^7.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.35.1
+  build_runner: ^2.16.2
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/
