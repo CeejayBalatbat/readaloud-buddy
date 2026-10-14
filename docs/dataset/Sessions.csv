@@ -1,0 +1,551 @@
+session_id,learner_id,date,start_time,session_type,device_context,story_id,story_level,language,words_total,words_correct,reading_seconds,questions_total,questions_correct,hesitations,miscues,skips,asr_unsure_words,hints_given,word_accuracy,wcpm,comprehension,word_level,comprehension_level,philiri_level,agent_next_action,flag_teacher
+SES0001,L001,2026-09-02,19:51,Placement check,Own device,S02,1,EN,24,20,64.9,3,2,2,4,0,2,5,0.833333333333333,18.5,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0002,L001,2026-09-04,17:28,Story reading,Own device,S04,1,FIL,17,16,36.2,3,1,4,0,1,1,0,0.941176470588235,26.5,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0003,L001,2026-09-08,19:01,Story reading,Own device,S05,1,FIL,19,17,38.6,3,1,2,1,1,1,2,0.894736842105263,26.4,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0004,L001,2026-09-19,19:59,Story reading,Own device,S03,1,EN,21,20,28.1,3,2,1,1,0,1,1,0.952380952380952,42.7,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0005,L001,2026-09-23,17:01,Story reading,Own device,S04,1,FIL,18,16,45.2,3,3,3,2,0,0,4,0.888888888888889,21.2,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0006,L001,2026-09-25,19:29,Story reading,Own device,S01,1,EN,27,27,24.4,3,3,1,0,0,0,0,1.0,66.4,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0007,L001,2026-10-05,20:59,Story reading,Own device,S05,1,FIL,19,19,23.9,3,3,1,0,0,1,0,1.0,47.7,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0008,L001,2026-10-06,17:03,Story reading,Own device,S08,2,EN,43,38,83.4,3,3,6,4,1,0,6,0.883720930232558,27.3,1.0,Frustration,Independent,Frustration,Move down to Level 1,No
+SES0009,L001,2026-10-09,19:08,Story reading,Own device,S04,1,FIL,18,17,35.5,3,3,3,0,1,0,2,0.944444444444444,28.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0010,L001,2026-10-11,06:36,Story reading,Own device,S05,1,FIL,20,20,23.1,3,3,0,0,0,0,0,1.0,51.9,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0011,L002,2026-08-31,11:59,Placement check,Classroom tablet,S04,1,FIL,17,11,64.9,3,0,1,6,0,1,6,0.647058823529412,10.2,0.0,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0012,L002,2026-09-01,13:09,Story reading,Classroom tablet,S05,1,FIL,19,18,28.2,3,2,0,1,0,1,1,0.947368421052632,38.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0013,L002,2026-09-02,10:58,Story reading,Classroom tablet,S04,1,FIL,17,12,51.5,3,1,2,4,1,1,4,0.705882352941177,14.0,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0014,L002,2026-09-08,13:10,Story reading,Classroom tablet,S04,1,FIL,17,14,43.4,3,1,0,3,0,1,3,0.823529411764706,19.4,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0015,L002,2026-09-09,13:57,Story reading,Classroom tablet,S05,1,FIL,20,19,25.9,3,2,0,1,0,0,1,0.95,44.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0016,L002,2026-09-11,12:48,Story reading,Classroom tablet,S04,1,FIL,16,16,23.0,3,3,0,0,0,2,0,1.0,41.7,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0017,L002,2026-09-15,14:30,Story reading,Classroom tablet,S04,1,FIL,18,18,25.7,3,3,1,0,0,0,1,1.0,42.0,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0018,L002,2026-09-17,10:46,Story reading,Classroom tablet,S10,2,FIL,37,36,68.8,3,2,5,1,0,0,2,0.972972972972973,31.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0019,L002,2026-09-18,09:43,Story reading,Classroom tablet,S09,2,FIL,27,27,41.0,3,2,1,0,0,2,0,1.0,39.5,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0020,L002,2026-09-22,10:29,Story reading,Classroom tablet,S10,2,FIL,36,33,70.2,3,1,1,3,0,1,3,0.916666666666667,28.2,0.333333333333333,Instructional,Frustration,Frustration,Move down to Level 1,No
+SES0021,L002,2026-09-23,14:39,Story reading,Classroom tablet,S04,1,FIL,18,18,21.9,3,3,0,0,0,0,0,1.0,49.3,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0022,L002,2026-09-24,14:12,Story reading,Classroom tablet,S10,2,FIL,37,33,54.8,3,2,1,1,3,0,1,0.891891891891892,36.1,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,Yes
+SES0023,L002,2026-09-28,13:47,Story reading,Classroom tablet,S05,1,FIL,19,19,23.2,3,3,0,0,0,1,0,1.0,49.1,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0024,L002,2026-09-29,08:51,Story reading,Classroom tablet,S09,2,FIL,29,29,37.0,3,1,0,0,0,0,0,1.0,47.0,0.333333333333333,Independent,Frustration,Frustration,Move down to Level 1,Yes
+SES0025,L002,2026-10-01,10:46,Story reading,Classroom tablet,S04,1,FIL,18,18,27.7,3,3,1,0,0,0,1,1.0,39.0,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0026,L002,2026-10-08,10:32,Story reading,Classroom tablet,S10,2,FIL,35,34,52.9,3,1,2,0,1,2,1,0.971428571428571,38.6,0.333333333333333,Independent,Frustration,Frustration,Move down to Level 1,Yes
+SES0027,L002,2026-10-09,14:15,Story reading,Classroom tablet,S05,1,FIL,20,19,30.5,3,2,0,1,0,0,1,0.95,37.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0028,L003,2026-08-31,14:22,Placement check,Classroom tablet,S11,3,EN,61,55,90.1,3,1,4,4,2,2,5,0.901639344262295,36.6,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 3,No
+SES0029,L003,2026-09-10,08:17,Story reading,Classroom tablet,S13,3,EN,64,62,66.3,3,2,0,2,0,2,2,0.96875,56.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0030,L003,2026-10-01,13:01,Story reading,Classroom tablet,S12,3,EN,58,57,49.0,3,3,0,1,0,1,1,0.982758620689655,69.8,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0031,L003,2026-10-07,13:41,Story reading,Classroom tablet,S13,3,EN,63,61,61.7,3,3,0,2,0,3,2,0.968253968253968,59.3,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0032,L004,2026-09-01,19:16,Placement check,Own device,S04,1,FIL,18,18,29.9,3,3,2,0,0,0,1,1.0,36.1,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0033,L004,2026-09-06,06:44,Story reading,Own device,S05,1,FIL,20,18,32.0,3,3,1,1,1,0,1,0.9,33.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0034,L004,2026-09-09,17:21,Story reading,Own device,S04,1,FIL,18,16,27.9,3,2,0,1,1,0,1,0.888888888888889,34.4,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0035,L004,2026-09-10,06:15,Story reading,Own device,S04,1,FIL,18,16,19.3,3,2,0,0,2,0,0,0.888888888888889,49.7,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0036,L004,2026-09-11,17:12,Story reading,Own device,S04,1,FIL,18,17,38.5,3,3,2,1,0,0,2,0.944444444444444,26.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0037,L004,2026-09-14,16:32,Story reading,Own device,S05,1,FIL,20,17,41.2,3,1,1,2,1,0,2,0.85,24.8,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0038,L004,2026-09-15,19:25,Story reading,Own device,S04,1,FIL,18,17,32.6,3,2,1,1,0,0,1,0.944444444444444,31.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0039,L004,2026-09-16,17:47,Story reading,Own device,S04,1,FIL,18,16,45.8,3,2,1,2,0,0,2,0.888888888888889,21.0,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0040,L004,2026-09-17,17:53,Story reading,Own device,S05,1,FIL,20,20,19.4,3,3,0,0,0,0,0,1.0,61.9,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0041,L004,2026-09-18,19:56,Story reading,Own device,S05,1,FIL,19,17,32.9,3,2,0,2,0,1,2,0.894736842105263,31.0,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0042,L004,2026-09-19,06:55,Story reading,Own device,S05,1,FIL,20,20,23.4,3,3,1,0,0,0,0,1.0,51.3,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0043,L004,2026-09-21,16:22,Story reading,Own device,S04,1,FIL,18,17,27.3,3,3,0,1,0,0,1,0.944444444444444,37.4,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0044,L004,2026-09-22,17:14,Story reading,Own device,S05,1,FIL,19,19,21.9,3,3,0,0,0,1,0,1.0,52.1,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0045,L004,2026-09-23,20:41,Story reading,Own device,S04,1,FIL,17,17,20.4,3,3,0,0,0,1,0,1.0,50.0,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0046,L004,2026-09-26,20:50,Story reading,Own device,S09,2,FIL,29,28,36.1,3,2,0,0,1,0,0,0.96551724137931,46.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0047,L004,2026-09-29,18:39,Story reading,Own device,S10,2,FIL,37,35,54.1,3,3,0,2,0,0,2,0.945945945945946,38.8,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0048,L004,2026-09-30,06:10,Story reading,Own device,S10,2,FIL,37,34,69.2,3,2,1,3,0,0,3,0.918918918918919,29.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0049,L004,2026-10-01,06:05,Story reading,Own device,S09,2,FIL,29,28,44.2,3,3,0,1,0,0,1,0.96551724137931,38.0,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0050,L004,2026-10-03,06:00,Story reading,Own device,S09,2,FIL,28,27,42.4,3,2,0,1,0,1,1,0.964285714285714,38.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0051,L004,2026-10-07,16:35,Story reading,Own device,S09,2,FIL,29,28,42.3,3,2,0,1,0,0,1,0.96551724137931,39.7,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0052,L004,2026-10-08,16:34,Story reading,Own device,S10,2,FIL,37,32,83.2,3,2,1,5,0,0,6,0.864864864864865,23.1,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,No
+SES0053,L004,2026-10-11,20:14,Story reading,Own device,S04,1,FIL,18,17,27.6,3,2,0,1,0,0,1,0.944444444444444,37.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0054,L005,2026-09-03,19:14,Placement check,Shared family phone,S07,2,EN,43,36,107.4,3,2,5,7,0,2,9,0.837209302325581,20.1,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 2,No
+SES0055,L005,2026-09-04,16:09,Story reading,Shared family phone,S06,2,EN,43,37,85.4,3,3,6,5,1,2,6,0.86046511627907,26.0,1.0,Frustration,Independent,Frustration,Move down to Level 1,Yes
+SES0056,L005,2026-09-10,20:41,Story reading,Shared family phone,S02,1,EN,26,25,28.4,3,3,0,1,0,0,1,0.961538461538462,52.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0057,L005,2026-09-12,06:06,Story reading,Shared family phone,S03,1,EN,21,20,29.9,3,3,1,1,0,1,1,0.952380952380952,40.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0058,L005,2026-09-13,16:38,Story reading,Shared family phone,S01,1,EN,26,26,18.9,3,2,0,0,0,1,0,1.0,82.5,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0059,L005,2026-09-15,18:47,Story reading,Shared family phone,S03,1,EN,20,20,18.7,3,2,0,0,0,2,0,1.0,64.2,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0060,L005,2026-09-16,19:20,Story reading,Shared family phone,S02,1,EN,25,25,23.6,3,3,0,0,0,1,0,1.0,63.6,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0061,L005,2026-09-17,19:08,Story reading,Shared family phone,S02,1,EN,25,24,30.6,3,3,0,1,0,1,1,0.96,47.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0062,L005,2026-09-20,20:49,Story reading,Shared family phone,S01,1,EN,27,27,20.3,3,3,0,0,0,0,0,1.0,79.8,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0063,L005,2026-09-22,20:16,Story reading,Shared family phone,S03,1,EN,20,19,27.0,3,2,0,1,0,2,1,0.95,42.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0064,L005,2026-09-27,20:59,Story reading,Shared family phone,S02,1,EN,26,25,28.9,3,2,0,1,0,0,1,0.961538461538462,51.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0065,L005,2026-09-28,06:40,Story reading,Shared family phone,S02,1,EN,25,23,34.0,3,3,0,2,0,1,2,0.92,40.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0066,L005,2026-10-01,18:19,Story reading,Shared family phone,S01,1,EN,26,26,20.0,3,3,0,0,0,1,0,1.0,78.0,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0067,L005,2026-10-08,16:10,Story reading,Shared family phone,S03,1,EN,22,22,18.4,3,3,0,0,0,0,0,1.0,71.7,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0068,L006,2026-08-31,14:40,Placement check,Classroom tablet,S06,2,EN,44,40,69.9,3,1,6,2,2,1,3,0.909090909090909,34.3,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 2,No
+SES0069,L006,2026-09-02,09:54,Story reading,Classroom tablet,S07,2,EN,44,37,85.2,3,2,5,4,3,1,5,0.840909090909091,26.1,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,Yes
+SES0070,L006,2026-09-03,11:20,Story reading,Classroom tablet,S01,1,EN,27,27,26.6,3,3,0,0,0,0,0,1.0,60.9,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0071,L006,2026-09-09,14:52,Story reading,Classroom tablet,S03,1,EN,21,20,17.9,3,2,0,0,1,1,0,0.952380952380952,67.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0072,L006,2026-09-16,08:32,Story reading,Classroom tablet,S02,1,EN,25,24,23.4,3,3,0,0,1,1,0,0.96,61.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0073,L006,2026-09-17,08:19,Story reading,Classroom tablet,S02,1,EN,26,24,35.6,3,2,0,2,0,0,2,0.923076923076923,40.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0074,L006,2026-09-18,12:39,Story reading,Classroom tablet,S01,1,EN,26,25,24.1,3,2,1,0,1,1,0,0.961538461538462,62.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0075,L006,2026-09-25,14:14,Story reading,Classroom tablet,S03,1,EN,22,21,26.8,3,3,0,1,0,0,1,0.954545454545455,47.0,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0076,L006,2026-09-30,08:24,Story reading,Classroom tablet,S02,1,EN,25,25,22.9,3,3,0,0,0,1,0,1.0,65.5,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0077,L006,2026-10-08,12:47,Story reading,Classroom tablet,S03,1,EN,22,22,21.2,3,3,0,0,0,0,0,1.0,62.3,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0078,L007,2026-09-02,06:53,Placement check,Own device,S16,4,EN,82,80,65.8,3,2,1,1,1,2,1,0.975609756097561,72.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 4,No
+SES0079,L007,2026-09-04,06:14,Story reading,Own device,S17,4,EN,82,82,44.1,3,3,0,0,0,1,0,1.0,111.6,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0080,L007,2026-09-05,18:19,Story reading,Own device,S19,4,FIL,72,70,74.6,3,3,0,2,0,1,2,0.972222222222222,56.3,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0081,L007,2026-09-13,06:51,Story reading,Own device,S18,4,EN,87,87,51.8,3,3,1,0,0,2,0,1.0,100.8,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0082,L007,2026-09-14,16:40,Story reading,Own device,S20,4,FIL,67,65,77.5,3,3,1,2,0,3,2,0.970149253731343,50.3,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0083,L007,2026-09-18,16:38,Story reading,Own device,S20,4,FIL,69,68,65.5,3,2,0,1,0,1,1,0.985507246376812,62.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 4,No
+SES0084,L007,2026-09-19,18:04,Story reading,Own device,S19,4,FIL,72,68,79.0,3,2,0,2,2,1,2,0.944444444444444,51.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 4,No
+SES0085,L007,2026-09-20,18:49,Story reading,Own device,S16,4,EN,83,82,59.6,3,3,0,1,0,1,1,0.987951807228916,82.6,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0086,L007,2026-09-25,17:52,Story reading,Own device,S17,4,EN,81,78,72.4,3,2,1,3,0,2,4,0.962962962962963,64.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 4,No
+SES0087,L008,2026-09-05,06:10,Placement check,Shared family phone,S04,1,FIL,17,13,36.7,3,2,1,2,2,1,2,0.764705882352941,21.3,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0088,L008,2026-09-07,17:57,Story reading,Shared family phone,S05,1,FIL,20,19,33.0,3,2,2,1,0,0,1,0.95,34.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0089,L008,2026-09-12,06:04,Story reading,Shared family phone,S04,1,FIL,18,11,64.8,3,0,0,5,2,0,5,0.611111111111111,10.2,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0090,L008,2026-09-17,16:15,Story reading,Shared family phone,S04,1,FIL,18,17,34.9,3,3,2,1,0,0,2,0.944444444444444,29.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0091,L008,2026-09-22,20:19,Story reading,Shared family phone,S05,1,FIL,20,19,34.6,3,2,1,1,0,0,1,0.95,32.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0092,L008,2026-09-23,06:00,Story reading,Shared family phone,S04,1,FIL,18,14,60.9,3,1,2,4,0,0,4,0.777777777777778,13.8,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0093,L008,2026-09-28,06:24,Story reading,Shared family phone,S04,1,FIL,18,17,27.1,3,3,0,1,0,0,1,0.944444444444444,37.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0094,L008,2026-10-03,16:00,Story reading,Shared family phone,S04,1,FIL,18,16,38.7,3,2,0,2,0,0,2,0.888888888888889,24.8,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0095,L008,2026-10-04,20:02,Story reading,Shared family phone,S05,1,FIL,20,19,32.2,3,3,0,1,0,0,1,0.95,35.4,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0096,L008,2026-10-05,20:09,Story reading,Shared family phone,S04,1,FIL,18,17,32.7,3,3,1,1,0,0,1,0.944444444444444,31.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0097,L008,2026-10-07,17:10,Story reading,Shared family phone,S05,1,FIL,19,19,19.9,3,3,0,0,0,1,0,1.0,57.3,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0098,L008,2026-10-08,19:29,Story reading,Shared family phone,S05,1,FIL,20,18,44.8,3,3,1,2,0,0,3,0.9,24.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0099,L008,2026-10-09,18:07,Story reading,Shared family phone,S04,1,FIL,18,16,27.6,3,3,0,1,1,0,1,0.888888888888889,34.8,1.0,Frustration,Independent,Frustration,Stay at Level 1,No
+SES0100,L009,2026-09-01,16:48,Placement check,Shared family phone,S15,3,FIL,53,50,88.4,3,2,2,3,0,4,3,0.943396226415094,33.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0101,L009,2026-09-10,17:38,Story reading,Shared family phone,S14,3,FIL,60,56,78.8,3,2,0,3,1,0,3,0.933333333333333,42.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0102,L009,2026-09-17,06:45,Story reading,Shared family phone,S15,3,FIL,56,55,59.7,3,1,1,1,0,1,2,0.982142857142857,55.3,0.333333333333333,Independent,Frustration,Frustration,Move down to Level 2,No
+SES0103,L009,2026-09-20,17:30,Story reading,Shared family phone,S10,2,FIL,36,32,59.0,3,2,0,3,1,1,3,0.888888888888889,32.5,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,Yes
+SES0104,L009,2026-09-24,19:17,Story reading,Shared family phone,S05,1,FIL,20,20,16.7,3,2,0,0,0,0,0,1.0,71.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,Yes
+SES0105,L009,2026-09-27,20:43,Story reading,Shared family phone,S04,1,FIL,18,17,28.6,3,3,0,1,0,0,1,0.944444444444444,35.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0106,L009,2026-09-29,06:18,Story reading,Shared family phone,S04,1,FIL,18,16,36.1,3,3,0,2,0,0,2,0.888888888888889,26.6,1.0,Frustration,Independent,Frustration,Stay at Level 1,No
+SES0107,L009,2026-09-30,18:51,Story reading,Shared family phone,S05,1,FIL,16,16,19.5,3,3,0,0,0,4,0,1.0,49.2,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0108,L009,2026-10-03,20:46,Story reading,Shared family phone,S04,1,FIL,17,16,28.5,3,3,0,1,0,1,1,0.941176470588235,33.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0109,L009,2026-10-07,19:12,Story reading,Shared family phone,S04,1,FIL,18,18,21.5,3,3,0,0,0,0,0,1.0,50.2,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0110,L010,2026-09-09,09:24,Placement check,Classroom tablet,S08,2,EN,43,38,69.3,3,2,5,3,2,0,3,0.883720930232558,32.9,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 2,No
+SES0111,L010,2026-09-10,13:35,Story reading,Classroom tablet,S06,2,EN,42,35,68.1,3,1,2,4,3,3,4,0.833333333333333,30.8,0.333333333333333,Frustration,Frustration,Frustration,Move down to Level 1,Yes
+SES0112,L010,2026-09-11,13:17,Story reading,Classroom tablet,S02,1,EN,26,24,34.2,3,2,0,2,0,0,2,0.923076923076923,42.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0113,L010,2026-09-14,08:37,Story reading,Classroom tablet,S03,1,EN,21,21,18.5,3,3,0,0,0,1,0,1.0,68.1,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0114,L010,2026-09-22,08:10,Story reading,Classroom tablet,S01,1,EN,27,27,21.6,3,2,0,0,0,0,0,1.0,75.0,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0115,L010,2026-09-23,09:08,Story reading,Classroom tablet,S02,1,EN,26,25,32.4,3,3,0,1,0,0,1,0.961538461538462,46.3,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0116,L010,2026-09-25,11:41,Story reading,Classroom tablet,S03,1,EN,22,21,26.7,3,3,0,1,0,0,1,0.954545454545455,47.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0117,L010,2026-09-28,10:20,Story reading,Classroom tablet,S02,1,EN,25,24,21.2,3,3,0,0,1,1,0,0.96,67.9,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0118,L010,2026-09-29,09:06,Story reading,Classroom tablet,S01,1,EN,26,25,24.1,3,3,1,0,1,1,0,0.961538461538462,62.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0119,L010,2026-10-05,11:41,Story reading,Classroom tablet,S02,1,EN,26,25,29.7,3,3,0,1,0,0,1,0.961538461538462,50.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0120,L010,2026-10-06,14:42,Story reading,Classroom tablet,S03,1,EN,22,22,16.8,3,3,0,0,0,0,0,1.0,78.6,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0121,L010,2026-10-07,10:29,Story reading,Classroom tablet,S03,1,EN,21,21,17.8,3,3,0,0,0,1,0,1.0,70.8,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0122,L011,2026-09-11,19:55,Placement check,Own device,S11,3,EN,61,59,66.4,3,2,3,1,1,2,2,0.967213114754098,53.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0123,L011,2026-09-12,16:51,Story reading,Own device,S12,3,EN,57,55,67.7,3,2,2,2,0,2,2,0.964912280701754,48.7,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0124,L011,2026-09-13,20:50,Story reading,Own device,S14,3,FIL,59,57,81.5,3,3,3,2,0,1,4,0.966101694915254,42.0,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0125,L011,2026-09-15,17:26,Story reading,Own device,S15,3,FIL,56,54,62.2,3,3,2,0,2,1,0,0.964285714285714,52.1,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0126,L011,2026-09-16,17:32,Story reading,Own device,S13,3,EN,64,64,51.2,3,3,2,0,0,2,0,1.0,75.0,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0127,L011,2026-09-18,16:05,Story reading,Own device,S14,3,FIL,57,54,77.0,3,3,0,3,0,3,3,0.947368421052632,42.1,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0128,L011,2026-09-27,20:24,Story reading,Own device,S12,3,EN,56,51,68.3,3,2,0,3,2,3,3,0.910714285714286,44.8,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0129,L011,2026-09-28,18:41,Story reading,Own device,S15,3,FIL,56,56,52.2,3,3,0,0,0,1,0,1.0,64.4,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0130,L011,2026-09-29,19:21,Story reading,Own device,S11,3,EN,63,61,66.5,3,3,1,2,0,0,2,0.968253968253968,55.0,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0131,L011,2026-09-30,17:43,Story reading,Own device,S14,3,FIL,58,56,72.4,3,2,1,2,0,2,2,0.96551724137931,46.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0132,L011,2026-10-01,18:44,Story reading,Own device,S15,3,FIL,53,51,64.8,3,3,0,2,0,4,2,0.962264150943396,47.2,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0133,L011,2026-10-03,20:45,Story reading,Own device,S12,3,EN,58,54,66.5,3,2,1,3,1,1,3,0.931034482758621,48.7,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0134,L011,2026-10-04,06:38,Story reading,Own device,S14,3,FIL,60,58,59.4,3,3,0,1,1,0,1,0.966666666666667,58.6,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0135,L011,2026-10-06,06:56,Story reading,Own device,S13,3,EN,64,62,61.8,3,3,0,2,0,2,2,0.96875,60.2,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0136,L011,2026-10-07,18:11,Story reading,Own device,S11,3,EN,63,61,59.0,3,2,0,2,0,0,2,0.968253968253968,62.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0137,L012,2026-08-31,14:18,Placement check,Classroom tablet,S19,4,FIL,70,69,68.3,3,3,0,1,0,3,1,0.985714285714286,60.6,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0138,L012,2026-09-04,10:11,Story reading,Classroom tablet,S20,4,FIL,68,67,66.0,3,3,0,1,0,2,1,0.985294117647059,60.9,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0139,L012,2026-09-10,14:12,Story reading,Classroom tablet,S19,4,FIL,70,69,62.5,3,1,0,1,0,3,1,0.985714285714286,66.2,0.333333333333333,Independent,Frustration,Frustration,Move down to Level 3,No
+SES0140,L012,2026-09-17,12:18,Story reading,Classroom tablet,S14,3,FIL,56,53,63.4,3,3,0,2,1,4,2,0.946428571428571,50.2,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0141,L012,2026-09-18,13:50,Story reading,Classroom tablet,S15,3,FIL,55,55,45.6,3,2,0,0,0,2,0,1.0,72.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 3,No
+SES0142,L012,2026-09-22,10:43,Story reading,Classroom tablet,S14,3,FIL,57,56,51.3,3,3,0,0,1,3,0,0.982456140350877,65.5,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0143,L012,2026-09-28,08:33,Story reading,Classroom tablet,S15,3,FIL,57,56,53.8,3,3,0,1,0,0,1,0.982456140350877,62.5,1.0,Independent,Independent,Independent,Move up to Level 4,No
+SES0144,L012,2026-09-30,09:09,Story reading,Classroom tablet,S19,4,FIL,70,68,78.8,3,3,0,2,0,3,2,0.971428571428571,51.8,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0145,L012,2026-10-08,10:49,Story reading,Classroom tablet,S20,4,FIL,66,62,91.1,3,0,0,4,0,4,4,0.939393939393939,40.8,0.0,Instructional,Frustration,Frustration,Move down to Level 3,No
+SES0146,L012,2026-10-09,11:24,Story reading,Classroom tablet,S14,3,FIL,58,57,55.0,3,3,0,1,0,2,1,0.982758620689655,62.2,1.0,Independent,Independent,Independent,Move up to Level 4,No
+SES0147,L013,2026-08-31,11:47,Placement check,Classroom tablet,S10,2,FIL,36,32,56.9,3,2,1,2,2,1,3,0.888888888888889,33.7,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 2,No
+SES0148,L013,2026-09-01,10:25,Story reading,Classroom tablet,S09,2,FIL,29,28,38.9,3,3,0,1,0,0,1,0.96551724137931,43.2,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0149,L013,2026-09-02,10:17,Story reading,Classroom tablet,S10,2,FIL,34,34,36.5,3,3,1,0,0,3,0,1.0,55.9,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0150,L013,2026-09-10,13:38,Story reading,Classroom tablet,S10,2,FIL,37,34,64.7,3,3,0,3,0,0,3,0.918918918918919,31.5,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0151,L013,2026-09-11,14:12,Story reading,Classroom tablet,S10,2,FIL,37,34,53.8,3,3,0,2,1,0,2,0.918918918918919,37.9,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0152,L013,2026-09-16,14:00,Story reading,Classroom tablet,S09,2,FIL,28,26,47.4,3,2,0,2,0,1,2,0.928571428571429,32.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0153,L013,2026-09-17,11:24,Story reading,Classroom tablet,S10,2,FIL,37,35,44.1,3,2,0,1,1,0,1,0.945945945945946,47.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0154,L013,2026-09-18,14:51,Story reading,Classroom tablet,S10,2,FIL,36,34,51.6,3,2,0,2,0,1,2,0.944444444444444,39.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0155,L013,2026-09-21,09:41,Story reading,Classroom tablet,S09,2,FIL,28,26,35.8,3,3,0,1,1,1,1,0.928571428571429,43.6,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0156,L013,2026-09-22,09:45,Story reading,Classroom tablet,S09,2,FIL,29,29,31.5,3,1,0,0,0,0,0,1.0,55.2,0.333333333333333,Independent,Frustration,Frustration,Move down to Level 1,No
+SES0157,L013,2026-09-23,08:45,Story reading,Classroom tablet,S05,1,FIL,20,20,21.1,3,3,0,0,0,0,0,1.0,56.9,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0158,L013,2026-09-28,13:42,Story reading,Classroom tablet,S04,1,FIL,18,18,20.1,3,3,0,0,0,0,0,1.0,53.7,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0159,L013,2026-09-29,10:38,Story reading,Classroom tablet,S10,2,FIL,36,34,51.5,3,3,0,2,0,1,2,0.944444444444444,39.6,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0160,L013,2026-09-30,10:27,Story reading,Classroom tablet,S09,2,FIL,28,28,30.0,3,3,0,0,0,1,0,1.0,56.0,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0161,L013,2026-10-06,08:32,Story reading,Classroom tablet,S10,2,FIL,35,35,35.5,3,3,0,0,0,2,0,1.0,59.2,1.0,Independent,Independent,Independent,Move up to Level 3,No
+SES0162,L013,2026-10-07,10:47,Story reading,Classroom tablet,S15,3,FIL,55,55,53.8,3,2,0,0,0,2,0,1.0,61.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 3,No
+SES0163,L013,2026-10-09,08:04,Story reading,Classroom tablet,S14,3,FIL,60,57,73.2,3,3,0,3,0,0,3,0.95,46.7,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0164,L014,2026-08-31,06:22,Placement check,Shared family phone,S04,1,FIL,18,15,63.5,3,1,5,3,0,0,4,0.833333333333333,14.2,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0165,L014,2026-09-05,19:30,Story reading,Shared family phone,S05,1,FIL,20,19,37.9,3,3,2,1,0,0,2,0.95,30.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0166,L014,2026-09-09,18:17,Story reading,Shared family phone,S05,1,FIL,20,20,35.0,3,2,3,0,0,0,1,1.0,34.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0167,L014,2026-09-12,06:31,Story reading,Shared family phone,S04,1,FIL,17,15,46.0,3,1,2,2,0,1,2,0.882352941176471,19.6,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0168,L014,2026-09-14,18:57,Story reading,Shared family phone,S02,1,EN,23,21,43.0,3,1,3,1,1,3,2,0.91304347826087,29.3,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0169,L014,2026-09-16,18:26,Story reading,Shared family phone,S01,1,EN,27,25,44.4,3,3,4,1,1,0,3,0.925925925925926,33.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0170,L014,2026-09-17,06:47,Story reading,Shared family phone,S05,1,FIL,20,19,29.6,3,2,0,1,0,0,1,0.95,38.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0171,L014,2026-09-18,19:26,Story reading,Shared family phone,S03,1,EN,21,19,36.5,3,2,0,2,0,1,2,0.904761904761905,31.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0172,L014,2026-09-22,18:23,Story reading,Shared family phone,S02,1,EN,25,23,38.7,3,3,0,2,0,1,2,0.92,35.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0173,L014,2026-09-25,17:16,Story reading,Shared family phone,S01,1,EN,27,27,27.7,3,3,2,0,0,0,0,1.0,58.5,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0174,L014,2026-09-28,16:04,Story reading,Shared family phone,S05,1,FIL,20,19,30.3,3,3,0,1,0,0,1,0.95,37.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0175,L014,2026-09-30,16:43,Story reading,Shared family phone,S04,1,FIL,18,17,23.0,3,3,0,0,1,0,0,0.944444444444444,44.3,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0176,L014,2026-10-01,17:23,Story reading,Shared family phone,S03,1,EN,21,19,36.7,3,1,0,2,0,1,2,0.904761904761905,31.1,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,No
+SES0177,L014,2026-10-02,18:30,Story reading,Shared family phone,S02,1,EN,26,23,43.3,3,2,1,2,1,0,3,0.884615384615385,31.9,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0178,L014,2026-10-03,06:02,Story reading,Shared family phone,S05,1,FIL,18,18,23.4,3,3,0,0,0,2,0,1.0,46.2,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0179,L014,2026-10-04,06:42,Story reading,Shared family phone,S01,1,EN,27,26,29.8,3,3,0,1,0,0,1,0.962962962962963,52.3,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0180,L014,2026-10-05,19:28,Story reading,Shared family phone,S04,1,FIL,18,18,20.9,3,3,0,0,0,0,0,1.0,51.7,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0181,L014,2026-10-07,17:10,Story reading,Shared family phone,S04,1,FIL,18,17,33.9,3,3,1,1,0,0,2,0.944444444444444,30.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0182,L014,2026-10-10,18:52,Story reading,Shared family phone,S05,1,FIL,20,19,28.3,3,3,0,1,0,0,1,0.95,40.3,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0183,L014,2026-10-11,17:40,Story reading,Shared family phone,S05,1,FIL,19,18,33.8,3,3,1,1,0,1,1,0.947368421052632,32.0,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0184,L015,2026-08-31,08:05,Placement check,Classroom tablet,S15,3,FIL,54,53,55.5,3,3,0,1,0,3,1,0.981481481481482,57.3,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0185,L015,2026-09-01,09:42,Story reading,Classroom tablet,S14,3,FIL,58,56,61.7,3,3,0,2,0,2,2,0.96551724137931,54.5,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0186,L015,2026-09-10,14:29,Story reading,Classroom tablet,S15,3,FIL,56,56,48.2,3,3,0,0,0,1,0,1.0,69.7,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0187,L015,2026-09-11,13:25,Story reading,Classroom tablet,S14,3,FIL,58,58,53.1,3,3,0,0,0,2,0,1.0,65.5,1.0,Independent,Independent,Independent,Move up to Level 4,No
+SES0188,L015,2026-09-15,09:58,Story reading,Classroom tablet,S19,4,FIL,72,71,68.4,3,3,0,1,0,1,1,0.986111111111111,62.3,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0189,L015,2026-09-16,14:54,Story reading,Classroom tablet,S20,4,FIL,67,66,55.4,3,3,0,0,1,3,0,0.985074626865672,71.5,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0190,L015,2026-09-17,14:19,Story reading,Classroom tablet,S20,4,FIL,66,65,53.6,3,3,0,0,1,4,0,0.984848484848485,72.8,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0191,L015,2026-09-21,11:10,Story reading,Classroom tablet,S20,4,FIL,70,65,101.3,3,3,0,5,0,0,5,0.928571428571429,38.5,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0192,L015,2026-09-29,08:26,Story reading,Classroom tablet,S19,4,FIL,72,71,71.4,3,3,0,1,0,1,1,0.986111111111111,59.7,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0193,L016,2026-09-01,13:28,Placement check,Classroom tablet,S10,2,FIL,37,33,82.4,3,2,3,4,0,0,5,0.891891891891892,24.0,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 2,No
+SES0194,L016,2026-09-04,09:56,Story reading,Classroom tablet,S09,2,FIL,28,26,52.8,3,3,2,2,0,1,2,0.928571428571429,29.5,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0195,L016,2026-09-08,11:34,Story reading,Classroom tablet,S09,2,FIL,28,28,40.2,3,2,2,0,0,1,1,1.0,41.8,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0196,L016,2026-09-10,11:46,Story reading,Classroom tablet,S09,2,FIL,29,29,32.3,3,2,0,0,0,0,0,1.0,53.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0197,L016,2026-09-11,09:43,Story reading,Classroom tablet,S10,2,FIL,36,33,53.5,3,2,0,2,1,1,2,0.916666666666667,37.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0198,L016,2026-09-15,08:09,Story reading,Classroom tablet,S07,2,EN,45,41,70.1,3,3,3,3,1,0,4,0.911111111111111,35.1,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0199,L016,2026-09-17,14:18,Story reading,Classroom tablet,S06,2,EN,44,41,68.3,3,1,3,3,0,1,4,0.931818181818182,36.0,0.333333333333333,Instructional,Frustration,Frustration,Move down to Level 1,No
+SES0200,L016,2026-09-24,14:27,Story reading,Classroom tablet,S02,1,EN,26,24,29.4,3,3,0,1,1,0,1,0.923076923076923,49.0,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0201,L016,2026-09-28,10:37,Story reading,Classroom tablet,S04,1,FIL,17,16,32.0,3,3,1,1,0,1,1,0.941176470588235,30.0,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0202,L016,2026-09-29,08:49,Story reading,Classroom tablet,S05,1,FIL,20,18,30.8,3,1,0,1,1,0,1,0.9,35.1,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,No
+SES0203,L016,2026-10-06,09:55,Story reading,Classroom tablet,S01,1,EN,26,26,21.3,3,2,0,0,0,1,0,1.0,73.2,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0204,L016,2026-10-07,11:01,Story reading,Classroom tablet,S02,1,EN,25,25,22.8,3,2,0,0,0,1,0,1.0,65.8,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0205,L017,2026-08-31,16:28,Placement check,Shared family phone,S07,2,EN,43,41,55.9,3,2,4,1,1,2,2,0.953488372093023,44.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0206,L017,2026-09-02,18:12,Story reading,Shared family phone,S08,2,EN,42,39,53.3,3,3,1,2,1,1,2,0.928571428571429,43.9,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0207,L017,2026-09-07,17:36,Story reading,Shared family phone,S10,2,FIL,35,26,102.5,3,0,0,9,0,2,9,0.742857142857143,15.2,0.0,Frustration,Frustration,Frustration,Move down to Level 1,No
+SES0208,L017,2026-09-08,06:31,Story reading,Shared family phone,S02,1,EN,26,25,29.3,3,3,0,1,0,0,1,0.961538461538462,51.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0209,L017,2026-09-10,20:23,Story reading,Shared family phone,S03,1,EN,22,21,21.8,3,3,0,0,1,0,0,0.954545454545455,57.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0210,L017,2026-09-12,19:00,Story reading,Shared family phone,S01,1,EN,27,25,36.9,3,3,0,2,0,0,2,0.925925925925926,40.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0211,L017,2026-09-13,18:38,Story reading,Shared family phone,S01,1,EN,26,25,25.2,3,2,0,0,1,1,0,0.961538461538462,59.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0212,L017,2026-09-14,19:02,Story reading,Shared family phone,S02,1,EN,23,20,40.5,3,3,0,2,1,3,2,0.869565217391304,29.6,1.0,Frustration,Independent,Frustration,Stay at Level 1,No
+SES0213,L017,2026-09-15,20:05,Story reading,Shared family phone,S03,1,EN,21,20,25.4,3,2,0,1,0,1,1,0.952380952380952,47.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0214,L017,2026-09-16,18:50,Story reading,Shared family phone,S04,1,FIL,18,17,30.4,3,2,1,1,0,0,1,0.944444444444444,33.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0215,L017,2026-09-17,18:31,Story reading,Shared family phone,S05,1,FIL,20,19,31.4,3,3,0,1,0,0,1,0.95,36.3,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0216,L017,2026-09-18,06:32,Story reading,Shared family phone,S04,1,FIL,18,17,26.5,3,3,0,1,0,0,1,0.944444444444444,38.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0217,L017,2026-09-19,16:27,Story reading,Shared family phone,S04,1,FIL,17,17,27.0,3,3,2,0,0,1,1,1.0,37.8,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0218,L017,2026-09-20,06:31,Story reading,Shared family phone,S01,1,EN,27,27,22.7,3,3,0,0,0,0,0,1.0,71.4,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0219,L017,2026-09-21,18:33,Story reading,Shared family phone,S10,2,FIL,36,35,44.8,3,2,0,1,0,1,1,0.972222222222222,46.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0220,L017,2026-09-22,17:18,Story reading,Shared family phone,S06,2,EN,45,41,71.6,3,2,1,4,0,0,4,0.911111111111111,34.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0221,L017,2026-09-27,18:22,Story reading,Shared family phone,S09,2,FIL,29,28,39.0,3,3,0,1,0,0,1,0.96551724137931,43.1,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0222,L017,2026-09-29,20:26,Story reading,Shared family phone,S07,2,EN,45,43,55.2,3,3,1,2,0,0,2,0.955555555555556,46.7,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0223,L017,2026-10-01,20:56,Story reading,Shared family phone,S10,2,FIL,37,34,59.9,3,2,0,3,0,0,3,0.918918918918919,34.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0224,L017,2026-10-03,19:08,Story reading,Shared family phone,S06,2,EN,44,42,48.2,3,3,1,2,0,1,2,0.954545454545455,52.3,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0225,L017,2026-10-04,16:23,Story reading,Shared family phone,S09,2,FIL,28,27,38.2,3,2,0,1,0,1,1,0.964285714285714,42.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0226,L017,2026-10-08,17:19,Story reading,Shared family phone,S07,2,EN,44,42,40.6,3,2,0,1,1,1,1,0.954545454545455,62.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0227,L017,2026-10-09,16:24,Story reading,Shared family phone,S10,2,FIL,36,36,41.2,3,2,1,0,0,1,1,1.0,52.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0228,L018,2026-09-02,08:55,Placement check,Classroom tablet,S02,1,EN,26,11,183.3,3,0,7,12,3,0,12,0.423076923076923,3.6,0.0,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0229,L018,2026-09-03,08:46,Story reading,Classroom tablet,S01,1,EN,27,16,133.1,3,0,7,8,3,0,8,0.592592592592593,7.2,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0230,L018,2026-09-04,10:04,Story reading,Classroom tablet,S04,1,FIL,18,6,145.9,3,0,6,9,3,0,9,0.333333333333333,2.5,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0231,L018,2026-09-07,10:43,Story reading,Classroom tablet,S05,1,FIL,20,9,125.9,3,0,4,7,4,0,7,0.45,4.3,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0232,L018,2026-09-08,14:08,Story reading,Classroom tablet,S02,1,EN,26,15,121.7,3,0,3,8,3,0,8,0.576923076923077,7.4,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0233,L018,2026-09-10,10:01,Story reading,Classroom tablet,S04,1,FIL,18,9,130.8,3,0,5,8,1,0,8,0.5,4.1,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0234,L018,2026-09-14,12:38,Story reading,Classroom tablet,S05,1,FIL,20,15,81.0,3,0,4,4,1,0,4,0.75,11.1,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0235,L018,2026-09-23,13:32,Story reading,Classroom tablet,S03,1,EN,22,18,59.7,3,0,1,3,1,0,3,0.818181818181818,18.1,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0236,L018,2026-09-25,09:19,Story reading,Classroom tablet,S01,1,EN,27,25,74.8,3,1,6,2,0,0,2,0.925925925925926,20.1,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0237,L018,2026-09-28,09:19,Story reading,Classroom tablet,S04,1,FIL,17,12,91.3,3,0,5,5,0,1,5,0.705882352941177,7.9,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0238,L018,2026-09-29,14:58,Story reading,Classroom tablet,S02,1,EN,26,20,93.8,3,0,3,5,1,0,5,0.769230769230769,12.8,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0239,L018,2026-10-05,09:43,Story reading,Classroom tablet,S05,1,FIL,20,15,96.1,3,0,7,4,1,0,4,0.75,9.4,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0240,L018,2026-10-06,11:04,Story reading,Classroom tablet,S01,1,EN,26,21,85.1,3,1,3,5,0,1,5,0.807692307692308,14.8,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0241,L018,2026-10-09,08:22,Story reading,Classroom tablet,S03,1,EN,20,18,52.5,3,2,2,2,0,2,2,0.9,20.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0242,L019,2026-08-31,13:42,Placement check,Classroom tablet,S04,1,FIL,18,16,32.3,3,1,1,1,1,0,1,0.888888888888889,29.7,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0243,L019,2026-09-01,10:12,Story reading,Classroom tablet,S01,1,EN,26,21,60.7,3,0,1,4,1,1,5,0.807692307692308,20.8,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0244,L019,2026-09-03,11:46,Story reading,Classroom tablet,S02,1,EN,25,22,44.7,3,2,1,2,1,1,2,0.88,29.5,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0245,L019,2026-09-08,08:26,Story reading,Classroom tablet,S05,1,FIL,20,19,37.6,3,2,1,1,0,0,1,0.95,30.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0246,L019,2026-09-10,13:34,Story reading,Classroom tablet,S03,1,EN,22,21,23.6,3,2,1,0,1,0,0,0.954545454545455,53.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0247,L019,2026-09-11,13:27,Story reading,Classroom tablet,S04,1,FIL,17,15,38.5,3,2,1,2,0,1,2,0.882352941176471,23.4,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0248,L019,2026-09-14,08:49,Story reading,Classroom tablet,S04,1,FIL,18,17,27.8,3,3,1,0,1,0,1,0.944444444444444,36.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0249,L019,2026-09-16,12:46,Story reading,Classroom tablet,S02,1,EN,25,25,33.8,3,2,2,0,0,1,1,1.0,44.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0250,L019,2026-09-17,11:14,Story reading,Classroom tablet,S03,1,EN,22,22,18.6,3,3,0,0,0,0,0,1.0,71.0,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0251,L019,2026-09-22,08:49,Story reading,Classroom tablet,S01,1,EN,26,23,51.6,3,2,1,3,0,1,4,0.884615384615385,26.7,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0252,L019,2026-09-24,08:02,Story reading,Classroom tablet,S05,1,FIL,19,19,31.6,3,3,2,0,0,1,1,1.0,36.1,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0253,L019,2026-09-25,10:16,Story reading,Classroom tablet,S04,1,FIL,18,18,26.4,3,3,2,0,0,0,0,1.0,40.9,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0254,L019,2026-09-28,14:44,Story reading,Classroom tablet,S10,2,FIL,36,35,54.0,3,3,2,1,0,1,3,0.972222222222222,38.9,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0255,L019,2026-09-29,13:25,Story reading,Classroom tablet,S06,2,EN,44,39,65.2,3,3,2,3,2,1,3,0.886363636363636,35.9,1.0,Frustration,Independent,Frustration,Move down to Level 1,No
+SES0256,L019,2026-10-01,12:47,Story reading,Classroom tablet,S05,1,FIL,18,17,26.9,3,2,0,1,0,2,1,0.944444444444444,37.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0257,L019,2026-10-05,14:52,Story reading,Classroom tablet,S02,1,EN,26,26,23.8,3,3,0,0,0,0,0,1.0,65.5,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0258,L019,2026-10-08,12:03,Story reading,Classroom tablet,S01,1,EN,27,27,23.4,3,2,0,0,0,0,0,1.0,69.2,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0259,L020,2026-09-04,20:33,Placement check,Shared family phone,S14,3,FIL,57,53,77.9,3,0,2,2,2,3,2,0.929824561403509,40.8,0.0,Instructional,Frustration,Frustration,Stay at Level 3,No
+SES0260,L020,2026-09-05,19:33,Story reading,Shared family phone,S15,3,FIL,56,54,63.5,3,3,1,1,1,1,1,0.964285714285714,51.0,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0261,L020,2026-09-07,19:59,Story reading,Shared family phone,S14,3,FIL,59,57,75.6,3,3,1,2,0,1,2,0.966101694915254,45.2,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0262,L020,2026-09-08,06:39,Story reading,Shared family phone,S15,3,FIL,57,57,51.9,3,2,0,0,0,0,0,1.0,65.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 3,No
+SES0263,L020,2026-09-14,20:39,Story reading,Shared family phone,S15,3,FIL,57,55,59.7,3,3,0,1,1,0,1,0.964912280701754,55.3,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0264,L020,2026-09-23,06:11,Story reading,Shared family phone,S14,3,FIL,58,57,63.3,3,2,0,1,0,2,1,0.982758620689655,54.0,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 3,No
+SES0265,L020,2026-09-24,06:15,Story reading,Shared family phone,S15,3,FIL,56,56,48.7,3,3,0,0,0,1,0,1.0,69.0,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0266,L020,2026-09-26,06:49,Story reading,Shared family phone,S15,3,FIL,54,52,62.8,3,3,0,1,1,3,1,0.962962962962963,49.7,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0267,L020,2026-09-27,06:10,Story reading,Shared family phone,S14,3,FIL,59,57,62.5,3,2,0,1,1,1,1,0.966101694915254,54.7,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0268,L020,2026-10-03,17:16,Story reading,Shared family phone,S15,3,FIL,57,56,55.0,3,3,0,1,0,0,1,0.982456140350877,61.1,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0269,L020,2026-10-10,18:17,Story reading,Shared family phone,S14,3,FIL,58,55,63.5,3,3,0,2,1,2,2,0.948275862068966,52.0,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0270,L020,2026-10-11,16:45,Story reading,Shared family phone,S15,3,FIL,55,51,72.3,3,3,0,3,1,2,3,0.927272727272727,42.3,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0271,L021,2026-08-31,16:39,Placement check,Shared family phone,S02,1,EN,25,23,44.4,3,1,2,2,0,1,3,0.92,31.1,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,No
+SES0272,L021,2026-09-01,17:46,Story reading,Shared family phone,S03,1,EN,22,19,48.1,3,1,1,3,0,0,3,0.863636363636364,23.7,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0273,L021,2026-09-04,06:22,Story reading,Shared family phone,S01,1,EN,26,25,30.7,3,3,0,1,0,1,1,0.961538461538462,48.9,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0274,L021,2026-09-05,19:17,Story reading,Shared family phone,S03,1,EN,22,21,28.9,3,3,0,1,0,0,1,0.954545454545455,43.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0275,L021,2026-09-25,20:35,Story reading,Shared family phone,S02,1,EN,26,25,28.3,3,3,0,1,0,0,1,0.961538461538462,53.0,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0276,L021,2026-10-06,06:23,Story reading,Shared family phone,S03,1,EN,21,20,27.8,3,3,0,1,0,1,1,0.952380952380952,43.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0277,L021,2026-10-07,19:18,Story reading,Shared family phone,S01,1,EN,26,25,29.3,3,3,1,1,0,1,1,0.961538461538462,51.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0278,L022,2026-08-31,06:51,Placement check,Shared family phone,S04,1,FIL,17,16,32.9,3,3,1,1,0,1,1,0.941176470588235,29.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0279,L022,2026-09-02,20:57,Story reading,Shared family phone,S05,1,FIL,20,20,19.0,3,3,0,0,0,0,0,1.0,63.2,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0280,L022,2026-09-03,17:36,Story reading,Shared family phone,S04,1,FIL,17,16,20.4,3,3,0,0,1,1,0,0.941176470588235,47.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0281,L022,2026-09-04,06:11,Story reading,Shared family phone,S04,1,FIL,18,16,36.8,3,2,0,2,0,0,2,0.888888888888889,26.1,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0282,L022,2026-09-07,18:04,Story reading,Shared family phone,S04,1,FIL,18,16,37.2,3,3,1,2,0,0,2,0.888888888888889,25.8,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0283,L022,2026-09-10,06:42,Story reading,Shared family phone,S05,1,FIL,19,18,23.7,3,2,0,0,1,1,0,0.947368421052632,45.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0284,L022,2026-09-12,18:23,Story reading,Shared family phone,S05,1,FIL,20,20,21.8,3,3,0,0,0,0,0,1.0,55.0,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0285,L022,2026-09-14,06:34,Story reading,Shared family phone,S05,1,FIL,20,20,22.0,3,2,0,0,0,0,0,1.0,54.5,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0286,L022,2026-09-16,16:53,Story reading,Shared family phone,S04,1,FIL,17,17,18.9,3,3,0,0,0,1,0,1.0,54.0,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0287,L022,2026-09-17,19:19,Story reading,Shared family phone,S05,1,FIL,19,18,26.0,3,3,0,1,0,1,1,0.947368421052632,41.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0288,L022,2026-09-18,18:27,Story reading,Shared family phone,S05,1,FIL,19,19,20.1,3,3,0,0,0,1,0,1.0,56.7,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0289,L022,2026-09-21,20:14,Story reading,Shared family phone,S05,1,FIL,19,19,20.5,3,3,0,0,0,1,0,1.0,55.6,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0290,L022,2026-09-22,16:42,Story reading,Shared family phone,S09,2,FIL,29,27,50.9,3,3,0,2,0,0,2,0.931034482758621,31.8,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0291,L022,2026-09-23,20:40,Story reading,Shared family phone,S10,2,FIL,36,36,45.9,3,3,3,0,0,1,0,1.0,47.1,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0292,L022,2026-09-24,16:06,Story reading,Shared family phone,S09,2,FIL,29,28,40.9,3,2,0,1,0,0,1,0.96551724137931,41.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0293,L022,2026-09-26,16:50,Story reading,Shared family phone,S09,2,FIL,29,24,70.3,3,1,0,5,0,0,5,0.827586206896552,20.5,0.333333333333333,Frustration,Frustration,Frustration,Move down to Level 1,No
+SES0294,L022,2026-09-27,06:23,Story reading,Shared family phone,S05,1,FIL,20,20,22.4,3,3,0,0,0,0,0,1.0,53.6,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0295,L022,2026-09-28,19:43,Story reading,Shared family phone,S10,2,FIL,36,36,44.2,3,2,1,0,0,1,1,1.0,48.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0296,L022,2026-09-30,16:26,Story reading,Shared family phone,S10,2,FIL,35,35,36.5,3,3,0,0,0,2,0,1.0,57.5,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0297,L022,2026-10-01,06:27,Story reading,Shared family phone,S09,2,FIL,27,25,50.9,3,3,0,2,0,2,2,0.925925925925926,29.5,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0298,L022,2026-10-02,20:16,Story reading,Shared family phone,S10,2,FIL,37,33,53.5,3,0,0,2,2,0,2,0.891891891891892,37.0,0.0,Frustration,Frustration,Frustration,Move down to Level 1,No
+SES0299,L022,2026-10-03,18:16,Story reading,Shared family phone,S05,1,FIL,19,19,22.2,3,2,0,0,0,1,0,1.0,51.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0300,L022,2026-10-04,17:07,Story reading,Shared family phone,S04,1,FIL,18,17,21.6,3,2,0,0,1,0,0,0.944444444444444,47.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0301,L022,2026-10-05,06:45,Story reading,Shared family phone,S05,1,FIL,19,17,22.3,3,3,0,0,2,1,0,0.894736842105263,45.7,1.0,Frustration,Independent,Frustration,Stay at Level 1,No
+SES0302,L022,2026-10-06,18:53,Story reading,Shared family phone,S05,1,FIL,20,20,22.6,3,2,0,0,0,0,0,1.0,53.1,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0303,L022,2026-10-08,16:17,Story reading,Shared family phone,S04,1,FIL,17,16,25.9,3,3,0,1,0,1,1,0.941176470588235,37.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0304,L022,2026-10-11,17:47,Story reading,Shared family phone,S04,1,FIL,18,17,26.8,3,3,0,1,0,0,1,0.944444444444444,38.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0305,L023,2026-08-31,08:23,Placement check,Classroom tablet,S03,1,EN,19,17,34.9,3,3,1,2,0,3,2,0.894736842105263,29.2,1.0,Frustration,Independent,Frustration,Stay at Level 1,No
+SES0306,L023,2026-09-01,14:17,Story reading,Classroom tablet,S02,1,EN,24,22,44.2,3,3,2,2,0,2,3,0.916666666666667,29.9,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0307,L023,2026-09-03,09:56,Story reading,Classroom tablet,S04,1,FIL,17,12,49.2,3,1,1,3,2,1,3,0.705882352941177,14.6,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0308,L023,2026-09-07,14:54,Story reading,Classroom tablet,S01,1,EN,26,25,24.7,3,3,1,0,1,1,0,0.961538461538462,60.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0309,L023,2026-09-10,12:23,Story reading,Classroom tablet,S03,1,EN,22,21,33.1,3,3,1,1,0,0,1,0.954545454545455,38.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0310,L023,2026-09-11,13:31,Story reading,Classroom tablet,S05,1,FIL,20,20,30.2,3,3,2,0,0,0,0,1.0,39.7,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0311,L023,2026-09-14,11:30,Story reading,Classroom tablet,S04,1,FIL,17,16,26.2,3,2,1,0,1,1,0,0.941176470588235,36.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0312,L023,2026-09-17,09:37,Story reading,Classroom tablet,S04,1,FIL,18,17,27.7,3,0,0,1,0,0,1,0.944444444444444,36.8,0.0,Instructional,Frustration,Frustration,Stay at Level 1,No
+SES0313,L023,2026-09-18,13:10,Story reading,Classroom tablet,S03,1,EN,21,20,19.4,3,2,0,0,1,1,0,0.952380952380952,61.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0314,L023,2026-09-22,10:16,Story reading,Classroom tablet,S02,1,EN,25,23,50.2,3,3,4,2,0,1,3,0.92,27.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0315,L023,2026-09-23,13:41,Story reading,Classroom tablet,S05,1,FIL,20,19,35.9,3,2,1,1,0,0,1,0.95,31.8,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0316,L023,2026-09-24,13:07,Story reading,Classroom tablet,S01,1,EN,25,24,36.2,3,3,0,1,0,2,1,0.96,39.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0317,L023,2026-09-28,10:38,Story reading,Classroom tablet,S04,1,FIL,18,17,27.2,3,3,0,1,0,0,1,0.944444444444444,37.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0318,L023,2026-10-02,14:54,Story reading,Classroom tablet,S03,1,EN,21,21,20.3,3,3,0,0,0,1,0,1.0,62.1,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0319,L023,2026-10-06,08:09,Story reading,Classroom tablet,S05,1,FIL,20,19,31.1,3,2,0,1,0,0,1,0.95,36.7,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0320,L023,2026-10-07,11:49,Story reading,Classroom tablet,S02,1,EN,24,24,24.3,3,3,0,0,0,2,0,1.0,59.3,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0321,L023,2026-10-08,08:07,Story reading,Classroom tablet,S04,1,FIL,18,17,27.8,3,3,1,0,1,0,1,0.944444444444444,36.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0322,L024,2026-09-03,17:14,Placement check,Own device,S05,1,FIL,19,18,43.0,3,2,3,1,0,1,1,0.947368421052632,25.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0323,L024,2026-09-06,06:44,Story reading,Own device,S04,1,FIL,17,15,44.4,3,3,1,2,0,1,2,0.882352941176471,20.3,1.0,Frustration,Independent,Frustration,Stay at Level 1,No
+SES0324,L024,2026-09-10,16:04,Story reading,Own device,S04,1,FIL,18,17,41.6,3,2,3,1,0,0,1,0.944444444444444,24.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0325,L024,2026-09-13,20:36,Story reading,Own device,S04,1,FIL,18,16,42.3,3,3,0,2,0,0,2,0.888888888888889,22.7,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0326,L024,2026-09-26,19:47,Story reading,Own device,S02,1,EN,26,21,76.6,3,1,2,4,1,0,4,0.807692307692308,16.4,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0327,L024,2026-09-27,06:55,Story reading,Own device,S05,1,FIL,20,19,27.2,3,3,1,0,1,0,0,0.95,41.9,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0328,L024,2026-09-28,16:19,Story reading,Own device,S04,1,FIL,17,16,34.5,3,3,1,1,0,1,1,0.941176470588235,27.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0329,L024,2026-10-02,06:19,Story reading,Own device,S03,1,EN,21,17,66.0,3,1,2,4,0,1,4,0.80952380952381,15.5,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0330,L024,2026-10-06,06:56,Story reading,Own device,S05,1,FIL,20,19,28.2,3,3,1,0,1,0,0,0.95,40.4,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0331,L025,2026-08-31,14:14,Placement check,Classroom tablet,S02,1,EN,25,20,73.2,3,1,4,5,0,1,6,0.8,16.4,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0332,L025,2026-09-10,13:38,Story reading,Classroom tablet,S03,1,EN,20,17,48.7,3,2,2,3,0,2,5,0.85,20.9,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0333,L025,2026-09-11,09:39,Story reading,Classroom tablet,S01,1,EN,27,25,48.6,3,2,3,2,0,0,2,0.925925925925926,30.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0334,L025,2026-09-16,08:13,Story reading,Classroom tablet,S02,1,EN,25,24,32.6,3,3,0,1,0,1,1,0.96,44.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0335,L025,2026-09-17,10:40,Story reading,Classroom tablet,S03,1,EN,22,21,24.9,3,2,1,0,1,0,0,0.954545454545455,50.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0336,L025,2026-09-21,12:35,Story reading,Classroom tablet,S03,1,EN,21,20,28.7,3,2,0,1,0,1,1,0.952380952380952,41.8,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0337,L025,2026-09-23,14:47,Story reading,Classroom tablet,S01,1,EN,25,24,38.2,3,3,1,1,0,2,1,0.96,37.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0338,L025,2026-09-24,14:42,Story reading,Classroom tablet,S02,1,EN,22,20,31.1,3,3,0,1,1,4,1,0.909090909090909,38.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0339,L025,2026-09-30,08:18,Story reading,Classroom tablet,S03,1,EN,21,19,26.2,3,0,0,1,1,1,1,0.904761904761905,43.5,0.0,Instructional,Frustration,Frustration,Stay at Level 1,No
+SES0340,L025,2026-10-01,10:27,Story reading,Classroom tablet,S01,1,EN,26,23,42.8,3,3,0,3,0,1,3,0.884615384615385,32.2,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0341,L025,2026-10-05,08:31,Story reading,Classroom tablet,S03,1,EN,21,21,21.6,3,3,0,0,0,1,0,1.0,58.3,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0342,L025,2026-10-07,09:08,Story reading,Classroom tablet,S02,1,EN,26,26,19.9,3,3,0,0,0,0,0,1.0,78.4,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0343,L025,2026-10-08,13:23,Story reading,Classroom tablet,S06,2,EN,45,35,130.8,3,1,4,10,0,0,11,0.777777777777778,16.1,0.333333333333333,Frustration,Frustration,Frustration,Move down to Level 1,No
+SES0344,L026,2026-09-06,19:21,Placement check,Own device,S02,1,EN,26,24,39.3,3,2,3,1,1,0,1,0.923076923076923,36.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0345,L026,2026-09-10,06:13,Story reading,Own device,S03,1,EN,22,21,20.7,3,3,0,0,1,0,0,0.954545454545455,60.9,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0346,L026,2026-09-15,18:54,Story reading,Own device,S01,1,EN,27,27,23.4,3,3,1,0,0,0,0,1.0,69.2,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0347,L026,2026-09-17,18:33,Story reading,Own device,S03,1,EN,22,22,21.2,3,3,0,0,0,0,0,1.0,62.3,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0348,L026,2026-09-18,19:59,Story reading,Own device,S10,2,FIL,35,33,65.6,3,3,4,2,0,2,2,0.942857142857143,30.2,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0349,L026,2026-09-23,16:06,Story reading,Own device,S09,2,FIL,29,28,47.5,3,3,2,1,0,0,1,0.96551724137931,35.4,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0350,L026,2026-09-28,16:37,Story reading,Own device,S10,2,FIL,36,35,51.8,3,3,1,1,0,1,1,0.972222222222222,40.5,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0351,L026,2026-10-05,19:34,Story reading,Own device,S09,2,FIL,28,28,34.6,3,3,0,0,0,1,0,1.0,48.6,1.0,Independent,Independent,Independent,Move up to Level 3,No
+SES0352,L026,2026-10-09,19:49,Story reading,Own device,S11,3,EN,62,54,145.5,3,2,10,7,1,1,10,0.870967741935484,22.3,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 2,No
+SES0353,L027,2026-09-11,17:51,Placement check,Own device,S09,2,FIL,27,23,72.2,3,3,4,3,1,2,6,0.851851851851852,19.1,1.0,Frustration,Independent,Frustration,Stay at Level 2,No
+SES0354,L027,2026-09-14,06:55,Story reading,Own device,S10,2,FIL,36,34,71.9,3,2,4,2,0,1,4,0.944444444444444,28.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0355,L027,2026-09-19,06:52,Story reading,Own device,S10,2,FIL,36,33,57.6,3,2,1,2,1,1,2,0.916666666666667,34.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0356,L027,2026-09-23,19:58,Story reading,Own device,S09,2,FIL,29,28,39.1,3,1,0,1,0,0,1,0.96551724137931,43.0,0.333333333333333,Instructional,Frustration,Frustration,Move down to Level 1,No
+SES0357,L027,2026-10-01,20:33,Story reading,Own device,S05,1,FIL,20,20,21.3,3,3,0,0,0,0,0,1.0,56.3,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0358,L027,2026-10-08,19:36,Story reading,Own device,S04,1,FIL,17,16,25.9,3,2,0,1,0,1,1,0.941176470588235,37.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0359,L028,2026-09-02,06:11,Placement check,Shared family phone,S04,1,FIL,18,17,32.7,3,3,2,1,0,0,1,0.944444444444444,31.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0360,L028,2026-09-03,19:17,Story reading,Shared family phone,S05,1,FIL,19,16,35.5,3,1,1,1,2,1,1,0.842105263157895,27.0,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0361,L028,2026-09-04,16:20,Story reading,Shared family phone,S04,1,FIL,18,14,57.0,3,2,3,3,1,0,3,0.777777777777778,14.7,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0362,L028,2026-09-06,16:21,Story reading,Shared family phone,S04,1,FIL,17,16,34.0,3,3,1,1,0,1,2,0.941176470588235,28.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0363,L028,2026-09-10,17:46,Story reading,Shared family phone,S04,1,FIL,18,18,22.3,3,2,0,0,0,0,0,1.0,48.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0364,L028,2026-09-13,06:55,Story reading,Shared family phone,S05,1,FIL,20,18,31.3,3,2,0,1,1,0,1,0.9,34.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0365,L028,2026-09-14,06:25,Story reading,Shared family phone,S04,1,FIL,17,15,31.6,3,1,1,1,1,1,2,0.882352941176471,28.5,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0366,L028,2026-09-18,17:15,Story reading,Shared family phone,S04,1,FIL,18,16,22.6,3,3,0,0,2,0,0,0.888888888888889,42.5,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0367,L028,2026-09-24,16:48,Story reading,Shared family phone,S04,1,FIL,18,17,31.2,3,3,0,1,0,0,1,0.944444444444444,32.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0368,L028,2026-09-25,17:12,Story reading,Shared family phone,S05,1,FIL,20,18,31.4,3,1,0,1,1,0,1,0.9,34.4,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0369,L028,2026-09-27,19:45,Story reading,Shared family phone,S04,1,FIL,18,18,23.2,3,3,0,0,0,0,0,1.0,46.6,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0370,L028,2026-10-01,06:20,Story reading,Shared family phone,S04,1,FIL,18,17,28.1,3,3,0,1,0,0,1,0.944444444444444,36.3,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0371,L028,2026-10-05,18:55,Story reading,Shared family phone,S04,1,FIL,18,16,20.9,3,1,0,0,2,0,0,0.888888888888889,45.9,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0372,L028,2026-10-06,20:41,Story reading,Shared family phone,S05,1,FIL,18,18,21.8,3,3,0,0,0,2,0,1.0,49.5,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0373,L028,2026-10-08,16:02,Story reading,Shared family phone,S04,1,FIL,17,17,18.1,3,3,0,0,0,1,0,1.0,56.4,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0374,L028,2026-10-09,19:11,Story reading,Shared family phone,S10,2,FIL,36,36,48.0,3,3,2,0,0,1,0,1.0,45.0,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0375,L028,2026-10-11,17:12,Story reading,Shared family phone,S09,2,FIL,28,27,42.1,3,1,0,1,0,1,1,0.964285714285714,38.5,0.333333333333333,Instructional,Frustration,Frustration,Move down to Level 1,No
+SES0376,L029,2026-09-16,20:12,Placement check,Own device,S12,3,EN,58,53,88.8,3,2,0,5,0,1,5,0.913793103448276,35.8,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0377,L029,2026-09-22,19:45,Story reading,Own device,S13,3,EN,63,60,72.9,3,3,2,3,0,3,3,0.952380952380952,49.4,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0378,L029,2026-09-27,18:41,Story reading,Own device,S15,3,FIL,54,54,54.2,3,2,1,0,0,3,0,1.0,59.8,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 3,No
+SES0379,L029,2026-10-03,16:12,Story reading,Own device,S11,3,EN,61,61,49.0,3,3,1,0,0,2,0,1.0,74.7,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0380,L029,2026-10-08,17:14,Story reading,Own device,S14,3,FIL,57,53,88.1,3,3,0,4,0,3,4,0.929824561403509,36.1,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0381,L029,2026-10-10,19:13,Story reading,Own device,S14,3,FIL,58,58,61.3,3,3,0,0,0,2,0,1.0,56.8,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0382,L029,2026-10-11,16:14,Story reading,Own device,S12,3,EN,58,55,63.8,3,3,1,2,1,1,2,0.948275862068966,51.7,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0383,L030,2026-09-02,19:10,Placement check,Shared family phone,S10,2,FIL,36,33,53.1,3,3,0,2,1,1,2,0.916666666666667,37.3,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0384,L030,2026-09-09,19:41,Story reading,Shared family phone,S09,2,FIL,26,26,36.3,3,3,1,0,0,3,1,1.0,43.0,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0385,L030,2026-09-11,06:44,Story reading,Shared family phone,S10,2,FIL,37,37,40.1,3,2,1,0,0,0,0,1.0,55.4,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0386,L030,2026-09-12,20:08,Story reading,Shared family phone,S10,2,FIL,34,33,45.0,3,3,0,1,0,3,1,0.970588235294118,44.0,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0387,L030,2026-09-19,06:39,Story reading,Shared family phone,S10,2,FIL,35,35,39.6,3,3,0,0,0,2,0,1.0,53.0,1.0,Independent,Independent,Independent,Move up to Level 3,No
+SES0388,L030,2026-09-20,19:15,Story reading,Shared family phone,S15,3,FIL,56,55,61.0,3,3,0,1,0,1,1,0.982142857142857,54.1,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0389,L030,2026-09-22,16:57,Story reading,Shared family phone,S14,3,FIL,58,56,69.2,3,2,0,1,1,2,1,0.96551724137931,48.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0390,L030,2026-09-24,18:50,Story reading,Shared family phone,S14,3,FIL,57,56,67.2,3,3,0,1,0,3,1,0.982456140350877,50.0,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0391,L030,2026-10-01,16:40,Story reading,Shared family phone,S14,3,FIL,60,59,62.1,3,3,0,1,0,0,1,0.983333333333333,57.0,1.0,Independent,Independent,Independent,Move up to Level 4,No
+SES0392,L030,2026-10-03,17:32,Story reading,Shared family phone,S19,4,FIL,71,71,68.2,3,2,0,0,0,2,0,1.0,62.5,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 4,No
+SES0393,L030,2026-10-05,16:53,Story reading,Shared family phone,S20,4,FIL,70,67,89.7,3,3,0,3,0,0,3,0.957142857142857,44.8,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0394,L031,2026-09-02,11:19,Placement check,Classroom tablet,S10,2,FIL,37,33,67.8,3,2,2,3,1,0,3,0.891891891891892,29.2,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 2,No
+SES0395,L031,2026-09-15,11:53,Story reading,Classroom tablet,S09,2,FIL,27,25,40.4,3,1,1,1,1,2,2,0.925925925925926,37.1,0.333333333333333,Instructional,Frustration,Frustration,Move down to Level 1,Yes
+SES0396,L031,2026-09-17,11:34,Story reading,Classroom tablet,S05,1,FIL,20,20,20.5,3,3,0,0,0,0,0,1.0,58.5,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0397,L031,2026-09-22,11:18,Story reading,Classroom tablet,S04,1,FIL,18,15,38.6,3,1,1,2,1,0,2,0.833333333333333,23.3,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0398,L031,2026-09-23,13:37,Story reading,Classroom tablet,S02,1,EN,25,24,23.0,3,3,1,0,1,1,1,0.96,62.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0399,L031,2026-09-25,12:19,Story reading,Classroom tablet,S03,1,EN,22,19,35.7,3,3,1,2,1,0,2,0.863636363636364,31.9,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0400,L031,2026-10-02,10:53,Story reading,Classroom tablet,S01,1,EN,25,23,32.6,3,2,1,1,1,2,1,0.92,42.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0401,L031,2026-10-05,10:44,Story reading,Classroom tablet,S02,1,EN,26,24,36.5,3,3,0,2,0,0,2,0.923076923076923,39.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0402,L031,2026-10-06,13:00,Story reading,Classroom tablet,S01,1,EN,26,25,25.1,3,3,1,0,1,1,0,0.961538461538462,59.8,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0403,L031,2026-10-07,14:47,Story reading,Classroom tablet,S03,1,EN,21,20,29.2,3,3,0,1,0,1,1,0.952380952380952,41.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0404,L032,2026-09-01,17:20,Placement check,Own device,S06,2,EN,44,35,92.6,3,0,3,6,3,1,7,0.795454545454545,22.7,0.0,Frustration,Frustration,Frustration,Stay at Level 2,No
+SES0405,L032,2026-09-04,17:50,Story reading,Own device,S10,2,FIL,36,32,75.6,3,2,3,4,0,1,4,0.888888888888889,25.4,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,Yes
+SES0406,L032,2026-09-06,06:58,Story reading,Own device,S05,1,FIL,19,18,26.1,3,3,1,0,1,1,0,0.947368421052632,41.4,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0407,L032,2026-09-07,06:09,Story reading,Own device,S02,1,EN,26,24,33.6,3,3,1,1,1,0,2,0.923076923076923,42.9,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0408,L032,2026-09-11,16:55,Story reading,Own device,S03,1,EN,21,19,31.5,3,2,0,2,0,1,2,0.904761904761905,36.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0409,L032,2026-09-12,19:32,Story reading,Own device,S04,1,FIL,17,16,30.1,3,2,0,1,0,1,1,0.941176470588235,31.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0410,L032,2026-09-13,17:39,Story reading,Own device,S01,1,EN,26,22,31.4,3,2,1,0,4,1,1,0.846153846153846,42.0,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0411,L032,2026-09-15,16:23,Story reading,Own device,S02,1,EN,26,25,28.6,3,3,0,1,0,0,1,0.961538461538462,52.4,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0412,L032,2026-09-16,20:56,Story reading,Own device,S05,1,FIL,19,19,21.1,3,3,0,0,0,1,0,1.0,54.0,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0413,L032,2026-09-20,19:41,Story reading,Own device,S04,1,FIL,17,16,31.6,3,1,0,1,0,1,1,0.941176470588235,30.4,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,No
+SES0414,L032,2026-09-21,16:06,Story reading,Own device,S05,1,FIL,20,19,32.1,3,3,1,1,0,0,2,0.95,35.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0415,L032,2026-09-23,18:48,Story reading,Own device,S05,1,FIL,20,19,30.7,3,3,0,1,0,0,1,0.95,37.1,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0416,L032,2026-09-25,16:12,Story reading,Own device,S05,1,FIL,20,20,18.7,3,3,0,0,0,0,0,1.0,64.2,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0417,L032,2026-09-28,16:26,Story reading,Own device,S02,1,EN,26,26,23.1,3,3,0,0,0,0,0,1.0,67.5,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0418,L032,2026-09-30,16:22,Story reading,Own device,S10,2,FIL,34,33,45.6,3,3,1,1,0,3,1,0.970588235294118,43.4,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0419,L032,2026-10-01,20:08,Story reading,Own device,S09,2,FIL,28,28,34.1,3,2,0,0,0,1,0,1.0,49.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0420,L032,2026-10-02,06:33,Story reading,Own device,S06,2,EN,44,41,60.9,3,2,4,1,2,1,1,0.931818181818182,40.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0421,L032,2026-10-04,19:11,Story reading,Own device,S07,2,EN,44,41,45.6,3,2,1,1,2,1,1,0.931818181818182,53.9,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0422,L032,2026-10-05,18:55,Story reading,Own device,S08,2,EN,43,42,48.2,3,3,2,1,0,0,1,0.976744186046512,52.3,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0423,L032,2026-10-06,17:53,Story reading,Own device,S09,2,FIL,29,28,37.9,3,2,0,1,0,0,1,0.96551724137931,44.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0424,L032,2026-10-07,17:22,Story reading,Own device,S06,2,EN,44,42,51.0,3,3,1,2,0,1,2,0.954545454545455,49.4,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0425,L032,2026-10-08,17:08,Story reading,Own device,S07,2,EN,44,41,54.6,3,3,0,2,1,1,2,0.931818181818182,45.1,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0426,L032,2026-10-09,19:03,Story reading,Own device,S08,2,EN,40,39,33.3,3,2,0,0,1,3,0,0.975,70.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0427,L032,2026-10-10,17:53,Story reading,Own device,S10,2,FIL,37,36,47.3,3,3,1,1,0,0,2,0.972972972972973,45.7,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0428,L033,2026-08-31,18:00,Placement check,Shared family phone,S14,3,FIL,60,54,94.3,3,2,3,3,3,0,4,0.9,34.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0429,L033,2026-09-08,19:20,Story reading,Shared family phone,S15,3,FIL,56,56,67.3,3,3,3,0,0,1,2,1.0,49.9,1.0,Independent,Independent,Independent,Stay at Level 3,No
+SES0430,L033,2026-09-09,16:59,Story reading,Shared family phone,S14,3,FIL,56,54,70.8,3,2,1,2,0,4,2,0.964285714285714,45.8,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0431,L033,2026-09-10,19:49,Story reading,Shared family phone,S15,3,FIL,55,52,54.6,3,2,1,0,3,2,0,0.945454545454545,57.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 3,No
+SES0432,L033,2026-09-12,19:38,Story reading,Shared family phone,S14,3,FIL,59,57,73.9,3,3,0,2,0,1,2,0.966101694915254,46.3,1.0,Instructional,Independent,Instructional,Stay at Level 3,No
+SES0433,L033,2026-09-15,16:25,Story reading,Shared family phone,S14,3,FIL,59,56,84.8,3,1,1,3,0,1,3,0.949152542372881,39.6,0.333333333333333,Instructional,Frustration,Frustration,Move down to Level 2,No
+SES0434,L033,2026-09-16,19:32,Story reading,Shared family phone,S09,2,FIL,28,27,35.0,3,3,0,1,0,1,1,0.964285714285714,46.3,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0435,L033,2026-10-01,17:07,Story reading,Shared family phone,S10,2,FIL,36,35,44.0,3,3,0,1,0,1,1,0.972222222222222,47.7,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0436,L033,2026-10-03,16:25,Story reading,Shared family phone,S09,2,FIL,29,28,36.9,3,2,0,1,0,0,1,0.96551724137931,45.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0437,L033,2026-10-08,19:24,Story reading,Shared family phone,S09,2,FIL,29,28,36.7,3,3,0,1,0,0,1,0.96551724137931,45.8,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0438,L033,2026-10-09,19:53,Story reading,Shared family phone,S09,2,FIL,28,27,43.8,3,3,0,1,0,1,1,0.964285714285714,37.0,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0439,L034,2026-09-11,20:46,Placement check,Shared family phone,S10,2,FIL,36,30,74.3,3,2,3,3,3,1,4,0.833333333333333,24.2,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 2,No
+SES0440,L034,2026-09-14,20:33,Story reading,Shared family phone,S09,2,FIL,28,24,63.9,3,2,0,4,0,1,4,0.857142857142857,22.5,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,Yes
+SES0441,L034,2026-09-16,06:18,Story reading,Shared family phone,S02,1,EN,25,23,31.9,3,1,1,1,1,1,1,0.92,43.3,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0442,L034,2026-09-19,06:11,Story reading,Shared family phone,S03,1,EN,21,18,31.9,3,1,1,1,2,1,1,0.857142857142857,33.9,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0443,L034,2026-09-28,19:44,Story reading,Shared family phone,S01,1,EN,27,27,29.2,3,3,2,0,0,0,0,1.0,55.5,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0444,L034,2026-10-05,16:25,Story reading,Shared family phone,S02,1,EN,26,26,19.1,3,3,0,0,0,0,0,1.0,81.7,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0445,L034,2026-10-08,20:28,Story reading,Shared family phone,S10,2,FIL,37,36,49.3,3,3,2,0,1,0,1,0.972972972972973,43.8,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0446,L035,2026-08-31,17:18,Placement check,Shared family phone,S06,2,EN,45,37,95.7,3,1,2,7,1,0,7,0.822222222222222,23.2,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 2,No
+SES0447,L035,2026-09-01,18:04,Story reading,Shared family phone,S07,2,EN,45,42,64.5,3,3,3,3,0,0,3,0.933333333333333,39.1,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0448,L035,2026-09-04,20:29,Story reading,Shared family phone,S08,2,EN,43,41,49.1,3,3,1,2,0,0,2,0.953488372093023,50.1,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0449,L035,2026-09-10,20:56,Story reading,Shared family phone,S06,2,EN,45,40,75.2,3,2,3,4,1,0,5,0.888888888888889,31.9,0.666666666666667,Frustration,Instructional,Frustration,Move down to Level 1,No
+SES0450,L035,2026-09-12,19:22,Story reading,Shared family phone,S04,1,FIL,16,14,45.1,3,2,1,2,0,2,3,0.875,18.6,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0451,L035,2026-09-14,16:19,Story reading,Shared family phone,S01,1,EN,27,27,22.1,3,3,0,0,0,0,0,1.0,73.3,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0452,L035,2026-09-15,16:07,Story reading,Shared family phone,S02,1,EN,25,25,24.0,3,3,0,0,0,1,0,1.0,62.5,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0453,L035,2026-09-17,17:32,Story reading,Shared family phone,S10,2,FIL,37,36,64.2,3,2,4,1,0,0,3,0.972972972972973,33.6,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0454,L035,2026-09-18,18:42,Story reading,Shared family phone,S07,2,EN,45,43,46.4,3,3,1,1,1,0,2,0.955555555555556,55.6,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0455,L035,2026-09-19,16:22,Story reading,Shared family phone,S06,2,EN,43,43,30.8,3,3,0,0,0,2,0,1.0,83.8,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0456,L035,2026-09-20,06:23,Story reading,Shared family phone,S09,2,FIL,28,26,43.7,3,3,0,2,0,1,2,0.928571428571429,35.7,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0457,L035,2026-09-22,20:37,Story reading,Shared family phone,S10,2,FIL,37,35,53.0,3,2,0,2,0,0,2,0.945945945945946,39.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0458,L035,2026-09-24,20:00,Story reading,Shared family phone,S08,2,EN,41,41,37.9,3,2,1,0,0,2,1,1.0,64.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0459,L035,2026-09-26,19:03,Story reading,Shared family phone,S10,2,FIL,35,32,52.6,3,2,0,2,1,2,2,0.914285714285714,36.5,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0460,L035,2026-09-28,18:40,Story reading,Shared family phone,S07,2,EN,44,41,56.4,3,3,0,3,0,1,3,0.931818181818182,43.6,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0461,L035,2026-10-02,19:34,Story reading,Shared family phone,S06,2,EN,45,44,40.9,3,2,0,1,0,0,1,0.977777777777778,64.5,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0462,L035,2026-10-05,17:28,Story reading,Shared family phone,S08,2,EN,43,43,37.5,3,2,1,0,0,0,1,1.0,68.8,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0463,L035,2026-10-08,06:04,Story reading,Shared family phone,S08,2,EN,43,40,36.9,3,2,0,0,3,0,0,0.930232558139535,65.0,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0464,L035,2026-10-10,06:52,Story reading,Shared family phone,S07,2,EN,45,43,40.8,3,3,0,1,1,0,1,0.955555555555556,63.2,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0465,L035,2026-10-11,20:01,Story reading,Shared family phone,S09,2,FIL,28,27,32.5,3,3,0,0,1,1,0,0.964285714285714,49.8,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0466,L036,2026-09-04,16:02,Placement check,Shared family phone,S04,1,FIL,17,14,62.9,3,2,4,3,0,1,5,0.823529411764706,13.4,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0467,L036,2026-09-06,06:34,Story reading,Shared family phone,S02,1,EN,26,22,66.9,3,2,3,4,0,0,4,0.846153846153846,19.7,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0468,L036,2026-09-08,06:57,Story reading,Shared family phone,S03,1,EN,20,18,39.1,3,3,2,2,0,2,3,0.9,27.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0469,L036,2026-09-12,20:18,Story reading,Shared family phone,S01,1,EN,26,26,31.1,3,3,2,0,0,1,0,1.0,50.2,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0470,L036,2026-09-13,16:51,Story reading,Shared family phone,S04,1,FIL,18,13,49.3,3,2,0,3,2,0,3,0.722222222222222,15.8,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0471,L036,2026-09-17,19:54,Story reading,Shared family phone,S02,1,EN,25,22,38.3,3,1,1,1,2,1,1,0.88,34.5,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0472,L036,2026-09-19,06:25,Story reading,Shared family phone,S03,1,EN,22,22,23.2,3,2,0,0,0,0,0,1.0,56.9,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,Yes
+SES0473,L036,2026-09-20,16:05,Story reading,Shared family phone,S01,1,EN,27,27,28.0,3,3,1,0,0,0,0,1.0,57.9,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0474,L036,2026-09-21,18:25,Story reading,Shared family phone,S02,1,EN,26,26,24.9,3,2,0,0,0,0,0,1.0,62.7,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0475,L036,2026-09-22,16:08,Story reading,Shared family phone,S04,1,FIL,17,15,31.3,3,2,0,1,1,1,1,0.882352941176471,28.8,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0476,L036,2026-09-24,17:09,Story reading,Shared family phone,S05,1,FIL,20,18,40.0,3,1,0,2,0,0,2,0.9,27.0,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0477,L036,2026-09-25,20:37,Story reading,Shared family phone,S03,1,EN,22,21,28.9,3,3,0,1,0,0,1,0.954545454545455,43.6,1.0,Instructional,Independent,Instructional,Stay at Level 1,Yes
+SES0478,L036,2026-09-26,19:47,Story reading,Shared family phone,S02,1,EN,25,23,36.7,3,2,0,1,1,1,1,0.92,37.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0479,L036,2026-09-29,06:32,Story reading,Shared family phone,S01,1,EN,27,26,38.5,3,3,1,1,0,0,2,0.962962962962963,40.5,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0480,L036,2026-10-01,20:36,Story reading,Shared family phone,S05,1,FIL,20,20,21.3,3,2,0,0,0,0,0,1.0,56.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0481,L036,2026-10-04,17:53,Story reading,Shared family phone,S03,1,EN,21,20,22.8,3,2,1,0,1,1,0,0.952380952380952,52.6,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0482,L036,2026-10-09,06:15,Story reading,Shared family phone,S04,1,FIL,17,17,30.3,3,2,2,0,0,1,1,1.0,33.7,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 1,No
+SES0483,L036,2026-10-10,17:18,Story reading,Shared family phone,S04,1,FIL,17,15,39.0,3,2,1,2,0,1,2,0.882352941176471,23.1,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0484,L038,2026-09-01,11:49,Placement check,Classroom tablet,S20,4,FIL,65,61,95.4,3,2,1,4,0,5,4,0.938461538461539,38.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 4,No
+SES0485,L038,2026-09-02,11:18,Story reading,Classroom tablet,S17,4,EN,80,72,104.9,3,2,0,7,1,3,7,0.9,41.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 4,No
+SES0486,L038,2026-09-03,14:55,Story reading,Classroom tablet,S19,4,FIL,70,67,77.1,3,3,0,2,1,3,2,0.957142857142857,52.1,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0487,L038,2026-09-07,14:19,Story reading,Classroom tablet,S20,4,FIL,70,68,71.7,3,3,1,1,1,0,2,0.971428571428571,56.9,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0488,L038,2026-09-09,14:24,Story reading,Classroom tablet,S18,4,EN,86,84,68.8,3,3,0,2,0,3,2,0.976744186046512,73.3,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0489,L038,2026-09-11,09:41,Story reading,Classroom tablet,S19,4,FIL,71,68,73.9,3,3,0,2,1,2,2,0.957746478873239,55.2,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0490,L038,2026-09-15,12:59,Story reading,Classroom tablet,S19,4,FIL,70,66,85.8,3,2,0,4,0,3,4,0.942857142857143,46.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 4,No
+SES0491,L038,2026-09-16,10:15,Story reading,Classroom tablet,S20,4,FIL,70,68,75.8,3,3,0,2,0,0,2,0.971428571428571,53.8,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0492,L038,2026-09-22,11:54,Story reading,Classroom tablet,S17,4,EN,83,80,62.1,3,3,0,2,1,0,2,0.963855421686747,77.3,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0493,L038,2026-09-23,14:20,Story reading,Classroom tablet,S16,4,EN,82,79,77.9,3,3,0,3,0,2,3,0.963414634146341,60.8,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0494,L038,2026-09-25,09:52,Story reading,Classroom tablet,S19,4,FIL,72,72,57.9,3,3,0,0,0,1,0,1.0,74.6,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0495,L038,2026-09-28,08:28,Story reading,Classroom tablet,S18,4,EN,88,86,66.2,3,3,0,1,1,1,1,0.977272727272727,77.9,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0496,L038,2026-10-01,12:58,Story reading,Classroom tablet,S17,4,EN,83,78,79.3,3,3,0,4,1,0,4,0.939759036144578,59.0,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0497,L038,2026-10-02,13:11,Story reading,Classroom tablet,S20,4,FIL,67,67,57.5,3,3,0,0,0,3,0,1.0,69.9,1.0,Independent,Independent,Independent,Stay at Level 4,No
+SES0498,L038,2026-10-07,13:18,Story reading,Classroom tablet,S16,4,EN,83,79,85.4,3,3,0,4,0,1,4,0.951807228915663,55.5,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0499,L038,2026-10-08,09:26,Story reading,Classroom tablet,S19,4,FIL,71,68,75.2,3,3,0,2,1,2,2,0.957746478873239,54.3,1.0,Instructional,Independent,Instructional,Stay at Level 4,No
+SES0500,L038,2026-10-09,10:32,Story reading,Classroom tablet,S17,4,EN,80,76,79.4,3,2,0,4,0,3,4,0.95,57.4,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 4,No
+SES0501,L039,2026-09-08,08:50,Placement check,Classroom tablet,S04,1,FIL,18,10,100.5,3,0,4,6,2,0,6,0.555555555555556,6.0,0.0,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0502,L039,2026-09-15,13:23,Story reading,Classroom tablet,S05,1,FIL,19,9,91.6,3,0,2,5,5,1,5,0.473684210526316,5.9,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0503,L039,2026-09-16,11:49,Story reading,Classroom tablet,S04,1,FIL,18,12,84.0,3,0,1,5,1,0,5,0.666666666666667,8.6,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0504,L039,2026-09-17,09:41,Story reading,Classroom tablet,S04,1,FIL,18,14,64.5,3,0,3,3,1,0,3,0.777777777777778,13.0,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0505,L039,2026-09-24,14:43,Story reading,Classroom tablet,S04,1,FIL,16,13,65.2,3,1,1,3,0,2,3,0.8125,12.0,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0506,L039,2026-09-30,09:29,Story reading,Classroom tablet,S05,1,FIL,18,17,44.2,3,2,2,1,0,2,1,0.944444444444444,23.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,Yes
+SES0507,L039,2026-10-01,11:19,Story reading,Classroom tablet,S04,1,FIL,17,13,61.7,3,0,1,3,1,1,3,0.764705882352941,12.6,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0508,L039,2026-10-02,13:58,Story reading,Classroom tablet,S04,1,FIL,17,14,58.8,3,2,1,3,0,1,3,0.823529411764706,14.3,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0509,L039,2026-10-05,12:08,Story reading,Classroom tablet,S04,1,FIL,18,15,27.3,3,1,0,0,3,0,0,0.833333333333333,33.0,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0510,L040,2026-09-01,12:03,Placement check,Classroom tablet,S04,1,FIL,18,14,64.7,3,0,3,3,1,0,3,0.777777777777778,13.0,0.0,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0511,L040,2026-09-02,14:03,Story reading,Classroom tablet,S05,1,FIL,20,17,63.6,3,3,3,3,0,0,3,0.85,16.0,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0512,L040,2026-09-04,11:03,Story reading,Classroom tablet,S05,1,FIL,20,16,61.6,3,2,1,3,1,0,3,0.8,15.6,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0513,L040,2026-09-07,13:54,Story reading,Classroom tablet,S04,1,FIL,18,16,55.6,3,3,3,2,0,0,2,0.888888888888889,17.3,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0514,L040,2026-09-09,12:42,Story reading,Classroom tablet,S04,1,FIL,17,15,27.0,3,3,1,0,2,1,0,0.882352941176471,33.3,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0515,L040,2026-09-14,09:24,Story reading,Classroom tablet,S05,1,FIL,20,18,47.7,3,1,1,2,0,0,2,0.9,22.6,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 1,Yes
+SES0516,L040,2026-09-16,11:21,Story reading,Classroom tablet,S04,1,FIL,18,16,40.9,3,2,0,2,0,0,2,0.888888888888889,23.5,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,Yes
+SES0517,L040,2026-09-17,10:55,Story reading,Classroom tablet,S04,1,FIL,17,15,43.8,3,1,0,2,0,1,2,0.882352941176471,20.5,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0518,L040,2026-09-23,10:54,Story reading,Classroom tablet,S04,1,FIL,18,15,46.0,3,1,1,2,1,0,2,0.833333333333333,19.6,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0519,L040,2026-09-24,13:40,Story reading,Classroom tablet,S05,1,FIL,20,17,62.3,3,0,1,3,0,0,3,0.85,16.4,0.0,Frustration,Frustration,Frustration,Stay at Level 1,Yes
+SES0520,L040,2026-09-28,12:32,Story reading,Classroom tablet,S05,1,FIL,20,20,27.1,3,3,1,0,0,0,0,1.0,44.3,1.0,Independent,Independent,Independent,Stay at Level 1,Yes
+SES0521,L040,2026-09-29,14:06,Story reading,Classroom tablet,S04,1,FIL,17,16,42.3,3,3,2,1,0,1,1,0.941176470588235,22.7,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0522,L040,2026-10-02,12:50,Story reading,Classroom tablet,S05,1,FIL,20,19,34.3,3,3,0,1,0,0,1,0.95,33.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0523,L040,2026-10-07,12:52,Story reading,Classroom tablet,S04,1,FIL,18,16,42.0,3,1,0,2,0,0,2,0.888888888888889,22.9,0.333333333333333,Frustration,Frustration,Frustration,Stay at Level 1,No
+SES0524,L041,2026-08-31,10:57,Placement check,Classroom tablet,S10,2,FIL,36,34,44.6,3,1,0,1,1,1,1,0.944444444444444,45.7,0.333333333333333,Instructional,Frustration,Frustration,Stay at Level 2,No
+SES0525,L041,2026-09-03,08:39,Story reading,Classroom tablet,S09,2,FIL,29,28,38.0,3,3,0,1,0,0,1,0.96551724137931,44.2,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0526,L041,2026-09-08,13:43,Story reading,Classroom tablet,S10,2,FIL,35,32,63.5,3,3,0,3,0,2,3,0.914285714285714,30.2,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0527,L041,2026-09-10,11:17,Story reading,Classroom tablet,S09,2,FIL,29,27,48.5,3,3,0,2,0,0,2,0.931034482758621,33.4,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0528,L041,2026-09-14,14:12,Story reading,Classroom tablet,S10,2,FIL,34,34,40.6,3,3,1,0,0,3,0,1.0,50.2,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0529,L041,2026-09-18,11:17,Story reading,Classroom tablet,S09,2,FIL,29,27,36.7,3,3,0,1,1,0,1,0.931034482758621,44.1,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0530,L041,2026-09-21,10:26,Story reading,Classroom tablet,S10,2,FIL,36,33,49.4,3,2,0,2,1,1,2,0.916666666666667,40.1,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 2,No
+SES0531,L041,2026-09-22,12:32,Story reading,Classroom tablet,S09,2,FIL,28,28,28.9,3,3,0,0,0,1,0,1.0,58.1,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0532,L041,2026-09-23,14:46,Story reading,Classroom tablet,S09,2,FIL,27,25,50.6,3,3,0,2,0,2,2,0.925925925925926,29.6,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0533,L041,2026-10-01,11:00,Story reading,Classroom tablet,S10,2,FIL,37,36,41.4,3,3,0,1,0,0,1,0.972972972972973,52.2,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0534,L041,2026-10-02,14:37,Story reading,Classroom tablet,S10,2,FIL,37,35,55.0,3,3,1,2,0,0,3,0.945945945945946,38.2,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0535,L041,2026-10-05,11:55,Story reading,Classroom tablet,S09,2,FIL,28,26,48.3,3,3,0,2,0,1,2,0.928571428571429,32.3,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0536,L041,2026-10-07,12:31,Story reading,Classroom tablet,S09,2,FIL,27,27,31.6,3,2,0,0,0,2,0,1.0,51.3,0.666666666666667,Independent,Instructional,Instructional,Stay at Level 2,No
+SES0537,L041,2026-10-08,14:29,Story reading,Classroom tablet,S09,2,FIL,29,28,32.1,3,3,0,0,1,0,0,0.96551724137931,52.3,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0538,L042,2026-08-31,20:29,Placement check,Shared family phone,S02,1,EN,25,22,34.9,3,2,1,1,2,1,1,0.88,37.8,0.666666666666667,Frustration,Instructional,Frustration,Stay at Level 1,No
+SES0539,L042,2026-09-06,18:15,Story reading,Shared family phone,S03,1,EN,22,21,25.1,3,3,0,1,0,0,1,0.954545454545455,50.2,1.0,Instructional,Independent,Instructional,Stay at Level 1,No
+SES0540,L042,2026-09-22,19:58,Story reading,Shared family phone,S04,1,FIL,17,15,25.8,3,3,1,0,2,1,0,0.882352941176471,34.9,1.0,Frustration,Independent,Frustration,Stay at Level 1,Yes
+SES0541,L042,2026-09-23,20:15,Story reading,Shared family phone,S05,1,FIL,18,17,32.7,3,2,1,1,0,2,1,0.944444444444444,31.2,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0542,L042,2026-09-28,20:41,Story reading,Shared family phone,S04,1,FIL,18,18,20.8,3,3,0,0,0,0,0,1.0,51.9,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0543,L042,2026-09-30,06:22,Story reading,Shared family phone,S03,1,EN,22,21,32.9,3,2,1,1,0,0,1,0.954545454545455,38.3,0.666666666666667,Instructional,Instructional,Instructional,Stay at Level 1,No
+SES0544,L042,2026-10-02,18:49,Story reading,Shared family phone,S01,1,EN,27,27,25.5,3,3,2,0,0,0,0,1.0,63.5,1.0,Independent,Independent,Independent,Stay at Level 1,No
+SES0545,L042,2026-10-04,19:47,Story reading,Shared family phone,S05,1,FIL,19,19,21.2,3,3,0,0,0,1,0,1.0,53.8,1.0,Independent,Independent,Independent,Move up to Level 2,No
+SES0546,L042,2026-10-05,16:39,Story reading,Shared family phone,S10,2,FIL,37,35,62.7,3,3,3,2,0,0,3,0.945945945945946,33.5,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0547,L042,2026-10-06,18:06,Story reading,Shared family phone,S09,2,FIL,29,28,36.7,3,3,0,1,0,0,1,0.96551724137931,45.8,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0548,L042,2026-10-07,17:03,Story reading,Shared family phone,S10,2,FIL,35,34,45.6,3,3,0,1,0,2,1,0.971428571428571,44.7,1.0,Independent,Independent,Independent,Stay at Level 2,No
+SES0549,L042,2026-10-09,19:06,Story reading,Shared family phone,S09,2,FIL,28,26,47.6,3,3,0,2,0,1,2,0.928571428571429,32.8,1.0,Instructional,Independent,Instructional,Stay at Level 2,No
+SES0550,L042,2026-10-11,20:03,Story reading,Shared family phone,S09,2,FIL,28,28,33.9,3,3,0,0,0,1,0,1.0,49.6,1.0,Independent,Independent,Independent,Stay at Level 2,No

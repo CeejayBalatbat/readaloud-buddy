@@ -1,0 +1,52 @@
+sheet,column,type,description,example
+Stories,story_id,Text,Unique story code,S06
+Stories,title,Text,Story title,The Big Red Kite
+Stories,language,Category,EN (English) or FIL (Filipino),EN
+Stories,level,Integer 1-4,Reading level of the story (1 easiest),2
+Stories,word_count,Integer,Number of words in the story,45
+Stories,sentence_count,Integer,Number of sentences,9
+Stories,avg_syllables,Decimal,Average syllables per word (difficulty indicator),1.18
+Stories,target_patterns,Text,Most frequent sound patterns practiced in the story,"EN-TH, EN-BL"
+Stories,num_questions,Integer,Number of comprehension questions,3
+Stories,text,Text,Full story text,Mia ran up the hill...
+Story_Words,position,Integer,Word position in the story,12
+Story_Words,word,Text,The word as written,strong
+Story_Words,sound_patterns,Text,All sound-pattern codes found in the word,"EN-BL3, EN-NG"
+Story_Words,primary_pattern,Text,Hardest pattern in the word (used for mastery tracking),EN-BL3
+Story_Words,syllables,Integer,Number of syllables,1
+Story_Words,difficulty,Decimal 0-1,Estimated word difficulty,0.62
+Questions,question_id,Text,Unique question code,S06-Q1
+Questions,question / correct_answer,Text,Question read aloud to the child and its answer,Why did the kite go up high?
+Questions,question_type,Category,Literal or Inferential,Inferential
+Sound_Patterns,pattern_code,Text,Code for a phonics or syllable pattern,EN-TH
+Sound_Patterns,difficulty_weight,Decimal 0-1,Relative difficulty used to rank patterns,0.40
+Learners,learner_id,Text,Anonymous learner code (no names stored),L007
+Learners,grade,Integer 1-3,Grade level,2
+Learners,class_code,Text,Class the learner is linked to,2B-SAMPAGUITA
+Learners,reading_language,Category,"EN, FIL or Both",Both
+Learners,device_context,Category,"Own device, Shared family phone or Classroom tablet",Shared family phone
+Learners,dyslexia_mode / hint_wait_sec,Setting,Accessibility settings used by the app,No / 5
+Learners,start_level / final_level,Integer 1-4,"Level from the placement check, and level at the end of the 6 weeks",2 / 3
+Sessions,session_id,Text,Unique reading session code,SES0014
+Sessions,date / start_time,Date / Time,When the session happened,2026-09-03 17:20
+Sessions,session_type,Category,Placement check or Story reading,Story reading
+Sessions,story_level,Integer 1-4,Level of the story read,2
+Sessions,words_total,Integer,Words scored (ASR-unsure words excluded),44
+Sessions,words_correct,Integer,Words read correctly without help (Correct + Hesitated),41
+Sessions,reading_seconds,Decimal,Total reading time in seconds,61.3
+Sessions,questions_total / questions_correct,Integer,Comprehension questions asked and answered correctly,3 / 2
+Sessions,"hesitations, miscues, skips, hints_given",Integer,Counts of reading behaviors in the session,"2, 2, 1, 3"
+Sessions,asr_unsure_words,Integer,Words the speech recognizer was unsure about (not counted),1
+Sessions,word_accuracy,Formula,words_correct / words_total,93.2%
+Sessions,wcpm,Formula,Words correct per minute,40.1
+Sessions,comprehension,Formula,questions_correct / questions_total,67%
+Sessions,word_level / comprehension_level / philiri_level,Formula,"Phil-IRI level from accuracy, comprehension and both combined",Instructional
+Sessions,agent_next_action,Text,Level decision made by the agent after the session,Move up to Level 3
+Sessions,flag_teacher,Yes/No,Whether the agent flagged the learner to the teacher,No
+Word_Events,result,Category,"Correct, Hesitated, Correct after hint, Misread, Skipped, Unsure (ASR)",Hesitated
+Word_Events,response_ms,Integer,Time taken on the word in milliseconds,3420
+Word_Events,hint_level,Integer 0-3,"0 none, 1 first sound, 2 word parts, 3 whole word",2
+Word_Events,counted_correct,Category,"Yes, No, or Excluded (unsure ASR)",Yes
+Mastery_Snapshot,observations,Integer,How many times the learner read words with this pattern,58
+Mastery_Snapshot,agent_mastery_estimate,Decimal 0-1,Agent's Bayesian Knowledge Tracing estimate of mastery,0.91
+Mastery_Snapshot,mastery_status,Category,"Mastered (>=0.85), Learning (0.50-0.84), Needs help (<0.50)",Learning

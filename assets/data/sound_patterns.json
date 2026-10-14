@@ -1,0 +1,186 @@
+[
+ {
+  "code": "EN-SV",
+  "language": "EN",
+  "name": "Short vowel (CVC)",
+  "description": "Simple consonant-vowel-consonant words with a short vowel",
+  "examples": "cat, big, red, mud",
+  "difficulty": 0.1
+ },
+ {
+  "code": "EN-SW",
+  "language": "EN",
+  "name": "High-frequency sight word",
+  "description": "Common words learned by sight, often irregular",
+  "examples": "the, was, said, they",
+  "difficulty": 0.18
+ },
+ {
+  "code": "EN-BL",
+  "language": "EN",
+  "name": "Two-letter blend",
+  "description": "Two consonants blended at the start of a word",
+  "examples": "flew, tree, stop, play",
+  "difficulty": 0.35
+ },
+ {
+  "code": "EN-BL3",
+  "language": "EN",
+  "name": "Three-letter blend",
+  "description": "Three consonants blended (str, spr, scr, thr)",
+  "examples": "strong, through, three",
+  "difficulty": 0.62
+ },
+ {
+  "code": "EN-TH",
+  "language": "EN",
+  "name": "Digraph th",
+  "description": "Two letters making one sound /th/",
+  "examples": "the, three, thin, with",
+  "difficulty": 0.4
+ },
+ {
+  "code": "EN-SH",
+  "language": "EN",
+  "name": "Digraph sh",
+  "description": "Two letters making one sound /sh/",
+  "examples": "shell, ship, shirt",
+  "difficulty": 0.3
+ },
+ {
+  "code": "EN-CH",
+  "language": "EN",
+  "name": "Digraph ch",
+  "description": "Two letters making one sound /ch/",
+  "examples": "children, each, chair",
+  "difficulty": 0.32
+ },
+ {
+  "code": "EN-NG",
+  "language": "EN",
+  "name": "Ending ng",
+  "description": "Words ending in the /ng/ sound",
+  "examples": "strong, long, hang",
+  "difficulty": 0.3
+ },
+ {
+  "code": "EN-ING",
+  "language": "EN",
+  "name": "Suffix -ing",
+  "description": "Words with the -ing ending",
+  "examples": "going, running, slipping",
+  "difficulty": 0.28
+ },
+ {
+  "code": "EN-ED",
+  "language": "EN",
+  "name": "Suffix -ed",
+  "description": "Past tense -ed ending (/t/, /d/, /id/)",
+  "examples": "helped, pushed, waved",
+  "difficulty": 0.36
+ },
+ {
+  "code": "EN-VT",
+  "language": "EN",
+  "name": "Vowel team",
+  "description": "Two vowels making one sound (ai, ay, ee, ea, oa, oo)",
+  "examples": "rain, day, tree, sea, boat",
+  "difficulty": 0.45
+ },
+ {
+  "code": "EN-OU",
+  "language": "EN",
+  "name": "ou / ough / ow",
+  "description": "Tricky vowel spellings",
+  "examples": "through, cloud, down",
+  "difficulty": 0.7
+ },
+ {
+  "code": "EN-RC",
+  "language": "EN",
+  "name": "R-controlled vowel",
+  "description": "Vowel followed by r (ar, er, ir, or, ur)",
+  "examples": "shirt, market, forgot",
+  "difficulty": 0.42
+ },
+ {
+  "code": "EN-ME",
+  "language": "EN",
+  "name": "Silent (magic) e",
+  "description": "Long vowel made by a final silent e",
+  "examples": "kite, came, home",
+  "difficulty": 0.4
+ },
+ {
+  "code": "EN-ML",
+  "language": "EN",
+  "name": "Multisyllable word",
+  "description": "Words with three or more syllables",
+  "examples": "another, carefully, typhoons",
+  "difficulty": 0.55
+ },
+ {
+  "code": "FIL-CV",
+  "language": "FIL",
+  "name": "Simple syllables (KP)",
+  "description": "Words made of simple consonant-vowel syllables",
+  "examples": "bola, pusa, mesa",
+  "difficulty": 0.08
+ },
+ {
+  "code": "FIL-SW",
+  "language": "FIL",
+  "name": "Madalas na salita (sight word)",
+  "description": "Very common short function words",
+  "examples": "ang, sa, si, ni, ay",
+  "difficulty": 0.12
+ },
+ {
+  "code": "FIL-NG",
+  "language": "FIL",
+  "name": "Digraph ng",
+  "description": "The ng sound as one letter (ng, nga, ngi)",
+  "examples": "ng, ngunit, bangka",
+  "difficulty": 0.3
+ },
+ {
+  "code": "FIL-MGA",
+  "language": "FIL",
+  "name": "Salitang mga",
+  "description": "Special spelling: mga is read 'manga'",
+  "examples": "mga",
+  "difficulty": 0.3
+ },
+ {
+  "code": "FIL-DIP",
+  "language": "FIL",
+  "name": "Diphthong (ay, aw, iy, uy, oy)",
+  "description": "Two vowel sounds glided together",
+  "examples": "bahay, araw, kasayaw",
+  "difficulty": 0.25
+ },
+ {
+  "code": "FIL-KK",
+  "language": "FIL",
+  "name": "Consonant cluster (kambal-katinig)",
+  "description": "Two consonants together, often in loanwords",
+  "examples": "plastik, trabaho, banderitas",
+  "difficulty": 0.5
+ },
+ {
+  "code": "FIL-AFX",
+  "language": "FIL",
+  "name": "Affixed word (panlapi)",
+  "description": "Words with prefixes or infixes such as nag-, mag-, -um-, -in-",
+  "examples": "naglilinis, kumain, tinuruan",
+  "difficulty": 0.38
+ },
+ {
+  "code": "FIL-ML",
+  "language": "FIL",
+  "name": "Long word (4+ syllables)",
+  "description": "Long words, reduplicated or hyphenated words",
+  "examples": "ipinagdiriwang, masayang-masaya",
+  "difficulty": 0.55
+ }
+]

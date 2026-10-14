@@ -1,0 +1,11090 @@
+[
+ {
+  "id": "S01",
+  "title": "Sam and the Cat",
+  "language": "EN",
+  "level": 1,
+  "text": "Sam has a cat. The cat is big and fat. The cat sat on a red mat. Sam had a nap. The cat had a nap too.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Sam",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 2,
+    "word": "has",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 3,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "cat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 5,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 6,
+    "word": "cat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 7,
+    "word": "is",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 8,
+    "word": "big",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 9,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 10,
+    "word": "fat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 11,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 12,
+    "word": "cat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 13,
+    "word": "sat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 14,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 15,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 16,
+    "word": "red",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 17,
+    "word": "mat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 18,
+    "word": "Sam",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 19,
+    "word": "had",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 20,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 21,
+    "word": "nap",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 22,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 23,
+    "word": "cat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 24,
+    "word": "had",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 25,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 26,
+    "word": "nap",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 27,
+    "word": "too",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   }
+  ],
+  "questions": [
+   {
+    "id": "S01-Q1",
+    "question": "Where did the cat sit?",
+    "answer": "On a red mat",
+    "type": "Literal"
+   },
+   {
+    "id": "S01-Q2",
+    "question": "What did Sam do?",
+    "answer": "He had a nap",
+    "type": "Literal"
+   },
+   {
+    "id": "S01-Q3",
+    "question": "What color is the mat?",
+    "answer": "Red",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S02",
+  "title": "Ben and the Bus",
+  "language": "EN",
+  "level": 1,
+  "text": "The bus is big. It is red. Ben got on the bus. The bus went up the hill. Ben sat with his mom. They had fun.",
+  "words": [
+   {
+    "position": 1,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 2,
+    "word": "bus",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 3,
+    "word": "is",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "big",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 5,
+    "word": "It",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 6,
+    "word": "is",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 7,
+    "word": "red",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 8,
+    "word": "Ben",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 9,
+    "word": "got",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 10,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 11,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 12,
+    "word": "bus",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 13,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 14,
+    "word": "bus",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 15,
+    "word": "went",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 16,
+    "word": "up",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 17,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 18,
+    "word": "hill",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 19,
+    "word": "Ben",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 20,
+    "word": "sat",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 21,
+    "word": "with",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 22,
+    "word": "his",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 23,
+    "word": "mom",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 24,
+    "word": "They",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 25,
+    "word": "had",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 26,
+    "word": "fun",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   }
+  ],
+  "questions": [
+   {
+    "id": "S02-Q1",
+    "question": "What color is the bus?",
+    "answer": "Red",
+    "type": "Literal"
+   },
+   {
+    "id": "S02-Q2",
+    "question": "Who sat with Ben?",
+    "answer": "His mom",
+    "type": "Literal"
+   },
+   {
+    "id": "S02-Q3",
+    "question": "Where did the bus go?",
+    "answer": "Up the hill",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S03",
+  "title": "Pip the Pig",
+  "language": "EN",
+  "level": 1,
+  "text": "Pip is a pig. Pip can dig. Pip dug in the mud. Pip got wet. Mom said, get in the tub, Pip!",
+  "words": [
+   {
+    "position": 1,
+    "word": "Pip",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 2,
+    "word": "is",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 3,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "pig",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 5,
+    "word": "Pip",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 6,
+    "word": "can",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 7,
+    "word": "dig",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 8,
+    "word": "Pip",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 9,
+    "word": "dug",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 10,
+    "word": "in",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 11,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 12,
+    "word": "mud",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 13,
+    "word": "Pip",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 14,
+    "word": "got",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 15,
+    "word": "wet",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 16,
+    "word": "Mom",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 17,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 18,
+    "word": "get",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 19,
+    "word": "in",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 20,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 21,
+    "word": "tub",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 22,
+    "word": "Pip",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   }
+  ],
+  "questions": [
+   {
+    "id": "S03-Q1",
+    "question": "Where did Pip dig?",
+    "answer": "In the mud",
+    "type": "Literal"
+   },
+   {
+    "id": "S03-Q2",
+    "question": "Why did Pip get wet?",
+    "answer": "He dug in the mud",
+    "type": "Inferential"
+   },
+   {
+    "id": "S03-Q3",
+    "question": "What did Mom tell Pip to do?",
+    "answer": "Get in the tub",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S04",
+  "title": "Ang Bola ni Ana",
+  "language": "FIL",
+  "level": 1,
+  "text": "May bola si Ana. Pula ang bola. Ibinato ni Ana ang bola. Sinalo ito ni Lito. Masaya sila.",
+  "words": [
+   {
+    "position": 1,
+    "word": "May",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 2,
+    "word": "bola",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 3,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 4,
+    "word": "Ana",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 5,
+    "word": "Pula",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 6,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 7,
+    "word": "bola",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 8,
+    "word": "Ibinato",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 9,
+    "word": "ni",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 10,
+    "word": "Ana",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 11,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 12,
+    "word": "bola",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 13,
+    "word": "Sinalo",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 14,
+    "word": "ito",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 15,
+    "word": "ni",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 16,
+    "word": "Lito",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 17,
+    "word": "Masaya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 18,
+    "word": "sila",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   }
+  ],
+  "questions": [
+   {
+    "id": "S04-Q1",
+    "question": "Ano ang kulay ng bola?",
+    "answer": "Pula",
+    "type": "Literal"
+   },
+   {
+    "id": "S04-Q2",
+    "question": "Sino ang sumalo ng bola?",
+    "answer": "Si Lito",
+    "type": "Literal"
+   },
+   {
+    "id": "S04-Q3",
+    "question": "Ano ang naramdaman nila?",
+    "answer": "Masaya sila",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S05",
+  "title": "Si Mimi",
+  "language": "FIL",
+  "level": 1,
+  "text": "Si Mimi ay pusa. Puti si Mimi. Gusto ni Mimi ng isda. Kumain si Mimi. Natulog si Mimi sa mesa.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 2,
+    "word": "Mimi",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 3,
+    "word": "ay",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 4,
+    "word": "pusa",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 5,
+    "word": "Puti",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 6,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 7,
+    "word": "Mimi",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 8,
+    "word": "Gusto",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 9,
+    "word": "ni",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 10,
+    "word": "Mimi",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 11,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 12,
+    "word": "isda",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 13,
+    "word": "Kumain",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 14,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 15,
+    "word": "Mimi",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 16,
+    "word": "Natulog",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 17,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 18,
+    "word": "Mimi",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 19,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 20,
+    "word": "mesa",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   }
+  ],
+  "questions": [
+   {
+    "id": "S05-Q1",
+    "question": "Anong hayop si Mimi?",
+    "answer": "Pusa",
+    "type": "Literal"
+   },
+   {
+    "id": "S05-Q2",
+    "question": "Ano ang gusto ni Mimi?",
+    "answer": "Isda",
+    "type": "Literal"
+   },
+   {
+    "id": "S05-Q3",
+    "question": "Saan natulog si Mimi?",
+    "answer": "Sa mesa",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S06",
+  "title": "The Big Red Kite",
+  "language": "EN",
+  "level": 2,
+  "text": "Mia ran up the hill with her kite. The wind was strong. The kite went up, up, up! It flew through the clouds. Then the wind stopped. The kite came down on a tree. Dad helped Mia get it back. Let's try again, said Mia.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Mia",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 2,
+    "word": "ran",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 3,
+    "word": "up",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 5,
+    "word": "hill",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 6,
+    "word": "with",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 7,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 8,
+    "word": "kite",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 9,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 10,
+    "word": "wind",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 11,
+    "word": "was",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 12,
+    "word": "strong",
+    "patterns": [
+     "EN-BL3",
+     "EN-NG"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 13,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 14,
+    "word": "kite",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 15,
+    "word": "went",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 16,
+    "word": "up",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 17,
+    "word": "up",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 18,
+    "word": "up",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 19,
+    "word": "It",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 20,
+    "word": "flew",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 21,
+    "word": "through",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 22,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 23,
+    "word": "clouds",
+    "patterns": [
+     "EN-BL",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 24,
+    "word": "Then",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 25,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 26,
+    "word": "wind",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 27,
+    "word": "stopped",
+    "patterns": [
+     "EN-BL",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 28,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 29,
+    "word": "kite",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 30,
+    "word": "came",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 31,
+    "word": "down",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 32,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 33,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 34,
+    "word": "tree",
+    "patterns": [
+     "EN-BL",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 35,
+    "word": "Dad",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 36,
+    "word": "helped",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 37,
+    "word": "Mia",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 38,
+    "word": "get",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 39,
+    "word": "it",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 40,
+    "word": "back",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 41,
+    "word": "Let's",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 42,
+    "word": "try",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 43,
+    "word": "again",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 44,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 45,
+    "word": "Mia",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   }
+  ],
+  "questions": [
+   {
+    "id": "S06-Q1",
+    "question": "Why did the kite go up high?",
+    "answer": "The wind was strong",
+    "type": "Inferential"
+   },
+   {
+    "id": "S06-Q2",
+    "question": "Where did the kite land?",
+    "answer": "On a tree",
+    "type": "Literal"
+   },
+   {
+    "id": "S06-Q3",
+    "question": "Who helped Mia?",
+    "answer": "Dad",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S07",
+  "title": "Dot Finds a Shell",
+  "language": "EN",
+  "level": 2,
+  "text": "Dot went to the beach with her dad. She saw a shell in the sand. It was pink and shiny. Dot put the shell by her ear. I can hear the sea, she said. She took the shell home and put it on a shelf.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Dot",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 2,
+    "word": "went",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 3,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 5,
+    "word": "beach",
+    "patterns": [
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 6,
+    "word": "with",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 7,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 8,
+    "word": "dad",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 9,
+    "word": "She",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 10,
+    "word": "saw",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 11,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 12,
+    "word": "shell",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 13,
+    "word": "in",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 14,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 15,
+    "word": "sand",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 16,
+    "word": "It",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 17,
+    "word": "was",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 18,
+    "word": "pink",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 19,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 20,
+    "word": "shiny",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 21,
+    "word": "Dot",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 22,
+    "word": "put",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 23,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 24,
+    "word": "shell",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 25,
+    "word": "by",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 26,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 27,
+    "word": "ear",
+    "patterns": [
+     "EN-VT",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 28,
+    "word": "I",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 29,
+    "word": "can",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 30,
+    "word": "hear",
+    "patterns": [
+     "EN-VT",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 31,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 32,
+    "word": "sea",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 33,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 34,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 35,
+    "word": "She",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 36,
+    "word": "took",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 37,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 38,
+    "word": "shell",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 39,
+    "word": "home",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 40,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 41,
+    "word": "put",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 42,
+    "word": "it",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 43,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 44,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 45,
+    "word": "shelf",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   }
+  ],
+  "questions": [
+   {
+    "id": "S07-Q1",
+    "question": "Where did Dot find the shell?",
+    "answer": "In the sand",
+    "type": "Literal"
+   },
+   {
+    "id": "S07-Q2",
+    "question": "What did Dot hear?",
+    "answer": "The sea",
+    "type": "Literal"
+   },
+   {
+    "id": "S07-Q3",
+    "question": "Where did she put the shell?",
+    "answer": "On a shelf",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S08",
+  "title": "The Rainy Day Race",
+  "language": "EN",
+  "level": 2,
+  "text": "It was a rainy day. Ben and Jen could not play outside. Let's have a race, said Jen. They made two paper boats. They put the boats in the rain water by the gate. The boats sailed fast. Jen's boat won the race!",
+  "words": [
+   {
+    "position": 1,
+    "word": "It",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 2,
+    "word": "was",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 3,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "rainy",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 5,
+    "word": "day",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 6,
+    "word": "Ben",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 7,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 8,
+    "word": "Jen",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 9,
+    "word": "could",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 10,
+    "word": "not",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 11,
+    "word": "play",
+    "patterns": [
+     "EN-BL",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 12,
+    "word": "outside",
+    "patterns": [
+     "EN-OU",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 13,
+    "word": "Let's",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 14,
+    "word": "have",
+    "patterns": [
+     "EN-SW",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 15,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 16,
+    "word": "race",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 17,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 18,
+    "word": "Jen",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 19,
+    "word": "They",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 20,
+    "word": "made",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 21,
+    "word": "two",
+    "patterns": [
+     "EN-SW",
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 22,
+    "word": "paper",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 23,
+    "word": "boats",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 24,
+    "word": "They",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 25,
+    "word": "put",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 26,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 27,
+    "word": "boats",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 28,
+    "word": "in",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 29,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 30,
+    "word": "rain",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 31,
+    "word": "water",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 32,
+    "word": "by",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 33,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 34,
+    "word": "gate",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 35,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 36,
+    "word": "boats",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 37,
+    "word": "sailed",
+    "patterns": [
+     "EN-ED",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 38,
+    "word": "fast",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 39,
+    "word": "Jen's",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 40,
+    "word": "boat",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 41,
+    "word": "won",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 42,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 43,
+    "word": "race",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   }
+  ],
+  "questions": [
+   {
+    "id": "S08-Q1",
+    "question": "Why could they not play outside?",
+    "answer": "It was raining",
+    "type": "Inferential"
+   },
+   {
+    "id": "S08-Q2",
+    "question": "What did they make?",
+    "answer": "Paper boats",
+    "type": "Literal"
+   },
+   {
+    "id": "S08-Q3",
+    "question": "Whose boat won?",
+    "answer": "Jen's boat",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S09",
+  "title": "Si Lolo at ang Bangka",
+  "language": "FIL",
+  "level": 2,
+  "text": "Maagang gumising si Lolo Ben. Pumunta siya sa dagat. Sumakay siya sa kanyang bangka. Nanghuli siya ng maraming isda. Pag-uwi niya, nagluto si Lola. Masaya silang kumain ng hapunan.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Maagang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 2,
+    "word": "gumising",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 3,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 4,
+    "word": "Lolo",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 5,
+    "word": "Ben",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 1,
+    "difficulty": 0.08
+   },
+   {
+    "position": 6,
+    "word": "Pumunta",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 7,
+    "word": "siya",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 8,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 9,
+    "word": "dagat",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 10,
+    "word": "Sumakay",
+    "patterns": [
+     "FIL-DIP",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 11,
+    "word": "siya",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 12,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 13,
+    "word": "kanyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 14,
+    "word": "bangka",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 15,
+    "word": "Nanghuli",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 16,
+    "word": "siya",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 17,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 18,
+    "word": "maraming",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 19,
+    "word": "isda",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 20,
+    "word": "Pag-uwi",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 21,
+    "word": "niya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 22,
+    "word": "nagluto",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 23,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 24,
+    "word": "Lola",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 25,
+    "word": "Masaya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 26,
+    "word": "silang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 27,
+    "word": "kumain",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 28,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 29,
+    "word": "hapunan",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   }
+  ],
+  "questions": [
+   {
+    "id": "S09-Q1",
+    "question": "Saan pumunta si Lolo Ben?",
+    "answer": "Sa dagat",
+    "type": "Literal"
+   },
+   {
+    "id": "S09-Q2",
+    "question": "Ano ang nahuli niya?",
+    "answer": "Maraming isda",
+    "type": "Literal"
+   },
+   {
+    "id": "S09-Q3",
+    "question": "Sino ang nagluto?",
+    "answer": "Si Lola",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S10",
+  "title": "Ang Hardin ni Nena",
+  "language": "FIL",
+  "level": 2,
+  "text": "May maliit na hardin si Nena. Nagtanim siya ng kamatis at talong. Dinidiligan niya ang mga halaman tuwing umaga. Pagkalipas ng ilang linggo, may bunga na ang mga ito. Ibinigay ni Nena ang kamatis sa kanyang kapitbahay.",
+  "words": [
+   {
+    "position": 1,
+    "word": "May",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 2,
+    "word": "maliit",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 3,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 4,
+    "word": "hardin",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 5,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 6,
+    "word": "Nena",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 7,
+    "word": "Nagtanim",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 8,
+    "word": "siya",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 9,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 10,
+    "word": "kamatis",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 11,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 12,
+    "word": "talong",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 13,
+    "word": "Dinidiligan",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 5,
+    "difficulty": 0.67
+   },
+   {
+    "position": 14,
+    "word": "niya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 15,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 16,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 17,
+    "word": "halaman",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 18,
+    "word": "tuwing",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 19,
+    "word": "umaga",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 20,
+    "word": "Pagkalipas",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 21,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 22,
+    "word": "ilang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 23,
+    "word": "linggo",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 2,
+    "difficulty": 0.41
+   },
+   {
+    "position": 24,
+    "word": "may",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 25,
+    "word": "bunga",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 26,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 27,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 28,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 29,
+    "word": "ito",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 30,
+    "word": "Ibinigay",
+    "patterns": [
+     "FIL-DIP",
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 31,
+    "word": "ni",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 32,
+    "word": "Nena",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 33,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 34,
+    "word": "kamatis",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 35,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 36,
+    "word": "kanyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 37,
+    "word": "kapitbahay",
+    "patterns": [
+     "FIL-DIP",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   }
+  ],
+  "questions": [
+   {
+    "id": "S10-Q1",
+    "question": "Ano ang itinanim ni Nena?",
+    "answer": "Kamatis at talong",
+    "type": "Literal"
+   },
+   {
+    "id": "S10-Q2",
+    "question": "Kailan niya dinidiligan ang mga halaman?",
+    "answer": "Tuwing umaga",
+    "type": "Literal"
+   },
+   {
+    "id": "S10-Q3",
+    "question": "Kanino niya ibinigay ang kamatis?",
+    "answer": "Sa kanyang kapitbahay",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S11",
+  "title": "The Thin Thread",
+  "language": "EN",
+  "level": 3,
+  "text": "Thea wanted to fix her torn shirt. Her grandmother gave her a needle and a thin thread. Pull the thread through the hole, Grandma said. Thea tried three times. The thread kept slipping. On the fourth try, she did it! She stitched the shirt slowly. When she finished, she thanked her grandmother. Now you can fix things too, Grandma said with a smile.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Thea",
+    "patterns": [
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 2,
+    "word": "wanted",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 3,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 4,
+    "word": "fix",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 5,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 6,
+    "word": "torn",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 7,
+    "word": "shirt",
+    "patterns": [
+     "EN-SH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 8,
+    "word": "Her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 9,
+    "word": "grandmother",
+    "patterns": [
+     "EN-BL",
+     "EN-TH",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 10,
+    "word": "gave",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 11,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 12,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 13,
+    "word": "needle",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 14,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 15,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 16,
+    "word": "thin",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 17,
+    "word": "thread",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 18,
+    "word": "Pull",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 19,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 20,
+    "word": "thread",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 21,
+    "word": "through",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 22,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 23,
+    "word": "hole",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 24,
+    "word": "Grandma",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 2,
+    "difficulty": 0.38
+   },
+   {
+    "position": 25,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 26,
+    "word": "Thea",
+    "patterns": [
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 27,
+    "word": "tried",
+    "patterns": [
+     "EN-BL",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 1,
+    "difficulty": 0.36
+   },
+   {
+    "position": 28,
+    "word": "three",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 29,
+    "word": "times",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 30,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 31,
+    "word": "thread",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 32,
+    "word": "kept",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 33,
+    "word": "slipping",
+    "patterns": [
+     "EN-BL",
+     "EN-ING"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 2,
+    "difficulty": 0.38
+   },
+   {
+    "position": 34,
+    "word": "On",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 35,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 36,
+    "word": "fourth",
+    "patterns": [
+     "EN-TH",
+     "EN-OU",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 37,
+    "word": "try",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 38,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 39,
+    "word": "did",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 40,
+    "word": "it",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 41,
+    "word": "She",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 42,
+    "word": "stitched",
+    "patterns": [
+     "EN-BL",
+     "EN-CH",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 43,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 44,
+    "word": "shirt",
+    "patterns": [
+     "EN-SH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 45,
+    "word": "slowly",
+    "patterns": [
+     "EN-BL",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 46,
+    "word": "When",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 47,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 48,
+    "word": "finished",
+    "patterns": [
+     "EN-SH",
+     "EN-ED",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 49,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 50,
+    "word": "thanked",
+    "patterns": [
+     "EN-TH",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 51,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 52,
+    "word": "grandmother",
+    "patterns": [
+     "EN-BL",
+     "EN-TH",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 53,
+    "word": "Now",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 54,
+    "word": "you",
+    "patterns": [
+     "EN-SW",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 55,
+    "word": "can",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 56,
+    "word": "fix",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 57,
+    "word": "things",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 58,
+    "word": "too",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 59,
+    "word": "Grandma",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 2,
+    "difficulty": 0.38
+   },
+   {
+    "position": 60,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 61,
+    "word": "with",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 62,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 63,
+    "word": "smile",
+    "patterns": [
+     "EN-BL",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 2,
+    "difficulty": 0.43
+   }
+  ],
+  "questions": [
+   {
+    "id": "S11-Q1",
+    "question": "What did Thea want to fix?",
+    "answer": "Her torn shirt",
+    "type": "Literal"
+   },
+   {
+    "id": "S11-Q2",
+    "question": "On which try did it work?",
+    "answer": "The fourth try",
+    "type": "Literal"
+   },
+   {
+    "id": "S11-Q3",
+    "question": "Who gave Thea the needle?",
+    "answer": "Her grandmother",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S12",
+  "title": "Three Little Ships",
+  "language": "EN",
+  "level": 3,
+  "text": "Three little ships sailed on the sea. The first ship carried fish. The second ship carried fruit. The third ship carried children going to school on another island. One morning, a storm came. The ships stayed close together. They helped each other reach the shore safely. After the storm, the children waved at the sailors and shouted, thank you!",
+  "words": [
+   {
+    "position": 1,
+    "word": "Three",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 2,
+    "word": "little",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 3,
+    "word": "ships",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 4,
+    "word": "sailed",
+    "patterns": [
+     "EN-ED",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 5,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 6,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 7,
+    "word": "sea",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 8,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 9,
+    "word": "first",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 10,
+    "word": "ship",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 11,
+    "word": "carried",
+    "patterns": [
+     "EN-ED",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 12,
+    "word": "fish",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 13,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 14,
+    "word": "second",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 15,
+    "word": "ship",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 16,
+    "word": "carried",
+    "patterns": [
+     "EN-ED",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 17,
+    "word": "fruit",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 18,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 19,
+    "word": "third",
+    "patterns": [
+     "EN-TH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 20,
+    "word": "ship",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 21,
+    "word": "carried",
+    "patterns": [
+     "EN-ED",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 22,
+    "word": "children",
+    "patterns": [
+     "EN-CH"
+    ],
+    "primary_pattern": "EN-CH",
+    "syllables": 2,
+    "difficulty": 0.35
+   },
+   {
+    "position": 23,
+    "word": "going",
+    "patterns": [
+     "EN-ING"
+    ],
+    "primary_pattern": "EN-ING",
+    "syllables": 1,
+    "difficulty": 0.28
+   },
+   {
+    "position": 24,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 25,
+    "word": "school",
+    "patterns": [
+     "EN-BL",
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 26,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 27,
+    "word": "another",
+    "patterns": [
+     "EN-TH",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 28,
+    "word": "island",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 29,
+    "word": "One",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 30,
+    "word": "morning",
+    "patterns": [
+     "EN-ING",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 31,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 32,
+    "word": "storm",
+    "patterns": [
+     "EN-BL",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 33,
+    "word": "came",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 34,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 35,
+    "word": "ships",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 36,
+    "word": "stayed",
+    "patterns": [
+     "EN-BL",
+     "EN-ED",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 37,
+    "word": "close",
+    "patterns": [
+     "EN-BL",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 38,
+    "word": "together",
+    "patterns": [
+     "EN-TH",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 39,
+    "word": "They",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 40,
+    "word": "helped",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 41,
+    "word": "each",
+    "patterns": [
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 42,
+    "word": "other",
+    "patterns": [
+     "EN-TH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 43,
+    "word": "reach",
+    "patterns": [
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 44,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 45,
+    "word": "shore",
+    "patterns": [
+     "EN-SH",
+     "EN-RC",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 46,
+    "word": "safely",
+    "patterns": [
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 47,
+    "word": "After",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 48,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 49,
+    "word": "storm",
+    "patterns": [
+     "EN-BL",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 50,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 51,
+    "word": "children",
+    "patterns": [
+     "EN-CH"
+    ],
+    "primary_pattern": "EN-CH",
+    "syllables": 2,
+    "difficulty": 0.35
+   },
+   {
+    "position": 52,
+    "word": "waved",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 53,
+    "word": "at",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 54,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 55,
+    "word": "sailors",
+    "patterns": [
+     "EN-VT",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 56,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 57,
+    "word": "shouted",
+    "patterns": [
+     "EN-SH",
+     "EN-ED",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 58,
+    "word": "thank",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 59,
+    "word": "you",
+    "patterns": [
+     "EN-SW",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   }
+  ],
+  "questions": [
+   {
+    "id": "S12-Q1",
+    "question": "What did the third ship carry?",
+    "answer": "Children going to school",
+    "type": "Literal"
+   },
+   {
+    "id": "S12-Q2",
+    "question": "What did the ships do during the storm?",
+    "answer": "Stayed close and helped each other",
+    "type": "Literal"
+   },
+   {
+    "id": "S12-Q3",
+    "question": "What did the children shout?",
+    "answer": "Thank you",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S13",
+  "title": "The Strong Ant",
+  "language": "EN",
+  "level": 3,
+  "text": "A little ant found a big grain of rice. It was too heavy to carry alone. The ant pushed and pulled, but the rice did not move. Then the ant called its friends. Ten ants came running. Together, they lifted the rice and carried it home. That night, all the ants shared a big dinner. We are strong when we work together, said the little ant.",
+  "words": [
+   {
+    "position": 1,
+    "word": "A",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 2,
+    "word": "little",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 3,
+    "word": "ant",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 4,
+    "word": "found",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 5,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 6,
+    "word": "big",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 7,
+    "word": "grain",
+    "patterns": [
+     "EN-BL",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 8,
+    "word": "of",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 9,
+    "word": "rice",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 10,
+    "word": "It",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 11,
+    "word": "was",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 12,
+    "word": "too",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 13,
+    "word": "heavy",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 14,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 15,
+    "word": "carry",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 16,
+    "word": "alone",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 17,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 18,
+    "word": "ant",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 19,
+    "word": "pushed",
+    "patterns": [
+     "EN-SH",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 20,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 21,
+    "word": "pulled",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 22,
+    "word": "but",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 23,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 24,
+    "word": "rice",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 25,
+    "word": "did",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 26,
+    "word": "not",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 27,
+    "word": "move",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 28,
+    "word": "Then",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 29,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 30,
+    "word": "ant",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 31,
+    "word": "called",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 32,
+    "word": "its",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 33,
+    "word": "friends",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 34,
+    "word": "Ten",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 35,
+    "word": "ants",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 36,
+    "word": "came",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 37,
+    "word": "running",
+    "patterns": [
+     "EN-ING"
+    ],
+    "primary_pattern": "EN-ING",
+    "syllables": 2,
+    "difficulty": 0.31
+   },
+   {
+    "position": 38,
+    "word": "Together",
+    "patterns": [
+     "EN-TH",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 39,
+    "word": "they",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 40,
+    "word": "lifted",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 41,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 42,
+    "word": "rice",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 43,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 44,
+    "word": "carried",
+    "patterns": [
+     "EN-ED",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 45,
+    "word": "it",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 46,
+    "word": "home",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 47,
+    "word": "That",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 48,
+    "word": "night",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 49,
+    "word": "all",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 50,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 51,
+    "word": "ants",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 52,
+    "word": "shared",
+    "patterns": [
+     "EN-SH",
+     "EN-ED",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 53,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 54,
+    "word": "big",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 55,
+    "word": "dinner",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 56,
+    "word": "We",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 57,
+    "word": "are",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 58,
+    "word": "strong",
+    "patterns": [
+     "EN-BL3",
+     "EN-NG"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 59,
+    "word": "when",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 60,
+    "word": "we",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 61,
+    "word": "work",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 62,
+    "word": "together",
+    "patterns": [
+     "EN-TH",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 63,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 64,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 65,
+    "word": "little",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 66,
+    "word": "ant",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   }
+  ],
+  "questions": [
+   {
+    "id": "S13-Q1",
+    "question": "What did the ant find?",
+    "answer": "A big grain of rice",
+    "type": "Literal"
+   },
+   {
+    "id": "S13-Q2",
+    "question": "How many ants came to help?",
+    "answer": "Ten",
+    "type": "Literal"
+   },
+   {
+    "id": "S13-Q3",
+    "question": "What is the lesson of the story?",
+    "answer": "We are strong when we work together",
+    "type": "Inferential"
+   }
+  ]
+ },
+ {
+  "id": "S14",
+  "title": "Ang Batang Mahilig Magbasa",
+  "language": "FIL",
+  "level": 3,
+  "text": "Si Carlo ay mahilig magbasa ng mga kuwento. Tuwing hapon, pumupunta siya sa silid-aklatan ng barangay. Doon, binabasa niya ang mga aklat tungkol sa mga hayop at sa kalawakan. Isang araw, napansin niyang hindi pa marunong magbasa ang kanyang kapatid na si Bea. Tinuruan niya si Bea araw-araw. Makalipas ang isang buwan, nakabasa na si Bea ng kanyang unang aklat.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 2,
+    "word": "Carlo",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 3,
+    "word": "ay",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 4,
+    "word": "mahilig",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 5,
+    "word": "magbasa",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 6,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 7,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 8,
+    "word": "kuwento",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 9,
+    "word": "Tuwing",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 10,
+    "word": "hapon",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 11,
+    "word": "pumupunta",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 12,
+    "word": "siya",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 13,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 14,
+    "word": "silid-aklatan",
+    "patterns": [
+     "FIL-KK",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 5,
+    "difficulty": 0.67
+   },
+   {
+    "position": 15,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 16,
+    "word": "barangay",
+    "patterns": [
+     "FIL-NG",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 17,
+    "word": "Doon",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 18,
+    "word": "binabasa",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 19,
+    "word": "niya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 20,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 21,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 22,
+    "word": "aklat",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 23,
+    "word": "tungkol",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 24,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 25,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 26,
+    "word": "hayop",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 27,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 28,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 29,
+    "word": "kalawakan",
+    "patterns": [
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 30,
+    "word": "Isang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 31,
+    "word": "araw",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 2,
+    "difficulty": 0.28
+   },
+   {
+    "position": 32,
+    "word": "napansin",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 33,
+    "word": "niyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 34,
+    "word": "hindi",
+    "patterns": [
+     "FIL-KK",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 35,
+    "word": "pa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 36,
+    "word": "marunong",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 37,
+    "word": "magbasa",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 38,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 39,
+    "word": "kanyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 40,
+    "word": "kapatid",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 41,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 42,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 43,
+    "word": "Bea",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 44,
+    "word": "Tinuruan",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 45,
+    "word": "niya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 46,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 47,
+    "word": "Bea",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 48,
+    "word": "araw-araw",
+    "patterns": [
+     "FIL-DIP",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 49,
+    "word": "Makalipas",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 50,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 51,
+    "word": "isang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 52,
+    "word": "buwan",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 53,
+    "word": "nakabasa",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 54,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 55,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 56,
+    "word": "Bea",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 57,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 58,
+    "word": "kanyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 59,
+    "word": "unang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 60,
+    "word": "aklat",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   }
+  ],
+  "questions": [
+   {
+    "id": "S14-Q1",
+    "question": "Saan pumupunta si Carlo tuwing hapon?",
+    "answer": "Sa silid-aklatan ng barangay",
+    "type": "Literal"
+   },
+   {
+    "id": "S14-Q2",
+    "question": "Sino ang tinuruan ni Carlo?",
+    "answer": "Si Bea, ang kanyang kapatid",
+    "type": "Literal"
+   },
+   {
+    "id": "S14-Q3",
+    "question": "Gaano katagal bago nakabasa si Bea?",
+    "answer": "Isang buwan",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S15",
+  "title": "Ang Ulan sa Bayan",
+  "language": "FIL",
+  "level": 3,
+  "text": "Malakas ang ulan sa bayan ng San Isidro. Bumaha sa kalsada malapit sa paaralan. Hindi makauwi ang mga bata. Dumating ang mga tanod at tumulong. Binuhat nila ang maliliit na bata papunta sa ligtas na lugar. Nagdala rin ang mga magulang ng payong at kapote. Pagtila ng ulan, nagpasalamat ang mga bata sa mga tumulong sa kanila.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Malakas",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 2,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 3,
+    "word": "ulan",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 4,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 5,
+    "word": "bayan",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 6,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 7,
+    "word": "San",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 1,
+    "difficulty": 0.08
+   },
+   {
+    "position": 8,
+    "word": "Isidro",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 3,
+    "difficulty": 0.56
+   },
+   {
+    "position": 9,
+    "word": "Bumaha",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 10,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 11,
+    "word": "kalsada",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 12,
+    "word": "malapit",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 13,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 14,
+    "word": "paaralan",
+    "patterns": [
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 15,
+    "word": "Hindi",
+    "patterns": [
+     "FIL-KK",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 16,
+    "word": "makauwi",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 17,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 18,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 19,
+    "word": "bata",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 20,
+    "word": "Dumating",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 21,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 22,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 23,
+    "word": "tanod",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 24,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 25,
+    "word": "tumulong",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 26,
+    "word": "Binuhat",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 27,
+    "word": "nila",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 28,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 29,
+    "word": "maliliit",
+    "patterns": [
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 30,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 31,
+    "word": "bata",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 32,
+    "word": "papunta",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 33,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 34,
+    "word": "ligtas",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 35,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 36,
+    "word": "lugar",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 37,
+    "word": "Nagdala",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 38,
+    "word": "rin",
+    "patterns": [
+     "FIL-SW",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 1,
+    "difficulty": 0.38
+   },
+   {
+    "position": 39,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 40,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 41,
+    "word": "magulang",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 42,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 43,
+    "word": "payong",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 44,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 45,
+    "word": "kapote",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 46,
+    "word": "Pagtila",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 47,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 48,
+    "word": "ulan",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 49,
+    "word": "nagpasalamat",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 5,
+    "difficulty": 0.67
+   },
+   {
+    "position": 50,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 51,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 52,
+    "word": "bata",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 53,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 54,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 55,
+    "word": "tumulong",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 56,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 57,
+    "word": "kanila",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   }
+  ],
+  "questions": [
+   {
+    "id": "S15-Q1",
+    "question": "Saan bumaha?",
+    "answer": "Sa kalsada malapit sa paaralan",
+    "type": "Literal"
+   },
+   {
+    "id": "S15-Q2",
+    "question": "Sino ang tumulong sa mga bata?",
+    "answer": "Ang mga tanod",
+    "type": "Literal"
+   },
+   {
+    "id": "S15-Q3",
+    "question": "Ano ang dinala ng mga magulang?",
+    "answer": "Payong at kapote",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S16",
+  "title": "The Night Market",
+  "language": "EN",
+  "level": 4,
+  "text": "Every Friday night, the plaza turns into a busy market. Lights hang between the stalls like tiny stars. Marco helps his mother sell banana cue and turon. He counts the coins carefully and gives the right change. One night, a customer forgot her wallet on the table. Marco ran through the crowd to return it. The woman was so thankful that she bought ten pieces of turon for her family. Marco's mother smiled proudly. Being honest is worth more than any money, she said.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Every",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 2,
+    "word": "Friday",
+    "patterns": [
+     "EN-BL",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 3,
+    "word": "night",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 4,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 5,
+    "word": "plaza",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 2,
+    "difficulty": 0.38
+   },
+   {
+    "position": 6,
+    "word": "turns",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 7,
+    "word": "into",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 2,
+    "difficulty": 0.21
+   },
+   {
+    "position": 8,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 9,
+    "word": "busy",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 10,
+    "word": "market",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 11,
+    "word": "Lights",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 12,
+    "word": "hang",
+    "patterns": [
+     "EN-NG"
+    ],
+    "primary_pattern": "EN-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 13,
+    "word": "between",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 14,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 15,
+    "word": "stalls",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 16,
+    "word": "like",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 17,
+    "word": "tiny",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 18,
+    "word": "stars",
+    "patterns": [
+     "EN-BL",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 19,
+    "word": "Marco",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 20,
+    "word": "helps",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 21,
+    "word": "his",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 22,
+    "word": "mother",
+    "patterns": [
+     "EN-TH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 23,
+    "word": "sell",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 24,
+    "word": "banana",
+    "patterns": [
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 25,
+    "word": "cue",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 26,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 27,
+    "word": "turon",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 28,
+    "word": "He",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 29,
+    "word": "counts",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 30,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 31,
+    "word": "coins",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 32,
+    "word": "carefully",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 33,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 34,
+    "word": "gives",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 35,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 36,
+    "word": "right",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 37,
+    "word": "change",
+    "patterns": [
+     "EN-CH"
+    ],
+    "primary_pattern": "EN-CH",
+    "syllables": 1,
+    "difficulty": 0.32
+   },
+   {
+    "position": 38,
+    "word": "One",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 39,
+    "word": "night",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 40,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 41,
+    "word": "customer",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 42,
+    "word": "forgot",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 43,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 44,
+    "word": "wallet",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 45,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 46,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 47,
+    "word": "table",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 48,
+    "word": "Marco",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 49,
+    "word": "ran",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 50,
+    "word": "through",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 51,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 52,
+    "word": "crowd",
+    "patterns": [
+     "EN-BL",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 53,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 54,
+    "word": "return",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 55,
+    "word": "it",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 56,
+    "word": "The",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 57,
+    "word": "woman",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 58,
+    "word": "was",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 59,
+    "word": "so",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 60,
+    "word": "thankful",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 61,
+    "word": "that",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 62,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 63,
+    "word": "bought",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 64,
+    "word": "ten",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 65,
+    "word": "pieces",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 66,
+    "word": "of",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 67,
+    "word": "turon",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 68,
+    "word": "for",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 69,
+    "word": "her",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 70,
+    "word": "family",
+    "patterns": [
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 71,
+    "word": "Marco's",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 72,
+    "word": "mother",
+    "patterns": [
+     "EN-TH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 73,
+    "word": "smiled",
+    "patterns": [
+     "EN-BL",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 74,
+    "word": "proudly",
+    "patterns": [
+     "EN-BL",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 75,
+    "word": "Being",
+    "patterns": [
+     "EN-ING"
+    ],
+    "primary_pattern": "EN-ING",
+    "syllables": 1,
+    "difficulty": 0.28
+   },
+   {
+    "position": 76,
+    "word": "honest",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 77,
+    "word": "is",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 78,
+    "word": "worth",
+    "patterns": [
+     "EN-TH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 79,
+    "word": "more",
+    "patterns": [
+     "EN-RC",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 80,
+    "word": "than",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 81,
+    "word": "any",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 82,
+    "word": "money",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 83,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 84,
+    "word": "said",
+    "patterns": [
+     "EN-SW",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   }
+  ],
+  "questions": [
+   {
+    "id": "S16-Q1",
+    "question": "What does Marco help sell?",
+    "answer": "Banana cue and turon",
+    "type": "Literal"
+   },
+   {
+    "id": "S16-Q2",
+    "question": "What did the customer forget?",
+    "answer": "Her wallet",
+    "type": "Literal"
+   },
+   {
+    "id": "S16-Q3",
+    "question": "What did Marco's mother say is worth more than money?",
+    "answer": "Being honest",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S17",
+  "title": "Planting Mangroves",
+  "language": "EN",
+  "level": 4,
+  "text": "Our class went on a trip to the coast to plant mangroves. Our teacher explained that mangrove roots hold the soil and protect the village from strong waves during typhoons. They are also homes for crabs, fish and birds. We walked carefully in the soft mud. Each of us planted three young mangroves and tied them to bamboo sticks so the water would not wash them away. In ten years, our small plants will grow into a forest that keeps our town safe.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Our",
+    "patterns": [
+     "EN-OU",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 2,
+    "word": "class",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 3,
+    "word": "went",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 4,
+    "word": "on",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 5,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 6,
+    "word": "trip",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 7,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 8,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 9,
+    "word": "coast",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 10,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 11,
+    "word": "plant",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 12,
+    "word": "mangroves",
+    "patterns": [
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 13,
+    "word": "Our",
+    "patterns": [
+     "EN-OU",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 14,
+    "word": "teacher",
+    "patterns": [
+     "EN-CH",
+     "EN-VT",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 15,
+    "word": "explained",
+    "patterns": [
+     "EN-ED",
+     "EN-VT",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 16,
+    "word": "that",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 17,
+    "word": "mangrove",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 18,
+    "word": "roots",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 19,
+    "word": "hold",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 20,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 21,
+    "word": "soil",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 22,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 23,
+    "word": "protect",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 2,
+    "difficulty": 0.38
+   },
+   {
+    "position": 24,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 25,
+    "word": "village",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 26,
+    "word": "from",
+    "patterns": [
+     "EN-SW",
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 27,
+    "word": "strong",
+    "patterns": [
+     "EN-BL3",
+     "EN-NG"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 28,
+    "word": "waves",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 29,
+    "word": "during",
+    "patterns": [
+     "EN-ING",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 30,
+    "word": "typhoons",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 31,
+    "word": "They",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 32,
+    "word": "are",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 33,
+    "word": "also",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 34,
+    "word": "homes",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 35,
+    "word": "for",
+    "patterns": [
+     "EN-SW",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 36,
+    "word": "crabs",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 37,
+    "word": "fish",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 38,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 39,
+    "word": "birds",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 40,
+    "word": "We",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 41,
+    "word": "walked",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 42,
+    "word": "carefully",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 43,
+    "word": "in",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 44,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 45,
+    "word": "soft",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 46,
+    "word": "mud",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 47,
+    "word": "Each",
+    "patterns": [
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 48,
+    "word": "of",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 49,
+    "word": "us",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 50,
+    "word": "planted",
+    "patterns": [
+     "EN-BL",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 51,
+    "word": "three",
+    "patterns": [
+     "EN-BL3",
+     "EN-TH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-BL3",
+    "syllables": 1,
+    "difficulty": 0.62
+   },
+   {
+    "position": 52,
+    "word": "young",
+    "patterns": [
+     "EN-NG",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 53,
+    "word": "mangroves",
+    "patterns": [
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 54,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 55,
+    "word": "tied",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 1,
+    "difficulty": 0.36
+   },
+   {
+    "position": 56,
+    "word": "them",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 57,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 58,
+    "word": "bamboo",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 59,
+    "word": "sticks",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 60,
+    "word": "so",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 61,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 62,
+    "word": "water",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 63,
+    "word": "would",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 64,
+    "word": "not",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 65,
+    "word": "wash",
+    "patterns": [
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 66,
+    "word": "them",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 67,
+    "word": "away",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 68,
+    "word": "In",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 69,
+    "word": "ten",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 70,
+    "word": "years",
+    "patterns": [
+     "EN-VT",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 71,
+    "word": "our",
+    "patterns": [
+     "EN-OU",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 72,
+    "word": "small",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 73,
+    "word": "plants",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 74,
+    "word": "will",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 75,
+    "word": "grow",
+    "patterns": [
+     "EN-BL",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 76,
+    "word": "into",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 2,
+    "difficulty": 0.21
+   },
+   {
+    "position": 77,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 78,
+    "word": "forest",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 79,
+    "word": "that",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 80,
+    "word": "keeps",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 81,
+    "word": "our",
+    "patterns": [
+     "EN-OU",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 82,
+    "word": "town",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 83,
+    "word": "safe",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   }
+  ],
+  "questions": [
+   {
+    "id": "S17-Q1",
+    "question": "Why are mangroves important?",
+    "answer": "They protect the village from strong waves",
+    "type": "Inferential"
+   },
+   {
+    "id": "S17-Q2",
+    "question": "How many mangroves did each student plant?",
+    "answer": "Three",
+    "type": "Literal"
+   },
+   {
+    "id": "S17-Q3",
+    "question": "What were the young mangroves tied to?",
+    "answer": "Bamboo sticks",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S18",
+  "title": "The Robot Who Could Not Read",
+  "language": "EN",
+  "level": 4,
+  "text": "In a busy library lived a small robot named Bolt. Bolt could sort books, sweep the floor and fix the lights, but Bolt could not read. Every afternoon, a girl named Lia came to the library. One day she noticed Bolt staring at a picture book. Do you want me to teach you, she asked. Bolt beeped happily. Each day, Lia pointed at words and sounded them out slowly. After many weeks, Bolt read a whole story aloud to the other children. Everyone clapped, and Lia clapped the loudest.",
+  "words": [
+   {
+    "position": 1,
+    "word": "In",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 2,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 3,
+    "word": "busy",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 4,
+    "word": "library",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 5,
+    "word": "lived",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 6,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 7,
+    "word": "small",
+    "patterns": [
+     "EN-BL"
+    ],
+    "primary_pattern": "EN-BL",
+    "syllables": 1,
+    "difficulty": 0.35
+   },
+   {
+    "position": 8,
+    "word": "robot",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 9,
+    "word": "named",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 10,
+    "word": "Bolt",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 11,
+    "word": "Bolt",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 12,
+    "word": "could",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 13,
+    "word": "sort",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 14,
+    "word": "books",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 15,
+    "word": "sweep",
+    "patterns": [
+     "EN-BL",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 16,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 17,
+    "word": "floor",
+    "patterns": [
+     "EN-BL",
+     "EN-VT",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 18,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 19,
+    "word": "fix",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 20,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 21,
+    "word": "lights",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 22,
+    "word": "but",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 23,
+    "word": "Bolt",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 24,
+    "word": "could",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 25,
+    "word": "not",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 26,
+    "word": "read",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 27,
+    "word": "Every",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 28,
+    "word": "afternoon",
+    "patterns": [
+     "EN-VT",
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 29,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 30,
+    "word": "girl",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 31,
+    "word": "named",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 32,
+    "word": "Lia",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 33,
+    "word": "came",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 34,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 35,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 36,
+    "word": "library",
+    "patterns": [
+     "EN-RC",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 37,
+    "word": "One",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 38,
+    "word": "day",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 39,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 40,
+    "word": "noticed",
+    "patterns": [
+     "EN-ED",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 41,
+    "word": "Bolt",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 42,
+    "word": "staring",
+    "patterns": [
+     "EN-BL",
+     "EN-ING",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 43,
+    "word": "at",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 44,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 45,
+    "word": "picture",
+    "patterns": [
+     "EN-RC",
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 46,
+    "word": "book",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 47,
+    "word": "Do",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 48,
+    "word": "you",
+    "patterns": [
+     "EN-SW",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 49,
+    "word": "want",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 50,
+    "word": "me",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 51,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 52,
+    "word": "teach",
+    "patterns": [
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 53,
+    "word": "you",
+    "patterns": [
+     "EN-SW",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 54,
+    "word": "she",
+    "patterns": [
+     "EN-SW",
+     "EN-SH"
+    ],
+    "primary_pattern": "EN-SH",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 55,
+    "word": "asked",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 56,
+    "word": "Bolt",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 57,
+    "word": "beeped",
+    "patterns": [
+     "EN-ED",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 2,
+    "difficulty": 0.48
+   },
+   {
+    "position": 58,
+    "word": "happily",
+    "patterns": [
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 59,
+    "word": "Each",
+    "patterns": [
+     "EN-CH",
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 60,
+    "word": "day",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 61,
+    "word": "Lia",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 62,
+    "word": "pointed",
+    "patterns": [
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 63,
+    "word": "at",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 64,
+    "word": "words",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 1,
+    "difficulty": 0.42
+   },
+   {
+    "position": 65,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 66,
+    "word": "sounded",
+    "patterns": [
+     "EN-ED",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 67,
+    "word": "them",
+    "patterns": [
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 68,
+    "word": "out",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 1,
+    "difficulty": 0.7
+   },
+   {
+    "position": 69,
+    "word": "slowly",
+    "patterns": [
+     "EN-BL",
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 70,
+    "word": "After",
+    "patterns": [
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 71,
+    "word": "many",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 2,
+    "difficulty": 0.13
+   },
+   {
+    "position": 72,
+    "word": "weeks",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 73,
+    "word": "Bolt",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 74,
+    "word": "read",
+    "patterns": [
+     "EN-VT"
+    ],
+    "primary_pattern": "EN-VT",
+    "syllables": 1,
+    "difficulty": 0.45
+   },
+   {
+    "position": 75,
+    "word": "a",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 76,
+    "word": "whole",
+    "patterns": [
+     "EN-ME"
+    ],
+    "primary_pattern": "EN-ME",
+    "syllables": 2,
+    "difficulty": 0.43
+   },
+   {
+    "position": 77,
+    "word": "story",
+    "patterns": [
+     "EN-BL",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 78,
+    "word": "aloud",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   },
+   {
+    "position": 79,
+    "word": "to",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 80,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 81,
+    "word": "other",
+    "patterns": [
+     "EN-TH",
+     "EN-RC"
+    ],
+    "primary_pattern": "EN-RC",
+    "syllables": 2,
+    "difficulty": 0.45
+   },
+   {
+    "position": 82,
+    "word": "children",
+    "patterns": [
+     "EN-CH"
+    ],
+    "primary_pattern": "EN-CH",
+    "syllables": 2,
+    "difficulty": 0.35
+   },
+   {
+    "position": 83,
+    "word": "Everyone",
+    "patterns": [
+     "EN-RC",
+     "EN-ME",
+     "EN-ML"
+    ],
+    "primary_pattern": "EN-ML",
+    "syllables": 3,
+    "difficulty": 0.61
+   },
+   {
+    "position": 84,
+    "word": "clapped",
+    "patterns": [
+     "EN-BL",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 85,
+    "word": "and",
+    "patterns": [
+     "EN-SW"
+    ],
+    "primary_pattern": "EN-SW",
+    "syllables": 1,
+    "difficulty": 0.18
+   },
+   {
+    "position": 86,
+    "word": "Lia",
+    "patterns": [
+     "EN-SV"
+    ],
+    "primary_pattern": "EN-SV",
+    "syllables": 1,
+    "difficulty": 0.1
+   },
+   {
+    "position": 87,
+    "word": "clapped",
+    "patterns": [
+     "EN-BL",
+     "EN-ED"
+    ],
+    "primary_pattern": "EN-ED",
+    "syllables": 2,
+    "difficulty": 0.39
+   },
+   {
+    "position": 88,
+    "word": "the",
+    "patterns": [
+     "EN-SW",
+     "EN-TH"
+    ],
+    "primary_pattern": "EN-TH",
+    "syllables": 1,
+    "difficulty": 0.4
+   },
+   {
+    "position": 89,
+    "word": "loudest",
+    "patterns": [
+     "EN-OU"
+    ],
+    "primary_pattern": "EN-OU",
+    "syllables": 2,
+    "difficulty": 0.73
+   }
+  ],
+  "questions": [
+   {
+    "id": "S18-Q1",
+    "question": "What could Bolt not do?",
+    "answer": "Read",
+    "type": "Literal"
+   },
+   {
+    "id": "S18-Q2",
+    "question": "Who taught Bolt?",
+    "answer": "Lia",
+    "type": "Literal"
+   },
+   {
+    "id": "S18-Q3",
+    "question": "What did Bolt do at the end?",
+    "answer": "Read a whole story aloud",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S19",
+  "title": "Ang Pista sa Aming Baryo",
+  "language": "FIL",
+  "level": 4,
+  "text": "Tuwing Mayo, ipinagdiriwang ang pista sa aming baryo. Ilang araw bago nito, naglilinis at nagdedekorasyon ang lahat ng pamilya. Nagsasabit kami ng makukulay na banderitas sa kalye. Sa araw ng pista, may parada, palaro at sayawan sa plaza. Nagluluto si Nanay ng pansit, lumpia at leche flan para sa mga bisita. Masayang-masaya ako dahil umuuwi rin ang aking mga pinsan mula sa Maynila. Sa gabi, nanonood kami ng paputok kasama ang buong pamilya.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Tuwing",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 2,
+    "word": "Mayo",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 3,
+    "word": "ipinagdiriwang",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 6,
+    "difficulty": 0.7
+   },
+   {
+    "position": 4,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 5,
+    "word": "pista",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 6,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 7,
+    "word": "aming",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 8,
+    "word": "baryo",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 9,
+    "word": "Ilang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 10,
+    "word": "araw",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 2,
+    "difficulty": 0.28
+   },
+   {
+    "position": 11,
+    "word": "bago",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 12,
+    "word": "nito",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 13,
+    "word": "naglilinis",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 14,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 15,
+    "word": "nagdedekorasyon",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 6,
+    "difficulty": 0.7
+   },
+   {
+    "position": 16,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 17,
+    "word": "lahat",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 18,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 19,
+    "word": "pamilya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 20,
+    "word": "Nagsasabit",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 21,
+    "word": "kami",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 22,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 23,
+    "word": "makukulay",
+    "patterns": [
+     "FIL-DIP",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 24,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 25,
+    "word": "banderitas",
+    "patterns": [
+     "FIL-KK",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 26,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 27,
+    "word": "kalye",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 28,
+    "word": "Sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 29,
+    "word": "araw",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 2,
+    "difficulty": 0.28
+   },
+   {
+    "position": 30,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 31,
+    "word": "pista",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 32,
+    "word": "may",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 33,
+    "word": "parada",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 34,
+    "word": "palaro",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 35,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 36,
+    "word": "sayawan",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 37,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 38,
+    "word": "plaza",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 39,
+    "word": "Nagluluto",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 40,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 41,
+    "word": "Nanay",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 2,
+    "difficulty": 0.28
+   },
+   {
+    "position": 42,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 43,
+    "word": "pansit",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 44,
+    "word": "lumpia",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 45,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 46,
+    "word": "leche",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 47,
+    "word": "flan",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 1,
+    "difficulty": 0.5
+   },
+   {
+    "position": 48,
+    "word": "para",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 49,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 50,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 51,
+    "word": "bisita",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 52,
+    "word": "Masayang-masaya",
+    "patterns": [
+     "FIL-NG",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 6,
+    "difficulty": 0.7
+   },
+   {
+    "position": 53,
+    "word": "ako",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 54,
+    "word": "dahil",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 55,
+    "word": "umuuwi",
+    "patterns": [
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 56,
+    "word": "rin",
+    "patterns": [
+     "FIL-SW",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 1,
+    "difficulty": 0.38
+   },
+   {
+    "position": 57,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 58,
+    "word": "aking",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 59,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 60,
+    "word": "pinsan",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 2,
+    "difficulty": 0.41
+   },
+   {
+    "position": 61,
+    "word": "mula",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 62,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 63,
+    "word": "Maynila",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 3,
+    "difficulty": 0.31
+   },
+   {
+    "position": 64,
+    "word": "Sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 65,
+    "word": "gabi",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 66,
+    "word": "nanonood",
+    "patterns": [
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 67,
+    "word": "kami",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 68,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 69,
+    "word": "paputok",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 70,
+    "word": "kasama",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 71,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 72,
+    "word": "buong",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 73,
+    "word": "pamilya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   }
+  ],
+  "questions": [
+   {
+    "id": "S19-Q1",
+    "question": "Kailan ipinagdiriwang ang pista?",
+    "answer": "Tuwing Mayo",
+    "type": "Literal"
+   },
+   {
+    "id": "S19-Q2",
+    "question": "Ano ang niluluto ni Nanay?",
+    "answer": "Pansit, lumpia at leche flan",
+    "type": "Literal"
+   },
+   {
+    "id": "S19-Q3",
+    "question": "Saan nanggaling ang mga pinsan?",
+    "answer": "Sa Maynila",
+    "type": "Literal"
+   }
+  ]
+ },
+ {
+  "id": "S20",
+  "title": "Si Pagong at ang Plastik",
+  "language": "FIL",
+  "level": 4,
+  "text": "Isang umaga, lumangoy si Pagong sa malinaw na dagat. Bigla siyang nakakita ng isang bagay na lumulutang. Akala niya ay dikya ito, kaya sinubukan niyang kainin. Ngunit plastik pala ito! Mabuti na lamang at may mga batang naglilinis ng dalampasigan. Nakita nila si Pagong at maingat nilang tinanggal ang plastik. Mula noon, nangako ang mga bata na hindi na sila magtatapon ng basura sa dagat. Masayang lumangoy palayo si Pagong.",
+  "words": [
+   {
+    "position": 1,
+    "word": "Isang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 2,
+    "word": "umaga",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 3,
+    "word": "lumangoy",
+    "patterns": [
+     "FIL-NG",
+     "FIL-DIP",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 4,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 5,
+    "word": "Pagong",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 2,
+    "difficulty": 0.41
+   },
+   {
+    "position": 6,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 7,
+    "word": "malinaw",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 3,
+    "difficulty": 0.31
+   },
+   {
+    "position": 8,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 9,
+    "word": "dagat",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 10,
+    "word": "Bigla",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 11,
+    "word": "siyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 12,
+    "word": "nakakita",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 13,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 14,
+    "word": "isang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 15,
+    "word": "bagay",
+    "patterns": [
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 2,
+    "difficulty": 0.28
+   },
+   {
+    "position": 16,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 17,
+    "word": "lumulutang",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 18,
+    "word": "Akala",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 19,
+    "word": "niya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 20,
+    "word": "ay",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 21,
+    "word": "dikya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 22,
+    "word": "ito",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 23,
+    "word": "kaya",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 24,
+    "word": "sinubukan",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 25,
+    "word": "niyang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 26,
+    "word": "kainin",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 27,
+    "word": "Ngunit",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 28,
+    "word": "plastik",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 29,
+    "word": "pala",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 30,
+    "word": "ito",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 31,
+    "word": "Mabuti",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 32,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 33,
+    "word": "lamang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 34,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 35,
+    "word": "may",
+    "patterns": [
+     "FIL-SW",
+     "FIL-DIP"
+    ],
+    "primary_pattern": "FIL-DIP",
+    "syllables": 1,
+    "difficulty": 0.25
+   },
+   {
+    "position": 36,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 37,
+    "word": "batang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 38,
+    "word": "naglilinis",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 39,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 40,
+    "word": "dalampasigan",
+    "patterns": [
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 5,
+    "difficulty": 0.67
+   },
+   {
+    "position": 41,
+    "word": "Nakita",
+    "patterns": [
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 42,
+    "word": "nila",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 43,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 44,
+    "word": "Pagong",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 2,
+    "difficulty": 0.41
+   },
+   {
+    "position": 45,
+    "word": "at",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 46,
+    "word": "maingat",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 47,
+    "word": "nilang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 2,
+    "difficulty": 0.33
+   },
+   {
+    "position": 48,
+    "word": "tinanggal",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 49,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 50,
+    "word": "plastik",
+    "patterns": [
+     "FIL-KK"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 51,
+    "word": "Mula",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 52,
+    "word": "noon",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 53,
+    "word": "nangako",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 54,
+    "word": "ang",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 55,
+    "word": "mga",
+    "patterns": [
+     "FIL-MGA"
+    ],
+    "primary_pattern": "FIL-MGA",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 56,
+    "word": "bata",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 57,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 58,
+    "word": "hindi",
+    "patterns": [
+     "FIL-KK",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-KK",
+    "syllables": 2,
+    "difficulty": 0.53
+   },
+   {
+    "position": 59,
+    "word": "na",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 60,
+    "word": "sila",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 2,
+    "difficulty": 0.15
+   },
+   {
+    "position": 61,
+    "word": "magtatapon",
+    "patterns": [
+     "FIL-AFX",
+     "FIL-ML"
+    ],
+    "primary_pattern": "FIL-ML",
+    "syllables": 4,
+    "difficulty": 0.64
+   },
+   {
+    "position": 62,
+    "word": "ng",
+    "patterns": [
+     "FIL-SW",
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 1,
+    "difficulty": 0.3
+   },
+   {
+    "position": 63,
+    "word": "basura",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 64,
+    "word": "sa",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 65,
+    "word": "dagat",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 2,
+    "difficulty": 0.11
+   },
+   {
+    "position": 66,
+    "word": "Masayang",
+    "patterns": [
+     "FIL-NG"
+    ],
+    "primary_pattern": "FIL-NG",
+    "syllables": 3,
+    "difficulty": 0.36
+   },
+   {
+    "position": 67,
+    "word": "lumangoy",
+    "patterns": [
+     "FIL-NG",
+     "FIL-DIP",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 3,
+    "difficulty": 0.44
+   },
+   {
+    "position": 68,
+    "word": "palayo",
+    "patterns": [
+     "FIL-CV"
+    ],
+    "primary_pattern": "FIL-CV",
+    "syllables": 3,
+    "difficulty": 0.14
+   },
+   {
+    "position": 69,
+    "word": "si",
+    "patterns": [
+     "FIL-SW"
+    ],
+    "primary_pattern": "FIL-SW",
+    "syllables": 1,
+    "difficulty": 0.12
+   },
+   {
+    "position": 70,
+    "word": "Pagong",
+    "patterns": [
+     "FIL-NG",
+     "FIL-AFX"
+    ],
+    "primary_pattern": "FIL-AFX",
+    "syllables": 2,
+    "difficulty": 0.41
+   }
+  ],
+  "questions": [
+   {
+    "id": "S20-Q1",
+    "question": "Ano ang akala ni Pagong sa plastik?",
+    "answer": "Dikya",
+    "type": "Literal"
+   },
+   {
+    "id": "S20-Q2",
+    "question": "Sino ang tumulong kay Pagong?",
+    "answer": "Mga batang naglilinis ng dalampasigan",
+    "type": "Literal"
+   },
+   {
+    "id": "S20-Q3",
+    "question": "Ano ang ipinangako ng mga bata?",
+    "answer": "Hindi na sila magtatapon ng basura sa dagat",
+    "type": "Literal"
+   }
+  ]
+ }
+]

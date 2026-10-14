@@ -1,0 +1,24 @@
+pattern_code,language,pattern_name,description,example_words,difficulty_weight
+EN-SV,EN,Short vowel (CVC),Simple consonant-vowel-consonant words with a short vowel,"cat, big, red, mud",0.1
+EN-SW,EN,High-frequency sight word,"Common words learned by sight, often irregular","the, was, said, they",0.18
+EN-BL,EN,Two-letter blend,Two consonants blended at the start of a word,"flew, tree, stop, play",0.35
+EN-BL3,EN,Three-letter blend,"Three consonants blended (str, spr, scr, thr)","strong, through, three",0.62
+EN-TH,EN,Digraph th,Two letters making one sound /th/,"the, three, thin, with",0.4
+EN-SH,EN,Digraph sh,Two letters making one sound /sh/,"shell, ship, shirt",0.3
+EN-CH,EN,Digraph ch,Two letters making one sound /ch/,"children, each, chair",0.32
+EN-NG,EN,Ending ng,Words ending in the /ng/ sound,"strong, long, hang",0.3
+EN-ING,EN,Suffix -ing,Words with the -ing ending,"going, running, slipping",0.28
+EN-ED,EN,Suffix -ed,"Past tense -ed ending (/t/, /d/, /id/)","helped, pushed, waved",0.36
+EN-VT,EN,Vowel team,"Two vowels making one sound (ai, ay, ee, ea, oa, oo)","rain, day, tree, sea, boat",0.45
+EN-OU,EN,ou / ough / ow,Tricky vowel spellings,"through, cloud, down",0.7
+EN-RC,EN,R-controlled vowel,"Vowel followed by r (ar, er, ir, or, ur)","shirt, market, forgot",0.42
+EN-ME,EN,Silent (magic) e,Long vowel made by a final silent e,"kite, came, home",0.4
+EN-ML,EN,Multisyllable word,Words with three or more syllables,"another, carefully, typhoons",0.55
+FIL-CV,FIL,Simple syllables (KP),Words made of simple consonant-vowel syllables,"bola, pusa, mesa",0.08
+FIL-SW,FIL,Madalas na salita (sight word),Very common short function words,"ang, sa, si, ni, ay",0.12
+FIL-NG,FIL,Digraph ng,"The ng sound as one letter (ng, nga, ngi)","ng, ngunit, bangka",0.3
+FIL-MGA,FIL,Salitang mga,Special spelling: mga is read 'manga',mga,0.3
+FIL-DIP,FIL,"Diphthong (ay, aw, iy, uy, oy)",Two vowel sounds glided together,"bahay, araw, kasayaw",0.25
+FIL-KK,FIL,Consonant cluster (kambal-katinig),"Two consonants together, often in loanwords","plastik, trabaho, banderitas",0.5
+FIL-AFX,FIL,Affixed word (panlapi),"Words with prefixes or infixes such as nag-, mag-, -um-, -in-","naglilinis, kumain, tinuruan",0.38
+FIL-ML,FIL,Long word (4+ syllables),"Long words, reduplicated or hyphenated words","ipinagdiriwang, masayang-masaya",0.55

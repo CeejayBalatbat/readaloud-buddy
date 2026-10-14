@@ -1,0 +1,43 @@
+learner_id,grade,class_code,reading_language,device_context,dyslexia_mode,hint_wait_sec,guardian_consent,start_level,final_level
+L001,1,1A-ILANG-ILANG,Both,Own device,No,5,Yes,1,1
+L002,3,3C-NARRA,FIL,Classroom tablet,No,5,Yes,1,1
+L003,3,3C-NARRA,EN,Classroom tablet,No,5,Yes,3,3
+L004,2,2B-SAMPAGUITA,FIL,Own device,No,5,Yes,1,1
+L005,3,3C-NARRA,EN,Shared family phone,No,5,Yes,2,2
+L006,3,3C-NARRA,EN,Classroom tablet,No,5,Yes,2,2
+L007,3,3C-NARRA,Both,Own device,No,5,Yes,4,4
+L008,3,3C-NARRA,FIL,Shared family phone,No,5,Yes,1,1
+L009,3,3C-NARRA,FIL,Shared family phone,No,5,Yes,3,1
+L010,2,2B-SAMPAGUITA,EN,Classroom tablet,No,5,Yes,2,2
+L011,1,1A-ILANG-ILANG,Both,Own device,No,5,Yes,3,3
+L012,3,3C-NARRA,FIL,Classroom tablet,No,5,Yes,4,4
+L013,2,2B-SAMPAGUITA,FIL,Classroom tablet,No,5,Yes,2,3
+L014,1,1A-ILANG-ILANG,Both,Shared family phone,No,5,Yes,1,1
+L015,3,3C-NARRA,FIL,Classroom tablet,No,5,Yes,3,4
+L016,2,2B-SAMPAGUITA,Both,Classroom tablet,No,5,Yes,2,1
+L017,2,2B-SAMPAGUITA,Both,Shared family phone,No,5,Yes,2,2
+L018,2,2B-SAMPAGUITA,Both,Classroom tablet,No,8,Yes,1,1
+L019,1,1A-ILANG-ILANG,Both,Classroom tablet,No,5,Yes,1,1
+L020,2,2B-SAMPAGUITA,FIL,Shared family phone,No,5,Yes,3,3
+L021,2,2B-SAMPAGUITA,EN,Shared family phone,No,5,Yes,1,1
+L022,1,1A-ILANG-ILANG,FIL,Shared family phone,No,5,Yes,1,1
+L023,1,1A-ILANG-ILANG,Both,Classroom tablet,No,5,Yes,1,1
+L024,2,2B-SAMPAGUITA,Both,Own device,Yes,8,Yes,1,1
+L025,1,1A-ILANG-ILANG,EN,Classroom tablet,No,5,Yes,1,1
+L026,3,3C-NARRA,Both,Own device,No,5,Yes,1,2
+L027,1,1A-ILANG-ILANG,FIL,Own device,No,5,Yes,2,1
+L028,2,2B-SAMPAGUITA,FIL,Shared family phone,No,5,Yes,1,1
+L029,3,3C-NARRA,Both,Own device,No,5,Yes,3,3
+L030,3,3C-NARRA,FIL,Shared family phone,No,5,Yes,2,4
+L031,1,1A-ILANG-ILANG,Both,Classroom tablet,No,5,Yes,2,1
+L032,2,2B-SAMPAGUITA,Both,Own device,No,5,Yes,2,2
+L033,2,2B-SAMPAGUITA,FIL,Shared family phone,No,5,Yes,3,2
+L034,2,2B-SAMPAGUITA,Both,Shared family phone,No,5,Yes,2,2
+L035,3,3C-NARRA,Both,Shared family phone,No,5,Yes,2,2
+L036,2,2B-SAMPAGUITA,Both,Shared family phone,No,5,Yes,1,1
+L037,3,3C-NARRA,FIL,Shared family phone,No,5,Yes,3,3
+L038,2,2B-SAMPAGUITA,Both,Classroom tablet,No,5,Yes,4,4
+L039,1,1A-ILANG-ILANG,FIL,Classroom tablet,No,8,Yes,1,1
+L040,2,2B-SAMPAGUITA,FIL,Classroom tablet,No,8,Yes,1,1
+L041,3,3C-NARRA,FIL,Classroom tablet,No,5,Yes,2,2
+L042,2,2B-SAMPAGUITA,Both,Shared family phone,No,5,Yes,1,2
