@@ -286,19 +286,70 @@
     "id": "S01-Q1",
     "question": "Where did the cat sit?",
     "answer": "On a red mat",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "On a red mat",
+      "emoji": "\ud83d\udfe5",
+      "correct": true
+     },
+     {
+      "text": "On a blue bed",
+      "emoji": "\ud83d\udecf\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Under a tree",
+      "emoji": "\ud83c\udf33",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S01-Q2",
     "question": "What did Sam do?",
     "answer": "He had a nap",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "He ran to school",
+      "emoji": "\ud83c\udfc3",
+      "correct": false
+     },
+     {
+      "text": "He had a nap",
+      "emoji": "\ud83d\ude34",
+      "correct": true
+     },
+     {
+      "text": "He ate a cake",
+      "emoji": "\ud83c\udf70",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S01-Q3",
     "question": "What color is the mat?",
     "answer": "Red",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Blue",
+      "emoji": "\ud83d\udd35",
+      "correct": false
+     },
+     {
+      "text": "Green",
+      "emoji": "\ud83d\udfe2",
+      "correct": false
+     },
+     {
+      "text": "Red",
+      "emoji": "\ud83d\udd34",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -581,19 +632,70 @@
     "id": "S02-Q1",
     "question": "What color is the bus?",
     "answer": "Red",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Red",
+      "emoji": "\ud83d\udd34",
+      "correct": true
+     },
+     {
+      "text": "Yellow",
+      "emoji": "\ud83d\udfe1",
+      "correct": false
+     },
+     {
+      "text": "Blue",
+      "emoji": "\ud83d\udd35",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S02-Q2",
     "question": "Who sat with Ben?",
     "answer": "His mom",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "His dog",
+      "emoji": "\ud83d\udc36",
+      "correct": false
+     },
+     {
+      "text": "His mom",
+      "emoji": "\ud83d\udc69",
+      "correct": true
+     },
+     {
+      "text": "His teacher",
+      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S02-Q3",
     "question": "Where did the bus go?",
     "answer": "Up the hill",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Into the sea",
+      "emoji": "\ud83c\udf0a",
+      "correct": false
+     },
+     {
+      "text": "To the shop",
+      "emoji": "\ud83c\udfea",
+      "correct": false
+     },
+     {
+      "text": "Up the hill",
+      "emoji": "\u26f0\ufe0f",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -833,19 +935,70 @@
     "id": "S03-Q1",
     "question": "Where did Pip dig?",
     "answer": "In the mud",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "In the mud",
+      "emoji": "\ud83d\udfeb",
+      "correct": true
+     },
+     {
+      "text": "In the sand",
+      "emoji": "\ud83c\udfd6\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "In the tub",
+      "emoji": "\ud83d\udec1",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S03-Q2",
     "question": "Why did Pip get wet?",
     "answer": "He dug in the mud",
-    "type": "Inferential"
+    "type": "Inferential",
+    "choices": [
+     {
+      "text": "It rained on him",
+      "emoji": "\ud83c\udf27\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "He dug in the mud",
+      "emoji": "\ud83d\udca6",
+      "correct": true
+     },
+     {
+      "text": "He fell in a pond",
+      "emoji": "\ud83e\udd86",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S03-Q3",
     "question": "What did Mom tell Pip to do?",
     "answer": "Get in the tub",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Go to bed",
+      "emoji": "\ud83d\udecf\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Eat his food",
+      "emoji": "\ud83c\udf7d\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Get in the tub",
+      "emoji": "\ud83d\udec1",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -1046,19 +1199,70 @@
     "id": "S04-Q1",
     "question": "Ano ang kulay ng bola?",
     "answer": "Pula",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Pula",
+      "emoji": "\ud83d\udd34",
+      "correct": true
+     },
+     {
+      "text": "Asul",
+      "emoji": "\ud83d\udd35",
+      "correct": false
+     },
+     {
+      "text": "Dilaw",
+      "emoji": "\ud83d\udfe1",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S04-Q2",
     "question": "Sino ang sumalo ng bola?",
     "answer": "Si Lito",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Si Ana",
+      "emoji": "\ud83d\udc67",
+      "correct": false
+     },
+     {
+      "text": "Si Lito",
+      "emoji": "\ud83d\udc66",
+      "correct": true
+     },
+     {
+      "text": "Si Nanay",
+      "emoji": "\ud83d\udc69",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S04-Q3",
     "question": "Ano ang naramdaman nila?",
     "answer": "Masaya sila",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Malungkot sila",
+      "emoji": "\ud83d\ude22",
+      "correct": false
+     },
+     {
+      "text": "Galit sila",
+      "emoji": "\ud83d\ude20",
+      "correct": false
+     },
+     {
+      "text": "Masaya sila",
+      "emoji": "\ud83d\ude0a",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -1277,19 +1481,70 @@
     "id": "S05-Q1",
     "question": "Anong hayop si Mimi?",
     "answer": "Pusa",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Pusa",
+      "emoji": "\ud83d\udc31",
+      "correct": true
+     },
+     {
+      "text": "Aso",
+      "emoji": "\ud83d\udc36",
+      "correct": false
+     },
+     {
+      "text": "Ibon",
+      "emoji": "\ud83d\udc26",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S05-Q2",
     "question": "Ano ang gusto ni Mimi?",
     "answer": "Isda",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Gatas",
+      "emoji": "\ud83e\udd5b",
+      "correct": false
+     },
+     {
+      "text": "Isda",
+      "emoji": "\ud83d\udc1f",
+      "correct": true
+     },
+     {
+      "text": "Tinapay",
+      "emoji": "\ud83c\udf5e",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S05-Q3",
     "question": "Saan natulog si Mimi?",
     "answer": "Sa mesa",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sa kama",
+      "emoji": "\ud83d\udecf\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Sa sahig",
+      "emoji": "\ud83d\udfeb",
+      "correct": false
+     },
+     {
+      "text": "Sa mesa",
+      "emoji": "\ud83e\ude91",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -1771,19 +2026,70 @@
     "id": "S06-Q1",
     "question": "Why did the kite go up high?",
     "answer": "The wind was strong",
-    "type": "Inferential"
+    "type": "Inferential",
+    "choices": [
+     {
+      "text": "The wind was strong",
+      "emoji": "\ud83c\udf2c\ufe0f",
+      "correct": true
+     },
+     {
+      "text": "Dad threw it up",
+      "emoji": "\ud83d\udc68",
+      "correct": false
+     },
+     {
+      "text": "The sun was hot",
+      "emoji": "\u2600\ufe0f",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S06-Q2",
     "question": "Where did the kite land?",
     "answer": "On a tree",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "On a house",
+      "emoji": "\ud83c\udfe0",
+      "correct": false
+     },
+     {
+      "text": "On a tree",
+      "emoji": "\ud83c\udf33",
+      "correct": true
+     },
+     {
+      "text": "In a lake",
+      "emoji": "\ud83c\udfde\ufe0f",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S06-Q3",
     "question": "Who helped Mia?",
     "answer": "Dad",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Mom",
+      "emoji": "\ud83d\udc69",
+      "correct": false
+     },
+     {
+      "text": "Her friend",
+      "emoji": "\ud83d\udc67",
+      "correct": false
+     },
+     {
+      "text": "Dad",
+      "emoji": "\ud83d\udc68",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -2265,19 +2571,70 @@
     "id": "S07-Q1",
     "question": "Where did Dot find the shell?",
     "answer": "In the sand",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "In the sand",
+      "emoji": "\ud83c\udfd6\ufe0f",
+      "correct": true
+     },
+     {
+      "text": "In the water",
+      "emoji": "\ud83c\udf0a",
+      "correct": false
+     },
+     {
+      "text": "Under a rock",
+      "emoji": "\ud83e\udea8",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S07-Q2",
     "question": "What did Dot hear?",
     "answer": "The sea",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "A bird",
+      "emoji": "\ud83d\udc26",
+      "correct": false
+     },
+     {
+      "text": "The sea",
+      "emoji": "\ud83c\udf0a",
+      "correct": true
+     },
+     {
+      "text": "Her dad",
+      "emoji": "\ud83d\udc68",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S07-Q3",
     "question": "Where did she put the shell?",
     "answer": "On a shelf",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "In a box",
+      "emoji": "\ud83d\udce6",
+      "correct": false
+     },
+     {
+      "text": "On her bed",
+      "emoji": "\ud83d\udecf\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "On a shelf",
+      "emoji": "\ud83d\udcda",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -2737,19 +3094,70 @@
     "id": "S08-Q1",
     "question": "Why could they not play outside?",
     "answer": "It was raining",
-    "type": "Inferential"
+    "type": "Inferential",
+    "choices": [
+     {
+      "text": "It was raining",
+      "emoji": "\ud83c\udf27\ufe0f",
+      "correct": true
+     },
+     {
+      "text": "It was night",
+      "emoji": "\ud83c\udf19",
+      "correct": false
+     },
+     {
+      "text": "They were sick",
+      "emoji": "\ud83e\udd12",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S08-Q2",
     "question": "What did they make?",
     "answer": "Paper boats",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Paper planes",
+      "emoji": "\u2708\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Paper boats",
+      "emoji": "\u26f5",
+      "correct": true
+     },
+     {
+      "text": "A kite",
+      "emoji": "\ud83e\ude81",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S08-Q3",
     "question": "Whose boat won?",
     "answer": "Jen's boat",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Ben's boat",
+      "emoji": "\ud83d\udc66",
+      "correct": false
+     },
+     {
+      "text": "No boat won",
+      "emoji": "\ud83e\udd1d",
+      "correct": false
+     },
+     {
+      "text": "Jen's boat",
+      "emoji": "\ud83d\udc67",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -3061,19 +3469,70 @@
     "id": "S09-Q1",
     "question": "Saan pumunta si Lolo Ben?",
     "answer": "Sa dagat",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sa dagat",
+      "emoji": "\ud83c\udf0a",
+      "correct": true
+     },
+     {
+      "text": "Sa bundok",
+      "emoji": "\u26f0\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Sa palengke",
+      "emoji": "\ud83c\udfea",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S09-Q2",
     "question": "Ano ang nahuli niya?",
     "answer": "Maraming isda",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Maraming alimango",
+      "emoji": "\ud83e\udd80",
+      "correct": false
+     },
+     {
+      "text": "Maraming isda",
+      "emoji": "\ud83d\udc1f",
+      "correct": true
+     },
+     {
+      "text": "Isang bola",
+      "emoji": "\u26bd",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S09-Q3",
     "question": "Sino ang nagluto?",
     "answer": "Si Lola",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Si Lolo Ben",
+      "emoji": "\ud83d\udc74",
+      "correct": false
+     },
+     {
+      "text": "Si Nanay",
+      "emoji": "\ud83d\udc69",
+      "correct": false
+     },
+     {
+      "text": "Si Lola",
+      "emoji": "\ud83d\udc75",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -3473,19 +3932,70 @@
     "id": "S10-Q1",
     "question": "Ano ang itinanim ni Nena?",
     "answer": "Kamatis at talong",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Kamatis at talong",
+      "emoji": "\ud83c\udf45",
+      "correct": true
+     },
+     {
+      "text": "Mangga at saging",
+      "emoji": "\ud83e\udd6d",
+      "correct": false
+     },
+     {
+      "text": "Mais at kamote",
+      "emoji": "\ud83c\udf3d",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S10-Q2",
     "question": "Kailan niya dinidiligan ang mga halaman?",
     "answer": "Tuwing umaga",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Tuwing gabi",
+      "emoji": "\ud83c\udf19",
+      "correct": false
+     },
+     {
+      "text": "Tuwing umaga",
+      "emoji": "\ud83c\udf05",
+      "correct": true
+     },
+     {
+      "text": "Tuwing Linggo",
+      "emoji": "\ud83d\udcc5",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S10-Q3",
     "question": "Kanino niya ibinigay ang kamatis?",
     "answer": "Sa kanyang kapitbahay",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sa kanyang guro",
+      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "correct": false
+     },
+     {
+      "text": "Sa kanyang lola",
+      "emoji": "\ud83d\udc75",
+      "correct": false
+     },
+     {
+      "text": "Sa kanyang kapitbahay",
+      "emoji": "\ud83c\udfe0",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -4181,19 +4691,70 @@
     "id": "S11-Q1",
     "question": "What did Thea want to fix?",
     "answer": "Her torn shirt",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Her torn shirt",
+      "emoji": "\ud83d\udc55",
+      "correct": true
+     },
+     {
+      "text": "Her old shoe",
+      "emoji": "\ud83d\udc5f",
+      "correct": false
+     },
+     {
+      "text": "Her school bag",
+      "emoji": "\ud83c\udf92",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S11-Q2",
     "question": "On which try did it work?",
     "answer": "The fourth try",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "The first try",
+      "emoji": "1\ufe0f\u20e3",
+      "correct": false
+     },
+     {
+      "text": "The fourth try",
+      "emoji": "4\ufe0f\u20e3",
+      "correct": true
+     },
+     {
+      "text": "The third try",
+      "emoji": "3\ufe0f\u20e3",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S11-Q3",
     "question": "Who gave Thea the needle?",
     "answer": "Her grandmother",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Her teacher",
+      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "correct": false
+     },
+     {
+      "text": "Her father",
+      "emoji": "\ud83d\udc68",
+      "correct": false
+     },
+     {
+      "text": "Her grandmother",
+      "emoji": "\ud83d\udc75",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -4838,19 +5399,70 @@
     "id": "S12-Q1",
     "question": "What did the third ship carry?",
     "answer": "Children going to school",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Children going to school",
+      "emoji": "\ud83e\uddd2",
+      "correct": true
+     },
+     {
+      "text": "Fish",
+      "emoji": "\ud83d\udc1f",
+      "correct": false
+     },
+     {
+      "text": "Fruit",
+      "emoji": "\ud83c\udf4e",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S12-Q2",
     "question": "What did the ships do during the storm?",
     "answer": "Stayed close and helped each other",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sailed far away",
+      "emoji": "\ud83c\udf0a",
+      "correct": false
+     },
+     {
+      "text": "Stayed close and helped each other",
+      "emoji": "\ud83e\udd1d",
+      "correct": true
+     },
+     {
+      "text": "Went under the water",
+      "emoji": "\u2b07\ufe0f",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S12-Q3",
     "question": "What did the children shout?",
     "answer": "Thank you",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Goodbye",
+      "emoji": "\ud83d\udc4b",
+      "correct": false
+     },
+     {
+      "text": "Help us",
+      "emoji": "\ud83c\udd98",
+      "correct": false
+     },
+     {
+      "text": "Thank you",
+      "emoji": "\ud83d\ude4f",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -5547,19 +6159,70 @@
     "id": "S13-Q1",
     "question": "What did the ant find?",
     "answer": "A big grain of rice",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "A big grain of rice",
+      "emoji": "\ud83c\udf5a",
+      "correct": true
+     },
+     {
+      "text": "A big leaf",
+      "emoji": "\ud83c\udf43",
+      "correct": false
+     },
+     {
+      "text": "A red apple",
+      "emoji": "\ud83c\udf4e",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S13-Q2",
     "question": "How many ants came to help?",
     "answer": "Ten",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Two",
+      "emoji": "2\ufe0f\u20e3",
+      "correct": false
+     },
+     {
+      "text": "Ten",
+      "emoji": "\ud83d\udd1f",
+      "correct": true
+     },
+     {
+      "text": "Five",
+      "emoji": "5\ufe0f\u20e3",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S13-Q3",
     "question": "What is the lesson of the story?",
     "answer": "We are strong when we work together",
-    "type": "Inferential"
+    "type": "Inferential",
+    "choices": [
+     {
+      "text": "Big things are too heavy",
+      "emoji": "\ud83e\udea8",
+      "correct": false
+     },
+     {
+      "text": "Ants like to eat rice",
+      "emoji": "\ud83d\udc1c",
+      "correct": false
+     },
+     {
+      "text": "We are strong when we work together",
+      "emoji": "\ud83d\udcaa",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -6192,19 +6855,70 @@
     "id": "S14-Q1",
     "question": "Saan pumupunta si Carlo tuwing hapon?",
     "answer": "Sa silid-aklatan ng barangay",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sa silid-aklatan ng barangay",
+      "emoji": "\ud83d\udcda",
+      "correct": true
+     },
+     {
+      "text": "Sa palaruan",
+      "emoji": "\ud83d\udedd",
+      "correct": false
+     },
+     {
+      "text": "Sa palengke",
+      "emoji": "\ud83c\udfea",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S14-Q2",
     "question": "Sino ang tinuruan ni Carlo?",
     "answer": "Si Bea, ang kanyang kapatid",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Si Nanay",
+      "emoji": "\ud83d\udc69",
+      "correct": false
+     },
+     {
+      "text": "Si Bea, ang kanyang kapatid",
+      "emoji": "\ud83d\udc67",
+      "correct": true
+     },
+     {
+      "text": "Ang kanyang kaibigan",
+      "emoji": "\ud83e\uddd2",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S14-Q3",
     "question": "Gaano katagal bago nakabasa si Bea?",
     "answer": "Isang buwan",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Isang araw",
+      "emoji": "\u2600\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Isang taon",
+      "emoji": "\ud83c\udf82",
+      "correct": false
+     },
+     {
+      "text": "Isang buwan",
+      "emoji": "\ud83d\uddd3\ufe0f",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -6808,19 +7522,70 @@
     "id": "S15-Q1",
     "question": "Saan bumaha?",
     "answer": "Sa kalsada malapit sa paaralan",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sa kalsada malapit sa paaralan",
+      "emoji": "\ud83c\udfeb",
+      "correct": true
+     },
+     {
+      "text": "Sa loob ng simbahan",
+      "emoji": "\u26ea",
+      "correct": false
+     },
+     {
+      "text": "Sa tabing-dagat",
+      "emoji": "\ud83c\udfd6\ufe0f",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S15-Q2",
     "question": "Sino ang tumulong sa mga bata?",
     "answer": "Ang mga tanod",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Ang mga guro",
+      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "correct": false
+     },
+     {
+      "text": "Ang mga tanod",
+      "emoji": "\ud83d\udc6e",
+      "correct": true
+     },
+     {
+      "text": "Ang mga bumbero",
+      "emoji": "\ud83d\ude92",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S15-Q3",
     "question": "Ano ang dinala ng mga magulang?",
     "answer": "Payong at kapote",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Pagkain at tubig",
+      "emoji": "\ud83c\udf71",
+      "correct": false
+     },
+     {
+      "text": "Kumot at unan",
+      "emoji": "\ud83d\udecf\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Payong at kapote",
+      "emoji": "\u2602\ufe0f",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -7704,19 +8469,70 @@
     "id": "S16-Q1",
     "question": "What does Marco help sell?",
     "answer": "Banana cue and turon",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Banana cue and turon",
+      "emoji": "\ud83c\udf4c",
+      "correct": true
+     },
+     {
+      "text": "Fish and rice",
+      "emoji": "\ud83d\udc1f",
+      "correct": false
+     },
+     {
+      "text": "Toys and balloons",
+      "emoji": "\ud83c\udf88",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S16-Q2",
     "question": "What did the customer forget?",
     "answer": "Her wallet",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Her umbrella",
+      "emoji": "\u2602\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Her wallet",
+      "emoji": "\ud83d\udc5b",
+      "correct": true
+     },
+     {
+      "text": "Her phone",
+      "emoji": "\ud83d\udcf1",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S16-Q3",
     "question": "What did Marco's mother say is worth more than money?",
     "answer": "Being honest",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Being fast",
+      "emoji": "\ud83c\udfc3",
+      "correct": false
+     },
+     {
+      "text": "Being strong",
+      "emoji": "\ud83d\udcaa",
+      "correct": false
+     },
+     {
+      "text": "Being honest",
+      "emoji": "\ud83d\udc96",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -8590,19 +9406,70 @@
     "id": "S17-Q1",
     "question": "Why are mangroves important?",
     "answer": "They protect the village from strong waves",
-    "type": "Inferential"
+    "type": "Inferential",
+    "choices": [
+     {
+      "text": "They protect the village from strong waves",
+      "emoji": "\ud83c\udf0a",
+      "correct": true
+     },
+     {
+      "text": "They make the water sweet",
+      "emoji": "\ud83d\udca7",
+      "correct": false
+     },
+     {
+      "text": "They give us fruit to eat",
+      "emoji": "\ud83c\udf4e",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S17-Q2",
     "question": "How many mangroves did each student plant?",
     "answer": "Three",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "One",
+      "emoji": "1\ufe0f\u20e3",
+      "correct": false
+     },
+     {
+      "text": "Three",
+      "emoji": "3\ufe0f\u20e3",
+      "correct": true
+     },
+     {
+      "text": "Ten",
+      "emoji": "\ud83d\udd1f",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S17-Q3",
     "question": "What were the young mangroves tied to?",
     "answer": "Bamboo sticks",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Big rocks",
+      "emoji": "\ud83e\udea8",
+      "correct": false
+     },
+     {
+      "text": "The boat",
+      "emoji": "\ud83d\udea4",
+      "correct": false
+     },
+     {
+      "text": "Bamboo sticks",
+      "emoji": "\ud83c\udf8b",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -9541,19 +10408,70 @@
     "id": "S18-Q1",
     "question": "What could Bolt not do?",
     "answer": "Read",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Read",
+      "emoji": "\ud83d\udcd6",
+      "correct": true
+     },
+     {
+      "text": "Sweep the floor",
+      "emoji": "\ud83e\uddf9",
+      "correct": false
+     },
+     {
+      "text": "Fix the lights",
+      "emoji": "\ud83d\udca1",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S18-Q2",
     "question": "Who taught Bolt?",
     "answer": "Lia",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "The librarian",
+      "emoji": "\ud83e\uddd1\u200d\ud83d\udcbc",
+      "correct": false
+     },
+     {
+      "text": "Lia",
+      "emoji": "\ud83d\udc67",
+      "correct": true
+     },
+     {
+      "text": "Another robot",
+      "emoji": "\ud83e\udd16",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S18-Q3",
     "question": "What did Bolt do at the end?",
     "answer": "Read a whole story aloud",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Fixed all the lights",
+      "emoji": "\ud83d\udca1",
+      "correct": false
+     },
+     {
+      "text": "Left the library",
+      "emoji": "\ud83d\udeaa",
+      "correct": false
+     },
+     {
+      "text": "Read a whole story aloud",
+      "emoji": "\ud83d\udde3\ufe0f",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -10320,19 +11238,70 @@
     "id": "S19-Q1",
     "question": "Kailan ipinagdiriwang ang pista?",
     "answer": "Tuwing Mayo",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Tuwing Mayo",
+      "emoji": "\ud83c\udf38",
+      "correct": true
+     },
+     {
+      "text": "Tuwing Disyembre",
+      "emoji": "\ud83c\udf84",
+      "correct": false
+     },
+     {
+      "text": "Tuwing Hunyo",
+      "emoji": "\u2614",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S19-Q2",
     "question": "Ano ang niluluto ni Nanay?",
     "answer": "Pansit, lumpia at leche flan",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Adobo at kanin",
+      "emoji": "\ud83c\udf5b",
+      "correct": false
+     },
+     {
+      "text": "Pansit, lumpia at leche flan",
+      "emoji": "\ud83c\udf5c",
+      "correct": true
+     },
+     {
+      "text": "Lechon at puto",
+      "emoji": "\ud83d\udc16",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S19-Q3",
     "question": "Saan nanggaling ang mga pinsan?",
     "answer": "Sa Maynila",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Sa Cebu",
+      "emoji": "\ud83c\udfdd\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Sa ibang bansa",
+      "emoji": "\u2708\ufe0f",
+      "correct": false
+     },
+     {
+      "text": "Sa Maynila",
+      "emoji": "\ud83c\udfd9\ufe0f",
+      "correct": true
+     }
+    ]
    }
   ]
  },
@@ -11071,19 +12040,70 @@
     "id": "S20-Q1",
     "question": "Ano ang akala ni Pagong sa plastik?",
     "answer": "Dikya",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Dikya",
+      "emoji": "\ud83e\udebc",
+      "correct": true
+     },
+     {
+      "text": "Isda",
+      "emoji": "\ud83d\udc1f",
+      "correct": false
+     },
+     {
+      "text": "Bato",
+      "emoji": "\ud83e\udea8",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S20-Q2",
     "question": "Sino ang tumulong kay Pagong?",
     "answer": "Mga batang naglilinis ng dalampasigan",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Isang mangingisda",
+      "emoji": "\ud83c\udfa3",
+      "correct": false
+     },
+     {
+      "text": "Mga batang naglilinis ng dalampasigan",
+      "emoji": "\ud83e\uddd2",
+      "correct": true
+     },
+     {
+      "text": "Isang dolphin",
+      "emoji": "\ud83d\udc2c",
+      "correct": false
+     }
+    ]
    },
    {
     "id": "S20-Q3",
     "question": "Ano ang ipinangako ng mga bata?",
     "answer": "Hindi na sila magtatapon ng basura sa dagat",
-    "type": "Literal"
+    "type": "Literal",
+    "choices": [
+     {
+      "text": "Lalangoy sila araw-araw",
+      "emoji": "\ud83c\udfca",
+      "correct": false
+     },
+     {
+      "text": "Mag-aalaga sila ng pagong",
+      "emoji": "\ud83d\udc22",
+      "correct": false
+     },
+     {
+      "text": "Hindi na sila magtatapon ng basura sa dagat",
+      "emoji": "\ud83d\udeaf",
+      "correct": true
+     }
+    ]
    }
   ]
  }
