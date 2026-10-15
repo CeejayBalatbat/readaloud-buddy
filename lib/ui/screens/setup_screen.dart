@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../app/current_learner.dart';
 import '../../data/database_providers.dart';
 import '../../data/db/app_database.dart';
 import '../../data/repositories/settings_repository.dart';
@@ -13,7 +12,7 @@ import '../widgets/common.dart';
 class SetupScreen extends ConsumerStatefulWidget {
   const SetupScreen({super.key, required this.onCreated});
 
-  /// Called with the new reader, who is now the current reader.
+  /// Called with the new reader (the reading check comes next).
   final void Function(Learner learner) onCreated;
 
   @override
@@ -63,7 +62,6 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
     if (await settings.get(SettingKeys.consentDate) == null) {
       await settings.set(SettingKeys.consentDate, DateTime.now().toIso8601String());
     }
-    await ref.read(currentLearnerProvider.notifier).select(learner.id);
     if (mounted) widget.onCreated(learner);
   }
 

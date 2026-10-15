@@ -14,6 +14,7 @@ import '../widgets/buddy_brain_sheet.dart';
 import '../widgets/common.dart';
 import '../widgets/story_cover.dart';
 import '../widgets/svg_art.dart';
+import 'placement_screen.dart';
 import 'setup_screen.dart';
 
 /// The child's main screen with the bottom tabs: Home (s03), Stories
@@ -455,9 +456,21 @@ class _ComingSoon extends StatelessWidget {
       );
 }
 
-/// What happens after a reader is set up. Step 4 adds the reading check
-/// here; for now the new reader goes straight to Home at level 1.
+/// After setup: the reading check (s02), then the new reader becomes the
+/// current reader and lands on Home.
 void afterSetup(BuildContext context, Learner learner) {
   final nav = Navigator.of(context);
-  if (nav.canPop()) nav.pop();
+  final container = ProviderScope.containerOf(context);
+  final route = MaterialPageRoute<void>(
+    builder: (_) => PlacementScreen(
+      learner: learner,
+      onDone: () async {
+        await container.read(currentLearnerProvider.notifier).select(learner.id);
+        nav.popUntil((r) => r.isFirst);
+      },
+    ),
+  );
+  // From Settings the setup screen was pushed, so replace it; on a new
+  // phone setup is the first screen, so push on top of it.
+  nav.canPop() ? nav.pushReplacement(route) : nav.push(route);
 }

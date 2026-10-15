@@ -92,6 +92,49 @@ void main() {
     expect(saved.session.philiriLevel, out.philiri.overall);
   });
 
+  group('placement (§6)', () {
+    test('passages are the opening sentences of a story at each level', () {
+      for (final lang in ['EN', 'FIL']) {
+        for (var level = 1; level <= 3; level++) {
+          final p = placementPassage(stories, level, lang)!;
+          expect(p.story.level, level);
+          expect(p.story.language, lang);
+          expect(p.words, isNotEmpty);
+          expect(p.words.length, lessThanOrEqualTo(25), reason: p.story.id);
+          // Ends at the end of a sentence.
+          final last = p.story.text.split(' ')[p.words.length - 1];
+          expect(last, matches(RegExp(r'[.!?]["”’]?$')), reason: p.story.id);
+        }
+      }
+    });
+
+    test('a passage is saved and classified by word accuracy only', () async {
+      final p = placementPassage(stories, 1, 'EN')!;
+      final t = ReadingTracker(words: p.words, language: 'EN');
+      for (final (i, w) in p.words.indexed) {
+        t.onWordHeard(i < 3 ? 'zzxq' : w.word, Duration(seconds: i + 1));
+      }
+      final out = await service.savePlacementPassage(
+        learner: mia,
+        passage: p,
+        passageLevel: 1,
+        outcomes: t.outcomes,
+        readingSeconds: 20,
+        hintAttempts: const [],
+        startedAt: DateTime(2026, 10, 15, 9),
+      );
+      expect(out.wordLevel, PhilIriLevel.frustration); // 3 misreads in ~15
+      final saved = (await SessionRepository(db).recent(mia.id)).single;
+      expect(saved.type, SessionType.placement);
+      expect(saved.agentDecision, isNull);
+      expect(saved.levelBefore, 1);
+
+      final check = PlacementCheck()..record(out.wordLevel);
+      await service.finishPlacement(mia, check);
+      expect((await LearnerRepository(db).byId(mia.id))!.currentLevel, 1);
+    });
+  });
+
   test('two Frustration sessions out of three flag the teacher', () async {
     await finish(read(s06, misread: {0, 3, 6, 9, 12, 15}), 0);
     final out = await finish(read(s06, misread: {0, 3, 6, 9, 12, 15}), 0);

@@ -137,5 +137,92 @@ class SessionService {
       });
 }
 
+/// A short placement passage: the opening sentences of a story.
+class PlacementPassage {
+  const PlacementPassage(this.story, this.words);
+  final Story story;
+  final List<StoryWord> words;
+}
+
+/// The passage for placement [level] (AGENT_SPEC §6): the first story at
+/// that level in [language], cut to whole sentences of about [maxWords].
+PlacementPassage? placementPassage(
+  List<Story> stories,
+  int level,
+  String language, {
+  int maxWords = 25,
+}) {
+  final story = stories
+      .where((s) => s.level == level && s.language == language)
+      .firstOrNull;
+  if (story == null) return null;
+  final tokens = story.text.split(RegExp(r'\s+'));
+  var end = 0;
+  for (var i = 0; i < tokens.length; i++) {
+    if (RegExp(r'[.!?]["”’]?$').hasMatch(tokens[i])) {
+      if (i + 1 > maxWords && end > 0) break;
+      end = i + 1;
+    }
+  }
+  if (end == 0) end = tokens.length;
+  return PlacementPassage(story, story.words.sublist(0, end));
+}
+
+/// What Buddy learned from one placement passage. No score is shown to
+/// the child; the level is used to place them.
+class PassageOutcome {
+  const PassageOutcome({required this.scores, required this.wordLevel});
+  final SessionScores scores;
+  final PhilIriLevel wordLevel;
+}
+
+extension PlacementSaving on SessionService {
+  /// Saves one placement passage. Placement has no questions, so the
+  /// passage is classified by word accuracy alone (§4 word thresholds).
+  /// Sound mastery, tricky words and hint stats learn from it too; the
+  /// level is set once the whole check is done (§6).
+  Future<PassageOutcome> savePlacementPassage({
+    required Learner learner,
+    required PlacementPassage passage,
+    required int passageLevel,
+    required List<WordOutcome> outcomes,
+    required double readingSeconds,
+    required List<HintAttempt> hintAttempts,
+    required DateTime startedAt,
+  }) =>
+      _db.transaction(() async {
+        final scores = SessionScores.fromResults(
+          outcomes,
+          readingSeconds: readingSeconds,
+          questionsCorrect: 0,
+          questionsTotal: 0,
+        );
+        final level = PhilIriClassifier(config).wordLevel(scores.accuracy);
+        await _sessions.savePlacementPassage(
+          learnerId: learner.id,
+          storyId: passage.story.id,
+          startedAt: startedAt,
+          scores: scores,
+          level: level,
+          passageLevel: passageLevel,
+          words: outcomes,
+        );
+        final mastery = await _progress.loadMastery(learner.id)
+          ..recordWords(outcomes);
+        await _progress.saveMastery(learner.id, mastery);
+        final tricky = await _progress.loadTrickyWords(learner.id)
+          ..recordActivity(outcomes);
+        await _progress.saveTrickyWords(learner.id, tricky);
+        final hints = await _progress.loadHintStats(learner.id)
+          ..recordAll(hintAttempts);
+        await _progress.saveHintStats(learner.id, hints);
+        return PassageOutcome(scores: scores, wordLevel: level);
+      });
+
+  /// Sets the starting level when the placement check is done.
+  Future<void> finishPlacement(Learner learner, PlacementCheck check) =>
+      _learners.setLevel(learner.id, check.startLevel);
+}
+
 final sessionServiceProvider =
     Provider((ref) => SessionService(ref.watch(appDatabaseProvider)));

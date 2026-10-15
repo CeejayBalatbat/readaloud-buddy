@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
+import 'package:readaloud_buddy/app/buddy_brain.dart';
 import 'package:readaloud_buddy/app/current_learner.dart';
 import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/data/repositories/learner_repository.dart';
@@ -77,6 +78,63 @@ void main() {
     final consent = await tester.runAsync(
         () => SettingsRepository(app.db).get(SettingKeys.consentDate));
     expect(consent, isNotNull);
+
+    // --- Reading check (s02): level 1 and 2 read well, level 3 is hard.
+    expect(find.text('Reading check · 1 of 3'), findsOneWidget);
+    expect(find.textContaining("Hi Mia! Read this to me out loud."), findsOneWidget);
+    await app.screenshot(tester, 's02_placement');
+
+    Future<void> readPassage({required bool hard}) async {
+      final c = find.byType(Scaffold);
+      expect(c, findsOneWidget);
+      final brain = app.container.read(buddyBrainProvider).reading!;
+      for (var i = 0; i < brain.tokens.length; i++) {
+        app.speech.hear(hard && i.isEven ? 'zzxq' : brain.tokens[i].replaceAll(RegExp(r'[^\w]'), ''));
+        await tester.pump();
+      }
+      await settle(tester);
+    }
+
+    await readPassage(hard: false);
+    expect(find.text('Reading check · 2 of 3'), findsOneWidget);
+    expect(find.text("Nice! Here's another one."), findsOneWidget);
+    await readPassage(hard: false);
+    expect(find.text('Reading check · 3 of 3'), findsOneWidget);
+    await readPassage(hard: true);
+
+    expect(find.text('All done, Mia!'), findsOneWidget);
+    final placed = await tester.runAsync(() => LearnerRepository(app.db).all());
+    expect(placed!.single.currentLevel, 2); // highest level not Frustration
+    await app.screenshot(tester, 's02_done');
+
+    await tester.tap(find.text("📖 Let's read!"));
+    await settle(tester);
+    expect(find.text('Mia!'), findsOneWidget); // Home
+    await tester.tap(find.text('Stories'));
+    await settle(tester);
+    expect(find.text('Level 2 · Just right'), findsOneWidget);
+  });
+
+  testWidgets('closing the reading check keeps level 1 and goes home',
+      (tester) async {
+    final app = TestApp();
+    await app.pump(tester, const AppStart());
+    await settle(tester);
+    await tester.enterText(find.byType(TextField).first, 'Jojo');
+    await tester.tap(find.text('Grade 1'));
+    await tester.tap(find.text('Filipino'));
+    await tester.tap(find.textContaining('I agree'));
+    await tester.pump();
+    await tester.tap(find.text('Start reading check'));
+    await settle(tester);
+    expect(find.text('Reading check · 1 of 3'), findsOneWidget);
+    expect(find.textContaining('Hi Jojo!'), findsOneWidget);
+
+    await tester.tap(find.text('✕'));
+    await settle(tester);
+    expect(find.text('Jojo!'), findsOneWidget);
+    final jojo = await tester.runAsync(() => LearnerRepository(app.db).all());
+    expect(jojo!.single.currentLevel, 1);
   });
 
   testWidgets('home shows greeting, stars, streak, minutes and Read!',
