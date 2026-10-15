@@ -171,6 +171,9 @@ class HintStats {
 
   final Map<int, (int, int)> _counts;
 
+  /// (uses, successes) per hint level, for saving.
+  Map<int, (int uses, int successes)> get counts => Map.unmodifiable(_counts);
+
   int uses(int level) => _counts[level]?.$1 ?? 0;
   int successes(int level) => _counts[level]?.$2 ?? 0;
 

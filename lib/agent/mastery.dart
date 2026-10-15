@@ -23,6 +23,7 @@ class SoundMastery {
   int observationsOf(String pattern) => _observations[pattern] ?? 0;
 
   Map<String, double> get all => Map.unmodifiable(_mastery);
+  Map<String, int> get allObservations => Map.unmodifiable(_observations);
 
   MasteryStatus statusOf(String pattern) => statusFor(of(pattern), config);
 
