@@ -19,7 +19,7 @@ Each expected word ends in exactly one result:
 | `hesitated` | matched, but took > `hesitationSec` | yes |
 | `correctAfterHint` | matched only after a hint was given | **no** (miscue, Phil-IRI style) |
 | `misread` | ASR heard a different word in its place | no |
-| `skipped` | child moved on; later word matched first | no |
+| `skipped` | child moved on; later word matched first, or child tapped "Next word →" after the level 3 hint | no |
 | `unsure` | ASR confidence < `asrMinConfidence` (0.5) or audio unclear | **excluded** from totals |
 
 **Confidence:** use the recognizer's confidence when it gives one. When it gives none (common on Android partial results), do **not** mark the word `unsure`. Controlled by the config flag `treatMissingConfidenceAsUnsure` (default `false`).
@@ -33,16 +33,31 @@ Each expected word ends in exactly one result:
 Align recognized words to expected words left-to-right, allowing a look-ahead of 2 words to detect skips.
 
 ## 2. Hint ladder
-If no progress on the current word for `hintWaitSec` (default 5 s; 8 s when dyslexia mode is on or set by parent):
+When the child is stuck on the current word for `hintWaitSec` of **counted** time (default 5 s; 8 s when dyslexia mode is on or set by parent; see "When the hint timer counts"):
 1. Level 1 – say/show the **first sound** (first letter, or first digraph/blend: th, sh, ch, str, ng…).
 2. Level 2 – say/show the **word parts** (syllables, e.g. "thr · ough").
-3. Level 3 – say the **whole word**, then move on.
+3. Level 3 – say the **whole word**, then **wait** for the child.
 
-Escalate one level each further `hintWaitSec`. Record `hintLevel` (0–3) per word.
+Escalate one level each further `hintWaitSec` of counted time. Record `hintLevel` (0–3) per word.
 
-**After level 3:** if the child then reads the word → `correctAfterHint`; if not (Buddy moves on) → `skipped`. Both count as miscues.
+**When the hint timer counts:** silence from the microphone is not the same as being stuck, so time only counts toward a hint when:
+- the child is **speaking but not matching** the current word (the recognizer hears speech, even if it is not a whole word yet), or
+- the child **paused mid-reading** after reading at least one word: silence counts until no speech has been heard for `noSpeechSec` (default 8 s; never shorter than `hintWaitSec`, so a child who stops right after reading a word always gets the first hint).
 
-**Timer:** the hint timer runs independently of the speech recognizer. The recognizer often stops on silence; whenever it stops while a story is open, listening restarts automatically. A recognizer restart does not reset the hint timer.
+It never counts:
+- on the **first word of a page**, because the child may not have started reading yet;
+- while the recognizer has **heard no speech** for `noSpeechSec`. Then the timer **pauses** (it is not reset) and Buddy shows a friendly "I can't hear you. Try reading a bit louder!" message. The message goes away and the timer carries on as soon as speech is heard again. This applies only with a real microphone; tap-to-read has no voice to listen for.
+- when the parent set **Hints = Only when I tap Help**.
+
+**Never auto-skip.** After level 3 Buddy waits for the child and shows a **"Next word →"** button. Only tapping it marks the word `skipped`.
+
+**After level 3:** if the child then reads the word → `correctAfterHint`; if they tap "Next word →" → `skipped`. Both count as miscues.
+
+**Help button:** works any time (first word of a page, while the mic hears nothing, in Help-only mode). It gives the next hint step right away, or says the whole word again after level 3. The next automatic step is due one `hintWaitSec` of counted time after it.
+
+**Parent setting:** Hints = **Automatic** (default; the rules above) / **Only when I tap Help** (no timed hints; Help still works).
+
+**Recognizer restarts:** the recognizer often stops on silence; whenever it stops while a story is open, listening restarts automatically. A recognizer restart does not reset the hint timer.
 
 **Learning:** track per learner the success rate of each hint level (word read correctly within 5 s after it). If level 2 succeeds ≥ 70% and level 1 < 40% over ≥ 10 uses, start at level 2 for that learner.
 

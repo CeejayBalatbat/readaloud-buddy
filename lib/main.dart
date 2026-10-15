@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/current_learner.dart';
+import 'app/hint_mode.dart';
+import 'speech/speech_providers.dart';
 import 'ui/screens/home_shell.dart';
 import 'ui/screens/setup_screen.dart';
 import 'ui/theme/app_colors.dart';
@@ -33,11 +35,17 @@ class AppStart extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    const splash = Scaffold(
+      backgroundColor: AppColors.cream,
+      body: Center(child: Buddy(size: 120)),
+    );
+    // Load the parent's settings before any story can open.
+    bool loaded(AsyncValue<Object> v) => v.hasValue || v.hasError;
+    if (!loaded(ref.watch(speechModeProvider)) || !loaded(ref.watch(hintModeProvider))) {
+      return splash;
+    }
     return ref.watch(currentLearnerProvider).when(
-          loading: () => const Scaffold(
-            backgroundColor: AppColors.cream,
-            body: Center(child: Buddy(size: 120)),
-          ),
+          loading: () => splash,
           error: (e, _) => Scaffold(body: Center(child: Text('Something went wrong: $e'))),
           data: (learner) => learner == null
               ? SetupScreen(onCreated: (l) => afterSetup(context, l))

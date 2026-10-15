@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../agent/agent.dart';
 import '../../app/buddy_brain.dart';
+import '../../app/hint_mode.dart';
 import '../../app/reading_controller.dart';
 import '../../data/story.dart';
 import '../../speech/fake_speech_service.dart';
@@ -23,6 +24,11 @@ import '../widgets/svg_art.dart';
 /// With [FakeSpeechService]: tap a word = read it correctly (tapping 1–2
 /// words ahead skips the ones in between), long-press the yellow word =
 /// misread it, wait = hesitation and then hints.
+///
+/// Hints follow AGENT_SPEC §2: the first word of a page is never timed,
+/// a silent mic pauses the timer (Buddy asks the child to read louder),
+/// and after the whole-word hint Buddy waits for the child or for the
+/// "Next word" button.
 class ReadAlongScreen extends ConsumerStatefulWidget {
   const ReadAlongScreen({
     super.key,
@@ -51,6 +57,9 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   late final ReadingController c;
   bool _reported = false;
   (int, int)? _spokenHint; // (word index, level) last read aloud
+  bool _saidQuiet = false; // "can't hear you" was said for this quiet spell
+
+  static const quietMessage = "I can't hear you. Try reading a bit louder!";
 
   @override
   void initState() {
@@ -61,6 +70,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
       speech: ref.read(speechServiceProvider(widget.story.language)),
       hintWaitSec: widget.hintWaitSec,
       startHintLevel: widget.startHintLevel,
+      autoHints: ref.read(hintModeProvider).value != HintMode.helpOnly,
       clock: ref.read(readingClockProvider)(),
     )..addListener(_changed);
     // Start after the first frame: starting the mic updates shared state.
@@ -77,6 +87,11 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
       _spokenHint = (c.currentIndex, hint.level);
       _speakHint(hint);
     }
+    if (c.isQuiet && !_saidQuiet) {
+      speakOverMic(ref.read(ttsServiceProvider), c.speech, quietMessage,
+          language: 'EN');
+    }
+    _saidQuiet = c.isQuiet;
     if (c.isFinished && !_reported) {
       _reported = true;
       widget.onFinished(c);
@@ -91,6 +106,13 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
         language: widget.story.language,
         slow: true,
       );
+
+  /// Help: the next hint step, or the whole word again after level 3.
+  void _help() {
+    if (c.help()) return;
+    final hint = c.hint;
+    if (hint != null && hint.level == 3) _speakHint(hint);
+  }
 
   @override
   void dispose() {
@@ -172,6 +194,10 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                   _storyCard(page),
                   const SizedBox(height: 12),
                   const _Legend(),
+                  if (c.isQuiet) ...[
+                    const SizedBox(height: 12),
+                    const _BuddySays(quietMessage),
+                  ],
                   if (c.micStatus == MicStatus.noPermission ||
                       c.micStatus == MicStatus.unavailable) ...[
                     const SizedBox(height: 12),
@@ -190,7 +216,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                 _RoundButton(
                   label: 'Help',
                   icon: SvgArt.bulb,
-                  onTap: c.isPaused ? null : c.help,
+                  onTap: c.isPaused ? null : _help,
                 ),
                 _MicButton(
                   active: !c.isPaused && c.micStatus == MicStatus.listening,
@@ -229,9 +255,17 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
             children: [
               const Buddy(size: 70),
               const SizedBox(width: 12),
-              Expanded(child: SpeechBubble(_encouragement(hint))),
+              Expanded(
+                  child: SpeechBubble(c.isQuiet ? quietMessage : _encouragement(hint))),
             ],
           ),
+          // Never auto-skip: after the whole word Buddy waits for this tap.
+          if (c.canSkipWord) ...[
+            const SizedBox(height: 12),
+            ChunkyButton(label: 'Next word →', style: ChunkyStyle.sun, onPressed: c.nextWord),
+          ],
+          const SizedBox(height: 12),
+          ChunkyButton(label: '💡 Help', style: ChunkyStyle.ghost, onPressed: _help),
           const SizedBox(height: 12),
           AppCard(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
@@ -297,6 +331,22 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
 
   static String _secs(double s) =>
       s == s.roundToDouble() ? s.toInt().toString() : s.toStringAsFixed(1);
+}
+
+/// Buddy with a speech bubble, e.g. when the mic hears nothing.
+class _BuddySays extends StatelessWidget {
+  const _BuddySays(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          const Buddy(size: 60),
+          const SizedBox(width: 12),
+          Expanded(child: SpeechBubble(text)),
+        ],
+      );
 }
 
 class _HintCard extends StatelessWidget {

@@ -83,21 +83,25 @@ class ReadingController extends ChangeNotifier {
     this.config = const AgentConfig(),
     double? hintWaitSec,
     int startHintLevel = 1,
+    bool autoHints = true,
     this.tickEvery = const Duration(milliseconds: 200),
     ReadingClock? clock,
   })  : _clock = clock ?? StopwatchClock(),
         words = words ?? story.words,
         hintWaitSec = hintWaitSec ?? config.hintWaitSec {
+    final allTokens = story.text.split(RegExp(r'\s+'));
+    tokens = [for (final w in this.words) allTokens[w.position - 1]];
+    pages = paginate(tokens);
     tracker = ReadingTracker(
       words: this.words,
       language: story.language,
       config: config,
       hintWaitSec: this.hintWaitSec,
       startHintLevel: startHintLevel,
+      autoHints: autoHints,
+      listensForQuiet: speech.hearsSilence,
+      pageStarts: {for (final p in pages) p.first},
     );
-    final allTokens = story.text.split(RegExp(r'\s+'));
-    tokens = [for (final w in this.words) allTokens[w.position - 1]];
-    pages = paginate(tokens);
   }
 
   final Story story;
@@ -117,8 +121,10 @@ class ReadingController extends ChangeNotifier {
   final ReadingClock _clock;
   Timer? _ticker;
   StreamSubscription<HeardWord>? _sub;
+  StreamSubscription<void>? _voiceSub;
   bool _paused = false;
   bool _disposed = false;
+  bool _wasQuiet = false;
 
   /// True when the current hint came from the Help button.
   bool hintFromHelp = false;
@@ -130,6 +136,13 @@ class ReadingController extends ChangeNotifier {
   double get readingSeconds => _clock.elapsed.inMilliseconds / 1000;
 
   List<WordOutcome> get outcomes => tracker.outcomes;
+
+  /// The mic has heard nothing for a while: Buddy asks the child to read
+  /// a bit louder, and the hint timer waits.
+  bool get isQuiet => !_paused && tracker.isQuiet(_clock.elapsed);
+
+  /// After the whole-word hint Buddy waits; the child can tap "Next word".
+  bool get canSkipWord => !_paused && !isFinished && tracker.currentHintLevel == 3;
 
   /// Result of word [i], or null if it hasn't been read yet.
   WordResult? resultOf(int i) =>
@@ -147,6 +160,7 @@ class ReadingController extends ChangeNotifier {
 
   Future<void> start() async {
     _sub = speech.words.listen(_onHeard);
+    _voiceSub = speech.voice.listen((_) => _onVoice());
     speech.state.addListener(_notify);
     _expectNext();
     await speech.start(language: story.language);
@@ -177,13 +191,21 @@ class ReadingController extends ChangeNotifier {
     _notify();
   }
 
-  /// The Help button: next hint step right away.
-  void help() {
-    if (_paused || isFinished) return;
-    if (tracker.requestHint(_clock.elapsed) != null) {
-      hintFromHelp = true;
-      _notify();
-    }
+  /// The Help button: next hint step right away. Returns false when the
+  /// whole word is already showing (the screen then says it again).
+  bool help() {
+    if (_paused || isFinished) return false;
+    if (tracker.requestHint(_clock.elapsed) == null) return false;
+    hintFromHelp = true;
+    _notify();
+    return true;
+  }
+
+  /// The "Next word" button after the whole-word hint: skip this word.
+  void nextWord() {
+    if (!canSkipWord) return;
+    tracker.skipWord(_clock.elapsed);
+    _afterProgress();
   }
 
   /// Ends the reading early: unread words count as skipped.
@@ -197,7 +219,17 @@ class ReadingController extends ChangeNotifier {
     if (_paused || isFinished) return;
     final update =
         tracker.onWordHeard(w.text, _clock.elapsed, confidence: w.confidence);
-    if (update.finished.isNotEmpty) _afterProgress();
+    if (update.finished.isNotEmpty) {
+      _afterProgress();
+    } else {
+      _notifyIfQuietChanged();
+    }
+  }
+
+  void _onVoice() {
+    if (_paused || isFinished) return;
+    tracker.onSpeech(_clock.elapsed);
+    _notifyIfQuietChanged();
   }
 
   /// Drives the hint timer; called every [tickEvery] by a timer.
@@ -207,11 +239,15 @@ class ReadingController extends ChangeNotifier {
     final hadHint = tracker.currentHintLevel;
     final update = tracker.tick(_clock.elapsed);
     if (update.hint != null) hintFromHelp = false;
-    if (update.finished.isNotEmpty) {
-      _afterProgress();
-    } else if (tracker.currentHintLevel != hadHint) {
+    if (tracker.currentHintLevel != hadHint) {
       _notify();
+    } else {
+      _notifyIfQuietChanged();
     }
+  }
+
+  void _notifyIfQuietChanged() {
+    if (isQuiet != _wasQuiet) _notify();
   }
 
   void _expectNext() =>
@@ -231,6 +267,7 @@ class ReadingController extends ChangeNotifier {
   }
 
   void _notify() {
+    _wasQuiet = isQuiet;
     if (!_disposed) notifyListeners();
   }
 
@@ -239,6 +276,7 @@ class ReadingController extends ChangeNotifier {
     _disposed = true;
     _ticker?.cancel();
     _sub?.cancel();
+    _voiceSub?.cancel();
     speech.state.removeListener(_notify);
     speech.stop();
     super.dispose();

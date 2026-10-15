@@ -21,8 +21,12 @@ class TrackerUpdate {
 ///
 /// Pure Dart with no clock of its own: the caller passes the time
 /// (elapsed since the story opened) with every call. The UI calls [tick]
-/// a few times per second to drive the hint timer, and [onWordHeard] for
-/// each new word from the speech recognizer.
+/// a few times per second to drive the hint timer, [onWordHeard] for each
+/// new word from the speech recognizer, and [onSpeech] whenever the
+/// recognizer hears the child's voice at all (matching or not).
+///
+/// The hint timer only counts while the child is stuck, not while the
+/// microphone simply hears nothing (§2 "When the hint timer counts").
 class ReadingTracker {
   ReadingTracker({
     required this.words,
@@ -31,9 +35,14 @@ class ReadingTracker {
     this.config = const AgentConfig(),
     double? hintWaitSec,
     this.startHintLevel = 1,
+    this.autoHints = true,
+    this.listensForQuiet = true,
+    this.pageStarts = const {0},
   })  : hintWaitSec = hintWaitSec ?? config.hintWaitSec,
         _matcher = WordMatcher(config),
-        _lastProgressAt = startedAt;
+        _lastProgressAt = startedAt,
+        _lastSpeechAt = startedAt,
+        _countedTo = startedAt;
 
   final List<StoryWord> words;
   final String language;
@@ -43,15 +52,28 @@ class ReadingTracker {
   /// 1 normally, 2 when [HintStats.startLevel] says so.
   final int startHintLevel;
 
+  /// false = the parent chose "Only when I tap Help": no timed hints.
+  final bool autoHints;
+
+  /// true with a real microphone. false for tap-to-read, where there is no
+  /// voice to listen for, so silence never pauses the timer.
+  final bool listensForQuiet;
+
+  /// Indexes (into [words]) of the first word on each page. These words
+  /// are never timed.
+  final Set<int> pageStarts;
+
   final WordMatcher _matcher;
   final List<WordOutcome> _outcomes = [];
   final List<HintAttempt> _hintAttempts = [];
 
   int _index = 0;
   Duration _lastProgressAt; // when the current word became current
-  Duration? _lastHintAt;
   int _hintLevel = 0; // hint level reached on the current word
   Duration? _pendingHintAt; // last hint not yet judged a success/failure
+  Duration _lastSpeechAt; // the child's voice was last heard here
+  Duration _countedTo; // hint time has been counted up to here
+  Duration _stuck = Duration.zero; // counted time since the word/last hint
 
   int get currentIndex => _index;
   bool get isFinished => _index >= words.length;
@@ -67,6 +89,7 @@ class ReadingTracker {
     if (isFinished || WordMatcher.normalize(heard).isEmpty) {
       return TrackerUpdate.none;
     }
+    onSpeech(at);
 
     final unsure = confidence == null
         ? config.treatMissingConfidenceAsUnsure
@@ -93,38 +116,40 @@ class ReadingTracker {
     return TrackerUpdate(finished: [_finish(WordResult.misread, at)]);
   }
 
-  /// Drive the hint ladder. Safe to call as often as you like.
-  TrackerUpdate tick(Duration now) {
-    final finished = <WordOutcome>[];
-    Hint? hint;
-    while (!isFinished) {
-      final dueAt = (_lastHintAt ?? _lastProgressAt) + _wait;
-      if (now < dueAt) break;
-      if (_hintLevel == 3) {
-        // Whole word was said and still no reading: Buddy moves on.
-        _closePendingHint(success: false);
-        finished.add(_finish(WordResult.skipped, dueAt));
-        continue;
-      }
-      _closePendingHint(success: false);
-      _hintLevel = _hintLevel == 0 ? startHintLevel : _hintLevel + 1;
-      _lastHintAt = dueAt;
-      _pendingHintAt = dueAt;
-      hint = HintLadder.hintFor(words[_index].word, _hintLevel, language);
-    }
-    return TrackerUpdate(finished: finished, hint: hint);
+  /// The recognizer heard the child's voice (any speech, even if it is not
+  /// a whole word yet or not the right word). Keeps the hint timer going.
+  void onSpeech(Duration at) {
+    _countTo(at, giveHints: false);
+    if (at > _lastSpeechAt) _lastSpeechAt = at;
   }
 
+  /// Drive the hint ladder. Safe to call as often as you like. Never moves
+  /// past a word: after the whole word (level 3) Buddy waits for the child
+  /// or for [skipWord].
+  TrackerUpdate tick(Duration now) => TrackerUpdate(hint: _countTo(now));
+
+  /// True when the microphone has heard no speech for a while: the hint
+  /// timer is paused and Buddy asks the child to read a bit louder.
+  bool isQuiet(Duration now) =>
+      listensForQuiet && !isFinished && now - _lastSpeechAt >= _quietAfter;
+
   /// The child tapped Help: give the next hint step now instead of waiting.
-  /// The following step is then due one wait time after this one. Returns
-  /// null when the whole word was already given.
+  /// Works on any word, also when hints are Help-only or the mic hears
+  /// nothing. The following step is then due one wait time after this one.
+  /// Returns null when the whole word was already given.
   Hint? requestHint(Duration now) {
+    _countTo(now, giveHints: false);
     if (isFinished || _hintLevel == 3) return null;
+    return _giveHint(now);
+  }
+
+  /// The child tapped "Next word" (shown after the whole-word hint): the
+  /// word counts as skipped and reading goes on.
+  TrackerUpdate skipWord(Duration at) {
+    _countTo(at, giveHints: false);
+    if (isFinished) return TrackerUpdate.none;
     _closePendingHint(success: false);
-    _hintLevel = _hintLevel == 0 ? startHintLevel : _hintLevel + 1;
-    _lastHintAt = now;
-    _pendingHintAt = now;
-    return HintLadder.hintFor(words[_index].word, _hintLevel, language);
+    return TrackerUpdate(finished: [_finish(WordResult.skipped, at)]);
   }
 
   /// The hint currently showing for the current word, if any.
@@ -146,8 +171,58 @@ class ReadingTracker {
     return TrackerUpdate(finished: finished);
   }
 
-  Duration get _wait =>
-      Duration(milliseconds: (hintWaitSec * 1000).round());
+  Duration get _wait => _dur(hintWaitSec);
+
+  Duration get _quietAfter =>
+      _dur(config.noSpeechSec > hintWaitSec ? config.noSpeechSec : hintWaitSec);
+
+  static Duration _dur(double sec) =>
+      Duration(milliseconds: (sec * 1000).round());
+
+  /// Whether stuck time counts on the current word at all.
+  bool get _timed =>
+      autoHints && !isFinished && _hintLevel < 3 && !pageStarts.contains(_index);
+
+  /// Adds the time between the last call and [now] that counts toward a
+  /// hint. Time counts only on a [_timed] word, and only until no speech
+  /// has been heard for a while (when there is a microphone to listen
+  /// with). With [giveHints] the hints that became due are given;
+  /// otherwise a due hint waits for the next [tick], so the UI shows every
+  /// hint before the tracker counts it.
+  Hint? _countTo(Duration now, {bool giveHints = true}) {
+    var from = _countedTo;
+    if (now > _countedTo) _countedTo = now;
+    if (!_timed) return null;
+    var to = now;
+    if (listensForQuiet) {
+      final quietAt = _lastSpeechAt + _quietAfter;
+      if (quietAt < to) to = quietAt;
+    }
+    if (to < from) to = from; // nothing new to count
+    Hint? hint;
+    while (_hintLevel < 3) {
+      final due = from + (_wait - _stuck);
+      if (due > to) {
+        _stuck += to - from;
+        break;
+      }
+      if (!giveHints) {
+        _stuck = _wait; // due now; the next tick gives it
+        break;
+      }
+      hint = _giveHint(due);
+      from = due;
+    }
+    return hint;
+  }
+
+  Hint _giveHint(Duration at) {
+    _closePendingHint(success: false);
+    _hintLevel = _hintLevel == 0 ? startHintLevel : _hintLevel + 1;
+    _pendingHintAt = at;
+    _stuck = Duration.zero;
+    return HintLadder.hintFor(words[_index].word, _hintLevel, language);
+  }
 
   WordResult _matchedResult(Duration at) {
     if (_hintLevel > 0) {
@@ -176,7 +251,7 @@ class ReadingTracker {
     _outcomes.add(outcome);
     _index++;
     _lastProgressAt = at;
-    _lastHintAt = null;
+    _stuck = Duration.zero;
     _hintLevel = 0;
     return outcome;
   }

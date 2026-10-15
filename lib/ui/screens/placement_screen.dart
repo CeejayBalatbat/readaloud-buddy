@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../agent/agent.dart';
 import '../../app/buddy_brain.dart';
+import '../../app/hint_mode.dart';
 import '../../app/reading_controller.dart';
 import '../../app/session_service.dart';
 import '../../data/db/app_database.dart';
@@ -66,6 +67,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
         speech: ref.read(speechServiceProvider(passage.story.language)),
         hintWaitSec: widget.learner.hintWait(),
         startHintLevel: widget.learner.startHintLevel,
+        autoHints: ref.read(hintModeProvider).value != HintMode.helpOnly,
         clock: ref.read(readingClockProvider)(),
       )..addListener(_changed);
     });
@@ -158,6 +160,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   String get _bubble {
     final name = widget.learner.nickname;
     final hint = _c?.hint;
+    if (_c?.isQuiet ?? false) return "I can't hear you. Try reading a bit louder!";
     if (hint != null) {
       return switch (hint.level) {
         1 => 'It starts with "${hint.parts.first}". Try it!',
@@ -253,6 +256,12 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
                     ),
                     const Text('Buddy is listening…',
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+                    // After the whole-word hint Buddy waits; never auto-skips.
+                    if (c != null && c.canSkipWord) ...[
+                      const SizedBox(height: 12),
+                      ChunkyButton(
+                          label: 'Next word →', style: ChunkyStyle.sun, onPressed: c.nextWord),
+                    ],
                   ],
                 ),
               ),

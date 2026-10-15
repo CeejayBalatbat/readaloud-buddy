@@ -68,6 +68,14 @@ abstract class SpeechService {
   /// New words, one at a time, in the order they were heard.
   Stream<HeardWord> get words;
 
+  /// Fires whenever the child's voice is heard, even before it becomes a
+  /// whole word (and also for words that don't match). Not while muted.
+  Stream<void> get voice;
+
+  /// true when silence means "the mic hears nothing" (a real microphone).
+  /// false for tap-to-read, where there is no voice to listen for.
+  bool get hearsSilence;
+
   ValueListenable<SpeechState> get state;
 
   bool get isListening;

@@ -100,6 +100,7 @@ class AndroidSpeechService implements SpeechService {
   static const localeIds = {'EN': 'en-US', 'FIL': 'fil-PH'};
 
   final _words = StreamController<HeardWord>.broadcast(sync: true);
+  final _voice = StreamController<void>.broadcast(sync: true);
   final _state = ValueNotifier(const SpeechState());
   final _tracker = TranscriptTracker();
   final _matcher = const WordMatcher();
@@ -119,6 +120,12 @@ class AndroidSpeechService implements SpeechService {
 
   @override
   Stream<HeardWord> get words => _words.stream;
+
+  @override
+  Stream<void> get voice => _voice.stream;
+
+  @override
+  bool get hearsSilence => true;
 
   @override
   ValueListenable<SpeechState> get state => _state;
@@ -182,6 +189,11 @@ class AndroidSpeechService implements SpeechService {
 
   void _onResult(String text, bool isFinal, double? confidence) {
     _failures = 0;
+    // New text = the recognizer heard more speech. (The final result often
+    // repeats the last partial; that is not new speech.)
+    if (!_muted && text.trim().isNotEmpty && text != _state.value.transcript) {
+      _voice.add(null);
+    }
     _set(transcript: text);
     _tracker.update(
       text,
@@ -269,6 +281,7 @@ class AndroidSpeechService implements SpeechService {
     _wanted = false;
     _restart?.cancel();
     _words.close();
+    _voice.close();
     _state.dispose();
   }
 }

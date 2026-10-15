@@ -15,6 +15,7 @@ class AgentConfig {
     // §2 Hint ladder
     this.hintWaitSec = 5,
     this.dyslexiaHintWaitSec = 8,
+    this.noSpeechSec = 8,
     this.hintSuccessWindowSec = 5,
     this.hintLearningMinUses = 10,
     this.hintLevel2SuccessMin = 0.70,
@@ -62,6 +63,11 @@ class AgentConfig {
 
   final double hintWaitSec;
   final double dyslexiaHintWaitSec;
+
+  /// After this long with no speech heard, the hint timer pauses and Buddy
+  /// says he can't hear (never shorter than the hint wait, so a child who
+  /// stops after reading a word still gets the first hint).
+  final double noSpeechSec;
   final double hintSuccessWindowSec;
   final int hintLearningMinUses;
   final double hintLevel2SuccessMin;

@@ -6,6 +6,7 @@ abstract final class SettingKeys {
   static const consentDate = 'consent_date';
   static const activeLearnerId = 'active_learner_id';
   static const speechMode = 'speech_mode'; // "voice" or "tap"
+  static const hintMode = 'hint_mode'; // "automatic" or "helpOnly"
 }
 
 /// App-wide key/value settings (parent PIN, consent date, ...).

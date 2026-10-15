@@ -4,6 +4,8 @@ import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
 import 'package:readaloud_buddy/app/buddy_brain.dart';
+import 'package:readaloud_buddy/app/hint_mode.dart';
+import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
 import 'package:readaloud_buddy/ui/screens/read_along_screen.dart';
 
@@ -11,6 +13,7 @@ import 'test_app.dart';
 
 void main() {
   final kite = TestApp.story('S06'); // The Big Red Kite
+  const quiet = "I can't hear you. Try reading a bit louder!";
 
   Future<(TestApp, List<ReadingController>)> open(WidgetTester tester) async {
     final app = TestApp();
@@ -63,10 +66,11 @@ void main() {
 
   testWidgets('waiting shows the hint screen, step by step', (tester) async {
     final (app, _) = await open(tester);
+    await tapWord(tester, 'Mia'); // the first word of a page is never timed
     await app.wait(tester, 5);
     expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
     expect(find.text('Hint appeared after 5 seconds on this word'), findsOneWidget);
-    expect(app.tts.spoken, ['m']); // hint is said aloud too
+    expect(app.tts.spoken, ['r']); // hint is said aloud too ("ran")
 
     await app.wait(tester, 5);
     expect(find.text("LET'S BREAK IT UP"), findsOneWidget);
@@ -76,7 +80,7 @@ void main() {
     await app.wait(tester, 5);
     expect(find.text('THE WORD IS'), findsOneWidget);
 
-    await tester.tap(find.bySemanticsLabel('Mia').first);
+    await tester.tap(find.bySemanticsLabel('ran').first);
     await tester.pump();
     expect(find.text('THE WORD IS'), findsNothing); // back to reading
     expect(find.text('Help'), findsOneWidget);
@@ -89,6 +93,90 @@ void main() {
     expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
     expect(find.text('You asked Buddy for help'), findsOneWidget);
     await app.screenshot(tester, 's06_help');
+  });
+
+  testWidgets('no hint on the first word, however long Buddy waits',
+      (tester) async {
+    final (app, _) = await open(tester);
+    await app.wait(tester, 60);
+    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+  });
+
+  testWidgets('after the whole word Buddy waits for "Next word"',
+      (tester) async {
+    final (app, _) = await open(tester);
+    await tapWord(tester, 'Mia');
+    for (var i = 0; i < 3; i++) {
+      await app.wait(tester, 5);
+    }
+    expect(find.text('THE WORD IS'), findsOneWidget);
+    expect(find.text('Next word →'), findsOneWidget);
+    await app.wait(tester, 120); // no auto-skip
+    expect(find.text('THE WORD IS'), findsOneWidget);
+    await app.screenshot(tester, 's06_next_word');
+
+    await tester.tap(find.text('Next word →'));
+    await tester.pump();
+    expect(find.text('THE WORD IS'), findsNothing);
+    final results = app.container.read(buddyBrainProvider).reading!.outcomes;
+    expect(results.map((o) => o.result), [WordResult.correct, WordResult.skipped]);
+  });
+
+  testWidgets('Help on the hint screen gives the next step, then says the '
+      'word again', (tester) async {
+    final (app, _) = await open(tester);
+    await tester.tap(find.text('Help'));
+    await tester.pump();
+    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    await tester.tap(find.text('💡 Help'));
+    await tester.pump();
+    expect(find.text("LET'S BREAK IT UP"), findsOneWidget);
+    await tester.tap(find.text('💡 Help'));
+    await tester.pump();
+    expect(find.text('THE WORD IS'), findsOneWidget);
+    expect(find.text('Next word →'), findsOneWidget);
+    app.tts.spoken.clear();
+    await tester.tap(find.text('💡 Help')); // Help still works: says it again
+    await tester.pump();
+    expect(find.text('THE WORD IS'), findsOneWidget);
+    expect(app.tts.spoken, ['mia']);
+  });
+
+  testWidgets('a silent mic: Buddy asks the child to read louder',
+      (tester) async {
+    final mic = FakeSpeechService(hearsSilence: true);
+    final app = TestApp(speechService: mic);
+    await app.pump(tester, ReadAlongScreen(story: kite, onFinished: (_) {}));
+    await app.wait(tester, 7);
+    expect(find.text(quiet), findsNothing);
+    await app.wait(tester, 1);
+    expect(find.text(quiet), findsOneWidget);
+    expect(app.tts.spoken, [quiet]); // said aloud once
+    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+    await app.screenshot(tester, 's05_quiet');
+
+    mic.speak(); // the child reads again
+    await tester.pump(); // deliver the voice event
+    await tester.pump(); // redraw
+    expect(find.text(quiet), findsNothing);
+    // Help still works while the mic is quiet.
+    await app.wait(tester, 30);
+    await tester.tap(find.text('Help'));
+    await tester.pump();
+    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+  });
+
+  testWidgets('Hints = Only when I tap Help: no timed hints', (tester) async {
+    final app = TestApp();
+    await tester.runAsync(
+        () => app.container.read(hintModeProvider.notifier).set(HintMode.helpOnly));
+    await app.pump(tester, ReadAlongScreen(story: kite, onFinished: (_) {}));
+    await tapWord(tester, 'Mia');
+    await app.wait(tester, 30);
+    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+    await tester.tap(find.text('Help'));
+    await tester.pump();
+    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
   });
 
   testWidgets('pause and go on', (tester) async {
@@ -148,6 +236,10 @@ class _NoMicSpeech implements SpeechService {
 
   @override
   Stream<HeardWord> get words => const Stream.empty();
+  @override
+  Stream<void> get voice => const Stream.empty();
+  @override
+  bool get hearsSilence => true;
   @override
   ValueListenable<SpeechState> get state => _state;
   @override

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
 import 'package:readaloud_buddy/app/buddy_brain.dart';
 import 'package:readaloud_buddy/app/current_learner.dart';
+import 'package:readaloud_buddy/app/hint_mode.dart';
 import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/data/repositories/learner_repository.dart';
 import 'package:readaloud_buddy/data/repositories/session_repository.dart';
@@ -216,5 +217,27 @@ void main() {
     await tester.tap(find.text('Switch'));
     await settle(tester);
     expect(app.container.read(currentLearnerProvider).value!.nickname, 'Jojo');
+  });
+
+  testWidgets('parent can set Hints to "Only when I tap Help"', (tester) async {
+    final app = TestApp();
+    await tester.runAsync(() async {
+      final mia = await LearnerRepository(app.db)
+          .create(nickname: 'Mia', grade: 2, languages: 'EN');
+      await app.container.read(currentLearnerProvider.notifier).select(mia.id);
+    });
+    await app.pump(tester, const HomeShell());
+    await settle(tester);
+    await tester.tap(find.text('Settings'));
+    await settle(tester);
+    expect(app.container.read(hintModeProvider).value, HintMode.automatic);
+    final helpOnly = find.text('Only when I tap Help');
+    await tester.ensureVisible(helpOnly);
+    await tester.tap(helpOnly);
+    await settle(tester);
+    expect(app.container.read(hintModeProvider).value, HintMode.helpOnly);
+    final saved = await tester.runAsync(
+        () => SettingsRepository(app.db).get(SettingKeys.hintMode));
+    expect(saved, 'helpOnly');
   });
 }

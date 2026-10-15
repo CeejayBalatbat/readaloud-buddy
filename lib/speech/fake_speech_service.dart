@@ -8,7 +8,14 @@ import 'speech_service.dart';
 /// without speaking. The reading screen calls [hear] when a word is
 /// tapped (read it) or long-pressed (misread it).
 class FakeSpeechService implements SpeechService {
+  /// Tests can pass `hearsSilence: true` to act like a real microphone.
+  FakeSpeechService({this.hearsSilence = false});
+
+  @override
+  final bool hearsSilence;
+
   final _controller = StreamController<HeardWord>.broadcast();
+  final _voice = StreamController<void>.broadcast();
   final _state = ValueNotifier(const SpeechState());
   bool _listening = false;
   bool _muted = false;
@@ -18,6 +25,9 @@ class FakeSpeechService implements SpeechService {
 
   @override
   Stream<HeardWord> get words => _controller.stream;
+
+  @override
+  Stream<void> get voice => _voice.stream;
 
   @override
   ValueListenable<SpeechState> get state => _state;
@@ -47,12 +57,21 @@ class FakeSpeechService implements SpeechService {
   void hear(String word, {double? confidence}) {
     if (!_listening || _muted) return;
     _state.value = _state.value.copyWith(transcript: word);
+    _voice.add(null);
     _controller.add(HeardWord(word, confidence: confidence));
+  }
+
+  /// Pretend the child is saying something that isn't a word yet
+  /// ("thr… thr…").
+  void speak() {
+    if (!_listening || _muted) return;
+    _voice.add(null);
   }
 
   @override
   void dispose() {
     _controller.close();
+    _voice.close();
     _state.dispose();
   }
 }

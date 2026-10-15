@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/current_learner.dart';
+import '../../app/hint_mode.dart';
 import '../../app/home_data.dart';
 import '../../data/database_providers.dart';
 import '../../data/db/app_database.dart';
@@ -416,6 +417,8 @@ class SettingsTab extends ConsumerWidget {
             const SizedBox(height: 12),
             const _SpeechModeCard(),
             const SizedBox(height: 12),
+            const _HintModeCard(),
+            const SizedBox(height: 12),
             const AppCard(
               child: Text(
                 'Reading comfort (dyslexia mode, text size, hint wait time) '
@@ -479,6 +482,58 @@ class _SpeechModeCard extends ConsumerWidget {
             const Text('Filipino stories use tap-to-read for now.',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
           ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Hints = Automatic / Only when I tap Help (AGENT_SPEC §2).
+class _HintModeCard extends ConsumerWidget {
+  const _HintModeCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mode = ref.watch(hintModeProvider).value ?? HintMode.automatic;
+    void set(HintMode m) => ref.read(hintModeProvider.notifier).set(m);
+    return AppCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Hints',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+          const SizedBox(height: 4),
+          const Text(
+            'Automatic: Buddy helps when your child gets stuck on a word. '
+            'Only when I tap Help: Buddy waits for the Help button.',
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: AppChip(
+                  label: 'Automatic',
+                  center: true,
+                  fontSize: 15,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  selected: mode == HintMode.automatic,
+                  onTap: () => set(HintMode.automatic),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: AppChip(
+                  label: 'Only when I tap Help',
+                  center: true,
+                  fontSize: 15,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  selected: mode == HintMode.helpOnly,
+                  onTap: () => set(HintMode.helpOnly),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
