@@ -5,6 +5,7 @@ abstract final class SettingKeys {
   static const parentPin = 'parent_pin';
   static const consentDate = 'consent_date';
   static const activeLearnerId = 'active_learner_id';
+  static const speechMode = 'speech_mode'; // "voice" or "tap"
 }
 
 /// App-wide key/value settings (parent PIN, consent date, ...).

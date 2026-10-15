@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 import 'speech_service.dart';
 
 /// Tap-to-read stand-in for the microphone, so every screen can be tried
@@ -7,7 +9,9 @@ import 'speech_service.dart';
 /// tapped (read it) or long-pressed (misread it).
 class FakeSpeechService implements SpeechService {
   final _controller = StreamController<HeardWord>.broadcast();
+  final _state = ValueNotifier(const SpeechState());
   bool _listening = false;
+  bool _muted = false;
 
   /// A "word" that never matches a story word, used for misreads.
   static const misreadWord = 'zzxq';
@@ -16,19 +20,39 @@ class FakeSpeechService implements SpeechService {
   Stream<HeardWord> get words => _controller.stream;
 
   @override
+  ValueListenable<SpeechState> get state => _state;
+
+  @override
   bool get isListening => _listening;
 
   @override
-  Future<void> start({required String language}) async => _listening = true;
-
-  @override
-  Future<void> stop() async => _listening = false;
-
-  /// Pretend the child said [word]. Ignored while not listening.
-  void hear(String word, {double? confidence}) {
-    if (_listening) _controller.add(HeardWord(word, confidence: confidence));
+  Future<void> start({required String language}) async {
+    _listening = true;
+    _state.value = const SpeechState(status: MicStatus.listening);
   }
 
   @override
-  void dispose() => _controller.close();
+  Future<void> stop() async {
+    _listening = false;
+    _state.value = const SpeechState();
+  }
+
+  @override
+  set expectedWord(String? word) {}
+
+  @override
+  void mute(bool muted) => _muted = muted;
+
+  /// Pretend the child said [word]. Ignored while not listening.
+  void hear(String word, {double? confidence}) {
+    if (!_listening || _muted) return;
+    _state.value = _state.value.copyWith(transcript: word);
+    _controller.add(HeardWord(word, confidence: confidence));
+  }
+
+  @override
+  void dispose() {
+    _controller.close();
+    _state.dispose();
+  }
 }

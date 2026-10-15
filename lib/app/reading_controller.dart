@@ -142,12 +142,23 @@ class ReadingController extends ChangeNotifier {
     return pages.indexWhere((p) => p.contains(currentIndex));
   }
 
+  /// What the microphone is doing (for the mic button).
+  MicStatus get micStatus => speech.state.value.status;
+
   Future<void> start() async {
     _sub = speech.words.listen(_onHeard);
+    speech.state.addListener(_notify);
+    _expectNext();
     await speech.start(language: story.language);
     _clock.start();
     _ticker = Timer.periodic(tickEvery, (_) => tick());
     _notify();
+  }
+
+  /// Tapping the mic after a problem (e.g. permission): try again.
+  void retryMic() {
+    if (_paused || isFinished) return;
+    speech.start(language: story.language);
   }
 
   void pause() {
@@ -203,7 +214,11 @@ class ReadingController extends ChangeNotifier {
     }
   }
 
+  void _expectNext() =>
+      speech.expectedWord = isFinished ? null : words[currentIndex].word;
+
   void _afterProgress() {
+    _expectNext();
     hintFromHelp = false;
     if (isFinished) _stop();
     _notify();
@@ -224,6 +239,7 @@ class ReadingController extends ChangeNotifier {
     _disposed = true;
     _ticker?.cancel();
     _sub?.cancel();
+    speech.state.removeListener(_notify);
     speech.stop();
     super.dispose();
   }

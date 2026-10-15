@@ -5,6 +5,8 @@ import '../data/database_providers.dart';
 import '../data/db/app_database.dart';
 import 'current_learner.dart';
 import 'reading_controller.dart';
+import '../speech/fake_speech_service.dart';
+import '../speech/speech_service.dart';
 
 /// What Buddy perceives while a story is being read.
 class BrainReading {
@@ -15,9 +17,13 @@ class BrainReading {
     required this.currentIndex,
     required this.hintLevel,
     required this.readingSeconds,
+    this.speech = const SpeechState(),
+    this.tapMode = false,
   });
 
   factory BrainReading.of(ReadingController c) => BrainReading(
+        speech: c.speech.state.value,
+        tapMode: c.speech is FakeSpeechService,
         title: c.story.title,
         tokens: c.tokens,
         outcomes: c.outcomes,
@@ -32,6 +38,10 @@ class BrainReading {
   final int? currentIndex;
   final int hintLevel;
   final double readingSeconds;
+
+  /// What the recognizer is doing and what it heard last.
+  final SpeechState speech;
+  final bool tapMode;
 }
 
 /// What Buddy decided after the last story or placement passage.

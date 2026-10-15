@@ -16,18 +16,21 @@ import 'package:readaloud_buddy/data/story.dart';
 import 'package:readaloud_buddy/data/story_providers.dart';
 import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/speech/speech_providers.dart';
+import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/tts_service.dart';
 import 'package:readaloud_buddy/ui/theme/app_theme.dart';
 
 /// Shared setup for screen tests: real Nunito font, phone-sized screen,
 /// in-memory database, tap-to-read speech, silent TTS and a manual clock.
 class TestApp {
-  TestApp() {
+  TestApp({SpeechService? speechService}) {
+    _speechService = speechService;
     driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
   }
 
   final db = AppDatabase(NativeDatabase.memory());
   final speech = FakeSpeechService();
+  SpeechService? _speechService;
   final tts = SilentTtsService();
   final clock = ManualClock();
   final _shotKey = GlobalKey();
@@ -56,7 +59,7 @@ class TestApp {
   late final ProviderContainer container = ProviderContainer(overrides: [
     nowProvider.overrideWithValue(() => now),
     appDatabaseProvider.overrideWithValue(db),
-    speechServiceProvider.overrideWithValue(speech),
+    speechServiceProvider.overrideWith((ref, language) => _speechService ?? speech),
     ttsServiceProvider.overrideWithValue(tts),
     readingClockProvider.overrideWithValue(() => clock),
     storiesProvider.overrideWith((ref) async => stories),

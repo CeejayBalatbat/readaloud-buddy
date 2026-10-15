@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../agent/agent.dart';
 import '../../app/buddy_brain.dart';
+import '../../speech/speech_service.dart';
 import '../theme/app_colors.dart';
 import 'svg_art.dart';
 
@@ -147,6 +148,21 @@ class _ReadingSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
+        const SizedBox(height: 6),
+        _KeyValue('Hearing', r.tapMode
+            ? 'Tap to read (no microphone)'
+            : '${switch (r.speech.status) {
+                MicStatus.listening => 'listening',
+                MicStatus.starting => 'starting',
+                MicStatus.off => 'off',
+                MicStatus.noPermission => 'no mic permission',
+                MicStatus.unavailable => 'recognizer not available',
+              }} · ${r.speech.onDevice == false ? 'online recognizer' : 'on-device first'}'),
+        if (!r.tapMode) ...[
+          _KeyValue('Recognizer heard', r.speech.transcript.isEmpty ? '…' : '"${r.speech.transcript}"'),
+          _KeyValue('Restarts after silence', '${r.speech.restarts}'),
+          if (r.speech.lastError != null) _KeyValue('Last recognizer message', r.speech.lastError!),
+        ],
         _KeyValue('Accuracy so far (§3)',
             '${_pct(live.accuracy)}  (${live.wordsCorrect}/${live.wordsTotal}, unsure excluded)'),
         _KeyValue('Words correct per minute', live.wcpm.toStringAsFixed(1)),

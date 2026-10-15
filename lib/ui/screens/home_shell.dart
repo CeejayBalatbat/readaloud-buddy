@@ -7,6 +7,7 @@ import '../../app/current_learner.dart';
 import '../../app/home_data.dart';
 import '../../data/database_providers.dart';
 import '../../data/db/app_database.dart';
+import '../../speech/speech_providers.dart';
 import '../story_flow.dart';
 import '../theme/app_colors.dart';
 import '../widgets/buddy.dart';
@@ -413,6 +414,8 @@ class SettingsTab extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 12),
+            const _SpeechModeCard(),
+            const SizedBox(height: 12),
             const AppCard(
               child: Text(
                 'Reading comfort (dyslexia mode, text size, hint wait time) '
@@ -422,6 +425,63 @@ class SettingsTab extends ConsumerWidget {
             ),
           ],
         );
+  }
+}
+
+/// Microphone or tap-to-read (for testing and demos without speaking).
+class _SpeechModeCard extends ConsumerWidget {
+  const _SpeechModeCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mode = ref.watch(speechModeProvider).value ?? SpeechMode.voice;
+    void set(SpeechMode m) => ref.read(speechModeProvider.notifier).set(m);
+    return AppCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('How Buddy listens',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+          const SizedBox(height: 4),
+          const Text(
+            'Microphone: the child reads aloud. Tap to read: tap each word '
+            '(long-press = misread), for testing without speaking.',
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: AppChip(
+                  label: '🎤 Microphone',
+                  center: true,
+                  fontSize: 15,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  selected: mode == SpeechMode.voice,
+                  onTap: () => set(SpeechMode.voice),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: AppChip(
+                  label: '👆 Tap to read',
+                  center: true,
+                  fontSize: 15,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  selected: mode == SpeechMode.tap,
+                  onTap: () => set(SpeechMode.tap),
+                ),
+              ),
+            ],
+          ),
+          if (mode == SpeechMode.voice) ...[
+            const SizedBox(height: 8),
+            const Text('Filipino stories use tap-to-read for now.',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
+          ],
+        ],
+      ),
+    );
   }
 }
 

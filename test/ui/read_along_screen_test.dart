@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:readaloud_buddy/speech/speech_providers.dart';
+import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
 import 'package:readaloud_buddy/app/buddy_brain.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
@@ -113,6 +116,19 @@ void main() {
     expect(finished.single.outcomes, hasLength(kite.words.length));
   });
 
+  testWidgets('a blocked microphone shows what a grown-up can do',
+      (tester) async {
+    final app = TestApp(speechService: _NoMicSpeech());
+    await app.pump(tester, ReadAlongScreen(story: kite, onFinished: (_) {}));
+    await tester.pump();
+    expect(find.text('Mic is off'), findsOneWidget);
+    expect(find.textContaining("Buddy can't hear you yet"), findsOneWidget);
+    // Tapping the mic asks again.
+    await tester.tap(find.text('Mic is off'));
+    await tester.pump();
+    expect((app.container.read(speechServiceProvider('EN')) as _NoMicSpeech).starts, 2);
+  });
+
   testWidgets("long-pressing the title opens Buddy's brain", (tester) async {
     final (app, _) = await open(tester);
     await tapWord(tester, 'Mia');
@@ -123,4 +139,31 @@ void main() {
     expect(find.textContaining('Mia · correct'), findsOneWidget);
     await app.screenshot(tester, 'brain_reading');
   });
+}
+
+/// A recognizer whose microphone permission was refused.
+class _NoMicSpeech implements SpeechService {
+  final _state = ValueNotifier(const SpeechState());
+  int starts = 0;
+
+  @override
+  Stream<HeardWord> get words => const Stream.empty();
+  @override
+  ValueListenable<SpeechState> get state => _state;
+  @override
+  bool get isListening => false;
+  @override
+  Future<void> start({required String language}) async {
+    starts++;
+    _state.value = const SpeechState(status: MicStatus.noPermission);
+  }
+
+  @override
+  Future<void> stop() async {}
+  @override
+  set expectedWord(String? word) {}
+  @override
+  void mute(bool muted) {}
+  @override
+  void dispose() {}
 }

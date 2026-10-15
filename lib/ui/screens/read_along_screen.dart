@@ -7,6 +7,8 @@ import '../../app/reading_controller.dart';
 import '../../data/story.dart';
 import '../../speech/fake_speech_service.dart';
 import '../../speech/speech_providers.dart';
+import '../../speech/speech_service.dart';
+import '../../speech/tts_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/buddy.dart';
 import '../widgets/buddy_brain_sheet.dart';
@@ -56,12 +58,15 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     c = ReadingController(
       story: widget.story,
       words: widget.words,
-      speech: ref.read(speechServiceProvider),
+      speech: ref.read(speechServiceProvider(widget.story.language)),
       hintWaitSec: widget.hintWaitSec,
       startHintLevel: widget.startHintLevel,
       clock: ref.read(readingClockProvider)(),
     )..addListener(_changed);
-    c.start();
+    // Start after the first frame: starting the mic updates shared state.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) c.start();
+    });
   }
 
   void _changed() {
@@ -79,7 +84,9 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     setState(() {});
   }
 
-  void _speakHint(Hint hint) => ref.read(ttsServiceProvider).speak(
+  void _speakHint(Hint hint) => speakOverMic(
+        ref.read(ttsServiceProvider),
+        c.speech,
         hint.parts.join(', '),
         language: widget.story.language,
         slow: true,
@@ -93,7 +100,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   }
 
   FakeSpeechService? get _fake {
-    final s = ref.read(speechServiceProvider);
+    final s = c.speech;
     return s is FakeSpeechService ? s : null;
   }
 
@@ -165,6 +172,11 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                   _storyCard(page),
                   const SizedBox(height: 12),
                   const _Legend(),
+                  if (c.micStatus == MicStatus.noPermission ||
+                      c.micStatus == MicStatus.unavailable) ...[
+                    const SizedBox(height: 12),
+                    _MicProblem(c.micStatus),
+                  ],
                 ],
               ),
             ),
@@ -181,8 +193,14 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                   onTap: c.isPaused ? null : c.help,
                 ),
                 _MicButton(
-                  listening: !c.isPaused,
-                  onTap: c.isPaused ? c.resume : c.pause,
+                  active: !c.isPaused && c.micStatus == MicStatus.listening,
+                  label: _micLabel,
+                  onTap: c.isPaused
+                      ? c.resume
+                      : (c.micStatus == MicStatus.noPermission ||
+                              c.micStatus == MicStatus.unavailable)
+                          ? c.retryMic
+                          : c.pause,
                 ),
                 _RoundButton(
                   label: c.isPaused ? 'Go on' : 'Pause',
@@ -257,6 +275,16 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
         ],
       ),
     );
+  }
+
+  String get _micLabel {
+    if (c.isPaused) return 'Paused';
+    return switch (c.micStatus) {
+      MicStatus.listening || MicStatus.off => 'Listening',
+      MicStatus.starting => 'Getting ready…',
+      MicStatus.noPermission => 'Mic is off',
+      MicStatus.unavailable => 'Mic not ready',
+    };
   }
 
   String _encouragement(Hint hint) => switch (hint.level) {
@@ -406,15 +434,16 @@ class _RoundButton extends StatelessWidget {
 }
 
 class _MicButton extends StatelessWidget {
-  const _MicButton({required this.listening, required this.onTap});
+  const _MicButton({required this.active, required this.label, required this.onTap});
 
-  final bool listening;
+  final bool active;
+  final String label;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) => Semantics(
         button: true,
-        label: listening ? 'Listening. Tap to pause' : 'Paused. Tap to go on',
+        label: '$label. Tap to ${active ? 'pause' : 'go on'}',
         excludeSemantics: true,
         child: GestureDetector(
           onTap: onTap,
@@ -427,21 +456,42 @@ class _MicButton extends StatelessWidget {
                 margin: const EdgeInsets.all(10),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: listening ? AppColors.coral : const Color(0xFFCFD5DF),
+                  color: active ? AppColors.coral : const Color(0xFFCFD5DF),
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: listening ? AppColors.coralLight : const Color(0xFFEEF0F4),
+                      color: active ? AppColors.coralLight : const Color(0xFFEEF0F4),
                       spreadRadius: 10,
                     ),
                   ],
                 ),
                 child: const SvgIcon(SvgArt.micWhite, size: 40),
               ),
-              Text(listening ? 'Listening' : 'Paused',
-                  style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
+              Text(label, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
             ],
           ),
+        ),
+      );
+}
+
+/// Shown when Buddy can't hear: what a grown-up can do about it.
+class _MicProblem extends StatelessWidget {
+  const _MicProblem(this.status);
+  final MicStatus status;
+
+  @override
+  Widget build(BuildContext context) => AppCard(
+        color: AppColors.coralLight,
+        flat: true,
+        child: Text(
+          status == MicStatus.noPermission
+              ? "Buddy can't hear you yet. Tap the microphone and choose "
+                  "Allow. If nothing happens, a grown-up can turn on the "
+                  "microphone for ReadAloud Buddy in the phone's Settings → Apps."
+              : "The phone's speech recognizer isn't ready for this "
+                  'language. Tap the microphone to try again, or a grown-up '
+                  'can switch to "Tap to read" in Settings.',
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, height: 1.4),
         ),
       );
 }

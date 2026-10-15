@@ -10,6 +10,7 @@ import '../../data/repositories/learner_repository.dart';
 import '../../data/story_providers.dart';
 import '../../speech/fake_speech_service.dart';
 import '../../speech/speech_providers.dart';
+import '../../speech/tts_service.dart';
 import '../theme/app_colors.dart';
 import '../widgets/buddy.dart';
 import '../widgets/common.dart';
@@ -62,7 +63,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
       _c = ReadingController(
         story: passage.story,
         words: passage.words,
-        speech: ref.read(speechServiceProvider),
+        speech: ref.read(speechServiceProvider(passage.story.language)),
         hintWaitSec: widget.learner.hintWait(),
         startHintLevel: widget.learner.startHintLevel,
         clock: ref.read(readingClockProvider)(),
@@ -78,7 +79,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
     final hint = c.hint;
     if (hint != null && _spokenHint != (c.currentIndex, hint.level)) {
       _spokenHint = (c.currentIndex, hint.level);
-      ref.read(ttsServiceProvider).speak(hint.parts.join(', '),
+      speakOverMic(ref.read(ttsServiceProvider), c.speech, hint.parts.join(', '),
           language: _passage!.story.language, slow: true);
     }
     if (c.isFinished && !_saving) _passageDone(c);
@@ -142,14 +143,14 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   }
 
   void _tapWord(int i) {
-    final c = _c, s = ref.read(speechServiceProvider);
+    final c = _c, s = _c?.speech;
     if (c == null || s is! FakeSpeechService) return;
     final ahead = i - c.currentIndex;
     if (ahead >= 0 && ahead <= c.config.lookAheadWords) s.hear(c.words[i].word);
   }
 
   void _longPressWord(int i) {
-    final c = _c, s = ref.read(speechServiceProvider);
+    final c = _c, s = _c?.speech;
     if (c == null || s is! FakeSpeechService || i != c.currentIndex) return;
     s.hear(FakeSpeechService.misreadWord);
   }
