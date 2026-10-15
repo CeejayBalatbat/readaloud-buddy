@@ -162,6 +162,18 @@ void main() {
       expect(shelf.reason, "These stories have more 'sh' words");
     });
 
+    test('the reason names a specific sound, not sight words', () {
+      final shelf = StorySelector(random: FixedRandom(0)).select(
+        stories: [story('mix', 'EN', 1, ['EN-SW', 'EN-TH'])],
+        level: 1,
+        languages: ['EN'],
+        mastery: SoundMastery(mastery: {'EN-TH': 0.9}),
+      );
+      // EN-SW is weaker (0.35 vs 0.9) but too common to be worth naming.
+      expect(shelf.focusPattern, 'EN-TH');
+      expect(shelf.reason, "These stories have more 'th' words");
+    });
+
     test('hint word parts keep every letter of every story word', () {
       for (final s in all) {
         for (final w in s.words) {

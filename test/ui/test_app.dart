@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
 import 'package:readaloud_buddy/data/database_providers.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
@@ -48,7 +49,18 @@ class TestApp {
     _fontsLoaded = true;
   }
 
-  late ProviderContainer container;
+  /// "Now" for greetings, streaks and today's minutes.
+  DateTime now = DateTime(2026, 10, 15, 15, 30);
+
+  /// Created on first use, so tests can set up data before [pump].
+  late final ProviderContainer container = ProviderContainer(overrides: [
+    nowProvider.overrideWithValue(() => now),
+    appDatabaseProvider.overrideWithValue(db),
+    speechServiceProvider.overrideWithValue(speech),
+    ttsServiceProvider.overrideWithValue(tts),
+    readingClockProvider.overrideWithValue(() => clock),
+    storiesProvider.overrideWith((ref) async => stories),
+  ]);
 
   Future<void> pump(WidgetTester tester, Widget home) async {
     await loadFonts();
@@ -61,13 +73,6 @@ class TestApp {
       await db.close();
     });
 
-    container = ProviderContainer(overrides: [
-      appDatabaseProvider.overrideWithValue(db),
-      speechServiceProvider.overrideWithValue(speech),
-      ttsServiceProvider.overrideWithValue(tts),
-      readingClockProvider.overrideWithValue(() => clock),
-      storiesProvider.overrideWith((ref) async => stories),
-    ]);
     addTearDown(container.dispose);
 
     await tester.pumpWidget(UncontrolledProviderScope(

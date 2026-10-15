@@ -130,10 +130,14 @@ class AppChip extends StatelessWidget {
     this.borderColor,
     this.fontSize = 13,
     this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+    this.center = false,
   });
 
   final String label;
   final bool selected;
+
+  /// Fill the given width with the label centred (for equal-width rows).
+  final bool center;
   final VoidCallback? onTap;
   final Color? background;
   final Color? borderColor;
@@ -144,6 +148,7 @@ class AppChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final chip = Container(
       padding: padding,
+      alignment: center ? Alignment.center : null,
       decoration: BoxDecoration(
         color: selected ? AppColors.teal : (background ?? Colors.white),
         borderRadius: BorderRadius.circular(999),
@@ -154,6 +159,8 @@ class AppChip extends StatelessWidget {
       ),
       child: Text(
         label,
+        maxLines: 1,
+        softWrap: false,
         style: TextStyle(
           fontSize: fontSize,
           fontWeight: FontWeight.w800,

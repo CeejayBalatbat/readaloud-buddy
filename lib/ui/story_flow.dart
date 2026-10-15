@@ -5,9 +5,9 @@ import '../agent/agent.dart';
 import '../app/buddy_brain.dart';
 import '../app/current_learner.dart';
 import '../app/session_service.dart';
-import '../data/database_providers.dart';
 import '../data/db/app_database.dart';
 import '../data/repositories/learner_repository.dart';
+import '../app/home_data.dart';
 import '../data/story.dart';
 import 'screens/questions_screen.dart';
 import 'screens/read_along_screen.dart';
@@ -58,6 +58,7 @@ Future<void> startStory(BuildContext context, Story story) async {
               ));
           await container.read(currentLearnerProvider.notifier).reload();
           container.invalidate(learnerInsightsProvider);
+          refreshAfterReading(container);
           showResults(outcome);
         },
       ),
@@ -86,14 +87,9 @@ class ReadingResult {
   final List<HintAttempt> hints;
 }
 
-/// The current reader. Until reader setup exists (Phase 3 step 3), a
-/// default reader is created on first use.
+/// The current reader (setup always comes first, so there is one).
 Future<Learner> _learner(ProviderContainer container) async {
   final current = await container.read(currentLearnerProvider.future);
-  if (current != null) return current;
-  final created = await container
-      .read(learnerRepositoryProvider)
-      .create(nickname: 'Reader', grade: 1, languages: 'EN,FIL');
-  await container.read(currentLearnerProvider.notifier).select(created.id);
-  return created;
+  if (current == null) throw StateError('No reader is set up yet');
+  return current;
 }

@@ -5,7 +5,8 @@ import 'package:readaloud_buddy/app/buddy_brain.dart';
 import 'package:readaloud_buddy/data/repositories/learner_repository.dart';
 import 'package:readaloud_buddy/data/repositories/session_repository.dart';
 import 'package:readaloud_buddy/ui/screens/questions_screen.dart';
-import 'package:readaloud_buddy/ui/screens/story_list_screen.dart';
+import 'package:readaloud_buddy/app/current_learner.dart';
+import 'package:readaloud_buddy/ui/screens/home_shell.dart';
 
 import 'test_app.dart';
 
@@ -60,7 +61,10 @@ void main() {
     final app = TestApp();
     final mia = await tester.runAsync(() => LearnerRepository(app.db)
         .create(nickname: 'Mia', grade: 2, languages: 'EN', currentLevel: 2));
-    await app.pump(tester, const StoryListScreen());
+    await tester.runAsync(() => app.container.read(currentLearnerProvider.notifier).select(mia!.id));
+    await app.pump(tester, const HomeShell());
+    await settle(tester);
+    await tester.tap(find.text('Stories'));
     await settle(tester);
 
     await tester.tap(find.text('The Big Red Kite'));
@@ -105,7 +109,7 @@ void main() {
 
     await tester.tap(find.text('Next story →'));
     await settle(tester);
-    expect(find.text('All stories'), findsOneWidget);
+    expect(find.text('Pick a story'), findsOneWidget);
     expect(find.byType(Scaffold), findsOneWidget);
   });
 }

@@ -131,17 +131,31 @@ class StorySelector {
     );
   }
 
-  /// The pattern with the most weak-sound practice across the picks.
-  String? _focusPattern(List<ShelfPick> picks, SoundMastery mastery) {
+  /// The pattern with the most weak-sound practice across the picks,
+  /// preferring a specific sound over the [AgentConfig.commonPatterns].
+  String? _focusPattern(List<ShelfPick> picks, SoundMastery mastery) =>
+      topWeakPattern([for (final p in picks) p.story], mastery, config);
+
+  /// The sound pattern that [stories] practise most, weighted by how weak
+  /// the learner is at it (1 − mastery per word).
+  static String? topWeakPattern(
+    List<Story> stories,
+    SoundMastery mastery, [
+    AgentConfig config = const AgentConfig(),
+  ]) {
     final weight = <String, double>{};
-    for (final p in picks) {
-      for (final w in p.story.words) {
+    for (final s in stories) {
+      for (final w in s.words) {
         for (final code in w.patterns) {
           weight[code] = (weight[code] ?? 0) + 1 - mastery.of(code);
         }
       }
     }
-    if (weight.isEmpty) return null;
-    return weight.entries.reduce((a, b) => b.value > a.value ? b : a).key;
+    final specific = weight.entries
+        .where((e) => !config.commonPatterns.contains(e.key))
+        .toList();
+    final pool = specific.isNotEmpty ? specific : weight.entries.toList();
+    if (pool.isEmpty) return null;
+    return pool.reduce((a, b) => b.value > a.value ? b : a).key;
   }
 }

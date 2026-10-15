@@ -45,6 +45,7 @@ class AgentConfig {
     this.recentSessionsWindow = 3,
     this.recentlyReadPenalty = 1.0,
     this.maxRandomBonus = 0.15,
+    this.commonPatterns = const {'EN-SW', 'EN-SV', 'FIL-SW', 'FIL-CV'},
     // §10 Teacher flag
     this.flagWindowSessions = 3,
     this.flagFrustrationCount = 2,
@@ -91,6 +92,10 @@ class AgentConfig {
   final int recentSessionsWindow;
   final double recentlyReadPenalty;
   final double maxRandomBonus;
+
+  /// Tags found in almost every story (sight words, short vowels, simple
+  /// syllables). Only used to pick which sound the shelf reason names.
+  final Set<String> commonPatterns;
 
   final int flagWindowSessions;
   final int flagFrustrationCount;
