@@ -70,8 +70,15 @@ class BuddyBrainPanel extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: 16),
-        _ReadingSection(brain.reading),
-        if (brain.last != null) _DecisionSection(brain.last!),
+        // While reading, the live word results matter most; afterwards,
+        // Buddy's decision does.
+        if (brain.reading?.currentIndex != null || brain.last == null) ...[
+          _ReadingSection(brain.reading),
+          if (brain.last != null) _DecisionSection(brain.last!),
+        ] else ...[
+          _DecisionSection(brain.last!),
+          _ReadingSection(brain.reading),
+        ],
         insights.when(
           loading: () => const Padding(
             padding: EdgeInsets.all(16),

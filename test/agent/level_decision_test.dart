@@ -77,6 +77,33 @@ void main() {
           [LevelMove.stay, LevelMove.down, LevelMove.stay]);
     });
 
+    test("Buddy's plan says how it felt, the decision, and what's next", () {
+      String plan(LevelState start, PhilIriLevel r,
+          [AgentConfig cfg = const AgentConfig()]) {
+        final (d, next) = start.apply(r, cfg);
+        return buddyPlanFor(result: r, decision: d, next: next, config: cfg);
+      }
+
+      expect(plan(const LevelState(level: 2), ind),
+          "This story was easy for you. Read one more story this well and "
+          "you'll move up to Level 3!");
+      expect(plan(const LevelState(level: 2, resultsAtLevel: [ind]), ind),
+          contains('moving up to Level 3'));
+      expect(plan(const LevelState(level: 2), ins),
+          'This story was just right. Keep reading Level 2 stories to get '
+          'even stronger!');
+      expect(plan(const LevelState(level: 2), fru), contains('Level 1'));
+      expect(plan(const LevelState(level: 1), fru),
+          contains("Let's keep practising Level 1"));
+      // At the top level there is nothing to move up to.
+      expect(plan(const LevelState(level: 4), ind),
+          isNot(contains('move up')));
+      // With framesToMoveDown = 2, one Frustration only stays.
+      expect(plan(const LevelState(level: 3), fru,
+              const AgentConfig(framesToMoveDown: 2)),
+          contains('a bit tricky'));
+    });
+
     test("Buddy's plan has kid-friendly words for each decision", () {
       final (up, _) = const LevelState(level: 1, resultsAtLevel: [ind]).apply(ind);
       expect(up.buddyPlan, contains('Level 2'));
