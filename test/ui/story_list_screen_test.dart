@@ -33,8 +33,7 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [storiesProvider.overrideWith((ref) async => fake)],
-        // Plain theme here: the app theme uses google_fonts, which would try to
-        // download fonts during the test.
+        // Plain theme: this test only checks the list content.
         child: const MaterialApp(home: StoryListScreen()),
       ),
     );

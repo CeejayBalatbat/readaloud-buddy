@@ -166,6 +166,17 @@ void main() {
       expect(t.tick(s(10)).hint!.level, 3);
     });
 
+    test('Help gives the next hint step now; the timer then counts from it',
+        () {
+      final t = tracker('through');
+      expect(t.requestHint(s(1))!.level, 1);
+      expect(t.currentHint!.level, 1);
+      expect(t.tick(s(5.9)).hint, isNull); // next step due at 6 s, not 5 s
+      expect(t.tick(s(6)).hint!.level, 2);
+      expect(t.requestHint(s(7))!.level, 3);
+      expect(t.requestHint(s(8)), isNull); // nothing after the whole word
+    });
+
     test('hint success = word read within 5 s after the hint', () {
       final t = tracker('through the cat');
       t.tick(s(5)); // level 1 at 5 s

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../agent/agent.dart';
+import '../../app/reading_controller.dart';
 import '../../data/story.dart';
 import '../../data/story_providers.dart';
 import '../theme/app_colors.dart';
+import '../widgets/buddy.dart';
+import '../widgets/common.dart';
+import 'read_along_screen.dart';
 
 /// Phase 0 check screen: lists every story so we know the content loads.
 /// The real story shelf (screen 4) comes in Phase 3.
@@ -43,10 +48,21 @@ class _StoryTile extends StatelessWidget {
 
   final Story story;
 
+  void _open(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => ReadAlongScreen(
+        story: story,
+        onFinished: (c) => Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(builder: (_) => _FinishedScreen(controller: c)),
+        ),
+      ),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final isFilipino = story.language == 'FIL';
-    return Container(
+    final card = Container(
       // Card with the chunky bottom edge from the mockups.
       decoration: BoxDecoration(
         color: AppColors.paper,
@@ -82,6 +98,43 @@ class _StoryTile extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+    return GestureDetector(onTap: () => _open(context), child: card);
+  }
+}
+
+/// Step-1 stand-in for the results screen: shows the agent's scores.
+class _FinishedScreen extends StatelessWidget {
+  const _FinishedScreen({required this.controller});
+
+  final ReadingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    final sc = SessionScores.fromResults(controller.outcomes,
+        readingSeconds: controller.readingSeconds, questionsCorrect: 0);
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(22),
+          child: Column(
+            children: [
+              const Buddy(size: 110),
+              Text('Great reading!', style: Theme.of(context).textTheme.headlineMedium),
+              const SizedBox(height: 16),
+              Text('${(sc.accuracy * 100).round()}% words right · '
+                  '${sc.wcpm.round()} words a minute',
+                  style: Theme.of(context).textTheme.titleMedium),
+              const Spacer(),
+              ChunkyButton(
+                label: 'Back to stories',
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              const SizedBox(height: 24),
+            ],
+          ),
+        ),
       ),
     );
   }

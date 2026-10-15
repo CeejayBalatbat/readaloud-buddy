@@ -115,6 +115,23 @@ class ReadingTracker {
     return TrackerUpdate(finished: finished, hint: hint);
   }
 
+  /// The child tapped Help: give the next hint step now instead of waiting.
+  /// The following step is then due one wait time after this one. Returns
+  /// null when the whole word was already given.
+  Hint? requestHint(Duration now) {
+    if (isFinished || _hintLevel == 3) return null;
+    _closePendingHint(success: false);
+    _hintLevel = _hintLevel == 0 ? startHintLevel : _hintLevel + 1;
+    _lastHintAt = now;
+    _pendingHintAt = now;
+    return HintLadder.hintFor(words[_index].word, _hintLevel, language);
+  }
+
+  /// The hint currently showing for the current word, if any.
+  Hint? get currentHint => isFinished || _hintLevel == 0
+      ? null
+      : HintLadder.hintFor(words[_index].word, _hintLevel, language);
+
   /// The recognizer stopped on silence and listening restarted. This
   /// deliberately does NOT reset the hint timer (§2).
   void onListeningRestarted(Duration at) {}

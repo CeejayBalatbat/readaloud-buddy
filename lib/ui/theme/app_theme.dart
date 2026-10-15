@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
 /// App-wide Material theme: cream pages, ink text, teal primary, Nunito with
 /// heavy headings, rounded 20px cards.
+///
+/// Nunito is bundled in assets/fonts (see pubspec.yaml), so it works
+/// offline and every weight (400–900) is the real font, not a faux bold.
 ThemeData buildAppTheme() {
   final base = ThemeData(
     useMaterial3: true,
+    fontFamily: 'Nunito',
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.teal,
       primary: AppColors.teal,
@@ -22,25 +25,25 @@ ThemeData buildAppTheme() {
     scaffoldBackgroundColor: AppColors.cream,
   );
 
-  final text = GoogleFonts.nunitoTextTheme(base.textTheme)
+  final text = base.textTheme
       .apply(bodyColor: AppColors.ink, displayColor: AppColors.ink)
       .copyWith(
-        headlineMedium: GoogleFonts.nunito(
+        headlineMedium: const TextStyle(
           fontSize: 28,
           fontWeight: FontWeight.w900,
           color: AppColors.ink,
         ),
-        titleLarge: GoogleFonts.nunito(
+        titleLarge: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w900,
           color: AppColors.ink,
         ),
-        titleMedium: GoogleFonts.nunito(
+        titleMedium: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w800,
           color: AppColors.ink,
         ),
-        labelLarge: GoogleFonts.nunito(
+        labelLarge: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w800,
           color: AppColors.ink,
