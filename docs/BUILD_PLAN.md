@@ -27,4 +27,4 @@ Screen 9 (build-the-word), screen 10 (dyslexia mode, text size, contrast, read a
 **Done when:** a full day of use works end to end, offline.
 
 ## Phase 6 – Later
-Parent weekly summary (11), Firebase sync, teacher web dashboard (12–13), Vosk offline speech, more stories.
+~~Parent weekly summary (11)~~ (built early), Firebase sync, teacher web dashboard (12–13), Vosk offline speech, more stories.

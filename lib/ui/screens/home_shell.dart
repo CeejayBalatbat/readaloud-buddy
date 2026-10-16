@@ -22,6 +22,7 @@ import 'grown_up_gate.dart';
 import 'placement_screen.dart';
 import 'reading_comfort.dart';
 import 'setup_screen.dart';
+import 'weekly_summary_screen.dart';
 
 /// The child's main screen with the bottom tabs: Home (s03), Stories
 /// (s04), Games (s09) and Settings (s10).
@@ -430,6 +431,34 @@ class SettingsTab extends ConsumerWidget {
                             ),
                     ),
                 ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            // Screen 11: the parent's weekly summary.
+            GestureDetector(
+              onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => WeeklySummaryScreen(filipino: current?.languages == 'FIL'),
+              )),
+              child: AppCard(
+                child: Row(
+                  children: [
+                    const Text('📊', style: TextStyle(fontSize: 30)),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Weekly summary',
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+                          Text("See ${current?.nickname ?? 'the reader'}'s reading week",
+                              style: const TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2)),
+                        ],
+                      ),
+                    ),
+                    const Icon(Icons.chevron_right, color: AppColors.teal),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 12),

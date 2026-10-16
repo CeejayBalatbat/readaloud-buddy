@@ -42,3 +42,16 @@ round at the end. Add new reports at the bottom of the right section.
 ## Read first, review after
 - Words read correctly *after* a hint (via Help) are not in the page
   review; only misread and skipped words are.
+
+## Phase 5 and the weekly summary
+- Some keyword/emoji pictures are newer emoji (🪺 nest, 🪟 window, 🪑 chair,
+  🪁 kite, 🧃 juice, 🪀). Phones on Android 10 or older may show an empty
+  box instead.
+- Games don't count toward the streak or today's minutes; only reading does.
+- "Build the word" has no picture of the word (the mockup shows one); it
+  shows a speaker and Buddy says the word.
+- The weekly summary covers the last 7 days (today and the 6 days before),
+  not a calendar week.
+- Printing tricky words uses Android's print dialog (print or save as PDF);
+  untested on a real phone and printer.
+
