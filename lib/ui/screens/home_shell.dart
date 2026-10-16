@@ -17,13 +17,14 @@ import '../widgets/buddy_brain_sheet.dart';
 import '../widgets/common.dart';
 import '../widgets/story_cover.dart';
 import '../widgets/svg_art.dart';
+import 'games_tab.dart';
 import 'grown_up_gate.dart';
 import 'placement_screen.dart';
 import 'reading_comfort.dart';
 import 'setup_screen.dart';
 
 /// The child's main screen with the bottom tabs: Home (s03), Stories
-/// (s04), Games and Settings (Phase 5).
+/// (s04), Games (s09) and Settings (s10).
 class HomeShell extends ConsumerStatefulWidget {
   const HomeShell({super.key});
 
@@ -39,9 +40,7 @@ class _HomeShellState extends ConsumerState<HomeShell> {
     final body = switch (_tab) {
       0 => HomeTab(onRead: () => setState(() => _tab = 1)),
       1 => const ShelfTab(),
-      2 => const _ComingSoon(
-          title: 'Word games',
-          text: 'Games with your tricky words are coming soon!'),
+      2 => const GamesTab(),
       _ => const SettingsTab(),
     };
     return Scaffold(
@@ -615,32 +614,6 @@ class _HintModeCard extends ConsumerWidget {
 final allLearnersProvider = StreamProvider.autoDispose<List<Learner>>(
   (ref) => ref.watch(learnerRepositoryProvider).watchAll(),
 );
-
-class _ComingSoon extends StatelessWidget {
-  const _ComingSoon({required this.title, required this.text});
-  final String title;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Buddy(size: 110),
-              const SizedBox(height: 12),
-              Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
-              const SizedBox(height: 6),
-              Text(text,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w700, color: AppColors.ink2)),
-            ],
-          ),
-        ),
-      );
-}
 
 /// After setup: the reading check (s02), then the new reader becomes the
 /// current reader and lands on Home.

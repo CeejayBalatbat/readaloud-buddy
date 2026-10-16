@@ -130,6 +130,8 @@ Status: Mastered ≥ 0.85, Learning 0.50–0.84, Needs help < 0.50.
 ## 8. Tricky words
 A word becomes "tricky" for a learner if its result was misread, skipped, or correctAfterHint. It leaves the list after it is read cleanly in 2 later sessions or games. A clean read is `correct` **or `hesitated`** (read correctly without help).
 
+**Tricky-word game ("Build the word", screen 9):** 5 words per game. The learner's tricky words first (weakest pattern mastery first, then fewest clean reads), topped up with words from stories at their level and language(s) that practise their weakest sounds (no sight words, nothing hyphenated, 2–8 letters). Buddy says the word; the child taps or drags letter tiles (the word's letters + 2 look-alike letters) into the slots; a wrong tile goes back and counts as a mistake. A word built with **no** mistakes counts as one clean read for this list; a build with mistakes doesn't count but doesn't reset it. Finishing a game earns 1 ⭐ (for practising). "Why this game?" names the sounds, and says honestly whether the words came from the tricky list.
+
 ## 9. Story selection (story shelf)
 Candidates: stories at the learner's level in their reading language(s). A reader set to "Both" (`EN,FIL`) sees stories in both languages. Score each:
 ```

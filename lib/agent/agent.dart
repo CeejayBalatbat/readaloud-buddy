@@ -15,4 +15,5 @@ export 'story_selection.dart';
 export 'teacher_flag.dart';
 export 'tricky_words.dart';
 export 'word_matcher.dart';
+export 'word_game.dart';
 export 'word_result.dart';

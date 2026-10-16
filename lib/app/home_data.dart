@@ -158,4 +158,34 @@ String? _topSound(Story story, SoundMastery mastery) {
 void refreshAfterReading(ProviderContainer c) {
   c.invalidate(homeStatsProvider);
   c.invalidate(shelfProvider);
+  c.invalidate(gamePlanProvider);
 }
+
+/// Today's "Build the word" game for the current reader (screen 9).
+class GamePlan {
+  const GamePlan({required this.learner, required this.words, required this.why});
+  final Learner learner;
+  final List<GameWord> words;
+
+  /// "Why this game?" (the agent explains its pick).
+  final String why;
+}
+
+final gamePlanProvider = FutureProvider.autoDispose<GamePlan?>((ref) async {
+  final learner = await ref.watch(currentLearnerProvider.future);
+  if (learner == null) return null;
+  final stories = await ref.watch(storiesProvider.future);
+  final progress = ref.watch(progressRepositoryProvider);
+  final words = const WordGame().pickWords(
+    tricky: (await progress.loadTrickyWords(learner.id)).words,
+    mastery: await progress.loadMastery(learner.id),
+    stories: stories,
+    level: learner.currentLevel,
+    languages: learner.languageList,
+  );
+  return GamePlan(
+    learner: learner,
+    words: words,
+    why: WordGame.whyLine(learner.nickname, words),
+  );
+});

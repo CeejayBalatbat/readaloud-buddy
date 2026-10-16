@@ -137,6 +137,40 @@ class SessionService {
       });
 }
 
+/// What a finished "Build the word" game changed.
+class GameOutcome {
+  const GameOutcome({required this.stars, required this.wordsLearned});
+
+  /// Stars earned for playing (rewards are for practice, not speed).
+  final int stars;
+
+  /// Words that left the tricky-word list (built cleanly the 2nd time).
+  final List<String> wordsLearned;
+}
+
+extension GameSaving on SessionService {
+  /// Saves a finished game (screen 9): clean builds count as clean reads
+  /// for the tricky-word list (§8), and playing earns one star.
+  Future<GameOutcome> finishGame({
+    required Learner learner,
+    required List<(GameWord, bool clean)> results,
+  }) =>
+      _db.transaction(() async {
+        final tricky = await _progress.loadTrickyWords(learner.id);
+        final changes = tricky.recordActivity(WordGame.outcomesFor(results));
+        await _progress.saveTrickyWords(learner.id, tricky);
+        final stars = results.isEmpty ? 0 : gameStars;
+        if (stars > 0) await _learners.addStars(learner.id, stars);
+        return GameOutcome(
+          stars: stars,
+          wordsLearned: [for (final w in changes.removed) w.word],
+        );
+      });
+}
+
+/// Stars for finishing a game.
+const gameStars = 1;
+
 /// A short placement passage: the opening sentences of a story.
 class PlacementPassage {
   const PlacementPassage(this.story, this.words);
