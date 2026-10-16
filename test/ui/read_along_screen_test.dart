@@ -106,6 +106,17 @@ void main() {
     await app.screenshot(tester, 's06_help');
   });
 
+  testWidgets('Filipino without phone support: tap to read, with a note',
+      (tester) async {
+    final fil = TestApp.stories.firstWhere((s) => s.language == 'FIL');
+    final app = TestApp(); // the test speech service is tap-to-read
+    await app.pump(tester, ReadAlongScreen(story: fil, onFinished: (_) {}));
+    expect(find.textContaining("can't listen in Filipino"), findsOneWidget);
+    // English stories don't show it.
+    final (_, _) = await open(tester);
+    expect(find.textContaining("can't listen in Filipino"), findsNothing);
+  });
+
   testWidgets('a sight word gets one hint: "This one we just know"',
       (tester) async {
     final (app, _) = await open(tester);

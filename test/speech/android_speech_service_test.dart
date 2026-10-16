@@ -40,6 +40,10 @@ class FakeEngine implements SttEngine {
 
   @override
   Future<void> cancel() async => cancels++;
+
+  List<String> localeIds = ['en_US'];
+  @override
+  Future<List<String>> locales() async => localeIds;
 }
 
 void main() {
@@ -211,6 +215,50 @@ void main() {
       now = ms(2400);
       await later(); // restart fires
       expect(s.timer.summary().restartGapMs, 400);
+    });
+  });
+
+  group('Filipino', () {
+    test('listens in fil-PH', () async {
+      await s.start(language: 'FIL');
+      expect(engine.listens, [('fil-PH', true)]);
+    });
+
+    test('the phone supports Filipino when it lists fil-PH (or tl-PH)', () async {
+      engine.localeIds = ['en_US', 'fil_PH'];
+      expect(await AndroidSpeechService.supportsLanguage(engine, 'FIL'), isTrue);
+      engine.localeIds = ['en-US', 'tl-PH'];
+      expect(await AndroidSpeechService.supportsLanguage(engine, 'FIL'), isTrue);
+    });
+
+    test('no fil-PH in the list: not supported (tap to read)', () async {
+      engine.localeIds = ['en_US', 'es_ES'];
+      expect(await AndroidSpeechService.supportsLanguage(engine, 'FIL'), isFalse);
+      expect(await AndroidSpeechService.supportsLanguage(engine, 'EN'), isTrue);
+    });
+
+    test('an empty list means unknown: try the microphone', () async {
+      engine.localeIds = [];
+      expect(await AndroidSpeechService.supportsLanguage(engine, 'FIL'), isTrue);
+    });
+
+    test('no recognizer or no permission: not supported', () async {
+      engine.initOk = false;
+      expect(await AndroidSpeechService.supportsLanguage(engine, 'FIL'), isFalse);
+    });
+
+    test('a hyphenated word heard as two words is joined: araw-araw', () async {
+      await s.start(language: 'FIL');
+      s.expectedWord = 'araw-araw';
+      engine.result('araw araw', true, null);
+      expect(texts(), ['araw-araw']);
+    });
+
+    test('only the first half of the expected word is held', () async {
+      await s.start(language: 'FIL');
+      s.expectedWord = 'Pag-uwi';
+      engine.result('bahay', true, null); // not "pag": passed on as is
+      expect(texts(), ['bahay']);
     });
   });
 }

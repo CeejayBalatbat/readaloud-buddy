@@ -65,6 +65,12 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   bool _saidQuiet = false; // "can't hear you" was said for this quiet spell
   int? _introducedReview; // page whose review Buddy already introduced
 
+  /// Microphone mode, but this phone can't recognize the story's language
+  /// (Filipino), so the child taps the words instead.
+  late final bool _tapFallback = widget.story.language != 'EN' &&
+      (ref.read(speechModeProvider).value ?? SpeechMode.voice) == SpeechMode.voice &&
+      c.speech is FakeSpeechService;
+
   static const quietMessage = "I can't hear you. Try reading a bit louder!";
   static const reviewIntro = "Let's practise these words. Tap one to hear it, then say it!";
 
@@ -231,6 +237,12 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                   if (c.isQuiet) ...[
                     const SizedBox(height: 12),
                     const _BuddySays(quietMessage),
+                  ],
+                  if (_tapFallback) ...[
+                    const SizedBox(height: 12),
+                    const _BuddySays(
+                        "This phone can't listen in Filipino yet, so tap each "
+                        'word as you read it.'),
                   ],
                   if (c.micStatus == MicStatus.noPermission ||
                       c.micStatus == MicStatus.unavailable) ...[

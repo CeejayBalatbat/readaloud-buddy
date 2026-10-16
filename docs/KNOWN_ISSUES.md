@@ -13,6 +13,10 @@ round at the end. Add new reports at the bottom of the right section.
 - **Words said while the recognizer restarts are lost.** Android stops
   listening after about 1 s of silence, and we restart it ~250 ms later.
   The speed meter shows this as "Mic off while restarting".
+- **Filipino recognition is untested on a real phone.** fil-PH usually has
+  no on-device model, so it falls back to online recognition (needs
+  internet). The Filipino TTS voice for hints may also be missing on some
+  phones (Buddy then stays quiet).
 - The speed meter's "recognizer" time counts from when the mic got loud.
   If the child reads several words without a pause, it counts from the
   start of the phrase, so it overestimates later words.

@@ -26,6 +26,10 @@ abstract class SttEngine {
     void Function(double rmsDb)? onSoundLevel,
   });
   Future<void> cancel();
+
+  /// Locale ids the phone's recognizer offers, e.g. "en_US", "fil_PH".
+  /// May be empty when the phone doesn't say.
+  Future<List<String>> locales();
 }
 
 /// speech_to_text keeps one recognizer for the whole app, so this engine
@@ -84,6 +88,10 @@ class SpeechToTextEngine implements SttEngine {
 
   @override
   Future<void> cancel() => _stt.cancel();
+
+  @override
+  Future<List<String>> locales() async =>
+      [for (final l in await _stt.locales()) l.localeId];
 }
 
 /// Phone speech recognition (AGENT_SPEC "Speech recognition"): Android's
@@ -121,6 +129,22 @@ class AndroidSpeechService implements SpeechService {
 
   static const localeIds = {'EN': 'en-US', 'FIL': 'fil-PH'};
 
+  /// Whether the phone's recognizer can do [language] ("EN"/"FIL"). For
+  /// Filipino it looks for fil-PH (or tl-PH, the older Tagalog code).
+  /// When the phone lists no locales at all, the answer is unknown and we
+  /// say yes: the recognizer then reports an error if it really can't.
+  static Future<bool> supportsLanguage(SttEngine engine, String language) async {
+    if (language == 'EN') return true;
+    final ok = await engine.initialize(onStatus: (_) {}, onError: (_, _) {});
+    if (!ok) return false;
+    final ids = [
+      for (final id in await engine.locales()) id.toLowerCase().replaceAll('_', '-'),
+    ];
+    if (ids.isEmpty) return true;
+    final codes = language == 'FIL' ? ['fil', 'tl'] : [language.toLowerCase()];
+    return ids.any((id) => codes.any((c) => id == c || id.startsWith('$c-')));
+  }
+
   final _words = StreamController<HeardWord>.broadcast(sync: true);
   final _voice = StreamController<void>.broadcast(sync: true);
   final _state = ValueNotifier(const SpeechState());
@@ -135,6 +159,7 @@ class AndroidSpeechService implements SpeechService {
   String? _expected;
   Timer? _restart;
   int _generation = 0; // ignores results from an old listen session
+  String? _held; // first half of a hyphenated word (araw-araw)
 
   /// Real errors in a row (not "nothing said"); reset by any result.
   int _failures = 0;
@@ -234,7 +259,7 @@ class AndroidSpeechService implements SpeechService {
       emit: (w) {
         timer.passedOn(_tracker.emitted - 1, w, at);
         passedOn = true;
-        _words.add(HeardWord(w, confidence: isFinal ? confidence : null));
+        _emit(w, isFinal ? confidence : null);
       },
       acceptEarly: (w) {
         final expected = _expected;
@@ -242,6 +267,27 @@ class AndroidSpeechService implements SpeechService {
       },
     );
     if (passedOn) _onNextFrame(_measureScreen);
+  }
+
+  /// Passes [w] on. Recognizers write hyphenated words as two ("araw
+  /// araw"), so when the expected word has a hyphen and [w] is its first
+  /// half, it is held and joined with the next word.
+  void _emit(String w, double? confidence) {
+    final held = _held;
+    if (held != null) {
+      _held = null;
+      _words.add(HeardWord('$held-$w', confidence: confidence));
+      return;
+    }
+    final expected = _expected;
+    if (expected != null && expected.contains('-')) {
+      final e = WordMatcher.normalize(expected), h = WordMatcher.normalize(w);
+      if (h.isNotEmpty && h.length < e.length && e.startsWith(h)) {
+        _held = w;
+        return;
+      }
+    }
+    _words.add(HeardWord(w, confidence: confidence));
   }
 
   void _measureScreen() {

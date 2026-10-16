@@ -152,3 +152,5 @@ Flag the learner when 2 of their last 3 sessions are Frustration, or a pattern s
 
 ## Speech recognition (environment notes)
 - Phase 4 uses Android's recognizer via `speech_to_text`: try on-device recognition first, fall back to online. Phase 4 may therefore need internet (documented in the README). Fully offline speech (Vosk) is a later phase.
+- **Filipino (fil-PH):** the first time a Filipino story opens in microphone mode, the app checks whether the phone's recognizer lists `fil-PH` (or the older `tl-PH`). If it does, Filipino stories use the microphone; if not, they fall back to tap-to-read and Buddy says so on the reading screen. (If the phone lists no languages at all, the microphone is tried, and a recognizer error shows the usual "mic not ready" message.)
+- Recognizers write hyphenated words as two words ("araw araw"); when the expected word has a hyphen, its two halves are joined back into one heard word.

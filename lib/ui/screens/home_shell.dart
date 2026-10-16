@@ -482,7 +482,9 @@ class _SpeechModeCard extends ConsumerWidget {
           ),
           if (mode == SpeechMode.voice) ...[
             const SizedBox(height: 8),
-            const Text('Filipino stories use tap-to-read for now.',
+            const Text(
+                "Filipino stories use the microphone if this phone's speech "
+                'recognizer knows Filipino (fil-PH); otherwise tap to read.',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
           ],
         ],

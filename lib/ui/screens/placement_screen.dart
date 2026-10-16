@@ -56,6 +56,8 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
     final passage = level == null ? null : placementPassage(stories, level, _language);
     if (!mounted) return;
     if (passage == null) return _finish();
+    await prepareVoice(ProviderScope.containerOf(context), passage.story.language);
+    if (!mounted) return;
     _c?.removeListener(_changed);
     _c?.dispose();
     setState(() {
