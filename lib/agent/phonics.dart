@@ -52,7 +52,8 @@ class PhonicsEntry {
     this.keyword,
     this.emoji,
     this.needsReview = false,
-  });
+    String? wordSay,
+  }) : wordSay = wordSay ?? word;
 
   factory PhonicsEntry.fromJson(String word, Map<String, dynamic> j) => PhonicsEntry(
         word: word,
@@ -66,6 +67,7 @@ class PhonicsEntry {
         keyword: j['keyword'] as String?,
         emoji: j['emoji'] as String?,
         needsReview: j['needs_review'] as bool? ?? false,
+        wordSay: j['word_say'] as String?,
       );
 
   final String word;
@@ -90,26 +92,45 @@ class PhonicsEntry {
   final String? keyword;
   final String? emoji;
   final bool needsReview;
+
+  /// How text-to-speech should say the whole word ("read" in "Bolt read
+  /// a story" → "red").
+  final String wordSay;
 }
 
 /// All English words with their phonics data.
 class PhonicsDictionary {
-  const PhonicsDictionary(this._words);
+  const PhonicsDictionary(this._words, [this._occurrences = const {}]);
 
   static const empty = PhonicsDictionary({});
 
   factory PhonicsDictionary.parse(String json) {
-    final words = (jsonDecode(json) as Map<String, dynamic>)['words'] as Map<String, dynamic>;
-    return PhonicsDictionary({
-      for (final e in words.entries)
-        e.key: PhonicsEntry.fromJson(e.key, e.value as Map<String, dynamic>),
-    });
+    final root = jsonDecode(json) as Map<String, dynamic>;
+    final words = root['words'] as Map<String, dynamic>;
+    final occurrences = (root['occurrences'] as Map<String, dynamic>?) ?? const {};
+    PhonicsEntry entry(String key, Object? value, String word) =>
+        PhonicsEntry.fromJson(word, value as Map<String, dynamic>);
+    return PhonicsDictionary(
+      {for (final e in words.entries) e.key: entry(e.key, e.value, e.key)},
+      {
+        for (final e in occurrences.entries)
+          e.key: entry(e.key, e.value, (e.value as Map<String, dynamic>)['word'] as String),
+      },
+    );
   }
 
   final Map<String, PhonicsEntry> _words;
 
+  /// One word read two ways in the same story, keyed "S18:26".
+  final Map<String, PhonicsEntry> _occurrences;
+
   /// The entry for [word] as printed ("Had," → had), or null.
   PhonicsEntry? operator [](String word) => _words[WordMatcher.normalize(word)];
+
+  /// Like [], but uses the entry for this exact place in a story when
+  /// there is one ([occurrence] = "storyId:position").
+  PhonicsEntry? lookup(String word, {String? occurrence}) =>
+      (occurrence == null ? null : _occurrences[occurrence]) ?? this[word];
 
   Iterable<PhonicsEntry> get entries => _words.values;
   int get length => _words.length;

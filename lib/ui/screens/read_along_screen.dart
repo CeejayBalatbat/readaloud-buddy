@@ -125,7 +125,11 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   /// Review: Buddy says the word, and the mic listens for it.
   void _hear(int i) {
     c.practise(i);
-    speakOverMic(ref.read(ttsServiceProvider), c.speech, c.words[i].word,
+    final say = widget.story.language == 'FIL'
+        ? c.words[i].word
+        : HintLadder.sayWord(c.words[i].word, c.tracker.phonics,
+            occurrence: '${widget.story.id}:${c.words[i].position}');
+    speakOverMic(ref.read(ttsServiceProvider), c.speech, say,
         language: widget.story.language, slow: true);
   }
 

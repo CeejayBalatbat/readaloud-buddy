@@ -40,6 +40,7 @@ class ReadingTracker {
     this.listensForQuiet = true,
     this.pageStarts = const {0},
     this.phonics = PhonicsDictionary.empty,
+    this.storyId,
   })  : hintWaitSec = hintWaitSec ?? config.hintWaitSec,
         _matcher = WordMatcher(config),
         _lastProgressAt = startedAt,
@@ -67,6 +68,12 @@ class ReadingTracker {
 
   /// English phonics data (keywords, sight words) for the hints.
   final PhonicsDictionary phonics;
+
+  /// For words read two ways in one story (phonics.json "occurrences").
+  final String? storyId;
+
+  String? get _occurrence =>
+      storyId == null || isFinished ? null : '$storyId:${words[_index].position}';
 
   final WordMatcher _matcher;
   final List<WordOutcome> _outcomes = [];
@@ -160,7 +167,7 @@ class ReadingTracker {
   /// The hint currently showing for the current word, if any.
   Hint? get currentHint => isFinished || _hintLevel == 0
       ? null
-      : HintLadder.hintFor(words[_index].word, _hintLevel, language, phonics: phonics);
+      : HintLadder.hintFor(words[_index].word, _hintLevel, language, phonics: phonics, occurrence: _occurrence);
 
   /// The recognizer stopped on silence and listening restarted. This
   /// deliberately does NOT reset the hint timer (§2).
@@ -231,7 +238,7 @@ class ReadingTracker {
             : _hintLevel + 1;
     _pendingHintAt = at;
     _stuck = Duration.zero;
-    return HintLadder.hintFor(words[_index].word, _hintLevel, language, phonics: phonics);
+    return HintLadder.hintFor(words[_index].word, _hintLevel, language, phonics: phonics, occurrence: _occurrence);
   }
 
   WordResult _matchedResult(Duration at) {

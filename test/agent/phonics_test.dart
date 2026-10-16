@@ -26,6 +26,38 @@ void main() {
       }
     });
 
+    test('review answers: during → dog, when → window, ear is sight', () {
+      expect(phonics['during']!.keyword, 'dog');
+      expect(phonics['on']!.keyword, 'octopus');
+      expect(phonics['when']!.keyword, 'window');
+      expect(phonics['walked']!.type, WordType.tricky);
+      expect(phonics['walked']!.keyword, 'window');
+      expect(phonics['honest']!.type, WordType.tricky);
+      expect(phonics['honest']!.keyword, 'octopus'); // the h is silent
+      expect(phonics['island']!.keyword, 'ice');
+      expect(phonics['ear']!.type, WordType.sight);
+      expect(phonics.entries.where((e) => e.needsReview), isEmpty);
+    });
+
+    test('"read" in S18: "could not read" = reed, "Bolt read" = red', () {
+      final s18 = stories.firstWhere((s) => s.id == 'S18');
+      final reads = [
+        for (final w in s18.words)
+          if (WordMatcher.normalize(w.word) == 'read') 'S18:${w.position}',
+      ];
+      expect(reads, hasLength(2));
+      String say(String occ, int level) =>
+          HintLadder.hintFor('read', level, 'EN', phonics: phonics, occurrence: occ)
+              .speech
+              .last
+              .tts;
+      expect(say(reads[0], 3), 'reed');
+      expect(say(reads[1], 3), 'red');
+      expect(HintLadder.hintFor('read', 2, 'EN', phonics: phonics, occurrence: reads[1])
+          .speech
+          .map((p) => p.tts), ['rabbit', 'ed', 'red']);
+    });
+
     test('"the" is a sight word', () {
       expect(phonics['the']!.type, WordType.sight);
       expect(phonics['was']!.type, WordType.sight);

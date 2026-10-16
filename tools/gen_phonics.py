@@ -38,7 +38,7 @@ SIGHT = {
     "would", "should", "does", "your", "were", "their", "again", "any",
     "many", "once", "friend", "friends", "give", "gives", "live", "lived",
     "love", "move", "other", "mother", "another", "a", "i", "put", "from",
-    "our", "everyone", "every", "water", "work",
+    "our", "everyone", "every", "water", "work", "ear",
 }
 
 # One keyword per first sound (CMU phonemes of the onset), used for every
@@ -50,7 +50,7 @@ KEYWORDS = {
     "L": ("lion", "🦁"), "M": ("moon", "🌙"), "N": ("nest", "🪺"),
     "P": ("pig", "🐷"), "R": ("rabbit", "🐰"), "S": ("sun", "☀️"),
     "SH": ("shoe", "👟"), "T": ("tiger", "🐯"), "TH": ("thumb", "👍"),
-    "V": ("van", "🚐"), "W": ("web", "🕸️"), "Y": ("yarn", "🧶"),
+    "V": ("van", "🚐"), "W": ("window", "🪟"), "Y": ("yarn", "🧶"),
     "Z": ("zebra", "🦓"),
     # Blends
     "B L": ("blue", "🔵"), "B R": ("bread", "🍞"), "K L": ("clock", "🕐"),
@@ -82,6 +82,9 @@ ALT_KEYWORDS = {
 # (Weak forms like "and" = AH N D are dropped automatically; see choose().)
 PREFER = {
     "wind": "W IH N D",      # S06 "The wind was strong" (noun)
+    "during": "D UH R IH NG",
+    "on": "AA N",
+    "when": "W EH N",
     "read": "R IY D",        # S18 uses both "could not read" and "Bolt read"
     "close": "K L OW S",     # S12 "stayed close together"
     "lived": "L IH V D",
@@ -90,7 +93,21 @@ PREFER = {
     "the": "DH AH",
     "a": "AH",
 }
-ALWAYS_REVIEW = {"read": "the stories use both 'reed' (present) and 'red' (past)"}
+ALWAYS_REVIEW = {}
+
+# Checked by a person: (type to force or None). Their review flag is cleared.
+REVIEWED = {
+    "during": None, "on": None, "when": None, "mangroves": None,
+    "turon": None, "read": None,
+    "honest": "tricky", "island": "tricky", "walked": "tricky",
+}
+
+# One word read two ways in the same story: (story id, word before it,
+# word, pronunciation, how text-to-speech should say it).
+OCCURRENCES = [
+    ("S18", "not", "read", "R IY D", "reed"),    # "Bolt could not read"
+    ("S18", "Bolt", "read", "R EH D", "red"),    # "Bolt read a whole story"
+]
 
 # Names and words CMUdict doesn't have (flagged for review).
 MANUAL = {
@@ -283,6 +300,79 @@ def rime_say(rime, rime_steps, d=None):
     return out
 
 
+def build_entry(w, pron, reasons, d, say=None):
+    """The phonics.json entry for word [w] said as [pron] (CMU phonemes).
+    Adds to [reasons] anything that needs a human check."""
+    phonemes = pron.split()
+    found = align(w, phonemes)
+    if found is None:
+        reasons.append("letters and sounds could not be lined up")
+        cost, steps = 9.0, [(w, tuple(phonemes), 9.0)]
+    else:
+        cost, steps = found
+
+    graphemes = [g if ph else f"{g}(silent)" for g, ph, _ in steps]
+    sounds = [" ".join(ph) for g, ph, _ in steps if ph]
+
+    # Onset: graphemes before the first vowel sound.
+    onset, onset_ph = "", []
+    for g, ph, _ in steps:
+        if any(p in VOWELS for p in ph):
+            break
+        onset += g
+        onset_ph += [p for p in ph]
+    rime = w[len(onset):]
+    rime_ph = phonemes[len(onset_ph):]
+    n_onset = 0
+    for g, ph, _ in steps:
+        if any(p in VOWELS for p in ph):
+            break
+        n_onset += 1
+    rime_steps = steps[n_onset:]
+    if onset_ph and onset_ph[0] not in VOWELS and any(p in VOWELS for p in onset_ph):
+        reasons.append("onset contains a vowel sound")
+
+    if w in SIGHT:
+        kind = "sight"
+    elif cost <= 0.6 and all(c <= 0.5 for _, _, c in steps):
+        kind = "decodable"
+    else:
+        kind = "tricky"
+    if cost >= 2 and kind != "sight":
+        reasons.append(f"tricky spelling: {'·'.join(graphemes)} = {' '.join(phonemes)}")
+
+    key = " ".join(onset_ph) if onset_ph else (rime_ph[0] if rime_ph else "")
+    kw = KEYWORDS.get(key)
+    if kw is None and onset_ph:
+        kw = KEYWORDS.get(onset_ph[0])
+        if kind != "sight":
+            reasons.append(f"no keyword for '{key}'; used the first sound's")
+    if kw is None and kind != "sight":
+        reasons.append(f"no keyword for first sound '{key}'")
+    if kw and kw[0] == w:
+        kw = ALT_KEYWORDS.get(key)
+        if kw is None and kind != "sight":
+            reasons.append("keyword is the word itself and there is no other")
+
+    entry = {
+        "type": kind,
+        "graphemes": graphemes,
+        "phonemes": sounds,
+        "onset": onset,
+        "rime": rime,
+        "rime_say": rime_say(rime, rime_steps, d),
+        "onset_phonemes": onset_ph,
+        "keyword": kw[0] if kw else None,
+        "emoji": kw[1] if kw else None,
+        "needs_review": bool(reasons),
+    }
+    entry["word_say"] = say or w
+    forced = REVIEWED.get(w)
+    if forced:
+        entry["type"] = forced
+    return entry
+
+
 def main():
     d = cmudict.dict()
     stories = json.loads(STORIES.read_text(encoding="utf-8"))
@@ -322,73 +412,28 @@ def main():
             review.append((w, reasons))
             continue
 
-        phonemes = pron.split()
-        found = align(w, phonemes)
-        if found is None:
-            reasons.append("letters and sounds could not be lined up")
-            cost, steps = 9.0, [(w, tuple(phonemes))]
-        else:
-            cost, steps = found
-
-        graphemes = [g if ph else f"{g}(silent)" for g, ph, _ in steps]
-        sounds = [" ".join(ph) for g, ph, _ in steps if ph]
-
-        # Onset: graphemes before the first vowel sound.
-        onset, onset_ph = "", []
-        for g, ph, _ in steps:
-            if any(p in VOWELS for p in ph):
-                break
-            onset += g
-            onset_ph += [p for p in ph]
-        rime = w[len(onset):]
-        rime_ph = phonemes[len(onset_ph):]
-        n_onset = 0
-        for g, ph, _ in steps:
-            if any(p in VOWELS for p in ph):
-                break
-            n_onset += 1
-        rime_steps = steps[n_onset:]
-        if onset_ph and onset_ph[0] not in VOWELS and any(p in VOWELS for p in onset_ph):
-            reasons.append("onset contains a vowel sound")
-
-        if w in SIGHT:
-            kind = "sight"
-        elif cost <= 0.6 and all(c <= 0.5 for _, _, c in steps):
-            kind = "decodable"
-        else:
-            kind = "tricky"
-        if cost >= 2 and kind != "sight":
-            reasons.append(f"tricky spelling: {'·'.join(graphemes)} = {' '.join(phonemes)}")
-
-        key = " ".join(onset_ph) if onset_ph else (rime_ph[0] if rime_ph else "")
-        kw = KEYWORDS.get(key)
-        if kw is None and onset_ph:
-            kw = KEYWORDS.get(onset_ph[0])
-            if kind != "sight":
-                reasons.append(f"no keyword for '{key}'; used the first sound's")
-        if kw is None and kind != "sight":
-            reasons.append(f"no keyword for first sound '{key}'")
-        if kw and kw[0] == w:
-            kw = ALT_KEYWORDS.get(key)
-            if kw is None and kind != "sight":
-                reasons.append("keyword is the word itself and there is no other")
-
-        entry = {
-            "type": kind,
-            "graphemes": graphemes,
-            "phonemes": sounds,
-            "onset": onset,
-            "rime": rime,
-            "rime_say": rime_say(rime, rime_steps, d),
-            "onset_phonemes": onset_ph,
-            "keyword": kw[0] if kw else None,
-            "emoji": kw[1] if kw else None,
-            "needs_review": bool(reasons),
-        }
+        entry = build_entry(w, pron, reasons, d)
+        if w in REVIEWED:
+            reasons.clear()
+        entry["needs_review"] = bool(reasons)
         if reasons:
             entry["review_reasons"] = reasons
             review.append((w, reasons))
         out[w] = entry
+
+    # Per-occurrence overrides, keyed "story:position".
+    occurrences = {}
+    for story_id, before, word, pron, say in OCCURRENCES:
+        story = next(s for s in stories if s["id"] == story_id)
+        sw = story["words"]
+        found = [sw[i]["position"] for i in range(1, len(sw))
+                 if re.sub(r"[^a-z]", "", sw[i]["word"].lower()) == word
+                 and re.sub(r"[^a-z]", "", sw[i - 1]["word"].lower()) == before.lower()]
+        if len(found) != 1:
+            sys.exit(f"{story_id}: expected one '{before} {word}', found {found}")
+        entry = {"word": word, **build_entry(word, pron, [], d, say=say)}
+        entry["needs_review"] = False
+        occurrences[f"{story_id}:{found[0]}"] = entry
 
     OUT.write_text(json.dumps({
         "_about": "Generated by tools/gen_phonics.py from the CMU Pronouncing "
@@ -396,6 +441,7 @@ def main():
                   "are overwritten.",
         "keywords": {k: {"word": v[0], "emoji": v[1]} for k, v in KEYWORDS.items()},
         "words": out,
+        "occurrences": occurrences,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
     types = {}

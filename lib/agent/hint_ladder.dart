@@ -62,6 +62,10 @@ class HintLadder {
   static bool isSight(String word, String language, PhonicsDictionary phonics) =>
       language != 'FIL' && phonics[word]?.type == WordType.sight;
 
+  /// How Buddy says [word] aloud ("read" in "Bolt read" → "red").
+  static String sayWord(String word, PhonicsDictionary phonics, {String? occurrence}) =>
+      phonics.lookup(word, occurrence: occurrence)?.wordSay ?? WordMatcher.normalize(word);
+
   /// The hint for [word] at [level]. English hints use [phonics] (keyword
   /// + onset/rime); Filipino hints use syllables.
   static Hint hintFor(
@@ -69,14 +73,16 @@ class HintLadder {
     int level,
     String language, {
     PhonicsDictionary phonics = PhonicsDictionary.empty,
+    String? occurrence,
   }) {
     if (level < 1 || level > 3) {
       throw ArgumentError.value(level, 'level', 'must be 1, 2 or 3');
     }
     final whole = WordMatcher.normalize(word);
     if (language == 'FIL') return _filipino(word, whole, level);
-    final entry = phonics[word];
+    final entry = phonics.lookup(word, occurrence: occurrence);
     if (entry == null) return _englishFallback(word, whole, level);
+    final say = entry.wordSay;
 
     if (entry.type == WordType.sight) {
       return Hint(
@@ -84,7 +90,7 @@ class HintLadder {
         word: word,
         parts: [whole],
         sight: true,
-        speech: [const SpokenPart('This one we just know.'), SpokenPart(whole)],
+        speech: [const SpokenPart('This one we just know.'), SpokenPart(say)],
       );
     }
     // Vowel first ("and"): the onset is the first letter group.
@@ -118,11 +124,11 @@ class HintLadder {
           speech: [
             if (keyword != null) SpokenPart(keyword),
             if (hasOnset) SpokenPart(entry.rimeSay),
-            SpokenPart(whole),
+            SpokenPart(say),
           ],
         );
       default:
-        return Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(whole)]);
+        return Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(say)]);
     }
   }
 

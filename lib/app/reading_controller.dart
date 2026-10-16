@@ -110,6 +110,7 @@ class ReadingController extends ChangeNotifier {
       listensForQuiet: speech.hearsSilence,
       pageStarts: {for (final p in pages) p.first},
       phonics: phonics,
+      storyId: story.id,
     );
   }
 

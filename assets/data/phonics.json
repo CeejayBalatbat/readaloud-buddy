@@ -78,8 +78,8 @@
    "emoji": "🚐"
   },
   "W": {
-   "word": "web",
-   "emoji": "🕸️"
+   "word": "window",
+   "emoji": "🪟"
   },
   "Y": {
    "word": "yarn",
@@ -269,7 +269,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "a"
   },
   "after": {
    "type": "decodable",
@@ -291,7 +292,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "after"
   },
   "afternoon": {
    "type": "decodable",
@@ -319,7 +321,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "afternoon"
   },
   "again": {
    "type": "sight",
@@ -341,7 +344,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "again"
   },
   "all": {
    "type": "decodable",
@@ -359,7 +363,8 @@
    "onset_phonemes": [],
    "keyword": "autumn",
    "emoji": "🍂",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "all"
   },
   "alone": {
    "type": "decodable",
@@ -382,7 +387,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "alone"
   },
   "aloud": {
    "type": "decodable",
@@ -404,7 +410,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "aloud"
   },
   "also": {
    "type": "decodable",
@@ -424,7 +431,8 @@
    "onset_phonemes": [],
    "keyword": "autumn",
    "emoji": "🍂",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "also"
   },
   "and": {
    "type": "decodable",
@@ -444,7 +452,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "and"
   },
   "another": {
    "type": "sight",
@@ -468,7 +477,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "another"
   },
   "ant": {
    "type": "decodable",
@@ -488,7 +498,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ant"
   },
   "ants": {
    "type": "decodable",
@@ -510,7 +521,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ants"
   },
   "any": {
    "type": "sight",
@@ -530,7 +542,8 @@
    "onset_phonemes": [],
    "keyword": "egg",
    "emoji": "🥚",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "any"
   },
   "are": {
    "type": "sight",
@@ -547,7 +560,8 @@
    "onset_phonemes": [],
    "keyword": "octopus",
    "emoji": "🐙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "are"
   },
   "asked": {
    "type": "decodable",
@@ -569,7 +583,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "asked"
   },
   "at": {
    "type": "decodable",
@@ -587,7 +602,8 @@
    "onset_phonemes": [],
    "keyword": "apple",
    "emoji": "🍎",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "at"
   },
   "away": {
    "type": "decodable",
@@ -607,7 +623,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "away"
   },
   "back": {
    "type": "decodable",
@@ -629,7 +646,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "back"
   },
   "bamboo": {
    "type": "decodable",
@@ -655,7 +673,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "bamboo"
   },
   "banana": {
    "type": "decodable",
@@ -683,7 +702,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "banana"
   },
   "beach": {
    "type": "decodable",
@@ -705,7 +725,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "beach"
   },
   "beeped": {
    "type": "decodable",
@@ -729,7 +750,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "beeped"
   },
   "being": {
    "type": "decodable",
@@ -753,7 +775,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "being"
   },
   "ben": {
    "type": "decodable",
@@ -775,7 +798,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ben"
   },
   "between": {
    "type": "decodable",
@@ -803,7 +827,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "between"
   },
   "big": {
    "type": "decodable",
@@ -825,7 +850,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "big"
   },
   "birds": {
    "type": "decodable",
@@ -849,7 +875,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "birds"
   },
   "boat": {
    "type": "decodable",
@@ -871,7 +898,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "boat"
   },
   "boats": {
    "type": "decodable",
@@ -895,7 +923,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "boats"
   },
   "bolt": {
    "type": "decodable",
@@ -919,7 +948,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "bolt"
   },
   "book": {
    "type": "decodable",
@@ -941,7 +971,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "book"
   },
   "books": {
    "type": "decodable",
@@ -965,7 +996,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "books"
   },
   "bought": {
    "type": "tricky",
@@ -987,7 +1019,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "bought"
   },
   "bus": {
    "type": "decodable",
@@ -1009,7 +1042,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "bus"
   },
   "busy": {
    "type": "tricky",
@@ -1033,7 +1067,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "busy"
   },
   "but": {
    "type": "decodable",
@@ -1055,7 +1090,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "but"
   },
   "by": {
    "type": "decodable",
@@ -1075,7 +1111,8 @@
    ],
    "keyword": "ball",
    "emoji": "⚽",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "by"
   },
   "called": {
    "type": "decodable",
@@ -1099,7 +1136,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "called"
   },
   "came": {
    "type": "decodable",
@@ -1122,7 +1160,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "came"
   },
   "can": {
    "type": "decodable",
@@ -1144,7 +1183,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "can"
   },
   "carefully": {
    "type": "decodable",
@@ -1172,7 +1212,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "carefully"
   },
   "carried": {
    "type": "decodable",
@@ -1198,7 +1239,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "carried"
   },
   "carry": {
    "type": "decodable",
@@ -1222,7 +1264,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "carry"
   },
   "cat": {
    "type": "decodable",
@@ -1244,7 +1287,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "cat"
   },
   "change": {
    "type": "tricky",
@@ -1269,7 +1313,8 @@
    ],
    "keyword": "chair",
    "emoji": "🪑",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "change"
   },
   "children": {
    "type": "decodable",
@@ -1299,7 +1344,8 @@
    ],
    "keyword": "chair",
    "emoji": "🪑",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "children"
   },
   "clapped": {
    "type": "decodable",
@@ -1326,7 +1372,8 @@
    ],
    "keyword": "clock",
    "emoji": "🕐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "clapped"
   },
   "class": {
    "type": "decodable",
@@ -1351,7 +1398,8 @@
    ],
    "keyword": "clock",
    "emoji": "🕐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "class"
   },
   "close": {
    "type": "decodable",
@@ -1377,7 +1425,8 @@
    ],
    "keyword": "clock",
    "emoji": "🕐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "close"
   },
   "clouds": {
    "type": "decodable",
@@ -1404,7 +1453,8 @@
    ],
    "keyword": "clock",
    "emoji": "🕐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "clouds"
   },
   "coast": {
    "type": "decodable",
@@ -1428,7 +1478,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "coast"
   },
   "coins": {
    "type": "decodable",
@@ -1452,7 +1503,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "coins"
   },
   "could": {
    "type": "sight",
@@ -1475,7 +1527,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "could"
   },
   "counts": {
    "type": "decodable",
@@ -1501,7 +1554,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "counts"
   },
   "crabs": {
    "type": "decodable",
@@ -1528,7 +1582,8 @@
    ],
    "keyword": "crab",
    "emoji": "🦀",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "crabs"
   },
   "crowd": {
    "type": "decodable",
@@ -1553,7 +1608,8 @@
    ],
    "keyword": "crab",
    "emoji": "🦀",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "crowd"
   },
   "cue": {
    "type": "decodable",
@@ -1573,7 +1629,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "cue"
   },
   "customer": {
    "type": "decodable",
@@ -1603,7 +1660,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "customer"
   },
   "dad": {
    "type": "decodable",
@@ -1625,7 +1683,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "dad"
   },
   "day": {
    "type": "decodable",
@@ -1645,7 +1704,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "day"
   },
   "did": {
    "type": "decodable",
@@ -1667,7 +1727,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "did"
   },
   "dig": {
    "type": "decodable",
@@ -1689,7 +1750,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "dig"
   },
   "dinner": {
    "type": "decodable",
@@ -1713,7 +1775,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "dinner"
   },
   "do": {
    "type": "sight",
@@ -1733,7 +1796,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "do"
   },
   "dot": {
    "type": "decodable",
@@ -1755,7 +1819,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "dot"
   },
   "down": {
    "type": "decodable",
@@ -1777,7 +1842,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "down"
   },
   "dug": {
    "type": "decodable",
@@ -1799,7 +1865,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "dug"
   },
   "during": {
    "type": "decodable",
@@ -1825,10 +1892,8 @@
    ],
    "keyword": "dog",
    "emoji": "🐶",
-   "needs_review": true,
-   "review_reasons": [
-    "several pronunciations ['D UH R IH NG', 'D Y UH R IH NG', 'D ER IH NG']; chose D UH R IH NG"
-   ]
+   "needs_review": false,
+   "word_say": "during"
   },
   "each": {
    "type": "decodable",
@@ -1846,10 +1911,11 @@
    "onset_phonemes": [],
    "keyword": "eagle",
    "emoji": "🦅",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "each"
   },
   "ear": {
-   "type": "decodable",
+   "type": "sight",
    "graphemes": [
     "ea",
     "r"
@@ -1864,10 +1930,8 @@
    "onset_phonemes": [],
    "keyword": "eagle",
    "emoji": "🦅",
-   "needs_review": true,
-   "review_reasons": [
-    "several pronunciations ['IY R', 'IH R']; chose IY R"
-   ]
+   "needs_review": false,
+   "word_say": "ear"
   },
   "every": {
    "type": "sight",
@@ -1889,7 +1953,8 @@
    "onset_phonemes": [],
    "keyword": "egg",
    "emoji": "🥚",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "every"
   },
   "everyone": {
    "type": "sight",
@@ -1917,7 +1982,8 @@
    "onset_phonemes": [],
    "keyword": "egg",
    "emoji": "🥚",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "everyone"
   },
   "explained": {
    "type": "decodable",
@@ -1945,7 +2011,8 @@
    "onset_phonemes": [],
    "keyword": "insect",
    "emoji": "🐛",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "explained"
   },
   "family": {
    "type": "decodable",
@@ -1973,7 +2040,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "family"
   },
   "fast": {
    "type": "decodable",
@@ -1997,7 +2065,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fast"
   },
   "fat": {
    "type": "decodable",
@@ -2019,7 +2088,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fat"
   },
   "finished": {
    "type": "decodable",
@@ -2047,7 +2117,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "finished"
   },
   "first": {
    "type": "decodable",
@@ -2071,7 +2142,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "first"
   },
   "fish": {
    "type": "decodable",
@@ -2093,7 +2165,8 @@
    ],
    "keyword": "fox",
    "emoji": "🦊",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fish"
   },
   "fix": {
    "type": "decodable",
@@ -2115,7 +2188,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fix"
   },
   "flew": {
    "type": "decodable",
@@ -2138,7 +2212,8 @@
    ],
    "keyword": "flower",
    "emoji": "🌸",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "flew"
   },
   "floor": {
    "type": "decodable",
@@ -2161,7 +2236,8 @@
    ],
    "keyword": "flower",
    "emoji": "🌸",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "floor"
   },
   "for": {
    "type": "decodable",
@@ -2181,7 +2257,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "for"
   },
   "forest": {
    "type": "decodable",
@@ -2207,7 +2284,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "forest"
   },
   "forgot": {
    "type": "decodable",
@@ -2233,7 +2311,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "forgot"
   },
   "found": {
    "type": "decodable",
@@ -2257,7 +2336,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "found"
   },
   "fourth": {
    "type": "decodable",
@@ -2279,7 +2359,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fourth"
   },
   "friday": {
    "type": "decodable",
@@ -2306,7 +2387,8 @@
    ],
    "keyword": "frog",
    "emoji": "🐸",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "friday"
   },
   "friends": {
    "type": "sight",
@@ -2335,7 +2417,8 @@
    ],
    "keyword": "frog",
    "emoji": "🐸",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "friends"
   },
   "from": {
    "type": "sight",
@@ -2360,7 +2443,8 @@
    ],
    "keyword": "frog",
    "emoji": "🐸",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "from"
   },
   "fruit": {
    "type": "decodable",
@@ -2385,7 +2469,8 @@
    ],
    "keyword": "frog",
    "emoji": "🐸",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fruit"
   },
   "fun": {
    "type": "decodable",
@@ -2407,7 +2492,8 @@
    ],
    "keyword": "fish",
    "emoji": "🐟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "fun"
   },
   "gate": {
    "type": "decodable",
@@ -2430,7 +2516,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "gate"
   },
   "gave": {
    "type": "decodable",
@@ -2453,7 +2540,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "gave"
   },
   "get": {
    "type": "decodable",
@@ -2475,7 +2563,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "get"
   },
   "girl": {
    "type": "decodable",
@@ -2497,7 +2586,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "girl"
   },
   "gives": {
    "type": "sight",
@@ -2522,7 +2612,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "gives"
   },
   "going": {
    "type": "decodable",
@@ -2546,7 +2637,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "going"
   },
   "got": {
    "type": "decodable",
@@ -2568,7 +2660,8 @@
    ],
    "keyword": "goat",
    "emoji": "🐐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "got"
   },
   "grain": {
    "type": "decodable",
@@ -2593,7 +2686,8 @@
    ],
    "keyword": "grapes",
    "emoji": "🍇",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "grain"
   },
   "grandma": {
    "type": "decodable",
@@ -2624,7 +2718,8 @@
    ],
    "keyword": "grapes",
    "emoji": "🍇",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "grandma"
   },
   "grandmother": {
    "type": "decodable",
@@ -2659,7 +2754,8 @@
    ],
    "keyword": "grapes",
    "emoji": "🍇",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "grandmother"
   },
   "grow": {
    "type": "decodable",
@@ -2682,7 +2778,8 @@
    ],
    "keyword": "grapes",
    "emoji": "🍇",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "grow"
   },
   "had": {
    "type": "decodable",
@@ -2704,7 +2801,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "had"
   },
   "hang": {
    "type": "decodable",
@@ -2726,7 +2824,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "hang"
   },
   "happily": {
    "type": "decodable",
@@ -2754,7 +2853,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "happily"
   },
   "has": {
    "type": "decodable",
@@ -2776,7 +2876,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "has"
   },
   "have": {
    "type": "sight",
@@ -2799,7 +2900,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "have"
   },
   "he": {
    "type": "decodable",
@@ -2819,7 +2921,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "he"
   },
   "hear": {
    "type": "decodable",
@@ -2841,7 +2944,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "hear"
   },
   "heavy": {
    "type": "decodable",
@@ -2865,7 +2969,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "heavy"
   },
   "helped": {
    "type": "decodable",
@@ -2891,7 +2996,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "helped"
   },
   "helps": {
    "type": "decodable",
@@ -2917,7 +3023,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "helps"
   },
   "her": {
    "type": "decodable",
@@ -2937,7 +3044,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "her"
   },
   "hill": {
    "type": "decodable",
@@ -2959,7 +3067,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "hill"
   },
   "his": {
    "type": "decodable",
@@ -2981,7 +3090,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "his"
   },
   "hold": {
    "type": "decodable",
@@ -3005,7 +3115,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "hold"
   },
   "hole": {
    "type": "decodable",
@@ -3028,7 +3139,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "hole"
   },
   "home": {
    "type": "decodable",
@@ -3051,7 +3163,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "home"
   },
   "homes": {
    "type": "decodable",
@@ -3076,7 +3189,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "homes"
   },
   "honest": {
    "type": "tricky",
@@ -3101,10 +3215,8 @@
    "onset_phonemes": [],
    "keyword": "octopus",
    "emoji": "🐙",
-   "needs_review": true,
-   "review_reasons": [
-    "tricky spelling: h(silent)·o·n·e·s·t = AA N AH S T"
-   ]
+   "needs_review": false,
+   "word_say": "honest"
   },
   "i": {
    "type": "sight",
@@ -3120,7 +3232,8 @@
    "onset_phonemes": [],
    "keyword": "ice",
    "emoji": "🧊",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "i"
   },
   "in": {
    "type": "decodable",
@@ -3138,7 +3251,8 @@
    "onset_phonemes": [],
    "keyword": "insect",
    "emoji": "🐛",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "in"
   },
   "into": {
    "type": "decodable",
@@ -3160,7 +3274,8 @@
    "onset_phonemes": [],
    "keyword": "insect",
    "emoji": "🐛",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "into"
   },
   "is": {
    "type": "decodable",
@@ -3178,7 +3293,8 @@
    "onset_phonemes": [],
    "keyword": "insect",
    "emoji": "🐛",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "is"
   },
   "island": {
    "type": "tricky",
@@ -3203,10 +3319,8 @@
    "onset_phonemes": [],
    "keyword": "ice",
    "emoji": "🧊",
-   "needs_review": true,
-   "review_reasons": [
-    "tricky spelling: i·s(silent)·l·a·n·d = AY L AH N D"
-   ]
+   "needs_review": false,
+   "word_say": "island"
   },
   "it": {
    "type": "decodable",
@@ -3224,7 +3338,8 @@
    "onset_phonemes": [],
    "keyword": "insect",
    "emoji": "🐛",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "it"
   },
   "its": {
    "type": "decodable",
@@ -3244,7 +3359,8 @@
    "onset_phonemes": [],
    "keyword": "insect",
    "emoji": "🐛",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "its"
   },
   "jen": {
    "type": "decodable",
@@ -3266,7 +3382,8 @@
    ],
    "keyword": "juice",
    "emoji": "🧃",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "jen"
   },
   "jens": {
    "type": "decodable",
@@ -3290,7 +3407,8 @@
    ],
    "keyword": "juice",
    "emoji": "🧃",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "jens"
   },
   "keeps": {
    "type": "decodable",
@@ -3314,7 +3432,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "keeps"
   },
   "kept": {
    "type": "decodable",
@@ -3338,7 +3457,8 @@
    ],
    "keyword": "kite",
    "emoji": "🪁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "kept"
   },
   "kite": {
    "type": "decodable",
@@ -3361,7 +3481,8 @@
    ],
    "keyword": "key",
    "emoji": "🔑",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "kite"
   },
   "lets": {
    "type": "decodable",
@@ -3385,7 +3506,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "lets"
   },
   "lia": {
    "type": "tricky",
@@ -3407,7 +3529,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "lia"
   },
   "library": {
    "type": "tricky",
@@ -3437,7 +3560,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "library"
   },
   "lifted": {
    "type": "decodable",
@@ -3463,7 +3587,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "lifted"
   },
   "lights": {
    "type": "decodable",
@@ -3487,7 +3612,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "lights"
   },
   "like": {
    "type": "decodable",
@@ -3510,7 +3636,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "like"
   },
   "little": {
    "type": "decodable",
@@ -3534,7 +3661,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "little"
   },
   "lived": {
    "type": "sight",
@@ -3558,7 +3686,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "lived"
   },
   "loudest": {
    "type": "decodable",
@@ -3586,7 +3715,8 @@
    ],
    "keyword": "lion",
    "emoji": "🦁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "loudest"
   },
   "made": {
    "type": "decodable",
@@ -3609,7 +3739,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "made"
   },
   "mangrove": {
    "type": "decodable",
@@ -3640,7 +3771,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "mangrove"
   },
   "mangroves": {
    "type": "decodable",
@@ -3673,10 +3805,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": true,
-   "review_reasons": [
-    "not in CMUdict; pronunciation added by hand"
-   ]
+   "needs_review": false,
+   "word_say": "mangroves"
   },
   "many": {
    "type": "sight",
@@ -3700,7 +3830,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "many"
   },
   "marco": {
    "type": "decodable",
@@ -3724,7 +3855,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "marco"
   },
   "marcos": {
    "type": "decodable",
@@ -3750,7 +3882,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "marcos"
   },
   "market": {
    "type": "decodable",
@@ -3776,7 +3909,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "market"
   },
   "mat": {
    "type": "decodable",
@@ -3798,7 +3932,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "mat"
   },
   "me": {
    "type": "decodable",
@@ -3818,7 +3953,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "me"
   },
   "mia": {
    "type": "tricky",
@@ -3840,7 +3976,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "mia"
   },
   "mom": {
    "type": "decodable",
@@ -3862,7 +3999,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "mom"
   },
   "money": {
    "type": "decodable",
@@ -3886,7 +4024,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "money"
   },
   "more": {
    "type": "decodable",
@@ -3906,7 +4045,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "more"
   },
   "morning": {
    "type": "decodable",
@@ -3932,7 +4072,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "morning"
   },
   "mother": {
    "type": "sight",
@@ -3956,7 +4097,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "mother"
   },
   "move": {
    "type": "sight",
@@ -3979,7 +4121,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "move"
   },
   "mud": {
    "type": "decodable",
@@ -4001,7 +4144,8 @@
    ],
    "keyword": "moon",
    "emoji": "🌙",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "mud"
   },
   "named": {
    "type": "decodable",
@@ -4025,7 +4169,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "named"
   },
   "nap": {
    "type": "decodable",
@@ -4047,7 +4192,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "nap"
   },
   "needle": {
    "type": "decodable",
@@ -4071,7 +4217,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "needle"
   },
   "night": {
    "type": "decodable",
@@ -4093,7 +4240,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "night"
   },
   "not": {
    "type": "decodable",
@@ -4115,7 +4263,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "not"
   },
   "noticed": {
    "type": "decodable",
@@ -4143,7 +4292,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "noticed"
   },
   "now": {
    "type": "decodable",
@@ -4163,7 +4313,8 @@
    ],
    "keyword": "nest",
    "emoji": "🪺",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "now"
   },
   "of": {
    "type": "sight",
@@ -4181,7 +4332,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "of"
   },
   "on": {
    "type": "decodable",
@@ -4199,10 +4351,8 @@
    "onset_phonemes": [],
    "keyword": "octopus",
    "emoji": "🐙",
-   "needs_review": true,
-   "review_reasons": [
-    "several pronunciations ['AA N', 'AO N']; chose AA N"
-   ]
+   "needs_review": false,
+   "word_say": "on"
   },
   "one": {
    "type": "sight",
@@ -4219,9 +4369,10 @@
    "rime": "one",
    "rime_say": "one",
    "onset_phonemes": [],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "one"
   },
   "other": {
    "type": "sight",
@@ -4241,7 +4392,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "other"
   },
   "our": {
    "type": "sight",
@@ -4257,7 +4409,8 @@
    "onset_phonemes": [],
    "keyword": "owl",
    "emoji": "🦉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "our"
   },
   "out": {
    "type": "decodable",
@@ -4275,7 +4428,8 @@
    "onset_phonemes": [],
    "keyword": "owl",
    "emoji": "🦉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "out"
   },
   "outside": {
    "type": "decodable",
@@ -4300,7 +4454,8 @@
    "onset_phonemes": [],
    "keyword": "owl",
    "emoji": "🦉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "outside"
   },
   "paper": {
    "type": "decodable",
@@ -4324,7 +4479,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "paper"
   },
   "picture": {
    "type": "decodable",
@@ -4348,7 +4504,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "picture"
   },
   "pieces": {
    "type": "decodable",
@@ -4372,7 +4529,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pieces"
   },
   "pig": {
    "type": "decodable",
@@ -4394,7 +4552,8 @@
    ],
    "keyword": "panda",
    "emoji": "🐼",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pig"
   },
   "pink": {
    "type": "decodable",
@@ -4418,7 +4577,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pink"
   },
   "pip": {
    "type": "decodable",
@@ -4440,7 +4600,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pip"
   },
   "plant": {
    "type": "decodable",
@@ -4467,7 +4628,8 @@
    ],
    "keyword": "plane",
    "emoji": "✈️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "plant"
   },
   "planted": {
    "type": "decodable",
@@ -4496,7 +4658,8 @@
    ],
    "keyword": "plane",
    "emoji": "✈️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "planted"
   },
   "plants": {
    "type": "decodable",
@@ -4525,7 +4688,8 @@
    ],
    "keyword": "plane",
    "emoji": "✈️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "plants"
   },
   "play": {
    "type": "decodable",
@@ -4548,7 +4712,8 @@
    ],
    "keyword": "plane",
    "emoji": "✈️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "play"
   },
   "plaza": {
    "type": "tricky",
@@ -4575,7 +4740,8 @@
    ],
    "keyword": "plane",
    "emoji": "✈️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "plaza"
   },
   "pointed": {
    "type": "decodable",
@@ -4601,7 +4767,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pointed"
   },
   "protect": {
    "type": "decodable",
@@ -4632,7 +4799,8 @@
    ],
    "keyword": "present",
    "emoji": "🎁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "protect"
   },
   "proudly": {
    "type": "decodable",
@@ -4661,7 +4829,8 @@
    ],
    "keyword": "present",
    "emoji": "🎁",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "proudly"
   },
   "pull": {
    "type": "decodable",
@@ -4683,7 +4852,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pull"
   },
   "pulled": {
    "type": "decodable",
@@ -4707,7 +4877,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pulled"
   },
   "pushed": {
    "type": "decodable",
@@ -4731,7 +4902,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "pushed"
   },
   "put": {
    "type": "sight",
@@ -4753,7 +4925,8 @@
    ],
    "keyword": "pig",
    "emoji": "🐷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "put"
   },
   "race": {
    "type": "decodable",
@@ -4776,7 +4949,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "race"
   },
   "rain": {
    "type": "decodable",
@@ -4798,7 +4972,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "rain"
   },
   "rainy": {
    "type": "decodable",
@@ -4822,7 +4997,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "rainy"
   },
   "ran": {
    "type": "decodable",
@@ -4844,7 +5020,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ran"
   },
   "reach": {
    "type": "decodable",
@@ -4866,7 +5043,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "reach"
   },
   "read": {
    "type": "decodable",
@@ -4888,10 +5066,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": true,
-   "review_reasons": [
-    "the stories use both 'reed' (present) and 'red' (past)"
-   ]
+   "needs_review": false,
+   "word_say": "read"
   },
   "red": {
    "type": "decodable",
@@ -4913,7 +5089,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "red"
   },
   "return": {
    "type": "decodable",
@@ -4939,7 +5116,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "return"
   },
   "rice": {
    "type": "decodable",
@@ -4962,7 +5140,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "rice"
   },
   "right": {
    "type": "decodable",
@@ -4984,7 +5163,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "right"
   },
   "robot": {
    "type": "decodable",
@@ -5010,7 +5190,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "robot"
   },
   "roots": {
    "type": "decodable",
@@ -5034,7 +5215,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "roots"
   },
   "running": {
    "type": "decodable",
@@ -5060,7 +5242,8 @@
    ],
    "keyword": "rabbit",
    "emoji": "🐰",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "running"
   },
   "safe": {
    "type": "decodable",
@@ -5083,7 +5266,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "safe"
   },
   "safely": {
    "type": "tricky",
@@ -5110,7 +5294,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "safely"
   },
   "said": {
    "type": "sight",
@@ -5132,7 +5317,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "said"
   },
   "sailed": {
    "type": "decodable",
@@ -5156,7 +5342,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sailed"
   },
   "sailors": {
    "type": "decodable",
@@ -5182,7 +5369,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sailors"
   },
   "sam": {
    "type": "decodable",
@@ -5204,7 +5392,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sam"
   },
   "sand": {
    "type": "decodable",
@@ -5228,7 +5417,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sand"
   },
   "sat": {
    "type": "decodable",
@@ -5250,7 +5440,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sat"
   },
   "saw": {
    "type": "decodable",
@@ -5270,7 +5461,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "saw"
   },
   "school": {
    "type": "decodable",
@@ -5295,7 +5487,8 @@
    ],
    "keyword": "skate",
    "emoji": "⛸️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "school"
   },
   "sea": {
    "type": "decodable",
@@ -5315,7 +5508,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sea"
   },
   "second": {
    "type": "decodable",
@@ -5343,7 +5537,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "second"
   },
   "sell": {
    "type": "decodable",
@@ -5365,7 +5560,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sell"
   },
   "shared": {
    "type": "decodable",
@@ -5387,7 +5583,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shared"
   },
   "she": {
    "type": "decodable",
@@ -5407,7 +5604,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "she"
   },
   "shelf": {
    "type": "decodable",
@@ -5431,7 +5629,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shelf"
   },
   "shell": {
    "type": "decodable",
@@ -5453,7 +5652,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shell"
   },
   "shiny": {
    "type": "decodable",
@@ -5477,7 +5677,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shiny"
   },
   "ship": {
    "type": "decodable",
@@ -5499,7 +5700,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ship"
   },
   "ships": {
    "type": "decodable",
@@ -5523,7 +5725,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ships"
   },
   "shirt": {
    "type": "decodable",
@@ -5545,7 +5748,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shirt"
   },
   "shore": {
    "type": "decodable",
@@ -5565,7 +5769,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shore"
   },
   "shouted": {
    "type": "decodable",
@@ -5589,7 +5794,8 @@
    ],
    "keyword": "shoe",
    "emoji": "👟",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "shouted"
   },
   "slipping": {
    "type": "decodable",
@@ -5618,7 +5824,8 @@
    ],
    "keyword": "sled",
    "emoji": "🛷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "slipping"
   },
   "slowly": {
    "type": "decodable",
@@ -5645,7 +5852,8 @@
    ],
    "keyword": "sled",
    "emoji": "🛷",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "slowly"
   },
   "small": {
    "type": "decodable",
@@ -5670,7 +5878,8 @@
    ],
    "keyword": "smile",
    "emoji": "😊",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "small"
   },
   "smile": {
    "type": "decodable",
@@ -5696,7 +5905,8 @@
    ],
    "keyword": "smell",
    "emoji": "👃",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "smile"
   },
   "smiled": {
    "type": "decodable",
@@ -5723,7 +5933,8 @@
    ],
    "keyword": "smile",
    "emoji": "😊",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "smiled"
   },
   "so": {
    "type": "decodable",
@@ -5743,7 +5954,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "so"
   },
   "soft": {
    "type": "decodable",
@@ -5767,7 +5979,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "soft"
   },
   "soil": {
    "type": "decodable",
@@ -5789,7 +6002,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "soil"
   },
   "sort": {
    "type": "decodable",
@@ -5811,7 +6025,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sort"
   },
   "sounded": {
    "type": "decodable",
@@ -5837,7 +6052,8 @@
    ],
    "keyword": "sun",
    "emoji": "☀️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sounded"
   },
   "stalls": {
    "type": "decodable",
@@ -5864,7 +6080,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "stalls"
   },
   "staring": {
    "type": "tricky",
@@ -5893,7 +6110,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "staring"
   },
   "stars": {
    "type": "decodable",
@@ -5918,7 +6136,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "stars"
   },
   "stayed": {
    "type": "decodable",
@@ -5943,7 +6162,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "stayed"
   },
   "sticks": {
    "type": "decodable",
@@ -5970,7 +6190,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sticks"
   },
   "stitched": {
    "type": "decodable",
@@ -5997,7 +6218,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "stitched"
   },
   "stopped": {
    "type": "decodable",
@@ -6024,7 +6246,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "stopped"
   },
   "storm": {
    "type": "decodable",
@@ -6049,7 +6272,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "storm"
   },
   "story": {
    "type": "decodable",
@@ -6074,7 +6298,8 @@
    ],
    "keyword": "star",
    "emoji": "⭐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "story"
   },
   "strong": {
    "type": "decodable",
@@ -6102,7 +6327,8 @@
    ],
    "keyword": "string",
    "emoji": "🧵",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "strong"
   },
   "sweep": {
    "type": "decodable",
@@ -6127,7 +6353,8 @@
    ],
    "keyword": "swan",
    "emoji": "🦢",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "sweep"
   },
   "table": {
    "type": "decodable",
@@ -6151,7 +6378,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "table"
   },
   "teach": {
    "type": "decodable",
@@ -6173,7 +6401,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "teach"
   },
   "teacher": {
    "type": "decodable",
@@ -6197,7 +6426,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "teacher"
   },
   "ten": {
    "type": "decodable",
@@ -6219,7 +6449,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "ten"
   },
   "than": {
    "type": "decodable",
@@ -6241,7 +6472,8 @@
    ],
    "keyword": "this",
    "emoji": "👉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "than"
   },
   "thank": {
    "type": "decodable",
@@ -6265,7 +6497,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "thank"
   },
   "thanked": {
    "type": "decodable",
@@ -6291,7 +6524,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "thanked"
   },
   "thankful": {
    "type": "decodable",
@@ -6321,7 +6555,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "thankful"
   },
   "that": {
    "type": "decodable",
@@ -6343,7 +6578,8 @@
    ],
    "keyword": "this",
    "emoji": "👉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "that"
   },
   "the": {
    "type": "sight",
@@ -6363,7 +6599,8 @@
    ],
    "keyword": "this",
    "emoji": "👉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "the"
   },
   "thea": {
    "type": "decodable",
@@ -6385,7 +6622,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "thea"
   },
   "them": {
    "type": "decodable",
@@ -6407,7 +6645,8 @@
    ],
    "keyword": "this",
    "emoji": "👉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "them"
   },
   "then": {
    "type": "decodable",
@@ -6429,7 +6668,8 @@
    ],
    "keyword": "this",
    "emoji": "👉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "then"
   },
   "they": {
    "type": "sight",
@@ -6449,7 +6689,8 @@
    ],
    "keyword": "this",
    "emoji": "👉",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "they"
   },
   "thin": {
    "type": "decodable",
@@ -6471,7 +6712,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "thin"
   },
   "things": {
    "type": "decodable",
@@ -6495,7 +6737,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "things"
   },
   "third": {
    "type": "decodable",
@@ -6517,7 +6760,8 @@
    ],
    "keyword": "thumb",
    "emoji": "👍",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "third"
   },
   "thread": {
    "type": "decodable",
@@ -6542,7 +6786,8 @@
    ],
    "keyword": "three",
    "emoji": "3️⃣",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "thread"
   },
   "three": {
    "type": "decodable",
@@ -6565,7 +6810,8 @@
    ],
    "keyword": "throw",
    "emoji": "🥏",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "three"
   },
   "through": {
    "type": "tricky",
@@ -6588,7 +6834,8 @@
    ],
    "keyword": "three",
    "emoji": "3️⃣",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "through"
   },
   "tied": {
    "type": "decodable",
@@ -6610,7 +6857,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "tied"
   },
   "times": {
    "type": "decodable",
@@ -6635,7 +6883,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "times"
   },
   "tiny": {
    "type": "decodable",
@@ -6659,7 +6908,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "tiny"
   },
   "to": {
    "type": "sight",
@@ -6679,7 +6929,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "to"
   },
   "together": {
    "type": "decodable",
@@ -6707,7 +6958,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "together"
   },
   "too": {
    "type": "decodable",
@@ -6727,7 +6979,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "too"
   },
   "took": {
    "type": "decodable",
@@ -6749,7 +7002,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "took"
   },
   "torn": {
    "type": "decodable",
@@ -6771,7 +7025,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "torn"
   },
   "town": {
    "type": "decodable",
@@ -6793,7 +7048,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "town"
   },
   "tree": {
    "type": "decodable",
@@ -6816,7 +7072,8 @@
    ],
    "keyword": "train",
    "emoji": "🚂",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "tree"
   },
   "tried": {
    "type": "decodable",
@@ -6841,7 +7098,8 @@
    ],
    "keyword": "tree",
    "emoji": "🌳",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "tried"
   },
   "trip": {
    "type": "decodable",
@@ -6866,7 +7124,8 @@
    ],
    "keyword": "tree",
    "emoji": "🌳",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "trip"
   },
   "try": {
    "type": "decodable",
@@ -6889,7 +7148,8 @@
    ],
    "keyword": "tree",
    "emoji": "🌳",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "try"
   },
   "tub": {
    "type": "decodable",
@@ -6911,7 +7171,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "tub"
   },
   "turns": {
    "type": "decodable",
@@ -6935,7 +7196,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "turns"
   },
   "turon": {
    "type": "decodable",
@@ -6961,10 +7223,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": true,
-   "review_reasons": [
-    "not in CMUdict; pronunciation added by hand"
-   ]
+   "needs_review": false,
+   "word_say": "turon"
   },
   "two": {
    "type": "sight",
@@ -6984,7 +7244,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "two"
   },
   "typhoons": {
    "type": "decodable",
@@ -7012,7 +7273,8 @@
    ],
    "keyword": "tiger",
    "emoji": "🐯",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "typhoons"
   },
   "up": {
    "type": "decodable",
@@ -7030,7 +7292,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "up"
   },
   "us": {
    "type": "decodable",
@@ -7048,7 +7311,8 @@
    "onset_phonemes": [],
    "keyword": "umbrella",
    "emoji": "☂️",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "us"
   },
   "village": {
    "type": "tricky",
@@ -7075,7 +7339,8 @@
    ],
    "keyword": "van",
    "emoji": "🚐",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "village"
   },
   "walked": {
    "type": "tricky",
@@ -7098,12 +7363,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": true,
-   "review_reasons": [
-    "tricky spelling: w·a·l(silent)·k·ed = W AO K T"
-   ]
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "walked"
   },
   "wallet": {
    "type": "tricky",
@@ -7127,9 +7390,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wallet"
   },
   "want": {
    "type": "decodable",
@@ -7151,9 +7415,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "want"
   },
   "wanted": {
    "type": "decodable",
@@ -7177,9 +7442,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wanted"
   },
   "was": {
    "type": "sight",
@@ -7199,9 +7465,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "was"
   },
   "wash": {
    "type": "decodable",
@@ -7221,9 +7488,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wash"
   },
   "water": {
    "type": "sight",
@@ -7245,9 +7513,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "water"
   },
   "waved": {
    "type": "decodable",
@@ -7269,9 +7538,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "waved"
   },
   "waves": {
    "type": "decodable",
@@ -7294,9 +7564,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "waves"
   },
   "we": {
    "type": "decodable",
@@ -7314,9 +7585,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "we"
   },
   "weeks": {
    "type": "decodable",
@@ -7338,9 +7610,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "weeks"
   },
   "went": {
    "type": "decodable",
@@ -7362,9 +7635,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "went"
   },
   "wet": {
    "type": "decodable",
@@ -7384,9 +7658,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wet"
   },
   "when": {
    "type": "decodable",
@@ -7406,12 +7681,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": true,
-   "review_reasons": [
-    "several pronunciations ['W EH N', 'HH W EH N', 'W IH N', 'HH W IH N']; chose W EH N"
-   ]
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "when"
   },
   "whole": {
    "type": "tricky",
@@ -7434,7 +7707,8 @@
    ],
    "keyword": "hat",
    "emoji": "🎩",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "whole"
   },
   "will": {
    "type": "decodable",
@@ -7454,9 +7728,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "will"
   },
   "wind": {
    "type": "decodable",
@@ -7478,9 +7753,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wind"
   },
   "with": {
    "type": "decodable",
@@ -7500,9 +7776,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "with"
   },
   "woman": {
    "type": "tricky",
@@ -7526,9 +7803,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "woman"
   },
   "won": {
    "type": "decodable",
@@ -7548,9 +7826,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "won"
   },
   "words": {
    "type": "decodable",
@@ -7572,9 +7851,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "words"
   },
   "work": {
    "type": "sight",
@@ -7594,9 +7874,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "work"
   },
   "worth": {
    "type": "decodable",
@@ -7616,9 +7897,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "worth"
   },
   "would": {
    "type": "sight",
@@ -7639,9 +7921,10 @@
    "onset_phonemes": [
     "W"
    ],
-   "keyword": "web",
-   "emoji": "🕸️",
-   "needs_review": false
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "would"
   },
   "years": {
    "type": "decodable",
@@ -7663,7 +7946,8 @@
    ],
    "keyword": "yarn",
    "emoji": "🧶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "years"
   },
   "you": {
    "type": "sight",
@@ -7683,7 +7967,8 @@
    ],
    "keyword": "yarn",
    "emoji": "🧶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "you"
   },
   "young": {
    "type": "decodable",
@@ -7705,7 +7990,58 @@
    ],
    "keyword": "yarn",
    "emoji": "🧶",
-   "needs_review": false
+   "needs_review": false,
+   "word_say": "young"
+  }
+ },
+ "occurrences": {
+  "S18:26": {
+   "word": "read",
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ea",
+    "d"
+   ],
+   "phonemes": [
+    "R",
+    "IY",
+    "D"
+   ],
+   "onset": "r",
+   "rime": "ead",
+   "rime_say": "ead",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "reed"
+  },
+  "S18:74": {
+   "word": "read",
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ea",
+    "d"
+   ],
+   "phonemes": [
+    "R",
+    "EH",
+    "D"
+   ],
+   "onset": "r",
+   "rime": "ead",
+   "rime_say": "ed",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "red"
   }
  }
 }
