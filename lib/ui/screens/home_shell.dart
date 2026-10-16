@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/current_learner.dart';
+import '../../app/feedback_mode.dart';
 import '../../app/hint_mode.dart';
 import '../../app/home_data.dart';
 import '../../data/database_providers.dart';
@@ -417,6 +418,8 @@ class SettingsTab extends ConsumerWidget {
             const SizedBox(height: 12),
             const _SpeechModeCard(),
             const SizedBox(height: 12),
+            const _FeedbackModeCard(),
+            const SizedBox(height: 12),
             const _HintModeCard(),
             const SizedBox(height: 12),
             const AppCard(
@@ -488,6 +491,59 @@ class _SpeechModeCard extends ConsumerWidget {
   }
 }
 
+/// Read first, review after (default) / live colors and hints (§2).
+class _FeedbackModeCard extends ConsumerWidget {
+  const _FeedbackModeCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final mode = ref.watch(feedbackModeProvider).value ?? FeedbackMode.review;
+    void set(FeedbackMode m) => ref.read(feedbackModeProvider.notifier).set(m);
+    return AppCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('Reading feedback',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+          const SizedBox(height: 4),
+          const Text(
+            'Review after each page: your child reads without colors or '
+            'interruptions, then practises the missed words. Live: words '
+            'turn green/amber while reading and Buddy gives hints.',
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(
+                child: AppChip(
+                  label: 'Review after each page',
+                  center: true,
+                  fontSize: 15,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  selected: mode == FeedbackMode.review,
+                  onTap: () => set(FeedbackMode.review),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: AppChip(
+                  label: 'Live colors and hints',
+                  center: true,
+                  fontSize: 15,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  selected: mode == FeedbackMode.live,
+                  onTap: () => set(FeedbackMode.live),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 /// Hints = Automatic / Only when I tap Help (AGENT_SPEC §2).
 class _HintModeCard extends ConsumerWidget {
   const _HintModeCard();
@@ -495,6 +551,7 @@ class _HintModeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mode = ref.watch(hintModeProvider).value ?? HintMode.automatic;
+    final live = ref.watch(feedbackModeProvider).value == FeedbackMode.live;
     void set(HintMode m) => ref.read(hintModeProvider.notifier).set(m);
     return AppCard(
       child: Column(
@@ -503,10 +560,13 @@ class _HintModeCard extends ConsumerWidget {
           const Text('Hints',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
           const SizedBox(height: 4),
-          const Text(
-            'Automatic: Buddy helps when your child gets stuck on a word. '
-            'Only when I tap Help: Buddy waits for the Help button.',
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
+          Text(
+            live
+                ? 'Automatic: Buddy helps when your child gets stuck on a word. '
+                    'Only when I tap Help: Buddy waits for the Help button.'
+                : 'Used with live colors and hints. With review after each '
+                    'page, hints only come from the Help button.',
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
           ),
           const SizedBox(height: 10),
           Row(

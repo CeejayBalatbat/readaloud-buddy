@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/current_learner.dart';
+import 'app/feedback_mode.dart';
 import 'app/hint_mode.dart';
 import 'speech/speech_providers.dart';
 import 'ui/screens/home_shell.dart';
@@ -41,7 +42,9 @@ class AppStart extends ConsumerWidget {
     );
     // Load the parent's settings before any story can open.
     bool loaded(AsyncValue<Object> v) => v.hasValue || v.hasError;
-    if (!loaded(ref.watch(speechModeProvider)) || !loaded(ref.watch(hintModeProvider))) {
+    if (!loaded(ref.watch(speechModeProvider)) ||
+        !loaded(ref.watch(hintModeProvider)) ||
+        !loaded(ref.watch(feedbackModeProvider))) {
       return splash;
     }
     return ref.watch(currentLearnerProvider).when(

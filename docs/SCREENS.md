@@ -9,11 +9,13 @@ Style: warm cream background `#FFF8EC`, ink `#26324A`, teal primary `#1F9E8F`, s
 | 2 | Reading check | Child | progress bar, Buddy speech bubble, passage card, "Buddy is checking" agent card, big mic button + waveform |
 | 3 | Home | Child | greeting (Filipino time-of-day greeting), stars + streak chips, Buddy pet card with growth bar, today's minutes ring, big yellow "Read!", bottom tabs (Home, Stories, Games, Settings) |
 | 4 | Story shelf | Child | level badge, "Buddy picked these" agent card with reason, 2×2 story covers with sound/language chips |
-| 5 | Read-along | Child | page x/y, picture, story text with per-word highlight states, legend, Help / Mic / Pause buttons |
+| 5 | Read-along | Child | page x/y, picture, story text, Help / Mic / Pause buttons. **Review mode (default):** only a soft yellow marker on the current word (sun-light background, sun bottom edge), no colors, no legend. **Live mode:** per-word highlight states + legend |
+| 5b | Page review | Child | after a page with missed words (review mode): Buddy bubble "Let's practise these words…", one card per misread/skipped word (big word, "🔊 Hear it", "Say it now…" → "✓ You said it!"; the word being listened for has a sun border), "Next page →" / "All done ✓". Not scored |
 | 6 | Hint | Child | dimmed story card, "Let's break it up" card (e.g. thr · ough), "Hear the sounds", Buddy encouragement, hint-step pills (1 Sound ✓, 2 Parts, 3 Word) |
 | 7 | Story questions | Child | question with speaker button, 3 picture answers, feedback bubble from Buddy |
 | 8 | Results | Child | Buddy, "Great reading!", stars, 3 stat tiles (% words right, words/min, questions), "Buddy's plan" agent card, new tricky words, "Word game" / "Next story" |
 | 9 | Tricky-word game | Child | picture + "Listen again", letter slots, draggable tiles, "Why this game?" agent card |
+| – | Settings (MVP) | Parent | readers on this phone, How Buddy listens (Microphone / Tap to read), **Reading feedback (Review after each page / Live colors and hints)**, Hints (Automatic / Only when I tap Help – live mode) |
 | 10 | Reading comfort | Parent (locked) | live preview, dyslexia mode toggle, text size, high contrast, read aloud, hint wait time, readers on this phone |
 | 11 | Parent weekly summary | Parent (later) | minutes, stories, WCPM gain, level bar, celebrate card, try-at-home tip, print tricky words |
 | 12 | Teacher class overview | Teacher web (later) | KPI tiles, learner table sorted by needs attention, most-missed sounds, "Buddy suggests" |

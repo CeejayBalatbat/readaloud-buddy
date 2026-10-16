@@ -75,6 +75,12 @@ final readingClockProvider =
 /// Runs one read-along: listens through a [SpeechService], feeds words to
 /// the agent's [ReadingTracker], drives the hint timer, and keeps track of
 /// pages and pause. Screens listen to it and rebuild on [notifyListeners].
+///
+/// With [reviewAfterPage] (AGENT_SPEC §2 "Read first, review after") there
+/// are no timed hints while a page is read; when a page is done and it had
+/// misread or skipped words, the controller goes into review: the clock
+/// stops and heard words are matched against the word being practised
+/// ([retryTarget]) instead of the story. Practice never changes scores.
 class ReadingController extends ChangeNotifier {
   ReadingController({
     required this.story,
@@ -84,6 +90,7 @@ class ReadingController extends ChangeNotifier {
     double? hintWaitSec,
     int startHintLevel = 1,
     bool autoHints = true,
+    this.reviewAfterPage = false,
     this.tickEvery = const Duration(milliseconds: 200),
     ReadingClock? clock,
   })  : _clock = clock ?? StopwatchClock(),
@@ -98,7 +105,7 @@ class ReadingController extends ChangeNotifier {
       config: config,
       hintWaitSec: this.hintWaitSec,
       startHintLevel: startHintLevel,
-      autoHints: autoHints,
+      autoHints: autoHints && !reviewAfterPage,
       listensForQuiet: speech.hearsSilence,
       pageStarts: {for (final p in pages) p.first},
     );
@@ -109,6 +116,9 @@ class ReadingController extends ChangeNotifier {
   final AgentConfig config;
   final double hintWaitSec;
   final Duration tickEvery;
+
+  /// Read first, review after each page (no live colors or timed hints).
+  final bool reviewAfterPage;
 
   /// The words being read (the whole story, or a placement passage).
   final List<StoryWord> words;
@@ -125,6 +135,11 @@ class ReadingController extends ChangeNotifier {
   bool _paused = false;
   bool _disposed = false;
   bool _wasQuiet = false;
+  int _readingPage = 0; // first page not yet done
+  int? _reviewPage;
+  List<int> _reviewWords = const [];
+  final Set<int> _practised = {};
+  int? _retryTarget;
 
   /// True when the current hint came from the Help button.
   bool hintFromHelp = false;
@@ -139,10 +154,26 @@ class ReadingController extends ChangeNotifier {
 
   /// The mic has heard nothing for a while: Buddy asks the child to read
   /// a bit louder, and the hint timer waits.
-  bool get isQuiet => !_paused && tracker.isQuiet(_clock.elapsed);
+  bool get isQuiet => !_paused && !isReviewing && tracker.isQuiet(_clock.elapsed);
 
   /// After the whole-word hint Buddy waits; the child can tap "Next word".
-  bool get canSkipWord => !_paused && !isFinished && tracker.currentHintLevel == 3;
+  bool get canSkipWord =>
+      !_paused && !isReviewing && !isFinished && tracker.currentHintLevel == 3;
+
+  /// A finished page is being reviewed.
+  bool get isReviewing => _reviewPage != null;
+
+  /// The missed (misread or skipped) words being reviewed, as indexes.
+  List<int> get reviewWords => _reviewWords;
+
+  /// Words said correctly again during review (practice only).
+  Set<int> get practised => Set.unmodifiable(_practised);
+
+  /// The review word the microphone is listening for.
+  int? get retryTarget => _retryTarget;
+
+  /// The review is for the last page of the story.
+  bool get reviewingLastPage => _reviewPage == pages.length - 1;
 
   /// Result of word [i], or null if it hasn't been read yet.
   WordResult? resultOf(int i) =>
@@ -151,6 +182,7 @@ class ReadingController extends ChangeNotifier {
   int get currentIndex => tracker.currentIndex;
 
   int get pageIndex {
+    if (_reviewPage != null) return _reviewPage!;
     if (isFinished) return pages.length - 1;
     return pages.indexWhere((p) => p.contains(currentIndex));
   }
@@ -186,7 +218,7 @@ class ReadingController extends ChangeNotifier {
   void resume() {
     if (!_paused || isFinished) return;
     _paused = false;
-    _clock.start();
+    if (!isReviewing) _clock.start();
     speech.start(language: story.language);
     _notify();
   }
@@ -194,7 +226,7 @@ class ReadingController extends ChangeNotifier {
   /// The Help button: next hint step right away. Returns false when the
   /// whole word is already showing (the screen then says it again).
   bool help() {
-    if (_paused || isFinished) return false;
+    if (_paused || isFinished || isReviewing) return false;
     if (tracker.requestHint(_clock.elapsed) == null) return false;
     hintFromHelp = true;
     _notify();
@@ -215,8 +247,34 @@ class ReadingController extends ChangeNotifier {
     _notify();
   }
 
+  /// Review: listen for word [i] next (e.g. the child tapped it).
+  void practise(int i) {
+    if (!_reviewWords.contains(i)) return;
+    _retryTarget = i;
+    speech.expectedWord = words[i].word;
+    _notify();
+  }
+
+  /// Review done: go on to the next page (or finish the story).
+  void endReview() {
+    if (!isReviewing) return;
+    _reviewPage = null;
+    _reviewWords = const [];
+    _practised.clear();
+    _retryTarget = null;
+    if (isFinished) {
+      _stop();
+    } else {
+      if (!_paused) _clock.start();
+      _expectNext();
+    }
+    _notify();
+  }
+
   void _onHeard(HeardWord w) {
-    if (_paused || isFinished) return;
+    if (_paused) return;
+    if (isReviewing) return _onPractiseHeard(w);
+    if (isFinished) return;
     final update =
         tracker.onWordHeard(w.text, _clock.elapsed, confidence: w.confidence);
     if (update.finished.isNotEmpty) {
@@ -226,8 +284,25 @@ class ReadingController extends ChangeNotifier {
     }
   }
 
+  void _onPractiseHeard(HeardWord w) {
+    final target = _retryTarget;
+    if (target == null ||
+        !const WordMatcher().matches(words[target].word, w.text, story.language)) {
+      return;
+    }
+    _practised.add(target);
+    final next = _reviewWords.where((i) => !_practised.contains(i));
+    _retryTarget = null;
+    if (next.isNotEmpty) {
+      practise(next.first);
+    } else {
+      speech.expectedWord = null;
+      _notify();
+    }
+  }
+
   void _onVoice() {
-    if (_paused || isFinished) return;
+    if (_paused || isFinished || isReviewing) return;
     tracker.onSpeech(_clock.elapsed);
     _notifyIfQuietChanged();
   }
@@ -235,7 +310,7 @@ class ReadingController extends ChangeNotifier {
   /// Drives the hint timer; called every [tickEvery] by a timer.
   @visibleForTesting
   void tick() {
-    if (_paused || isFinished) return;
+    if (_paused || isFinished || isReviewing) return;
     final hadHint = tracker.currentHintLevel;
     final update = tracker.tick(_clock.elapsed);
     if (update.hint != null) hintFromHelp = false;
@@ -256,8 +331,30 @@ class ReadingController extends ChangeNotifier {
   void _afterProgress() {
     _expectNext();
     hintFromHelp = false;
-    if (isFinished) _stop();
+    if (reviewAfterPage) _reviewDonePages();
+    if (isFinished && !isReviewing) _stop();
     _notify();
+  }
+
+  /// When reading moved past the end of a page, review that page's missed
+  /// words (if any).
+  void _reviewDonePages() {
+    final reached = isFinished
+        ? pages.length
+        : pages.indexWhere((p) => p.contains(currentIndex));
+    if (reached <= _readingPage) return;
+    final done = [for (var p = _readingPage; p < reached; p++) ...pages[p]];
+    _readingPage = reached;
+    final missed = [
+      for (final i in done)
+        if (resultOf(i) == WordResult.misread || resultOf(i) == WordResult.skipped) i,
+    ];
+    if (missed.isEmpty) return;
+    _reviewPage = reached - 1;
+    _reviewWords = missed;
+    _practised.clear();
+    _clock.stop();
+    practise(missed.first);
   }
 
   void _stop() {

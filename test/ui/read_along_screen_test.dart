@@ -4,6 +4,7 @@ import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
 import 'package:readaloud_buddy/app/buddy_brain.dart';
+import 'package:readaloud_buddy/app/feedback_mode.dart';
 import 'package:readaloud_buddy/app/hint_mode.dart';
 import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
@@ -15,8 +16,15 @@ void main() {
   final kite = TestApp.story('S06'); // The Big Red Kite
   const quiet = "I can't hear you. Try reading a bit louder!";
 
-  Future<(TestApp, List<ReadingController>)> open(WidgetTester tester) async {
-    final app = TestApp();
+  Future<void> setMode(WidgetTester tester, TestApp app, FeedbackMode mode) =>
+      tester.runAsync(() => app.container.read(feedbackModeProvider.notifier).set(mode));
+
+  /// Most tests here are about live feedback (colors and timed hints); the
+  /// read-first review mode has its own group below.
+  Future<(TestApp, List<ReadingController>)> open(WidgetTester tester,
+      {FeedbackMode mode = FeedbackMode.live, TestApp? app}) async {
+    app ??= TestApp();
+    await setMode(tester, app, mode);
     final finished = <ReadingController>[];
     await app.pump(tester, ReadAlongScreen(story: kite, onFinished: finished.add));
     return (app, finished);
@@ -145,8 +153,7 @@ void main() {
   testWidgets('a silent mic: Buddy asks the child to read louder',
       (tester) async {
     final mic = FakeSpeechService(hearsSilence: true);
-    final app = TestApp(speechService: mic);
-    await app.pump(tester, ReadAlongScreen(story: kite, onFinished: (_) {}));
+    final (app, _) = await open(tester, app: TestApp(speechService: mic));
     await app.wait(tester, 7);
     expect(find.text(quiet), findsNothing);
     await app.wait(tester, 1);
@@ -170,7 +177,7 @@ void main() {
     final app = TestApp();
     await tester.runAsync(
         () => app.container.read(hintModeProvider.notifier).set(HintMode.helpOnly));
-    await app.pump(tester, ReadAlongScreen(story: kite, onFinished: (_) {}));
+    await open(tester, app: app);
     await tapWord(tester, 'Mia');
     await app.wait(tester, 30);
     expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
@@ -226,6 +233,112 @@ void main() {
     expect(find.text('PERCEPTS · WORD RESULTS (§1)'), findsOneWidget);
     expect(find.textContaining('Mia · correct'), findsOneWidget);
     await app.screenshot(tester, 'brain_reading');
+  });
+
+  group('read first, review after (default)', () {
+    // Page 1 of the kite story: "Mia ran up the hill with her kite. The
+    // wind was strong."
+    const page1Rest = ['with', 'her', 'kite.', 'The', 'wind', 'was', 'strong.'];
+
+    Future<void> readPage1WithMisses(WidgetTester tester, TestApp app) async {
+      await tapWord(tester, 'Mia');
+      await tapWord(tester, 'ran');
+      await tester.longPress(find.bySemanticsLabel('up')); // misread
+      await tester.pump();
+      await tapWord(tester, 'hill'); // skips "the"
+      for (final w in page1Rest) {
+        app.speech.hear(w.replaceAll('.', ''));
+        await tester.pump();
+      }
+    }
+
+    double readingSeconds(TestApp app) =>
+        app.container.read(buddyBrainProvider).reading!.readingSeconds;
+
+    testWidgets('it is the default: soft marker, no legend, no timed hints',
+        (tester) async {
+      final app = TestApp();
+      await app.pump(tester, ReadAlongScreen(story: kite, onFinished: (_) {}));
+      expect(find.text('Took a while'), findsNothing); // no color legend
+      expect(find.text('Help'), findsOneWidget);
+      await tapWord(tester, 'Mia');
+      await app.wait(tester, 30);
+      expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+      await app.screenshot(tester, 's05_read_first');
+      // Help still works.
+      await tester.tap(find.text('Help'));
+      await tester.pump();
+      expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    });
+
+    testWidgets('after the page: review the missed words, then go on',
+        (tester) async {
+      final (app, _) = await open(tester, mode: FeedbackMode.review);
+      await readPage1WithMisses(tester, app);
+      expect(find.text('Next page →'), findsOneWidget);
+      expect(find.text('1 / 4'), findsOneWidget);
+      expect(find.bySemanticsLabel('up'), findsOneWidget);
+      expect(find.bySemanticsLabel('the'), findsOneWidget);
+      expect(find.bySemanticsLabel('Mia'), findsNothing); // read fine
+      expect(app.tts.spoken.last, contains("Let's practise these words"));
+      await app.screenshot(tester, 's05b_review');
+
+      // Time stops during review (WCPM only counts reading).
+      final before = readingSeconds(app);
+      await app.wait(tester, 30);
+      expect(readingSeconds(app), before);
+
+      // Hear a word, then say it again.
+      await tester.tap(find.text('🔊 Hear it').last);
+      await tester.pump();
+      expect(app.tts.spoken.last, 'the');
+      await tester.tap(find.bySemanticsLabel('the')); // tap-to-read: "say" it
+      await tester.pump();
+      expect(find.text('✓ You said it!'), findsOneWidget);
+      await tester.tap(find.bySemanticsLabel('up'));
+      await tester.pump();
+      expect(find.text('✓ You said it!'), findsNWidgets(2));
+      expect(find.text('Great job! On to the next page.'), findsOneWidget);
+
+      // Practice does not change the scores (Phil-IRI).
+      final results = app.container.read(buddyBrainProvider).reading!.outcomes;
+      expect(results[2].result, WordResult.misread);
+      expect(results[3].result, WordResult.skipped);
+
+      await tester.tap(find.text('Next page →'));
+      await tester.pump();
+      expect(find.text('2 / 4'), findsOneWidget);
+      expect(find.text('Help'), findsOneWidget);
+    });
+
+    testWidgets('a page with no missed words goes straight on',
+        (tester) async {
+      final (app, _) = await open(tester, mode: FeedbackMode.review);
+      for (final w in kite.words.take(12)) {
+        app.speech.hear(w.word);
+        await tester.pump();
+      }
+      expect(find.text('Next page →'), findsNothing);
+      expect(find.text('2 / 4'), findsOneWidget);
+    });
+
+    testWidgets('the story finishes only after the last review',
+        (tester) async {
+      final (app, finished) = await open(tester, mode: FeedbackMode.review);
+      final words = kite.words;
+      for (final w in words.take(words.length - 1)) {
+        app.speech.hear(w.word);
+        await tester.pump();
+      }
+      app.speech.hear('banana'); // misreads the last word
+      await tester.pump();
+      expect(find.text('All done ✓'), findsOneWidget);
+      expect(finished, isEmpty);
+      await tester.tap(find.text('All done ✓'));
+      await tester.pump();
+      expect(finished, hasLength(1));
+      expect(finished.single.outcomes.last.result, WordResult.misread);
+    });
   });
 }
 

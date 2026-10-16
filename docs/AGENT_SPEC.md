@@ -33,6 +33,12 @@ Each expected word ends in exactly one result:
 Align recognized words to expected words left-to-right, allowing a look-ahead of 2 words to detect skips.
 
 ## 2. Hint ladder
+
+**Feedback mode (parent setting "Reading feedback"):**
+- **Review after each page** (default, "read first, review after"): while the child reads a page, no word colors (green/amber/red) and **no automatic hints** – only a soft marker on the current word. The **Help** button still works (the ladder below, on request). When a page is done and it has `misread` or `skipped` words, Buddy shows a **page review** (screen 5b): each missed word can be heard (tap 🔊, Buddy says it) and said again (the microphone listens for it). The reading clock stops during the review, so WCPM only counts reading time. Practice is **not scored**: word results, accuracy, WCPM and the Phil-IRI level stay exactly as in §1/§3/§4. A page with no missed words goes straight on; after the last page the review comes before the questions. The Hints setting below does not apply in this mode.
+- **Live colors and hints**: every word gets its color as soon as it is read, and the timed hint ladder below runs (with the Hints setting).
+
+The rest of this section describes the hint ladder; in review mode only its Help-button part applies.
 When the child is stuck on the current word for `hintWaitSec` of **counted** time (default 5 s; 8 s when dyslexia mode is on or set by parent; see "When the hint timer counts"):
 1. Level 1 – say/show the **first sound** (first letter, or first digraph/blend: th, sh, ch, str, ng…).
 2. Level 2 – say/show the **word parts** (syllables, e.g. "thr · ough").

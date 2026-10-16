@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../agent/agent.dart';
 import '../../app/buddy_brain.dart';
+import '../../app/feedback_mode.dart';
 import '../../app/hint_mode.dart';
 import '../../app/reading_controller.dart';
 import '../../data/story.dart';
@@ -18,8 +19,10 @@ import '../widgets/story_cover.dart';
 import '../widgets/story_text.dart';
 import '../widgets/svg_art.dart';
 
-/// Screens 5 (read-along) and 6 (hint). The hint layout replaces the
-/// normal one while Buddy is giving a hint on the current word.
+/// Screens 5 (read-along), 6 (hint) and 5b (page review). The hint layout
+/// replaces the normal one while Buddy is giving a hint on the current
+/// word; the review layout replaces it after a page with missed words
+/// (read-first mode, the default).
 ///
 /// With [FakeSpeechService]: tap a word = read it correctly (tapping 1–2
 /// words ahead skips the ones in between), long-press the yellow word =
@@ -58,8 +61,10 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   bool _reported = false;
   (int, int)? _spokenHint; // (word index, level) last read aloud
   bool _saidQuiet = false; // "can't hear you" was said for this quiet spell
+  int? _introducedReview; // page whose review Buddy already introduced
 
   static const quietMessage = "I can't hear you. Try reading a bit louder!";
+  static const reviewIntro = "Let's practise these words. Tap one to hear it, then say it!";
 
   @override
   void initState() {
@@ -71,6 +76,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
       hintWaitSec: widget.hintWaitSec,
       startHintLevel: widget.startHintLevel,
       autoHints: ref.read(hintModeProvider).value != HintMode.helpOnly,
+      reviewAfterPage: ref.read(feedbackModeProvider).value != FeedbackMode.live,
       clock: ref.read(readingClockProvider)(),
     )..addListener(_changed);
     // Start after the first frame: starting the mic updates shared state.
@@ -88,11 +94,14 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
       _speakHint(hint);
     }
     if (c.isQuiet && !_saidQuiet) {
-      speakOverMic(ref.read(ttsServiceProvider), c.speech, quietMessage,
-          language: 'EN');
+      _say(quietMessage);
     }
     _saidQuiet = c.isQuiet;
-    if (c.isFinished && !_reported) {
+    if (c.isReviewing && _introducedReview != c.pageIndex) {
+      _introducedReview = c.pageIndex;
+      _say(reviewIntro);
+    }
+    if (c.isFinished && !c.isReviewing && !_reported) {
       _reported = true;
       widget.onFinished(c);
     }
@@ -106,6 +115,16 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
         language: widget.story.language,
         slow: true,
       );
+
+  void _say(String text) => speakOverMic(ref.read(ttsServiceProvider), c.speech, text,
+      language: 'EN');
+
+  /// Review: Buddy says the word, and the mic listens for it.
+  void _hear(int i) {
+    c.practise(i);
+    speakOverMic(ref.read(ttsServiceProvider), c.speech, c.words[i].word,
+        language: widget.story.language, slow: true);
+  }
 
   /// Help: the next hint step, or the whole word again after level 3.
   void _help() {
@@ -140,8 +159,12 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     fake.hear(FakeSpeechService.misreadWord);
   }
 
-  WordLook _look(int i) =>
-      lookFor(c.resultOf(i), isCurrent: !c.isFinished && i == c.currentIndex);
+  WordLook _look(int i) {
+    final current = !c.isFinished && i == c.currentIndex;
+    // Read first: only a soft "you are here" marker, no right/wrong colors.
+    if (c.reviewAfterPage) return current ? WordLook.marker : WordLook.plain;
+    return lookFor(c.resultOf(i), isCurrent: current);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -157,9 +180,11 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(22, 8, 22, 0),
-          child: hint == null
-              ? _reading(header, page)
-              : _hinting(header, page, hint),
+          child: c.isReviewing
+              ? _review(header)
+              : hint == null
+                  ? _reading(header, page)
+                  : _hinting(header, page, hint),
         ),
       ),
     );
@@ -192,8 +217,10 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                   StoryCover(story: widget.story, height: 150),
                   const SizedBox(height: 12),
                   _storyCard(page),
-                  const SizedBox(height: 12),
-                  const _Legend(),
+                  if (!c.reviewAfterPage) ...[
+                    const SizedBox(height: 12),
+                    const _Legend(),
+                  ],
                   if (c.isQuiet) ...[
                     const SizedBox(height: 12),
                     const _BuddySays(quietMessage),
@@ -311,6 +338,45 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     );
   }
 
+  /// Screen 5b: the page is done; practise its missed words.
+  Widget _review(Widget header) {
+    final allDone = c.reviewWords.every(c.practised.contains);
+    return Column(
+      children: [
+        header,
+        const SizedBox(height: 12),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _BuddySays(allDone ? 'Great job! On to the next page.' : reviewIntro),
+                const SizedBox(height: 12),
+                for (final i in c.reviewWords) ...[
+                  _ReviewWord(
+                    word: c.words[i].word,
+                    done: c.practised.contains(i),
+                    listening: c.retryTarget == i,
+                    onHear: () => _hear(i),
+                    onSay: _fake == null ? null : () => _fake!.hear(c.words[i].word),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 28),
+          child: ChunkyButton(
+            label: c.reviewingLastPage ? 'All done ✓' : 'Next page →',
+            style: allDone ? ChunkyStyle.sun : ChunkyStyle.teal,
+            onPressed: c.endReview,
+          ),
+        ),
+      ],
+    );
+  }
+
   String get _micLabel {
     if (c.isPaused) return 'Paused';
     return switch (c.micStatus) {
@@ -331,6 +397,71 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
 
   static String _secs(double s) =>
       s == s.roundToDouble() ? s.toInt().toString() : s.toStringAsFixed(1);
+}
+
+/// One missed word on the review screen: hear it, then say it again.
+class _ReviewWord extends StatelessWidget {
+  const _ReviewWord({
+    required this.word,
+    required this.done,
+    required this.listening,
+    required this.onHear,
+    this.onSay,
+  });
+
+  final String word;
+  final bool done;
+  final bool listening;
+  final VoidCallback onHear;
+
+  /// Tap-to-read only: tapping the word "says" it.
+  final VoidCallback? onSay;
+
+  @override
+  Widget build(BuildContext context) => AppCard(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        border: listening && !done ? Border.all(color: AppColors.sun, width: 3) : null,
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: onSay,
+                    child: Semantics(
+                      label: word,
+                      excludeSemantics: true,
+                      child: Text(word,
+                          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900)),
+                    ),
+                  ),
+                  Text(
+                    done
+                        ? '✓ You said it!'
+                        : listening
+                            ? 'Say it now…'
+                            : 'Tap 🔊, then say it',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                      color: done ? const Color(0xFF1C7A46) : AppColors.ink2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            AppChip(
+              label: '🔊 Hear it',
+              background: AppColors.sunLight,
+              borderColor: AppColors.sun,
+              fontSize: 15,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              onTap: onHear,
+            ),
+          ],
+        ),
+      );
 }
 
 /// Buddy with a speech bubble, e.g. when the mic hears nothing.

@@ -5,7 +5,17 @@ import '../theme/app_colors.dart';
 
 /// How a word looks in the read-along text (`.w.ok`, `.w.hes`, `.w.now`,
 /// `.w.next` in the mockup CSS).
-enum WordLook { read, tookAWhile, practice, now, next, plain }
+enum WordLook {
+  read,
+  tookAWhile,
+  practice,
+  now,
+
+  /// Read-first mode: a soft "you are here" marker, no right/wrong colors.
+  marker,
+  next,
+  plain,
+}
 
 WordLook lookFor(WordResult? result, {required bool isCurrent}) {
   if (isCurrent) return WordLook.now;
@@ -105,6 +115,7 @@ class _Word extends StatelessWidget {
           ),
           child: label,
         ),
+      WordLook.marker => _lipped(label, AppColors.sunLight, AppColors.sun),
       WordLook.next || WordLook.plain => label,
     };
 
