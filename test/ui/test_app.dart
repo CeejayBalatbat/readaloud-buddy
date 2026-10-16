@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/agent/phonics.dart';
+import 'package:readaloud_buddy/app/current_learner.dart';
 import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
 import 'package:readaloud_buddy/data/database_providers.dart';
@@ -45,7 +46,7 @@ class TestApp {
 
   static bool _fontsLoaded = false;
 
-  /// Loads the bundled Nunito so text renders like on the phone.
+  /// Loads the bundled Nunito and Lexend so text renders like on the phone.
   static Future<void> loadFonts() async {
     if (_fontsLoaded) return;
     final loader = FontLoader('Nunito');
@@ -53,6 +54,11 @@ class TestApp {
       loader.addFont(rootBundle.load('assets/fonts/Nunito-$w.ttf'));
     }
     await loader.load();
+    final lexend = FontLoader('Lexend');
+    for (final w in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+      lexend.addFont(rootBundle.load('assets/fonts/Lexend-$w.ttf'));
+    }
+    await lexend.load();
     _fontsLoaded = true;
   }
 
@@ -74,6 +80,7 @@ class TestApp {
     await loadFonts();
     // The app loads this on the splash screen, before any story opens.
     await tester.runAsync(() => container.read(phonicsProvider.future));
+    await tester.runAsync(() => container.read(currentLearnerProvider.future));
     // The mockups are drawn for a 390 × 844 phone.
     tester.view.physicalSize = const Size(390 * 2, 844 * 2);
     tester.view.devicePixelRatio = 2;

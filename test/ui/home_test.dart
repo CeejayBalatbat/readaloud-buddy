@@ -230,9 +230,10 @@ void main() {
     await settle(tester);
     await tester.tap(find.text('Settings'));
     await settle(tester);
-    expect(app.container.read(hintModeProvider).value, HintMode.automatic);
     final helpOnly = find.text('Only when I tap Help');
-    await tester.ensureVisible(helpOnly);
+    await tester.scrollUntilVisible(helpOnly, 300);
+    await settle(tester);
+    expect(app.container.read(hintModeProvider).value, HintMode.automatic);
     await tester.tap(helpOnly);
     await settle(tester);
     expect(app.container.read(hintModeProvider).value, HintMode.helpOnly);

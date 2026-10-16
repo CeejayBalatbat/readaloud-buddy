@@ -257,7 +257,9 @@ void main() {
     final (app, _) = await open(tester);
     await tapWord(tester, 'Mia');
     await tester.longPress(find.text('The Big Red Kite'));
-    await tester.pumpAndSettle();
+    // The sheet slides up; the learner part keeps a spinner in tests.
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 600));
     expect(find.text("Buddy's brain"), findsOneWidget);
     expect(find.text('PERCEPTS · WORD RESULTS (§1)'), findsOneWidget);
     expect(find.textContaining('Mia · correct'), findsOneWidget);

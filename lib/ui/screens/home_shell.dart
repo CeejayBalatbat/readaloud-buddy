@@ -17,7 +17,9 @@ import '../widgets/buddy_brain_sheet.dart';
 import '../widgets/common.dart';
 import '../widgets/story_cover.dart';
 import '../widgets/svg_art.dart';
+import 'grown_up_gate.dart';
 import 'placement_screen.dart';
+import 'reading_comfort.dart';
 import 'setup_screen.dart';
 
 /// The child's main screen with the bottom tabs: Home (s03), Stories
@@ -371,10 +373,22 @@ class SettingsTab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final current = ref.watch(currentLearnerProvider).value;
     final readers = ref.watch(allLearnersProvider).value ?? const <Learner>[];
-    return ListView(
+    return GrownUpGate(
+        child: ListView(
           padding: const EdgeInsets.fromLTRB(22, 8, 22, 24),
           children: [
-            const Text('Settings', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
+            // Screen 10: Reading comfort for the current reader.
+            const Row(
+              children: [
+                Expanded(
+                  child: Text('Reading comfort',
+                      style: TextStyle(fontSize: 26, fontWeight: FontWeight.w900)),
+                ),
+                Pill('🔒 Grown-up', background: Color(0xFFEDEFF4)),
+              ],
+            ),
+            const SizedBox(height: 12),
+            const ReadingComfortCards(),
             const SizedBox(height: 12),
             AppCard(
               child: Column(
@@ -422,15 +436,10 @@ class SettingsTab extends ConsumerWidget {
             const SizedBox(height: 12),
             const _HintModeCard(),
             const SizedBox(height: 12),
-            const AppCard(
-              child: Text(
-                'Reading comfort (dyslexia mode, text size, hint wait time) '
-                'and the parent PIN are coming in a later update.',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
-              ),
-            ),
+            const ParentPinCard(),
           ],
-        );
+        ),
+    );
   }
 }
 

@@ -14,6 +14,7 @@ import '../../speech/speech_providers.dart';
 import '../../speech/speech_service.dart';
 import '../../speech/tts_service.dart';
 import '../theme/app_colors.dart';
+import '../theme/reading_style.dart';
 import '../widgets/buddy.dart';
 import '../widgets/buddy_brain_sheet.dart';
 import '../widgets/common.dart';
@@ -42,6 +43,7 @@ class ReadAlongScreen extends ConsumerStatefulWidget {
     this.words,
     this.hintWaitSec,
     this.startHintLevel = 1,
+    this.readAloud = true,
   });
 
   final Story story;
@@ -50,6 +52,10 @@ class ReadAlongScreen extends ConsumerStatefulWidget {
   final List<StoryWord>? words;
   final double? hintWaitSec;
   final int startHintLevel;
+
+  /// Buddy says his instructions aloud ("I can't hear you…"). Hints are
+  /// always spoken.
+  final bool readAloud;
 
   /// Called once when every word has a result.
   final void Function(ReadingController controller) onFinished;
@@ -125,7 +131,13 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
         clips: ref.read(soundClipsProvider),
       );
 
-  void _say(String text) => speakOverMic(ref.read(ttsServiceProvider), c.speech, text,
+  ReadingStyle get _style => ref.watch(readingStyleProvider);
+
+  void _say(String text) {
+    if (widget.readAloud) _sayAlways(text);
+  }
+
+  void _sayAlways(String text) => speakOverMic(ref.read(ttsServiceProvider), c.speech, text,
       language: 'EN');
 
   /// Review: Buddy says the word, and the mic listens for it.
@@ -208,11 +220,14 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
         opacity: dim ? 0.55 : 1,
         child: AppCard(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+          color: _style.page,
+          border: _style.border,
           child: StoryText(
             tokens: c.tokens,
             indexes: c.pages[page],
             lookOf: _look,
             fontSize: fontSize,
+            style: _style,
             onTapWord: _tapWord,
             onLongPressWord: _longPressWord,
           ),
@@ -375,6 +390,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                 const SizedBox(height: 12),
                 for (final i in c.reviewWords) ...[
                   _ReviewWord(
+                    style: _style,
                     word: c.words[i].word,
                     done: c.practised.contains(i),
                     listening: c.retryTarget == i,
@@ -418,6 +434,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
 /// One missed word on the review screen: hear it, then say it again.
 class _ReviewWord extends StatelessWidget {
   const _ReviewWord({
+    required this.style,
     required this.word,
     required this.done,
     required this.listening,
@@ -425,6 +442,7 @@ class _ReviewWord extends StatelessWidget {
     this.onSay,
   });
 
+  final ReadingStyle style;
   final String word;
   final bool done;
   final bool listening;
@@ -449,7 +467,7 @@ class _ReviewWord extends StatelessWidget {
                       label: word,
                       excludeSemantics: true,
                       child: Text(word,
-                          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900)),
+                          style: style.text(32).copyWith(fontWeight: FontWeight.w900)),
                     ),
                   ),
                   Text(

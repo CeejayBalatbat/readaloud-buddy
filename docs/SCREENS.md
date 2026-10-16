@@ -15,8 +15,7 @@ Style: warm cream background `#FFF8EC`, ink `#26324A`, teal primary `#1F9E8F`, s
 | 7 | Story questions | Child | question with speaker button, 3 picture answers, feedback bubble from Buddy |
 | 8 | Results | Child | Buddy, "Great reading!", stars, 3 stat tiles (% words right, words/min, questions), "Buddy's plan" agent card, new tricky words, "Word game" / "Next story" |
 | 9 | Tricky-word game | Child | picture + "Listen again", letter slots, draggable tiles, "Why this game?" agent card |
-| – | Settings (MVP) | Parent | readers on this phone, How Buddy listens (Microphone / Tap to read), **Reading feedback (Review after each page / Live colors and hints)**, Hints (Automatic / Only when I tap Help – live mode) |
-| 10 | Reading comfort | Parent (locked) | live preview, dyslexia mode toggle, text size, high contrast, read aloud, hint wait time, readers on this phone |
+| 10 | Reading comfort (the Settings tab) | Parent (locked with an optional 4-digit PIN; "Forgot PIN?" = a grown-up multiplication check) | live preview, dyslexia mode toggle (Lexend, wider spacing, cream page), text size (Small/Medium/Large/Extra large), high contrast, read instructions aloud, wait before a hint (3–12 s or automatic), readers on this phone; then How Buddy listens, Reading feedback, Hints, Grown-up PIN. Comfort settings are saved per reader |
 | 11 | Parent weekly summary | Parent (later) | minutes, stories, WCPM gain, level bar, celebrate card, try-at-home tip, print tricky words |
 | 12 | Teacher class overview | Teacher web (later) | KPI tiles, learner table sorted by needs attention, most-missed sounds, "Buddy suggests" |
 | 13 | Teacher learner detail | Teacher web (later) | WCPM chart vs goal, "What Buddy learned", sound mastery chips, recent sessions |

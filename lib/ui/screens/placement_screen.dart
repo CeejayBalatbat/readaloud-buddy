@@ -13,6 +13,7 @@ import '../../speech/fake_speech_service.dart';
 import '../../speech/hint_voice.dart';
 import '../../speech/speech_providers.dart';
 import '../theme/app_colors.dart';
+import '../theme/reading_style.dart';
 import '../widgets/buddy.dart';
 import '../widgets/common.dart';
 import '../widgets/story_text.dart';
@@ -219,6 +220,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
                                 ? WordLook.now
                                 : WordLook.plain,
                             fontSize: 25,
+                            style: ReadingStyle.of(widget.learner),
                             onTapWord: _tapWord,
                             onLongPressWord: _longPressWord,
                           ),

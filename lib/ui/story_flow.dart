@@ -73,6 +73,7 @@ Future<void> startStory(BuildContext context, Story story) async {
       story: story,
       hintWaitSec: learner.hintWait(),
       startHintLevel: learner.startHintLevel,
+      readAloud: learner.readAloud,
       onFinished: (c) => askQuestions(ReadingResult(
         outcomes: c.outcomes,
         seconds: c.readingSeconds,

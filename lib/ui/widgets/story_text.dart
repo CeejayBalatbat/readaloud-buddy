@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../agent/agent.dart';
 import '../theme/app_colors.dart';
+import '../theme/reading_style.dart';
 
 /// How a word looks in the read-along text (`.w.ok`, `.w.hes`, `.w.now`,
 /// `.w.next` in the mockup CSS).
@@ -42,6 +43,7 @@ class StoryText extends StatelessWidget {
     this.fontSize = 27,
     this.onTapWord,
     this.onLongPressWord,
+    this.style = const ReadingStyle(),
   });
 
   /// All words as printed; [indexes] says which ones are on this page.
@@ -52,16 +54,20 @@ class StoryText extends StatelessWidget {
   final void Function(int index)? onTapWord;
   final void Function(int index)? onLongPressWord;
 
+  /// The reader's comfort settings (font, size, spacing, contrast).
+  final ReadingStyle style;
+
   @override
   Widget build(BuildContext context) => Wrap(
-        spacing: fontSize * 0.26,
-        runSpacing: fontSize * 0.45,
+        spacing: fontSize * style.scale * style.wordGap,
+        runSpacing: fontSize * style.scale * style.lineGap,
         children: [
           for (final i in indexes)
             _Word(
               text: tokens[i],
               look: lookOf(i),
               fontSize: fontSize,
+              style: style,
               onTap: onTapWord == null ? null : () => onTapWord!(i),
               onLongPress:
                   onLongPressWord == null ? null : () => onLongPressWord!(i),
@@ -75,6 +81,7 @@ class _Word extends StatelessWidget {
     required this.text,
     required this.look,
     required this.fontSize,
+    required this.style,
     this.onTap,
     this.onLongPress,
   });
@@ -82,20 +89,19 @@ class _Word extends StatelessWidget {
   final String text;
   final WordLook look;
   final double fontSize;
+  final ReadingStyle style;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
 
   @override
   Widget build(BuildContext context) {
-    final style = TextStyle(
-      fontSize: fontSize,
-      fontWeight: FontWeight.w700,
-      height: 1.25,
-      color: look == WordLook.next ? const Color(0xFF9AA3B5) : AppColors.ink,
-    );
+    final textStyle = style.text(fontSize).copyWith(
+          height: 1.25,
+          color: look == WordLook.next ? style.upcoming : style.ink,
+        );
     final label = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 1),
-      child: Text(text, style: style),
+      child: Text(text, style: textStyle),
     );
 
     Widget word = switch (look) {
