@@ -91,6 +91,7 @@ class ReadingController extends ChangeNotifier {
     int startHintLevel = 1,
     bool autoHints = true,
     this.reviewAfterPage = false,
+    PhonicsDictionary phonics = PhonicsDictionary.empty,
     this.tickEvery = const Duration(milliseconds: 200),
     ReadingClock? clock,
   })  : _clock = clock ?? StopwatchClock(),
@@ -108,6 +109,7 @@ class ReadingController extends ChangeNotifier {
       autoHints: autoHints && !reviewAfterPage,
       listensForQuiet: speech.hearsSilence,
       pageStarts: {for (final p in pages) p.first},
+      phonics: phonics,
     );
   }
 

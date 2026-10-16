@@ -76,9 +76,12 @@ void main() {
     final (app, _) = await open(tester);
     await tapWord(tester, 'Mia'); // the first word of a page is never timed
     await app.wait(tester, 5);
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    expect(find.text('IT STARTS LIKE'), findsOneWidget);
     expect(find.text('Hint appeared after 5 seconds on this word'), findsOneWidget);
-    expect(app.tts.spoken, ['ruh']); // the first sound of "ran", not "ar"
+    // Said aloud too, with a keyword ("ran" starts like rabbit), never "ar".
+    expect(app.tts.spoken, ['It starts like', 'rabbit']);
+    expect(find.text('rabbit'), findsOneWidget);
+    expect(find.text('🐰'), findsOneWidget);
 
     await app.wait(tester, 5);
     expect(find.text("LET'S BREAK IT UP"), findsOneWidget);
@@ -98,16 +101,31 @@ void main() {
     final (app, _) = await open(tester);
     await tester.tap(find.text('Help'));
     await tester.pump();
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    expect(find.text('IT STARTS LIKE'), findsOneWidget);
     expect(find.text('You asked Buddy for help'), findsOneWidget);
     await app.screenshot(tester, 's06_help');
+  });
+
+  testWidgets('a sight word gets one hint: "This one we just know"',
+      (tester) async {
+    final (app, _) = await open(tester);
+    for (final w in ['Mia', 'ran', 'up']) {
+      await tapWord(tester, w);
+    }
+    await app.wait(tester, 5); // stuck on "the"
+    expect(find.text('WE JUST KNOW THIS ONE'), findsOneWidget);
+    expect(find.text('This one we just know: the ❤️'), findsOneWidget);
+    expect(app.tts.spoken, ['This one we just know.', 'the']);
+    expect(find.text("Buddy's hint steps"), findsNothing);
+    expect(find.text('Next word →'), findsOneWidget);
+    await app.screenshot(tester, 's06_sight_word');
   });
 
   testWidgets('no hint on the first word, however long Buddy waits',
       (tester) async {
     final (app, _) = await open(tester);
     await app.wait(tester, 60);
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+    expect(find.text('IT STARTS LIKE'), findsNothing);
   });
 
   testWidgets('after the whole word Buddy waits for "Next word"',
@@ -135,7 +153,7 @@ void main() {
     final (app, _) = await open(tester);
     await tester.tap(find.text('Help'));
     await tester.pump();
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    expect(find.text('IT STARTS LIKE'), findsOneWidget);
     await tester.tap(find.text('💡 Help'));
     await tester.pump();
     expect(find.text("LET'S BREAK IT UP"), findsOneWidget);
@@ -159,7 +177,7 @@ void main() {
     await app.wait(tester, 1);
     expect(find.text(quiet), findsOneWidget);
     expect(app.tts.spoken, [quiet]); // said aloud once
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+    expect(find.text('IT STARTS LIKE'), findsNothing);
     await app.screenshot(tester, 's05_quiet');
 
     mic.speak(); // the child reads again
@@ -170,7 +188,7 @@ void main() {
     await app.wait(tester, 30);
     await tester.tap(find.text('Help'));
     await tester.pump();
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    expect(find.text('IT STARTS LIKE'), findsOneWidget);
   });
 
   testWidgets('Hints = Only when I tap Help: no timed hints', (tester) async {
@@ -180,10 +198,10 @@ void main() {
     await open(tester, app: app);
     await tapWord(tester, 'Mia');
     await app.wait(tester, 30);
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+    expect(find.text('IT STARTS LIKE'), findsNothing);
     await tester.tap(find.text('Help'));
     await tester.pump();
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+    expect(find.text('IT STARTS LIKE'), findsOneWidget);
   });
 
   testWidgets('pause and go on', (tester) async {
@@ -193,7 +211,7 @@ void main() {
     expect(find.text('Paused'), findsOneWidget);
     expect(find.text('Go on'), findsOneWidget);
     await app.wait(tester, 20);
-    expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+    expect(find.text('IT STARTS LIKE'), findsNothing);
     await tester.tap(find.text('Go on'));
     await tester.pump();
     expect(find.text('Listening'), findsOneWidget);
@@ -263,12 +281,12 @@ void main() {
       expect(find.text('Help'), findsOneWidget);
       await tapWord(tester, 'Mia');
       await app.wait(tester, 30);
-      expect(find.text('LISTEN TO THE FIRST SOUND'), findsNothing);
+      expect(find.text('IT STARTS LIKE'), findsNothing);
       await app.screenshot(tester, 's05_read_first');
       // Help still works.
       await tester.tap(find.text('Help'));
       await tester.pump();
-      expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
+      expect(find.text('IT STARTS LIKE'), findsOneWidget);
     });
 
     testWidgets('after the page: review the missed words, then go on',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../agent/agent.dart';
 import '../theme/app_colors.dart';
 import 'svg_art.dart';
 
@@ -378,4 +379,23 @@ class ScreenHeader extends StatelessWidget {
           trailing ?? const SizedBox(width: 48),
         ],
       );
+}
+
+/// What Buddy's speech bubble says with a hint (AGENT_SPEC §2): the
+/// keyword for the first sound, the onset · rime split, or the whole word.
+/// [child] adds a little encouragement for the read-along screen.
+String buddySaysForHint(Hint hint, {bool child = false}) {
+  final word = hint.word.toLowerCase().replaceAll(RegExp(r'[^\p{L}\p{N}]', unicode: true), '');
+  if (hint.sight) return 'This one we just know: $word ❤️';
+  return switch (hint.level) {
+    1 when hint.keyword != null =>
+      'It starts like "${hint.keyword}" ${hint.emoji ?? ''}.${child ? ' Try the whole word!' : ''}',
+    1 when hint.parts.first.length > 1 =>
+      'It starts with "${hint.parts.first}". Try it!', // Filipino syllable
+    1 => 'Look at how it starts. Try the whole word!',
+    2 when hint.keyword != null && hint.parts.length == 2 =>
+      '${hint.keyword}… ${hint.parts[1]}… $word. Now you say it!',
+    2 => 'Say each part, then put them together. You can do it!',
+    _ => 'This word is "$word". Say it with me!',
+  };
 }

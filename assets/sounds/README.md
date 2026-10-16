@@ -1,35 +1,22 @@
-# Phonics sound clips (optional, not recorded yet)
+# Sound clips (optional, none bundled)
 
-Hints say **sounds, not letter names** ("had" → *huh… ad… had*). Each piece
-of a hint has a clip id. Until a clip exists, the app says the piece with
-text-to-speech using the spelling in `lib/agent/phonics.dart`
-(`Phonics.sounds`). TTS can only get close to a pure sound, so recorded
-clips are the real fix.
+Hints never say isolated sounds with text-to-speech: TTS can't say a
+pure sound ("s" comes out as "suh"). Level 1 says a **keyword** instead
+("It starts like… hat 🎩"); see `assets/data/phonics.json` and
+AGENT_SPEC §2.
 
-## Adding clips
-1. Record each sound as `assets/sounds/<id>.mp3`: short (under 1 s), a
-   clear pure sound (*mmm*, *sss*, not *muh*), with no silence before or after.
+Recorded clips can replace the keyword later. If
+`assets/sounds/<PHONEME>.mp3` exists for **every** sound of a word's
+onset (CMU phonemes, e.g. `HH.mp3` for "had", `S.mp3` + `T.mp3` + `R.mp3`
+for "strong"), level 1 plays them instead of saying the keyword.
+
+To turn it on:
+1. Add the clips: short, pure sounds (*sss*, *mmm*, not *suh*), no silence
+   around them. Names are CMU phonemes: `B CH D DH F G HH JH K L M N NG P R
+   S SH T TH V W Y Z ZH` (and vowels `AA AE AH AO AW AY EH ER EY IH IY OW
+   OY UH UW` if wanted).
 2. Add `- assets/sounds/` under `flutter: assets:` in `pubspec.yaml`.
 3. Add an audio player package (e.g. `audioplayers`) and implement
-   `SoundClips` in `lib/speech/hint_voice.dart`: `play(id)` plays
-   `sounds/<id>.mp3` and returns `true`, or returns `false` if that file is
-   missing. Override `soundClipsProvider` with it. Clips you haven't
-   recorded yet still fall back to TTS.
-
-## Sound ids (`Phonics.sounds`)
-- Consonants: `b c d f g h j k l m n p r s t v w x y z qu`
-- Digraphs: `th sh ch wh ph ck kn wr`
-- Short vowels: `a_short e_short i_short o_short u_short schwa`
-- Long vowels / teams: `a_long e_long i_long o_long u_long oo ow oy aw`
-- r-controlled: `ar or er`
-
-## Rime ids (`rime_<letters>`)
-The ending of a one-syllable word after its first sounds, e.g.
-`rime_ad.mp3` for "had", "dad". The 20 stories use 144 rimes. Start with
-the common word families (`at ad an ap ig ip in it en ed et ot op ug un
-ill ell ake ate ite ike ight ing`); the rest keep using TTS until recorded. Some letters are said differently in different words (`ow` in
-*now* vs *grow*, `ead` in *thread* vs *read*); TTS uses one spelling for
-both, so a clip, or a word-specific entry in `Phonics._irregular`, fixes
-that.
-
-Filipino hints use syllables (*ba… ta… bata*) and need no clips.
+   `SoundClips` in `lib/speech/hint_voice.dart` (`has` checks the asset
+   exists, `play` plays it and waits until it ends). Override
+   `soundClipsProvider` with it.

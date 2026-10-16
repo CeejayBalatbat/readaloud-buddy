@@ -68,6 +68,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
         hintWaitSec: widget.learner.hintWait(),
         startHintLevel: widget.learner.startHintLevel,
         autoHints: ref.read(hintModeProvider).value != HintMode.helpOnly,
+        phonics: ref.read(phonicsProvider).value ?? PhonicsDictionary.empty,
         clock: ref.read(readingClockProvider)(),
       )..addListener(_changed);
     });
@@ -162,11 +163,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
     final hint = _c?.hint;
     if (_c?.isQuiet ?? false) return "I can't hear you. Try reading a bit louder!";
     if (hint != null) {
-      return switch (hint.level) {
-        1 => 'It starts with "${hint.parts.first}". Try it!',
-        2 => 'Say the parts: ${hint.parts.join(' · ')}',
-        _ => 'This word is "${hint.parts.first}". Say it with me!',
-      };
+      return buddySaysForHint(hint);
     }
     return switch (_check.results.length) {
       0 => "Hi $name! Read this to me out loud. I'll find the stories that are just right for you.",

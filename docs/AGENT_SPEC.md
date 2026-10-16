@@ -39,14 +39,27 @@ Align recognized words to expected words left-to-right, allowing a look-ahead of
 - **Live colors and hints**: every word gets its color as soon as it is read, and the timed hint ladder below runs (with the Hints setting).
 
 The rest of this section describes the hint ladder; in review mode only its Help-button part applies.
+
 When the child is stuck on the current word for `hintWaitSec` of **counted** time (default 5 s; 8 s when dyslexia mode is on or set by parent; see "When the hint timer counts"):
-1. Level 1 – the **first sound**. Show the first letter or first digraph/blend (th, sh, ch, str…). **Say it as a phonics sound, never a letter name:** h → "huh", th → "thuh", sh → "shh", str → "suh, tuh, ruh", a → "ah" (short), ea → "ee". Filipino: show and say the opening syllable (Abakada style: **ba**·ta, **ma**y, **nga**yon).
-2. Level 2 – the **word parts**. English one-syllable words: show onset · rime ("h · ad"), say the onset sounds, the rime, then the blended word: "huh… ad… had". Longer English words and Filipino: show the syllables ("bas · ket", "ba · ta"), say each one, then the word ("ba… ta… bata"). A one-syllable Filipino word says its opening syllable, then the word ("ma… may").
-3. Level 3 – say the **whole word**, then **wait** for the child.
 
-**Phonics map:** `lib/agent/phonics.dart` maps English graphemes to sounds (consonants, digraphs, short and long vowels, vowel teams, r-controlled vowels, soft c, kn/wr, qu), with a small table of irregular sight words (the → "thuh… uh", was → "wuh… uz", one → "wuh… un"). Every sound and rime has a clip id; a recorded clip `assets/sounds/<id>.mp3` replaces the text-to-speech spelling when present (see `assets/sounds/README.md`).
+**Never say letter names or isolated sounds in hints.** Text-to-speech cannot say a pure sound ("s" comes out as "suh"), so English hints use **keyword pictures** and whole chunks instead, driven by `assets/data/phonics.json`.
 
-Escalate one level each further `hintWaitSec` of counted time. Record `hintLevel` (0–3) per word.
+**English** – each word in `phonics.json` has a type:
+- **Sight** (heart words: the, was, said, one, of, to, you, they, come, some, are, have, do, what, where, there, …): **one hint only**, the whole word – "This one we just know: **the** ❤️" (counts as level 3; then Buddy waits / "Next word →").
+- **Decodable** or **tricky** (only part follows the rules):
+  1. Level 1 – "It starts like **hat** 🎩": show the **onset** letters highlighted in the word, the keyword and its emoji; say "It starts like… hat". Words starting with a vowel use a vowel keyword (and → apple 🍎).
+  2. Level 2 – show the split **onset · rime** ("h · ad", "sh · ip", "str · ong"); say the keyword, the rime chunk, then the word: "hat… ad… had".
+  3. Level 3 – say the **whole word**, then **wait** for the child.
+
+**Keywords:** one keyword per first sound, the same for every word (h → hat 🎩, s → sun ☀️, sh → shoe 👟, th /θ/ → thumb 👍, th /ð/ → this 👉, ch → chair 🪑, str → string 🧵, …). The keyword's first sound must match the word's (checked against CMUdict by the generator). If the keyword is the word itself, a second keyword is used (fish → fox 🦊).
+
+**phonics.json** is made by `tools/gen_phonics.py` from the CMU Pronouncing Dictionary for every English story word: type, graphemes (letters grouped by sound, silent letters marked: k·i·t·e(silent)), phonemes (HH AE D), onset/rime, `rime_say` (the rime spelled so TTS reads it right: thread → "ed"), keyword + emoji, and `needs_review` for anything uncertain. Re-run it when stories are added; a word missing from the file gets hints that show the parts but only ever say whole chunks.
+
+**Sound clips (later):** if `assets/sounds/<PHONEME>.mp3` exists for every sound of the onset (e.g. HH.mp3), level 1 plays it instead of saying the keyword. No clips are bundled yet.
+
+**Filipino** stays syllable-based: level 1 = the opening syllable (Abakada style: **ba**·ta, **ma**y, **nga**yon), level 2 = the syllables, then the word ("ba… ta… bata"; a one-syllable word: "ma… may"), level 3 = the word.
+
+Escalate one level each further `hintWaitSec` of counted time (sight words have just the one whole-word step). Record `hintLevel` (0–3) per word.
 
 **When the hint timer counts:** silence from the microphone is not the same as being stuck, so time only counts toward a hint when:
 - the child is **speaking but not matching** the current word (the recognizer hears speech, even if it is not a whole word yet), or

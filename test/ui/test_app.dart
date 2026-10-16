@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:readaloud_buddy/agent/phonics.dart';
 import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
 import 'package:readaloud_buddy/data/database_providers.dart';
@@ -39,6 +40,9 @@ class TestApp {
       parseStories(File('assets/data/stories.json').readAsStringSync());
   static Story story(String id) => stories.firstWhere((s) => s.id == id);
 
+  static final PhonicsDictionary phonics =
+      PhonicsDictionary.parse(File('assets/data/phonics.json').readAsStringSync());
+
   static bool _fontsLoaded = false;
 
   /// Loads the bundled Nunito so text renders like on the phone.
@@ -63,10 +67,13 @@ class TestApp {
     ttsServiceProvider.overrideWithValue(tts),
     readingClockProvider.overrideWithValue(() => clock),
     storiesProvider.overrideWith((ref) async => stories),
+    phonicsProvider.overrideWith((ref) async => phonics),
   ]);
 
   Future<void> pump(WidgetTester tester, Widget home) async {
     await loadFonts();
+    // The app loads this on the splash screen, before any story opens.
+    await tester.runAsync(() => container.read(phonicsProvider.future));
     // The mockups are drawn for a 390 × 844 phone.
     tester.view.physicalSize = const Size(390 * 2, 844 * 2);
     tester.view.devicePixelRatio = 2;

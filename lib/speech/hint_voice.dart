@@ -4,25 +4,30 @@ import '../agent/agent.dart';
 import 'speech_service.dart';
 import 'tts_service.dart';
 
-/// Recorded phonics clips (`assets/sounds/<id>.mp3`, ids from
-/// [Phonics.sounds] and `rime_<letters>`). See assets/sounds/README.md.
+/// Recorded sound clips, one per CMU phoneme (`assets/sounds/HH.mp3`,
+/// `SH.mp3`, …). None are recorded yet; see assets/sounds/README.md.
 abstract class SoundClips {
-  /// Plays clip [id] and completes when it has finished. Returns false if
-  /// there is no such clip, so the caller can use text-to-speech instead.
-  Future<bool> play(String id);
+  /// Whether a clip for [phoneme] exists.
+  Future<bool> has(String phoneme);
+
+  /// Plays it and completes when it has finished.
+  Future<void> play(String phoneme);
 }
 
-/// No clips recorded yet: every sound falls back to text-to-speech.
+/// No clips: every hint is spoken with text-to-speech.
 class NoSoundClips implements SoundClips {
   const NoSoundClips();
   @override
-  Future<bool> play(String id) async => false;
+  Future<bool> has(String phoneme) async => false;
+  @override
+  Future<void> play(String phoneme) async {}
 }
 
 final soundClipsProvider = Provider<SoundClips>((ref) => const NoSoundClips());
 
-/// Says [hint] piece by piece ("huh… ad… had"): each piece from its
-/// recorded clip when there is one, otherwise with text-to-speech. The
+/// Says [hint] piece by piece ("It starts like… hat"). A piece that names
+/// sound clips is played from them when every clip exists (the first
+/// sound itself instead of the keyword); otherwise it is spoken. The
 /// microphone ignores everything heard meanwhile, so Buddy's voice is not
 /// taken as the child reading.
 Future<void> speakHint(
@@ -35,11 +40,22 @@ Future<void> speakHint(
   speech.mute(true);
   try {
     for (final part in hint.speech) {
-      final clip = part.clip;
-      if (clip != null && await clips.play(clip)) continue;
+      if (part.clips.isNotEmpty && await _allExist(clips, part.clips)) {
+        for (final c in part.clips) {
+          await clips.play(c);
+        }
+        continue;
+      }
       await tts.speak(part.tts, language: language, slow: true);
     }
   } finally {
     speech.mute(false);
   }
+}
+
+Future<bool> _allExist(SoundClips clips, List<String> phonemes) async {
+  for (final p in phonemes) {
+    if (!await clips.has(p)) return false;
+  }
+  return true;
 }

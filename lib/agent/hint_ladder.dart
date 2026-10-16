@@ -9,21 +9,32 @@ class Hint {
     required this.word,
     required this.parts,
     this.speech = const [],
+    this.keyword,
+    this.emoji,
+    this.sight = false,
   });
 
   /// 1 = first sound, 2 = word parts, 3 = whole word.
   final int level;
   final String word;
 
-  /// What to show: level 1 -> ["th"], level 2 -> ["thr", "ough"],
-  /// level 3 -> ["through"].
+  /// What to show: level 1 -> the onset ["sh"], level 2 -> ["sh", "ip"],
+  /// level 3 -> ["ship"]. Filipino: syllables ("ba", "ba · ta").
   final List<String> parts;
 
-  /// What Buddy says, piece by piece, as sounds (never letter names):
-  /// "had" level 1 → huh; level 2 → huh, ad, had; level 3 → had.
+  /// What Buddy says, piece by piece. Never a letter name or a lone
+  /// sound: "had" level 1 → "It starts like", "hat"; level 2 → hat, ad,
+  /// had; level 3 → had.
   final List<SpokenPart> speech;
 
-  /// e.g. "thr · ough", ready for the hint card.
+  /// English: a picture word with the same first sound (hat 🎩).
+  final String? keyword;
+  final String? emoji;
+
+  /// A heart word (the, was): one hint only, the whole word.
+  final bool sight;
+
+  /// e.g. "sh · ip", ready for the hint card.
   String get display => parts.join(' · ');
 }
 
@@ -47,46 +58,120 @@ class HintLadder {
   };
   static const _enDigraphs = {'th', 'sh', 'ch', 'ph', 'wh', 'ck'};
 
-  static Hint hintFor(String word, int level, String language) {
-    final fil = language == 'FIL';
+  /// True for English heart words: they get one hint, the whole word.
+  static bool isSight(String word, String language, PhonicsDictionary phonics) =>
+      language != 'FIL' && phonics[word]?.type == WordType.sight;
+
+  /// The hint for [word] at [level]. English hints use [phonics] (keyword
+  /// + onset/rime); Filipino hints use syllables.
+  static Hint hintFor(
+    String word,
+    int level,
+    String language, {
+    PhonicsDictionary phonics = PhonicsDictionary.empty,
+  }) {
+    if (level < 1 || level > 3) {
+      throw ArgumentError.value(level, 'level', 'must be 1, 2 or 3');
+    }
     final whole = WordMatcher.normalize(word);
-    final parts = wordParts(word, language);
+    if (language == 'FIL') return _filipino(word, whole, level);
+    final entry = phonics[word];
+    if (entry == null) return _englishFallback(word, whole, level);
+
+    if (entry.type == WordType.sight) {
+      return Hint(
+        level: 3,
+        word: word,
+        parts: [whole],
+        sight: true,
+        speech: [const SpokenPart('This one we just know.'), SpokenPart(whole)],
+      );
+    }
+    // Vowel first ("and"): the onset is the first letter group.
+    final onset = entry.onset.isNotEmpty ? entry.onset : _firstGrapheme(entry);
+    final keyword = entry.keyword;
     switch (level) {
       case 1:
-        final first = firstSound(word, language);
         return Hint(
           level: 1,
           word: word,
-          parts: [first],
-          // FIL: the first syllable ("ba"); EN: phonics sounds ("huh").
-          speech: fil ? [SpokenPart(first)] : Phonics.firstSounds(word),
+          parts: [onset],
+          keyword: keyword,
+          emoji: entry.emoji,
+          speech: keyword == null
+              ? const [SpokenPart('Look at how it starts.')]
+              : [
+                  const SpokenPart('It starts like'),
+                  // A recorded clip of the sound may replace the keyword.
+                  SpokenPart(keyword, clips: entry.onsetPhonemes),
+                ],
         );
       case 2:
+        final hasOnset = entry.onset.isNotEmpty;
         return Hint(
           level: 2,
           word: word,
-          parts: parts,
-          // One-syllable English words: onset + rime + blend (huh… ad…
-          // had). Longer words and Filipino: syllables + blend (ba… ka… baka).
-          speech: !fil && _isOneSyllable(whole)
-              ? Phonics.onsetRime(word)
-              : fil && !parts.first.contains(RegExp('[aeiou]'))
-                  // One-syllable Filipino word: opening syllable + word
-                  // ("ma… may"), never a lone consonant.
-                  ? [SpokenPart(firstSound(word, language)), SpokenPart(whole)]
-                  : [
-                      for (final p in parts) fil ? SpokenPart(p) : Phonics.syllable(p),
-                      SpokenPart(whole),
-                    ],
+          parts: hasOnset ? [entry.onset, entry.rime] : [whole],
+          keyword: keyword,
+          emoji: entry.emoji,
+          // hat… ad… had: the keyword, the rime chunk, the word.
+          speech: [
+            if (keyword != null) SpokenPart(keyword),
+            if (hasOnset) SpokenPart(entry.rimeSay),
+            SpokenPart(whole),
+          ],
         );
-      case 3:
-        return Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(whole)]);
       default:
-        throw ArgumentError.value(level, 'level', 'must be 1, 2 or 3');
+        return Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(whole)]);
     }
   }
 
-  static bool _isOneSyllable(String w) => _nuclei(w, false).length <= 1;
+  static String _firstGrapheme(PhonicsEntry e) =>
+      e.graphemes.isEmpty ? e.word.substring(0, 1) : e.graphemes.first.replaceAll('(silent)', '');
+
+  /// Filipino: syllables. Level 1 = opening syllable ("ba"), level 2 =
+  /// syllables + word ("ba… ta… bata"), level 3 = word.
+  static Hint _filipino(String word, String whole, int level) {
+    final parts = wordParts(word, 'FIL');
+    final first = firstSound(word, 'FIL');
+    return switch (level) {
+      1 => Hint(level: 1, word: word, parts: [first], speech: [SpokenPart(first)]),
+      2 => Hint(
+          level: 2,
+          word: word,
+          parts: parts,
+          // One-syllable word: opening syllable + word ("ma… may"), never
+          // a lone consonant.
+          speech: !parts.first.contains(RegExp('[aeiou]'))
+              ? [SpokenPart(first), SpokenPart(whole)]
+              : [for (final p in parts) SpokenPart(p), SpokenPart(whole)],
+        ),
+      _ => Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(whole)]),
+    };
+  }
+
+  /// An English word missing from phonics.json (re-run
+  /// tools/gen_phonics.py): show the parts, but only ever say whole
+  /// chunks and words, never letters.
+  static Hint _englishFallback(String word, String whole, int level) {
+    final parts = wordParts(word, 'EN');
+    bool sayable(String p) => p.length > 1 && p.contains(RegExp('[aeiouy]'));
+    return switch (level) {
+      1 => Hint(
+          level: 1,
+          word: word,
+          parts: [firstSound(word, 'EN')],
+          speech: const [SpokenPart('Look at how it starts.')],
+        ),
+      2 => Hint(
+          level: 2,
+          word: word,
+          parts: parts,
+          speech: [for (final p in parts) if (sayable(p)) SpokenPart(p), SpokenPart(whole)],
+        ),
+      _ => Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(whole)]),
+    };
+  }
 
   /// Level 1: first letter, or the first digraph/blend (th, sh, ch, str…).
   /// Filipino uses the opening consonant-vowel syllable, as in the

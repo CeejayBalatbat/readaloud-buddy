@@ -7,6 +7,7 @@ import '../../app/feedback_mode.dart';
 import '../../app/hint_mode.dart';
 import '../../app/reading_controller.dart';
 import '../../data/story.dart';
+import '../../data/story_providers.dart';
 import '../../speech/fake_speech_service.dart';
 import '../../speech/hint_voice.dart';
 import '../../speech/speech_providers.dart';
@@ -78,6 +79,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
       startHintLevel: widget.startHintLevel,
       autoHints: ref.read(hintModeProvider).value != HintMode.helpOnly,
       reviewAfterPage: ref.read(feedbackModeProvider).value != FeedbackMode.live,
+      phonics: ref.read(phonicsProvider).value ?? PhonicsDictionary.empty,
       clock: ref.read(readingClockProvider)(),
     )..addListener(_changed);
     // Start after the first frame: starting the mic updates shared state.
@@ -294,36 +296,39 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
           ],
           const SizedBox(height: 12),
           ChunkyButton(label: '💡 Help', style: ChunkyStyle.ghost, onPressed: _help),
-          const SizedBox(height: 12),
-          AppCard(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text("Buddy's hint steps",
-                    style: TextStyle(
-                        fontSize: 13, fontWeight: FontWeight.w800, color: AppColors.ink2)),
-                const SizedBox(height: 8),
-                Wrap(
-                  spacing: 5,
-                  runSpacing: 5,
-                  children: [
-                    for (final (n, name) in [(1, 'Sound'), (2, 'Parts'), (3, 'Word')])
-                      if (n < hint.level)
-                        Pill(n < steps ? '$n · $name' : '✓ $n · $name',
-                            background: n < steps ? const Color(0xFFF0F0F0) : AppColors.greenLight,
-                            color: n < steps ? const Color(0xFF9AA3B5) : const Color(0xFF1C7A46))
-                      else if (n == hint.level)
-                        Pill('$n · $name', background: AppColors.sun)
-                      else
-                        Pill('$n · $name',
-                            background: const Color(0xFFF0F0F0),
-                            color: const Color(0xFF9AA3B5)),
-                  ],
-                ),
-              ],
+          // Sight words have one hint only, so no steps to show.
+          if (!hint.sight) ...[
+            const SizedBox(height: 12),
+            AppCard(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text("Buddy's hint steps",
+                      style: TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.w800, color: AppColors.ink2)),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 5,
+                    runSpacing: 5,
+                    children: [
+                      for (final (n, name) in [(1, 'Sound'), (2, 'Parts'), (3, 'Word')])
+                        if (n < hint.level)
+                          Pill(n < steps ? '$n · $name' : '✓ $n · $name',
+                              background: n < steps ? const Color(0xFFF0F0F0) : AppColors.greenLight,
+                              color: n < steps ? const Color(0xFF9AA3B5) : const Color(0xFF1C7A46))
+                        else if (n == hint.level)
+                          Pill('$n · $name', background: AppColors.sun)
+                        else
+                          Pill('$n · $name',
+                              background: const Color(0xFFF0F0F0),
+                              color: const Color(0xFF9AA3B5)),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
           const SizedBox(height: 12),
           Text(
             c.hintFromHelp
@@ -388,13 +393,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     };
   }
 
-  String _encouragement(Hint hint) => switch (hint.level) {
-        1 => 'It starts with "${hint.parts.first}". Try the whole word!',
-        2 => hint.parts.length == 2
-            ? 'Say the two parts, then put them together. You can do it!'
-            : 'Say each part, then put them together. You can do it!',
-        _ => 'This word is "${hint.parts.first}". Say it with me!',
-      };
+  String _encouragement(Hint hint) => buddySaysForHint(hint, child: true);
 
   static String _secs(double s) =>
       s == s.roundToDouble() ? s.toInt().toString() : s.toStringAsFixed(1);
@@ -491,7 +490,9 @@ class _HintCard extends StatelessWidget {
   Widget build(BuildContext context) {
     const big = TextStyle(fontSize: 52, fontWeight: FontWeight.w900, letterSpacing: 2);
     final title = switch (hint.level) {
-      1 => 'LISTEN TO THE FIRST SOUND',
+      _ when hint.sight => 'WE JUST KNOW THIS ONE',
+      1 when hint.keyword != null => 'IT STARTS LIKE',
+      1 => 'LOOK AT HOW IT STARTS',
       2 => "LET'S BREAK IT UP",
       _ => 'THE WORD IS',
     };
@@ -513,6 +514,7 @@ class _HintCard extends StatelessWidget {
       }
     } else {
       spans.add(TextSpan(text: hint.parts.first, style: const TextStyle(color: AppColors.teal)));
+      if (hint.sight) spans.add(const TextSpan(text: ' ❤️'));
     }
     return AppCard(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 22),
@@ -525,6 +527,20 @@ class _HintCard extends StatelessWidget {
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.65,
                   color: AppColors.ink2)),
+          // Level 1: the keyword picture ("hat 🎩"), never a lone sound.
+          if (hint.level == 1 && hint.keyword != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(hint.emoji ?? '', style: const TextStyle(fontSize: 44)),
+                  const SizedBox(width: 10),
+                  Text(hint.keyword!,
+                      style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900)),
+                ],
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: FittedBox(
@@ -533,7 +549,7 @@ class _HintCard extends StatelessWidget {
             ),
           ),
           AppChip(
-            label: '🔊 Hear the sounds',
+            label: '🔊 Hear it again',
             background: AppColors.sunLight,
             borderColor: AppColors.sun,
             fontSize: 15,

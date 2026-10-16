@@ -1,6 +1,7 @@
 import '../data/story.dart';
 import 'agent_config.dart';
 import 'hint_ladder.dart';
+import 'phonics.dart';
 import 'word_matcher.dart';
 import 'word_result.dart';
 
@@ -38,6 +39,7 @@ class ReadingTracker {
     this.autoHints = true,
     this.listensForQuiet = true,
     this.pageStarts = const {0},
+    this.phonics = PhonicsDictionary.empty,
   })  : hintWaitSec = hintWaitSec ?? config.hintWaitSec,
         _matcher = WordMatcher(config),
         _lastProgressAt = startedAt,
@@ -62,6 +64,9 @@ class ReadingTracker {
   /// Indexes (into [words]) of the first word on each page. These words
   /// are never timed.
   final Set<int> pageStarts;
+
+  /// English phonics data (keywords, sight words) for the hints.
+  final PhonicsDictionary phonics;
 
   final WordMatcher _matcher;
   final List<WordOutcome> _outcomes = [];
@@ -155,7 +160,7 @@ class ReadingTracker {
   /// The hint currently showing for the current word, if any.
   Hint? get currentHint => isFinished || _hintLevel == 0
       ? null
-      : HintLadder.hintFor(words[_index].word, _hintLevel, language);
+      : HintLadder.hintFor(words[_index].word, _hintLevel, language, phonics: phonics);
 
   /// The recognizer stopped on silence and listening restarted. This
   /// deliberately does NOT reset the hint timer (§2).
@@ -218,10 +223,15 @@ class ReadingTracker {
 
   Hint _giveHint(Duration at) {
     _closePendingHint(success: false);
-    _hintLevel = _hintLevel == 0 ? startHintLevel : _hintLevel + 1;
+    // Sight words have one hint only: the whole word (level 3).
+    _hintLevel = HintLadder.isSight(words[_index].word, language, phonics)
+        ? 3
+        : _hintLevel == 0
+            ? startHintLevel
+            : _hintLevel + 1;
     _pendingHintAt = at;
     _stuck = Duration.zero;
-    return HintLadder.hintFor(words[_index].word, _hintLevel, language);
+    return HintLadder.hintFor(words[_index].word, _hintLevel, language, phonics: phonics);
   }
 
   WordResult _matchedResult(Duration at) {

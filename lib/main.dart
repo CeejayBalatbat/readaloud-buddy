@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app/current_learner.dart';
 import 'app/feedback_mode.dart';
 import 'app/hint_mode.dart';
+import 'data/story_providers.dart';
 import 'speech/speech_providers.dart';
 import 'ui/screens/home_shell.dart';
 import 'ui/screens/setup_screen.dart';
@@ -44,7 +45,8 @@ class AppStart extends ConsumerWidget {
     bool loaded(AsyncValue<Object> v) => v.hasValue || v.hasError;
     if (!loaded(ref.watch(speechModeProvider)) ||
         !loaded(ref.watch(hintModeProvider)) ||
-        !loaded(ref.watch(feedbackModeProvider))) {
+        !loaded(ref.watch(feedbackModeProvider)) ||
+        !loaded(ref.watch(phonicsProvider))) {
       return splash;
     }
     return ref.watch(currentLearnerProvider).when(
