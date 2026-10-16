@@ -11,8 +11,24 @@ import 'current_learner.dart';
 /// Minutes of reading a day that fill the "Today's reading" ring.
 const dailyGoalMinutes = 10;
 
-/// Stories per new leaf on Buddy (pet growth; Phase 5 adds more).
+/// Stories per new leaf on Buddy (pet growth).
 const storiesPerLeaf = 5;
+
+/// How Buddy has grown: one leaf per [storiesPerLeaf] stories read, and a
+/// new stage every few leaves. Rewards practice, never speed.
+class BuddyGrowth {
+  const BuddyGrowth(this.storiesRead);
+  final int storiesRead;
+
+  int get leaves => storiesRead ~/ storiesPerLeaf;
+
+  /// 0 Baby (no leaves), 1 Little (1–2), 2 Big (3–5), 3 Super (6+).
+  int get stage => switch (leaves) { 0 => 0, < 3 => 1, < 6 => 2, _ => 3 };
+  String get stageName => const ['Baby Buddy', 'Little Buddy', 'Big Buddy', 'Super Buddy'][stage];
+
+  /// True when the story just finished earned a new leaf.
+  bool get justGotLeaf => storiesRead > 0 && storiesRead % storiesPerLeaf == 0;
+}
 
 /// Numbers for the Home screen.
 class HomeStats {
@@ -29,6 +45,7 @@ class HomeStats {
   final int storiesRead;
 
   int get storiesToNextLeaf => storiesPerLeaf - storiesRead % storiesPerLeaf;
+  BuddyGrowth get growth => BuddyGrowth(storiesRead);
   double get leafProgress => (storiesRead % storiesPerLeaf) / storiesPerLeaf;
 }
 

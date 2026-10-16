@@ -7,6 +7,7 @@ import '../data/repositories/learner_repository.dart';
 import '../data/repositories/progress_repository.dart';
 import '../data/repositories/session_repository.dart';
 import '../data/story.dart';
+import 'home_data.dart';
 
 /// Everything the Results screen (and Buddy's brain) needs after a story.
 class StoryOutcome {
@@ -20,6 +21,7 @@ class StoryOutcome {
     required this.stars,
     required this.newTrickyWords,
     required this.flags,
+    this.newLeaf = false,
   });
 
   final String sessionId;
@@ -31,6 +33,9 @@ class StoryOutcome {
   final int stars; // 1–3
   final List<String> newTrickyWords;
   final List<String> flags;
+
+  /// This story earned Buddy a new leaf (every [storiesPerLeaf] stories).
+  final bool newLeaf;
 }
 
 /// Stars for a finished story: every finished story earns at least one.
@@ -117,6 +122,9 @@ class SessionService {
 
         final stars = starsFor(philiri.overall);
         await _learners.addStars(learner.id, stars);
+        final storiesRead = (await _sessions.recent(learner.id))
+            .where((s) => s.type == SessionType.story)
+            .length;
 
         return StoryOutcome(
           sessionId: sessionId,
@@ -133,6 +141,7 @@ class SessionService {
           stars: stars,
           newTrickyWords: [for (final w in changes.added) w.word],
           flags: flags,
+          newLeaf: BuddyGrowth(storiesRead).justGotLeaf,
         );
       });
 }

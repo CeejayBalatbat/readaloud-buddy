@@ -4,6 +4,7 @@ import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
+import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/app/session_service.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
 import 'package:readaloud_buddy/data/repositories/learner_repository.dart';
@@ -50,6 +51,22 @@ void main() {
         hintAttempts: hints,
         startedAt: DateTime(2026, 10, 15, 15),
       );
+
+  test('every 5th story grows Buddy a new leaf', () async {
+    final leaves = [for (var i = 0; i < 6; i++) (await finish(read(s06), 2)).newLeaf];
+    expect(leaves, [false, false, false, false, true, false]);
+  });
+
+  test('Buddy growth: a leaf per 5 stories, stages Baby → Super', () {
+    expect(const BuddyGrowth(4).leaves, 0);
+    expect(const BuddyGrowth(4).stageName, 'Baby Buddy');
+    expect(const BuddyGrowth(5).leaves, 1);
+    expect(const BuddyGrowth(5).stageName, 'Little Buddy');
+    expect(const BuddyGrowth(15).stageName, 'Big Buddy');
+    expect(const BuddyGrowth(30).stageName, 'Super Buddy');
+    expect(const BuddyGrowth(10).justGotLeaf, isTrue);
+    expect(const BuddyGrowth(0).justGotLeaf, isFalse);
+  });
 
   test('a perfect reading: Independent, 3 stars, one step from moving up',
       () async {

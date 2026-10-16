@@ -146,7 +146,10 @@ void main() {
           .create(nickname: 'Mia', grade: 2, languages: 'EN', currentLevel: 2);
       await LearnerRepository(app.db).addStars(mia.id, 124);
       final sessions = SessionRepository(app.db);
-      for (final (day, secs) in [(15, 240.0), (15, 130.0), (14, 300.0), (13, 300.0)]) {
+      for (final (day, secs) in [
+        (15, 240.0), (15, 130.0), (14, 300.0), (13, 300.0), // this week
+        (1, 60.0), (1, 60.0), (1, 60.0), (1, 60.0), (1, 60.0), // earlier: 9 stories
+      ]) {
         await sessions.saveStory(
           learnerId: mia.id,
           storyId: 'S06',
@@ -170,6 +173,9 @@ void main() {
     expect(find.text('Mia!'), findsOneWidget);
     expect(find.text('⭐ 124'), findsOneWidget);
     expect(find.text('🔥 3 days'), findsOneWidget);
+    // 9 stories: one leaf, 1 more for the next.
+    expect(find.text('Little Buddy · 1 leaf'), findsOneWidget);
+    expect(find.text('🌿'), findsOneWidget); // one leaf drawn on Buddy
     expect(find.text('6/10'), findsOneWidget); // 370 s today = 6 minutes
     expect(find.text('6 of 10 minutes. Almost there!'), findsOneWidget);
     expect(find.text('1 more story until Buddy gets a new leaf'), findsOneWidget);

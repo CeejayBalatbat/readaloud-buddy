@@ -44,6 +44,10 @@ class ResultsScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       _Stars(outcome.stars),
+                      if (outcome.newLeaf) ...[
+                        const SizedBox(height: 8),
+                        const Pill('🌿 Buddy grew a new leaf!', background: AppColors.greenLight),
+                      ],
                       const SizedBox(height: 12),
                       Row(
                         children: [

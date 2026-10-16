@@ -180,10 +180,14 @@ class HomeTab extends ConsumerWidget {
           ),
           child: Column(
             children: [
-              const Buddy(size: 170),
+              GrowingBuddy(leaves: stats.growth.leaves, stage: stats.growth.stage),
               const SizedBox(height: 6),
-              const Text('Buddy is growing!',
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800)),
+              Text(
+                  stats.growth.leaves == 0
+                      ? 'Buddy is growing!'
+                      : '${stats.growth.stageName} · ${stats.growth.leaves} '
+                          '${stats.growth.leaves == 1 ? 'leaf' : 'leaves'}',
+                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800)),
               const SizedBox(height: 4),
               Text(leafText,
                   textAlign: TextAlign.center,
