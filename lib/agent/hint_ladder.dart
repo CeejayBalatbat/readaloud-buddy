@@ -1,9 +1,15 @@
 import 'agent_config.dart';
+import 'phonics.dart';
 import 'word_matcher.dart';
 
 /// One hint shown/spoken to the child (AGENT_SPEC §2).
 class Hint {
-  const Hint({required this.level, required this.word, required this.parts});
+  const Hint({
+    required this.level,
+    required this.word,
+    required this.parts,
+    this.speech = const [],
+  });
 
   /// 1 = first sound, 2 = word parts, 3 = whole word.
   final int level;
@@ -12,6 +18,10 @@ class Hint {
   /// What to show: level 1 -> ["th"], level 2 -> ["thr", "ough"],
   /// level 3 -> ["through"].
   final List<String> parts;
+
+  /// What Buddy says, piece by piece, as sounds (never letter names):
+  /// "had" level 1 → huh; level 2 → huh, ad, had; level 3 → had.
+  final List<SpokenPart> speech;
 
   /// e.g. "thr · ough", ready for the hint card.
   String get display => parts.join(' · ');
@@ -38,22 +48,57 @@ class HintLadder {
   static const _enDigraphs = {'th', 'sh', 'ch', 'ph', 'wh', 'ck'};
 
   static Hint hintFor(String word, int level, String language) {
+    final fil = language == 'FIL';
+    final whole = WordMatcher.normalize(word);
+    final parts = wordParts(word, language);
     switch (level) {
       case 1:
-        return Hint(level: 1, word: word, parts: [firstSound(word, language)]);
+        final first = firstSound(word, language);
+        return Hint(
+          level: 1,
+          word: word,
+          parts: [first],
+          // FIL: the first syllable ("ba"); EN: phonics sounds ("huh").
+          speech: fil ? [SpokenPart(first)] : Phonics.firstSounds(word),
+        );
       case 2:
-        return Hint(level: 2, word: word, parts: wordParts(word, language));
+        return Hint(
+          level: 2,
+          word: word,
+          parts: parts,
+          // One-syllable English words: onset + rime + blend (huh… ad…
+          // had). Longer words and Filipino: syllables + blend (ba… ka… baka).
+          speech: !fil && _isOneSyllable(whole)
+              ? Phonics.onsetRime(word)
+              : fil && !parts.first.contains(RegExp('[aeiou]'))
+                  // One-syllable Filipino word: opening syllable + word
+                  // ("ma… may"), never a lone consonant.
+                  ? [SpokenPart(firstSound(word, language)), SpokenPart(whole)]
+                  : [
+                      for (final p in parts) fil ? SpokenPart(p) : Phonics.syllable(p),
+                      SpokenPart(whole),
+                    ],
+        );
       case 3:
-        return Hint(level: 3, word: word, parts: [WordMatcher.normalize(word)]);
+        return Hint(level: 3, word: word, parts: [whole], speech: [SpokenPart(whole)]);
       default:
         throw ArgumentError.value(level, 'level', 'must be 1, 2 or 3');
     }
   }
 
-  /// Level 1: first letter, or the first digraph/blend (th, sh, ch, str, ng…).
+  static bool _isOneSyllable(String w) => _nuclei(w, false).length <= 1;
+
+  /// Level 1: first letter, or the first digraph/blend (th, sh, ch, str…).
+  /// Filipino uses the opening consonant-vowel syllable, as in the
+  /// Abakada ("ba" in "bata", "ma" in "may", "nga" in "ngayon"), because
+  /// Filipino reading is taught by syllables.
   static String firstSound(String word, String language) {
     final w = WordMatcher.normalize(word);
     if (w.isEmpty) return w;
+    if (language == 'FIL') {
+      final vowel = w.indexOf(RegExp('[aeiou]'));
+      return vowel < 0 ? w : w.substring(0, vowel + 1);
+    }
     final onsets = language == 'FIL' ? _filOnsets : _enOnsets;
     for (final o in onsets) {
       if (w.startsWith(o) && w.length > o.length) return o;
@@ -131,12 +176,13 @@ class HintLadder {
     }
 
     var end = w.length;
-    // English silent final e (kite, home) – but "-le" keeps its own part.
+    // English silent final e (kite, home, smile) – but consonant + "le"
+    // keeps its own part (lit · tle, ta · ble).
     if (!fil &&
         w.length > 3 &&
         w.endsWith('e') &&
         !isVowel(w.length - 2) &&
-        !w.endsWith('le')) {
+        !(w.endsWith('le') && !isVowel(w.length - 3))) {
       end = w.length - 1;
     }
 

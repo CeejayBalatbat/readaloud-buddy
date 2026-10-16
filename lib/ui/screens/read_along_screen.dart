@@ -8,6 +8,7 @@ import '../../app/hint_mode.dart';
 import '../../app/reading_controller.dart';
 import '../../data/story.dart';
 import '../../speech/fake_speech_service.dart';
+import '../../speech/hint_voice.dart';
 import '../../speech/speech_providers.dart';
 import '../../speech/speech_service.dart';
 import '../../speech/tts_service.dart';
@@ -108,12 +109,12 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     setState(() {});
   }
 
-  void _speakHint(Hint hint) => speakOverMic(
+  void _speakHint(Hint hint) => speakHint(
         ref.read(ttsServiceProvider),
         c.speech,
-        hint.parts.join(', '),
+        hint,
         language: widget.story.language,
-        slow: true,
+        clips: ref.read(soundClipsProvider),
       );
 
   void _say(String text) => speakOverMic(ref.read(ttsServiceProvider), c.speech, text,

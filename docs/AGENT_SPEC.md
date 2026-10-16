@@ -40,9 +40,11 @@ Align recognized words to expected words left-to-right, allowing a look-ahead of
 
 The rest of this section describes the hint ladder; in review mode only its Help-button part applies.
 When the child is stuck on the current word for `hintWaitSec` of **counted** time (default 5 s; 8 s when dyslexia mode is on or set by parent; see "When the hint timer counts"):
-1. Level 1 – say/show the **first sound** (first letter, or first digraph/blend: th, sh, ch, str, ng…).
-2. Level 2 – say/show the **word parts** (syllables, e.g. "thr · ough").
+1. Level 1 – the **first sound**. Show the first letter or first digraph/blend (th, sh, ch, str…). **Say it as a phonics sound, never a letter name:** h → "huh", th → "thuh", sh → "shh", str → "suh, tuh, ruh", a → "ah" (short), ea → "ee". Filipino: show and say the opening syllable (Abakada style: **ba**·ta, **ma**y, **nga**yon).
+2. Level 2 – the **word parts**. English one-syllable words: show onset · rime ("h · ad"), say the onset sounds, the rime, then the blended word: "huh… ad… had". Longer English words and Filipino: show the syllables ("bas · ket", "ba · ta"), say each one, then the word ("ba… ta… bata"). A one-syllable Filipino word says its opening syllable, then the word ("ma… may").
 3. Level 3 – say the **whole word**, then **wait** for the child.
+
+**Phonics map:** `lib/agent/phonics.dart` maps English graphemes to sounds (consonants, digraphs, short and long vowels, vowel teams, r-controlled vowels, soft c, kn/wr, qu), with a small table of irregular sight words (the → "thuh… uh", was → "wuh… uz", one → "wuh… un"). Every sound and rime has a clip id; a recorded clip `assets/sounds/<id>.mp3` replaces the text-to-speech spelling when present (see `assets/sounds/README.md`).
 
 Escalate one level each further `hintWaitSec` of counted time. Record `hintLevel` (0–3) per word.
 

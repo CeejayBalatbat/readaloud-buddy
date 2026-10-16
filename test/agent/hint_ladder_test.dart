@@ -10,8 +10,12 @@ void main() {
       expect(HintLadder.firstSound('children', 'EN'), 'ch');
       expect(HintLadder.firstSound('strong', 'EN'), 'str');
       expect(HintLadder.firstSound('cat', 'EN'), 'c');
-      expect(HintLadder.firstSound('ngunit', 'FIL'), 'ng');
-      expect(HintLadder.firstSound('bata', 'FIL'), 'b');
+      // Filipino: the opening syllable (Abakada style).
+      expect(HintLadder.firstSound('ngunit', 'FIL'), 'ngu');
+      expect(HintLadder.firstSound('bangka', 'FIL'), 'ba');
+      expect(HintLadder.firstSound('may', 'FIL'), 'ma');
+      expect(HintLadder.firstSound('aso', 'FIL'), 'a');
+      expect(HintLadder.firstSound('bata', 'FIL'), 'ba');
     });
 
     test('level 2 = word parts, e.g. "thr · ough"', () {
@@ -22,6 +26,10 @@ void main() {
       expect(HintLadder.wordParts('basket', 'EN'), ['bas', 'ket']);
       expect(HintLadder.wordParts('children', 'EN'), ['chil', 'dren']);
       expect(HintLadder.wordParts('kite', 'EN'), ['k', 'ite']);
+      // Magic e also before "le" after a vowel; consonant + le is a part.
+      expect(HintLadder.wordParts('smile', 'EN'), ['sm', 'ile']);
+      expect(HintLadder.wordParts('hole', 'EN'), ['h', 'ole']);
+      expect(HintLadder.wordParts('little', 'EN'), ['litt', 'le']);
       expect(HintLadder.wordParts('masayang-masaya', 'FIL'),
           ['ma', 'sa', 'yang', 'ma', 'sa', 'ya']);
     });

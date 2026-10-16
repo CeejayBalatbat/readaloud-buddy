@@ -78,7 +78,7 @@ void main() {
     await app.wait(tester, 5);
     expect(find.text('LISTEN TO THE FIRST SOUND'), findsOneWidget);
     expect(find.text('Hint appeared after 5 seconds on this word'), findsOneWidget);
-    expect(app.tts.spoken, ['r']); // hint is said aloud too ("ran")
+    expect(app.tts.spoken, ['ruh']); // the first sound of "ran", not "ar"
 
     await app.wait(tester, 5);
     expect(find.text("LET'S BREAK IT UP"), findsOneWidget);

@@ -7,6 +7,7 @@ export 'hint_ladder.dart';
 export 'level_decision.dart';
 export 'mastery.dart';
 export 'philiri.dart';
+export 'phonics.dart';
 export 'placement.dart';
 export 'reading_tracker.dart';
 export 'session_scores.dart';
