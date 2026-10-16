@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 import '../agent/agent.dart';
 import 'speech_service.dart';
+import 'speech_timing.dart';
 import 'transcript_tracker.dart';
 
 /// The bits of the speech_to_text plugin we use, so the service logic can
@@ -21,6 +23,7 @@ abstract class SttEngine {
     required String localeId,
     required bool onDevice,
     required void Function(String words, bool isFinal, double? confidence) onResult,
+    void Function(double rmsDb)? onSoundLevel,
   });
   Future<void> cancel();
 }
@@ -61,8 +64,10 @@ class SpeechToTextEngine implements SttEngine {
     required String localeId,
     required bool onDevice,
     required void Function(String words, bool isFinal, double? confidence) onResult,
+    void Function(double rmsDb)? onSoundLevel,
   }) =>
       _stt.listen(
+        onSoundLevelChange: onSoundLevel,
         onResult: (SpeechRecognitionResult r) => onResult(
           r.recognizedWords,
           r.finalResult,
@@ -91,9 +96,26 @@ class AndroidSpeechService implements SpeechService {
     SttEngine? engine,
     this.restartDelay = const Duration(milliseconds: 250),
     this.errorRetryDelay = const Duration(seconds: 1),
-  }) : _engine = engine ?? SpeechToTextEngine.instance;
+    Duration Function()? now,
+    void Function(void Function() callback)? onNextFrame,
+  })  : _engine = engine ?? SpeechToTextEngine.instance,
+        _now = now ?? _stopwatch(),
+        _onNextFrame = onNextFrame ?? _afterNextFrame;
+
+  static Duration Function() _stopwatch() {
+    final w = Stopwatch()..start();
+    return () => w.elapsed;
+  }
+
+  static void _afterNextFrame(void Function() callback) =>
+      SchedulerBinding.instance.addPostFrameCallback((_) => callback());
 
   final SttEngine _engine;
+  final Duration Function() _now;
+  final void Function(void Function()) _onNextFrame;
+
+  /// Speech-to-screen delay, word by word (see [WordTiming]).
+  final timer = SpeechTimer();
   final Duration restartDelay;
   final Duration errorRetryDelay;
 
@@ -169,6 +191,7 @@ class AndroidSpeechService implements SpeechService {
     if (!_wanted || _sessionOpen) return;
     _sessionOpen = true;
     _tracker.reset();
+    timer.newUtterance();
     final gen = ++_generation;
     _set(status: MicStatus.starting, onDevice: _onDevice, transcript: '');
     try {
@@ -178,8 +201,14 @@ class AndroidSpeechService implements SpeechService {
         onResult: (text, isFinal, confidence) {
           if (gen == _generation) _onResult(text, isFinal, confidence);
         },
+        onSoundLevel: (rms) {
+          if (gen == _generation && !_muted) timer.soundLevel(rms, _now());
+        },
       );
-      if (gen == _generation && _wanted) _set(status: MicStatus.listening);
+      if (gen == _generation && _wanted) {
+        timer.listening(_now());
+        _set(status: MicStatus.listening);
+      }
     } catch (e) {
       _sessionOpen = false;
       _set(lastError: '$e');
@@ -195,16 +224,31 @@ class AndroidSpeechService implements SpeechService {
       _voice.add(null);
     }
     _set(transcript: text);
+    final at = _now();
+    timer.result(TranscriptTracker.split(text).length, at);
+    var passedOn = false;
     _tracker.update(
       text,
       isFinal: isFinal,
       muted: _muted,
-      emit: (w) => _words.add(HeardWord(w, confidence: isFinal ? confidence : null)),
+      emit: (w) {
+        timer.passedOn(_tracker.emitted - 1, w, at);
+        passedOn = true;
+        _words.add(HeardWord(w, confidence: isFinal ? confidence : null));
+      },
       acceptEarly: (w) {
         final expected = _expected;
         return expected != null && _matcher.matches(expected, w, _language);
       },
     );
+    if (passedOn) _onNextFrame(_measureScreen);
+  }
+
+  void _measureScreen() {
+    for (final t in timer.painted(_now())) {
+      debugPrint('[speed] $t');
+    }
+    _set(speed: timer.summary());
   }
 
   void _onStatus(String status) {
@@ -214,6 +258,7 @@ class AndroidSpeechService implements SpeechService {
     }
     // notListening / done / doneNoResult: Android stopped (often silence).
     _sessionOpen = false;
+    timer.stopped(_now());
     if (_wanted) _scheduleRestart(restartDelay);
   }
 
@@ -266,6 +311,7 @@ class AndroidSpeechService implements SpeechService {
     String? transcript,
     int? restarts,
     String? lastError,
+    SpeedSummary? speed,
   }) {
     _state.value = _state.value.copyWith(
       status: status,
@@ -273,6 +319,7 @@ class AndroidSpeechService implements SpeechService {
       transcript: transcript,
       restarts: restarts,
       lastError: lastError,
+      speed: speed,
     );
   }
 

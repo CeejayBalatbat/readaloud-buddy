@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import 'speech_timing.dart';
+
 /// One word the recognizer heard.
 class HeardWord {
   const HeardWord(this.text, {this.confidence});
@@ -31,6 +33,7 @@ class SpeechState {
     this.transcript = '',
     this.restarts = 0,
     this.lastError,
+    this.speed,
   });
 
   final MicStatus status;
@@ -45,12 +48,16 @@ class SpeechState {
   final int restarts;
   final String? lastError;
 
+  /// Measured delay from speaking to the screen (real mic only).
+  final SpeedSummary? speed;
+
   SpeechState copyWith({
     MicStatus? status,
     bool? onDevice,
     String? transcript,
     int? restarts,
     String? lastError,
+    SpeedSummary? speed,
   }) =>
       SpeechState(
         status: status ?? this.status,
@@ -58,6 +65,7 @@ class SpeechState {
         transcript: transcript ?? this.transcript,
         restarts: restarts ?? this.restarts,
         lastError: lastError ?? this.lastError,
+        speed: speed ?? this.speed,
       );
 }
 

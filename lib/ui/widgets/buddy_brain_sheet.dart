@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../agent/agent.dart';
 import '../../app/buddy_brain.dart';
 import '../../speech/speech_service.dart';
+import '../../speech/speech_timing.dart';
 import '../theme/app_colors.dart';
 import 'svg_art.dart';
 
@@ -161,6 +163,7 @@ class _ReadingSection extends StatelessWidget {
         if (!r.tapMode) ...[
           _KeyValue('Recognizer heard', r.speech.transcript.isEmpty ? '…' : '"${r.speech.transcript}"'),
           _KeyValue('Restarts after silence', '${r.speech.restarts}'),
+          ..._speed(r.speech.speed),
           if (r.speech.lastError != null) _KeyValue('Last recognizer message', r.speech.lastError!),
         ],
         _KeyValue('Accuracy so far (§3)',
@@ -170,6 +173,28 @@ class _ReadingSection extends StatelessWidget {
       ],
     );
   }
+}
+
+/// The speed meter: how long from the child's voice to the screen.
+List<Widget> _speed(SpeedSummary? s) {
+  String v(int? ms) => ms == null ? '?' : '$ms ms';
+  const build = kReleaseMode
+      ? 'release'
+      : kProfileMode
+          ? 'profile'
+          : 'debug (screen is slower; try flutter run --release)';
+  return [
+    const _KeyValue('App build', build),
+    if (s == null || s.words == 0)
+      const _KeyValue('Speed', 'read a few words to measure')
+    else ...[
+      _KeyValue('Speed, said → on screen (median of ${s.words} words)',
+          '${v(s.totalMs)} = recognizer ${v(s.recognizerMs)} + settling '
+          '${v(s.settlingMs)} + screen ${v(s.screenMs)}'),
+      if (s.last != null) _KeyValue('Last word', s.last!),
+      _KeyValue('Mic off while restarting', v(s.restartGapMs)),
+    ],
+  ];
 }
 
 class _DecisionSection extends StatelessWidget {

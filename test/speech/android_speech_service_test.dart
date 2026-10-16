@@ -11,6 +11,7 @@ class FakeEngine implements SttEngine {
   late void Function(String) status;
   late void Function(String, bool) error;
   late void Function(String, bool, double?) result;
+  void Function(double)? sound;
 
   @override
   Future<bool> initialize({
@@ -30,9 +31,11 @@ class FakeEngine implements SttEngine {
     required String localeId,
     required bool onDevice,
     required void Function(String, bool, double?) onResult,
+    void Function(double)? onSoundLevel,
   }) async {
     listens.add((localeId, onDevice));
     result = onResult;
+    sound = onSoundLevel;
   }
 
   @override
@@ -43,13 +46,19 @@ void main() {
   late FakeEngine engine;
   late AndroidSpeechService s;
   late List<HeardWord> heard;
+  var now = Duration.zero;
+  late List<void Function()> frames; // run = "the next frame was drawn"
 
   setUp(() {
     engine = FakeEngine();
+    now = Duration.zero;
+    frames = [];
     s = AndroidSpeechService(
       engine: engine,
       restartDelay: const Duration(milliseconds: 5),
       errorRetryDelay: const Duration(milliseconds: 5),
+      now: () => now,
+      onNextFrame: frames.add,
     );
     heard = [];
     s.words.listen(heard.add);
@@ -152,5 +161,56 @@ void main() {
   test('Filipino uses the fil-PH recognizer', () async {
     await s.start(language: 'FIL');
     expect(engine.listens.single.$1, 'fil-PH');
+  });
+
+  group('speed meter', () {
+    Duration ms(int v) => Duration(milliseconds: v);
+
+    test('splits each word into recognizer, settling and screen time',
+        () async {
+      await s.start(language: 'EN');
+      s.expectedWord = 'Sam';
+      now = ms(1000);
+      engine.sound!(1); // quiet
+      now = ms(1100);
+      engine.sound!(6); // starts speaking
+      now = ms(1700);
+      engine.result('Sam', false, null); // accepted early
+      now = ms(1730);
+      for (final f in frames) {
+        f();
+      }
+      final t = s.timer.samples.single;
+      expect(t.word, 'Sam');
+      expect(t.recognizerMs, 600);
+      expect(t.settlingMs, 0);
+      expect(t.screenMs, 30);
+      expect(t.totalMs, 630);
+      expect(s.state.value.speed!.totalMs, 630);
+    });
+
+    test('a word that is not the expected one waits to settle', () async {
+      await s.start(language: 'EN');
+      s.expectedWord = 'Sam';
+      now = ms(100);
+      engine.sound!(6);
+      now = ms(500);
+      engine.result('sun', false, null); // not "Sam": wait
+      expect(heard, isEmpty);
+      now = ms(1400);
+      engine.result('sun', true, null); // final
+      final t = s.timer.samples.single;
+      expect(t.recognizerMs, 400);
+      expect(t.settlingMs, 900);
+    });
+
+    test('measures how long the mic is off during a restart', () async {
+      await s.start(language: 'EN');
+      now = ms(2000);
+      engine.status('done');
+      now = ms(2400);
+      await later(); // restart fires
+      expect(s.timer.summary().restartGapMs, 400);
+    });
   });
 }
