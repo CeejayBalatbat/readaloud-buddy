@@ -4,6 +4,21 @@ Things we found but haven't fixed yet. We fix these in the bug-fixing
 round at the end. Add new reports at the bottom of the right section.
 
 ## Speech recognition
+- **CRASH (found 2026-10-17, Galaxy S25 Ultra, Android 17, 4 KB pages):**
+  starting to read with Offline (Vosk) kills the app. Tombstone:
+  `SIGABRT ... uncaught exception of type kaldi::KaldiFatalError` in
+  `libvosk.so Recognizer::SetGrm` ← `org.vosk.Recognizer.setGrammar` ←
+  `VoskFlutterPlugin.onMethodCall`. Cause: Vosk refuses a grammar change
+  once the recognizer has heard audio ("Can't add ... to already running
+  recognizer") and aborts the process; our page-turn / story-start
+  grammar swap did exactly that (reproduced on the PC with the same Vosk).
+  Not related to 16 KB pages (this phone uses 4 KB pages).
+- **16 KB pages:** in the release APK only `libvosk.so` (vosk-android
+  0.3.47) has 4 KB-aligned LOAD segments; `libsqlite3.so` and
+  `libdartjni.so` are 16 KB-aligned, `libflutter.so`, `libapp.so` and
+  JNA's `libjnidispatch.so` 64 KB. The Vulkan validation layer
+  (`libVkLayer_khronos_validation.so`) is only in debug builds (Flutter's
+  debug engine), not in release.
 - **Vosk (now the default) is untested on a real phone.** It builds
   (debug and release APKs) and its logic is tested with a fake engine. On
   this PC, with a synthetic voice reading page 1 of S01, grammar mode
