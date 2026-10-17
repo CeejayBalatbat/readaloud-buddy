@@ -6,21 +6,38 @@ import 'package:readaloud_buddy/speech/android_speech_service.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/vosk_speech_service.dart';
 
-/// Stands in for Vosk: records calls, lets tests push results.
+/// Stands in for Vosk: records calls, lets tests push results. Like the
+/// real Vosk it refuses a grammar change mid-utterance (on the phone that
+/// aborts the whole app).
 class FakeVosk implements VoskEngine {
   final calls = <String>[];
   List<String>? loadedWith;
   bool fail = false;
+
+  /// Audio heard since the last utterance ended.
+  bool midUtterance = false;
+  String pending = '';
   final _partials = StreamController<String>.broadcast(sync: true);
   final _results = StreamController<String>.broadcast(sync: true);
 
-  void partial(String text) => _partials.add(jsonEncode({'partial': text}));
-  void result(String text, [List<(String, double)> starts = const []]) => _results.add(jsonEncode({
+  void partial(String text) {
+    midUtterance = true;
+    pending = text;
+    _partials.add(jsonEncode({'partial': text}));
+  }
+
+  void result(String text, [List<(String, double)> starts = const []]) {
+    midUtterance = false;
+    pending = '';
+    _results.add(_resultJson(text, starts));
+  }
+
+  static String _resultJson(String text, List<(String, double)> starts) => jsonEncode({
         'text': text,
         'result': [
           for (final (w, s) in starts) {'word': w, 'start': s, 'end': s + 0.3, 'conf': 1.0},
         ],
-      }));
+      });
 
   @override
   Future<void> load(List<String> grammar) async {
@@ -30,7 +47,26 @@ class FakeVosk implements VoskEngine {
   }
 
   @override
-  Future<void> setGrammar(List<String> grammar) async => calls.add('grammar ${grammar.join(' ')}');
+  Future<void> setGrammar(List<String> grammar) async {
+    if (midUtterance) throw StateError("Can't add grammar to already running recognizer");
+    calls.add('grammar ${grammar.join(' ')}');
+  }
+
+  @override
+  Future<String> finalResult() async {
+    calls.add('final');
+    final text = pending;
+    midUtterance = false;
+    pending = '';
+    return _resultJson(text, const []);
+  }
+
+  @override
+  Future<void> reset() async {
+    calls.add('reset');
+    midUtterance = false;
+    pending = '';
+  }
   @override
   Future<void> start() async => calls.add('start');
   @override
@@ -181,7 +217,7 @@ void main() {
     s.vocabulary = ['The', 'cat'];
     await settle();
     await settle();
-    expect(engine.calls, ['pause', 'grammar cat the [unk]', 'unpause']);
+    expect(engine.calls, ['pause', 'final', 'grammar cat the [unk]', 'unpause']);
     engine.calls.clear();
     s.vocabulary = ['cat', 'The']; // same words: nothing to do
     await settle();
@@ -234,6 +270,34 @@ void main() {
       engine.partial('cat');
       engine.result('cat', [('cat', 1.2)]); // 0.2 s after resuming = 3.2 s
       expect(s.timer.samples.single.recognizerMs, 300);
+    });
+  });
+
+  group('the phone crash (KaldiFatalError in SetGrm)', () {
+    test('a page turn mid-utterance: words are kept, no grammar change mid-utterance',
+        () async {
+      s.vocabulary = ['Sam', 'has', 'a', 'cat'];
+      await s.start(language: 'EN');
+      s.expectedWord = 'sam';
+      engine.partial('sam has'); // the child is still talking
+      s.vocabulary = ['The', 'cat']; // page turn
+      for (var i = 0; i < 4; i++) {
+        await settle();
+      }
+      expect(s.state.value.status, MicStatus.listening); // no failure
+      expect(engine.calls, containsAllInOrder(['final', 'grammar cat the [unk]']));
+      expect(texts(), ['sam', 'has']); // the flushed words still count
+    });
+
+    test('a new story after one that stopped mid-utterance', () async {
+      await s.start(language: 'EN');
+      engine.partial('sam');
+      await s.stop();
+      engine.calls.clear();
+      s.vocabulary = ['The', 'cat'];
+      await s.start(language: 'EN');
+      expect(s.state.value.status, MicStatus.listening);
+      expect(engine.calls, ['load', 'reset', 'grammar cat the [unk]', 'start']);
     });
   });
 }

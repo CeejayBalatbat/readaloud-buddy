@@ -16,9 +16,15 @@ also uses current packages. Changes from the original:
 - `lib/src/generated_vosk_bindings.dart`: the five `Opaque` FFI types are
   `final class` (required by Dart 3).
 - `android/build.gradle`: AGP 8 `namespace`, no buildscript/AGP pin (uses
-  the app's), Java 17, `vosk-android 0.3.47` from Maven Central, and
+  the app's), Java 17, `vosk-android 0.3.75` + JNA 5.18.1 from Maven Central (0.3.70+ ships a
+  16 KB-page-aligned `libvosk.so`; 0.3.47 didn't), and
   ProGuard consumer rules: keep all of JNA and `org.vosk`, and
   `-dontwarn java.awt.**` (JNA's desktop code; release builds fail without it). Manifest `package` attribute removed.
 - Not copied: example app, tests, Gradle wrapper, Linux/Windows parts.
 
-The Java plugin code and the rest of the Dart code are unchanged.
+- `VoskFlutterPlugin.java` `recognizer.setGrammar`: resets the recognizer
+  first. Vosk aborts the process (uncaught `KaldiFatalError` in
+  `Recognizer::SetGrm`) when the grammar changes mid-utterance; this was
+  the cause of the app crashing on phones.
+
+The rest of the Java and Dart code is unchanged.

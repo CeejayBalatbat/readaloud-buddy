@@ -18,8 +18,17 @@ abstract class VoskEngine {
   /// Throws when the model is missing or broken.
   Future<void> load(List<String> grammar);
 
-  /// Only these words (+ "[unk]") can be heard (grammar mode).
+  /// Only these words (+ "[unk]") can be heard (grammar mode). Vosk
+  /// crashes if this is called mid-utterance: call [finalResult] or
+  /// [reset] first (while paused).
   Future<void> setGrammar(List<String> grammar);
+
+  /// Ends the current utterance and returns its final result JSON (like
+  /// [results]).
+  Future<String> finalResult();
+
+  /// Drops the current utterance.
+  Future<void> reset();
   Future<void> start();
   Future<void> stop();
 
@@ -69,6 +78,10 @@ class VoskFlutterEngine implements VoskEngine {
 
   @override
   Future<void> setGrammar(List<String> grammar) async => _recognizer?.setGrammar(grammar);
+  @override
+  Future<String> finalResult() async => await _recognizer?.getFinalResult() ?? '{}';
+  @override
+  Future<void> reset() async => _recognizer?.reset();
   @override
   Future<void> start() async => _service?.start();
   @override
@@ -210,6 +223,9 @@ class VoskSpeechService implements SpeechService {
       await onRunning?.call(true);
       await _engine.load(_grammar);
       if (!_wanted) return;
+      // The recognizer is shared across stories: drop the last story's
+      // leftovers so the grammar can change (see VoskEngine.setGrammar).
+      await _engine.reset();
       await _engine.setGrammar(_grammar);
       _subs
         ..add(_engine.partials.listen(_onPartial))
@@ -269,6 +285,10 @@ class VoskSpeechService implements SpeechService {
     final wasPaused = _paused;
     if (!wasPaused) await _pause();
     await Future<void>.delayed(grammarSwapDelay); // let the current buffer finish
+    // End the utterance first (Vosk can't change grammar mid-utterance),
+    // keeping the words in it.
+    final last = await _engine.finalResult();
+    if (!_muted) _onResult(last);
     await _engine.setGrammar(grammar);
     if (!wasPaused && !_muted) await _unpause();
   }

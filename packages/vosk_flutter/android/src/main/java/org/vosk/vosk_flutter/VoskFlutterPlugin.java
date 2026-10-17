@@ -173,7 +173,13 @@ public class VoskFlutterPlugin implements FlutterPlugin, MethodCallHandler {
           Integer recognizerId = getRequiredArgumentFromMap(argsMap, "recognizerId", Integer.class);
           String grammar = getRequiredArgumentFromMap(argsMap, "grammar", String.class);
 
-          getRecognizerById(recognizerId).setGrammar(grammar);
+          // ReadAloud Buddy: Vosk aborts the whole process (uncaught
+          // KaldiFatalError in Recognizer::SetGrm) if the grammar changes
+          // while the recognizer is mid-utterance. Reset first so that can
+          // never happen; callers flush words in progress beforehand.
+          org.vosk.Recognizer recognizer = getRecognizerById(recognizerId);
+          recognizer.reset();
+          recognizer.setGrammar(grammar);
           result.success(null);
         }
         break;

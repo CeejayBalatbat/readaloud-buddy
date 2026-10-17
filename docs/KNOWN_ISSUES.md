@@ -4,7 +4,8 @@ Things we found but haven't fixed yet. We fix these in the bug-fixing
 round at the end. Add new reports at the bottom of the right section.
 
 ## Speech recognition
-- **CRASH (found 2026-10-17, Galaxy S25 Ultra, Android 17, 4 KB pages):**
+- **CRASH — fixed in code, needs a check on the phone** (found 2026-10-17,
+  Galaxy S25 Ultra, Android 17, 4 KB pages):
   starting to read with Offline (Vosk) kills the app. Tombstone:
   `SIGABRT ... uncaught exception of type kaldi::KaldiFatalError` in
   `libvosk.so Recognizer::SetGrm` ← `org.vosk.Recognizer.setGrammar` ←
@@ -12,7 +13,11 @@ round at the end. Add new reports at the bottom of the right section.
   once the recognizer has heard audio ("Can't add ... to already running
   recognizer") and aborts the process; our page-turn / story-start
   grammar swap did exactly that (reproduced on the PC with the same Vosk).
-  Not related to 16 KB pages (this phone uses 4 KB pages).
+  Not related to 16 KB pages (this phone uses 4 KB pages). **Fix:** at a
+  page turn Vosk now ends the utterance first (`FinalResult`, keeping its
+  words), at a story start it resets, and the plugin's `setGrammar`
+  always resets first; the tests' fake Vosk refuses mid-utterance grammar
+  changes like the real one.
 - **Safety net (added):** any error Vosk *reports* (model missing, init
   failing, a refused call) switches the story to the phone recognizer on
   the spot, with a small note, and Vosk stays off (Settings shows why,
@@ -22,12 +27,15 @@ round at the end. Add new reports at the bottom of the right section.
   was running (Android 11+ exit reason; on older phones any exit during
   Vosk counts) and turns Vosk off. Truly isolating Vosk would mean running
   it in a separate Android process.
-- **16 KB pages:** in the release APK only `libvosk.so` (vosk-android
-  0.3.47) has 4 KB-aligned LOAD segments; `libsqlite3.so` and
-  `libdartjni.so` are 16 KB-aligned, `libflutter.so`, `libapp.so` and
-  JNA's `libjnidispatch.so` 64 KB. The Vulkan validation layer
-  (`libVkLayer_khronos_validation.so`) is only in debug builds (Flutter's
-  debug engine), not in release.
+- **16 KB pages — fixed:** vosk-android 0.3.47's `libvosk.so` was 4 KB
+  aligned; 0.3.75 (with JNA 5.18.1) is 16 KB aligned, so the app now uses
+  it. `libsqlite3.so` and `libdartjni.so` (jni) were already 16 KB
+  aligned, so those packages didn't need updating. The Vulkan validation
+  layer is only in debug builds (Flutter's debug engine), never release.
+  `python tools/check_apk.py <apk>` checks all of this (ELF LOAD ≥ 16 KB,
+  zipalign -P 16, no validation layer); the arm64 release APK passes.
+  Debug APKs still contain the validation layer; Android's 16 KB warning
+  on a debug install can come from it.
 - **Vosk (now the default) is untested on a real phone.** It builds
   (debug and release APKs) and its logic is tested with a fake engine. On
   this PC, with a synthetic voice reading page 1 of S01, grammar mode
