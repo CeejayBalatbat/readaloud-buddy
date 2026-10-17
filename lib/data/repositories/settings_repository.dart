@@ -8,6 +8,8 @@ abstract final class SettingKeys {
   static const speechMode = 'speech_mode'; // "voice" or "tap"
   static const hintMode = 'hint_mode'; // "automatic" or "helpOnly"
   static const feedbackMode = 'feedback_mode'; // "review" or "live"
+  static const voskActive = 'vosk_active'; // ms since epoch while Vosk runs
+  static const voskFailed = 'vosk_failed'; // why Vosk was turned off
 }
 
 /// App-wide key/value settings (parent PIN, consent date, ...).

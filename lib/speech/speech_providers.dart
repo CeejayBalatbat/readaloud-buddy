@@ -6,6 +6,8 @@ import 'android_speech_service.dart';
 import 'fake_speech_service.dart';
 import 'speech_service.dart';
 import 'tts_service.dart';
+import 'fallback_speech_service.dart';
+import 'vosk_health.dart';
 import 'vosk_speech_service.dart';
 
 enum SpeechMode {
@@ -71,8 +73,20 @@ final speechServiceProvider = Provider.family<SpeechService, String>((ref, langu
   final phoneCanHear =
       language == 'EN' || ref.watch(voiceLanguageProvider(language)).value == true;
   final SpeechService service = switch (mode) {
+    // Offline first; any Vosk failure falls back to the phone recognizer.
+    // (Read, not watched: recording a failure mid-story must not dispose
+    // the service that story is using.)
     SpeechMode.vosk when language == 'EN' =>
-      VoskSpeechService(missingWords: ref.watch(voskMissingWordsProvider).value ?? const {}),
+      ref.read(voskHealthProvider).value != null
+          ? FallbackSpeechService.alreadyFailed(fallback: AndroidSpeechService.new)
+          : FallbackSpeechService(
+              primary: VoskSpeechService(
+                missingWords: ref.watch(voskMissingWordsProvider).value ?? const {},
+                onRunning: (on) => ref.read(voskHealthProvider.notifier).running(on),
+              ),
+              fallback: AndroidSpeechService.new,
+              onFailed: (reason) => ref.read(voskHealthProvider.notifier).fail(reason),
+            ),
     SpeechMode.tap => FakeSpeechService(),
     _ when phoneCanHear => AndroidSpeechService(),
     _ => FakeSpeechService(),

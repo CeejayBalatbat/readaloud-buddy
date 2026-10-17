@@ -13,6 +13,15 @@ round at the end. Add new reports at the bottom of the right section.
   recognizer") and aborts the process; our page-turn / story-start
   grammar swap did exactly that (reproduced on the PC with the same Vosk).
   Not related to 16 KB pages (this phone uses 4 KB pages).
+- **Safety net (added):** any error Vosk *reports* (model missing, init
+  failing, a refused call) switches the story to the phone recognizer on
+  the spot, with a small note, and Vosk stays off (Settings shows why,
+  with "Try offline again"). A crash *inside* Vosk's native code (C++
+  abort, like the one above) can't be caught by Dart or Java: that run
+  still closes, but at the next start the app sees it crashed while Vosk
+  was running (Android 11+ exit reason; on older phones any exit during
+  Vosk counts) and turns Vosk off. Truly isolating Vosk would mean running
+  it in a separate Android process.
 - **16 KB pages:** in the release APK only `libvosk.so` (vosk-android
   0.3.47) has 4 KB-aligned LOAD segments; `libsqlite3.so` and
   `libdartjni.so` are 16 KB-aligned, `libflutter.so`, `libapp.so` and

@@ -6,6 +6,7 @@ import 'app/feedback_mode.dart';
 import 'app/hint_mode.dart';
 import 'data/story_providers.dart';
 import 'speech/speech_providers.dart';
+import 'speech/vosk_health.dart';
 import 'ui/screens/home_shell.dart';
 import 'ui/screens/setup_screen.dart';
 import 'ui/theme/app_colors.dart';
@@ -42,12 +43,13 @@ class AppStart extends ConsumerWidget {
       body: Center(child: Buddy(size: 120)),
     );
     // Load the parent's settings before any story can open.
-    bool loaded(AsyncValue<Object> v) => v.hasValue || v.hasError;
+    bool loaded(AsyncValue<Object?> v) => v.hasValue || v.hasError;
     if (!loaded(ref.watch(speechModeProvider)) ||
         !loaded(ref.watch(hintModeProvider)) ||
         !loaded(ref.watch(feedbackModeProvider)) ||
         !loaded(ref.watch(phonicsProvider)) ||
-        !loaded(ref.watch(voskMissingWordsProvider))) {
+        !loaded(ref.watch(voskMissingWordsProvider)) ||
+        !loaded(ref.watch(voskHealthProvider))) {
       return splash;
     }
     return ref.watch(currentLearnerProvider).when(

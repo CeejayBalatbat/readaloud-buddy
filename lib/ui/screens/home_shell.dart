@@ -10,6 +10,7 @@ import '../../app/home_data.dart';
 import '../../data/database_providers.dart';
 import '../../data/db/app_database.dart';
 import '../../speech/speech_providers.dart';
+import '../../speech/vosk_health.dart';
 import '../story_flow.dart';
 import '../theme/app_colors.dart';
 import '../widgets/buddy.dart';
@@ -482,6 +483,7 @@ class _SpeechModeCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mode = ref.watch(speechModeProvider).value ?? SpeechMode.vosk;
+    final voskProblem = ref.watch(voskHealthProvider).value;
     void set(SpeechMode m) => ref.read(speechModeProvider.notifier).set(m);
     Widget choice(SpeechMode m, String label, String about) {
       final on = mode == m;
@@ -534,6 +536,33 @@ class _SpeechModeCard extends ConsumerWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
           choice(SpeechMode.vosk, '🎧 Offline (Vosk)',
               'Fastest. Works without internet and listens only for the words on the page.'),
+          if (voskProblem != null)
+            Container(
+              margin: const EdgeInsets.only(top: 6),
+              padding: const EdgeInsets.fromLTRB(12, 8, 4, 4),
+              decoration: BoxDecoration(
+                  color: AppColors.coralLight, borderRadius: BorderRadius.circular(12)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Offline listening is turned off on this phone: $voskProblem '
+                    "Buddy uses the phone's recognizer instead.",
+                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () async {
+                        await ref.read(voskHealthProvider.notifier).retry();
+                        ref.invalidate(speechServiceProvider);
+                      },
+                      child: const Text('Try offline again'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           choice(SpeechMode.voice, '🎤 Phone recognizer',
               "Android's speech recognizer. May need internet."),
           choice(SpeechMode.tap, '👆 Tap to read',

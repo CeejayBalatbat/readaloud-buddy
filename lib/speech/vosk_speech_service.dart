@@ -110,6 +110,7 @@ class VoskSpeechService implements SpeechService {
     SttEngine? permissions,
     this.missingWords = const {},
     this.grammarSwapDelay = const Duration(milliseconds: 100),
+    this.onRunning,
     Duration Function()? now,
     void Function(void Function() callback)? onNextFrame,
   })  : _engine = engine ?? VoskFlutterEngine.instance,
@@ -132,6 +133,10 @@ class VoskSpeechService implements SpeechService {
   /// Vosk decodes on its own audio thread; the grammar is swapped while
   /// paused, after this wait, so it never changes mid-decode.
   final Duration grammarSwapDelay;
+
+  /// Told when Vosk's native code starts/stops being used, so a crash in
+  /// it can be noticed at the next app start (see VoskHealth).
+  final Future<void> Function(bool running)? onRunning;
   final Duration Function() _now;
   final void Function(void Function()) _onNextFrame;
 
@@ -202,6 +207,7 @@ class VoskSpeechService implements SpeechService {
         _set(status: MicStatus.noPermission);
         return;
       }
+      await onRunning?.call(true);
       await _engine.load(_grammar);
       if (!_wanted) return;
       await _engine.setGrammar(_grammar);
@@ -216,9 +222,18 @@ class VoskSpeechService implements SpeechService {
       if (_muted) await _pause();
       _set(status: MicStatus.listening, onDevice: true);
     } catch (e) {
-      _wanted = false;
-      _set(status: MicStatus.unavailable, lastError: 'Vosk: $e');
+      _fail(e);
     }
+  }
+
+  /// Any Vosk error: stop using it and say it's unavailable (the app then
+  /// switches to the phone's recognizer).
+  void _fail(Object e) {
+    _wanted = false;
+    _listening = false;
+    _hold();
+    unawaited(onRunning?.call(false));
+    _set(status: MicStatus.unavailable, lastError: 'Vosk: $e');
   }
 
   @override
@@ -231,8 +246,11 @@ class VoskSpeechService implements SpeechService {
     if (_listening) {
       _listening = false;
       _hold();
-      await _engine.stop();
+      try {
+        await _engine.stop();
+      } catch (_) {}
     }
+    await onRunning?.call(false);
     _set(status: MicStatus.off);
   }
 
@@ -245,9 +263,7 @@ class VoskSpeechService implements SpeechService {
   }
 
   void _serial(Future<void> Function() step) =>
-      _queue = _queue.then((_) => step()).catchError((Object e) {
-        _set(lastError: 'Vosk: $e');
-      });
+      _queue = _queue.then((_) => step()).catchError(_fail);
 
   Future<void> _swapGrammar(List<String> grammar) async {
     final wasPaused = _paused;

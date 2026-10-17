@@ -21,6 +21,7 @@ import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/tts_service.dart';
+import 'package:readaloud_buddy/speech/vosk_health.dart';
 import 'package:readaloud_buddy/ui/theme/app_theme.dart';
 
 /// Shared setup for screen tests: real Nunito font, phone-sized screen,
@@ -78,6 +79,7 @@ class TestApp {
     // No real recognizer in tests: Filipino falls back to tap-to-read.
     sttEngineProvider.overrideWithValue(NoRecognizer()),
     voskMissingWordsProvider.overrideWith((ref) async => const <String>{}),
+    exitInfoProvider.overrideWithValue(const NoExitInfo()),
   ]);
 
   Future<void> pump(WidgetTester tester, Widget home) async {
@@ -155,4 +157,11 @@ class NoRecognizer implements SttEngine {
   Future<void> cancel() async {}
   @override
   Future<List<String>> locales() async => const [];
+}
+
+/// Android has no record of how the last run ended.
+class NoExitInfo implements ExitInfo {
+  const NoExitInfo();
+  @override
+  Future<AppExit?> lastExit() async => null;
 }

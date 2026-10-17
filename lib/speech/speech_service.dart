@@ -35,6 +35,7 @@ class SpeechState {
     this.lastError,
     this.speed,
     this.engine,
+    this.notice,
   });
 
   final MicStatus status;
@@ -56,6 +57,10 @@ class SpeechState {
   /// Buddy's brain and speed comparisons.
   final String? engine;
 
+  /// A short note for the reading screen (e.g. Buddy switched to the
+  /// phone's recognizer because the offline one failed).
+  final String? notice;
+
   SpeechState copyWith({
     MicStatus? status,
     bool? onDevice,
@@ -64,6 +69,7 @@ class SpeechState {
     String? lastError,
     SpeedSummary? speed,
     String? engine,
+    String? notice,
   }) =>
       SpeechState(
         status: status ?? this.status,
@@ -73,6 +79,7 @@ class SpeechState {
         lastError: lastError ?? this.lastError,
         speed: speed ?? this.speed,
         engine: engine ?? this.engine,
+        notice: notice ?? this.notice,
       );
 }
 

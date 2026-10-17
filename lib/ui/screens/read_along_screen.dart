@@ -253,6 +253,11 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                     const SizedBox(height: 12),
                     const _BuddySays(quietMessage),
                   ],
+                  // e.g. Vosk failed and Buddy switched to the phone's recognizer.
+                  if (c.speech.state.value.notice case final notice?) ...[
+                    const SizedBox(height: 12),
+                    _SmallNote(notice),
+                  ],
                   if (_tapFallback) ...[
                     const SizedBox(height: 12),
                     const _BuddySays(
@@ -495,6 +500,25 @@ class _ReviewWord extends StatelessWidget {
             ),
           ],
         ),
+      );
+}
+
+/// A small grey note for the grown-up (not a Buddy line).
+class _SmallNote extends StatelessWidget {
+  const _SmallNote(this.text);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text('ⓘ ', style: TextStyle(fontSize: 13, color: AppColors.ink2)),
+          Expanded(
+            child: Text(text,
+                style: const TextStyle(
+                    fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2)),
+          ),
+        ],
       );
 }
 
