@@ -183,6 +183,10 @@ class AndroidSpeechService implements SpeechService {
   @override
   set expectedWord(String? word) => _expected = word;
 
+  /// Android's recognizer has no grammar mode: it hears any word.
+  @override
+  set vocabulary(List<String> words) {}
+
   @override
   void mute(bool muted) => _muted = muted;
 
@@ -191,7 +195,7 @@ class AndroidSpeechService implements SpeechService {
     _language = language;
     _wanted = true;
     _failures = 0;
-    _set(status: MicStatus.starting);
+    _set(status: MicStatus.starting, engine: 'Android');
     final ok = await _engine.initialize(onStatus: _onStatus, onError: _onError);
     if (!_wanted) return;
     if (!ok) {
@@ -358,6 +362,7 @@ class AndroidSpeechService implements SpeechService {
     int? restarts,
     String? lastError,
     SpeedSummary? speed,
+    String? engine,
   }) {
     _state.value = _state.value.copyWith(
       status: status,
@@ -366,6 +371,7 @@ class AndroidSpeechService implements SpeechService {
       restarts: restarts,
       lastError: lastError,
       speed: speed,
+      engine: engine,
     );
   }
 

@@ -74,7 +74,7 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   /// Microphone mode, but this phone can't recognize the story's language
   /// (Filipino), so the child taps the words instead.
   late final bool _tapFallback = widget.story.language != 'EN' &&
-      (ref.read(speechModeProvider).value ?? SpeechMode.voice) == SpeechMode.voice &&
+      usesMic(ref.read(speechModeProvider).value ?? SpeechMode.vosk) &&
       c.speech is FakeSpeechService;
 
   static const quietMessage = "I can't hear you. Try reading a bit louder!";

@@ -328,8 +328,27 @@ class ReadingController extends ChangeNotifier {
     if (isQuiet != _wasQuiet) _notify();
   }
 
-  void _expectNext() =>
-      speech.expectedWord = isFinished ? null : words[currentIndex].word;
+  void _expectNext() {
+    speech.expectedWord = isFinished ? null : words[currentIndex].word;
+    _sendVocabulary();
+  }
+
+  /// The words the child may read now, for recognizers that listen only for
+  /// those (Vosk grammar mode): the current page plus the next page's first
+  /// words (a skip can cross the page turn), or the review words.
+  @visibleForTesting
+  List<String> get vocabularyNow {
+    if (isReviewing) return [for (final i in _reviewWords) words[i].word];
+    if (isFinished) return const [];
+    final p = pageIndex;
+    return [
+      for (final i in pages[p]) words[i].word,
+      if (p + 1 < pages.length)
+        for (final i in pages[p + 1].take(config.lookAheadWords)) words[i].word,
+    ];
+  }
+
+  void _sendVocabulary() => speech.vocabulary = vocabularyNow;
 
   void _afterProgress() {
     _expectNext();
@@ -357,6 +376,7 @@ class ReadingController extends ChangeNotifier {
     _reviewWords = missed;
     _practised.clear();
     _clock.stop();
+    _sendVocabulary();
     practise(missed.first);
   }
 

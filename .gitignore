@@ -54,3 +54,7 @@ app.*.map.json
 # Secrets (Firebase etc., later phase)
 google-services.json
 .env
+
+# Vosk speech model: downloaded by tools/get_vosk_model.py (39 MB)
+assets/models/*.zip
+assets/models/*.part

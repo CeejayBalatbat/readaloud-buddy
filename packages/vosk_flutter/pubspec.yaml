@@ -1,0 +1,28 @@
+name: vosk_flutter
+description: >-
+  Vendored copy of the official vosk_flutter 0.3.48 (alphacep, Apache 2.0)
+  with its pins updated for Dart 3 / current Flutter. See README.md.
+version: 0.3.48+readaloud.1
+publish_to: none
+homepage: https://alphacephei.com/
+repository: https://github.com/alphacep/vosk-flutter
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  archive: ^4.0.0
+  ffi: ^2.1.0
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  path: ^1.9.0
+  path_provider: ^2.1.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: org.vosk.vosk_flutter
+        pluginClass: VoskFlutterPlugin

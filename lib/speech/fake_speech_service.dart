@@ -50,6 +50,13 @@ class FakeSpeechService implements SpeechService {
   @override
   set expectedWord(String? word) {}
 
+  /// The words the reading screen said the child may read now (tests check
+  /// that pages and reviews send the right ones).
+  List<String> vocabularyNow = const [];
+
+  @override
+  set vocabulary(List<String> words) => vocabularyNow = words;
+
   @override
   void mute(bool muted) => _muted = muted;
 

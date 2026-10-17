@@ -326,6 +326,8 @@ void main() {
       await tester.tap(find.bySemanticsLabel('the')); // tap-to-read: "say" it
       await tester.pump();
       expect(find.text('✓ You said it!'), findsOneWidget);
+      // During the review, Vosk listens only for the review words.
+      expect(app.speech.vocabularyNow, ['up', 'the']);
       await tester.tap(find.bySemanticsLabel('up'));
       await tester.pump();
       expect(find.text('✓ You said it!'), findsNWidgets(2));
@@ -398,6 +400,8 @@ class _NoMicSpeech implements SpeechService {
   Future<void> stop() async {}
   @override
   set expectedWord(String? word) {}
+  @override
+  set vocabulary(List<String> words) {}
   @override
   void mute(bool muted) {}
   @override

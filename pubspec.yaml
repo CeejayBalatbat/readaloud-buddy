@@ -18,6 +18,9 @@ dependencies:
   printing: ^5.15.1
   speech_to_text: ^7.5.0
   uuid: ^4.6.0
+  # Offline speech (Vosk). Vendored: see packages/vosk_flutter/README.md.
+  vosk_flutter:
+    path: packages/vosk_flutter
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +34,9 @@ flutter:
 
   assets:
     - assets/data/
+    # Offline English speech model (39 MB). Not in git: run
+    # `python tools/get_vosk_model.py` once before building.
+    - assets/models/
 
   # Bundled so the app works offline (license: assets/fonts/OFL.txt).
   fonts:

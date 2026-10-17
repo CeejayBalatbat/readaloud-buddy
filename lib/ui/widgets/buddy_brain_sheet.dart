@@ -159,11 +159,11 @@ class _ReadingSection extends StatelessWidget {
                 MicStatus.off => 'off',
                 MicStatus.noPermission => 'no mic permission',
                 MicStatus.unavailable => 'recognizer not available',
-              }} · ${r.speech.onDevice == false ? 'online recognizer' : 'on-device first'}'),
+              }} · ${r.speech.engine == 'Vosk offline' ? 'Vosk offline, page words only' : r.speech.onDevice == false ? 'Android, online' : 'Android, on-device first'}'),
         if (!r.tapMode) ...[
           _KeyValue('Recognizer heard', r.speech.transcript.isEmpty ? '…' : '"${r.speech.transcript}"'),
           _KeyValue('Restarts after silence', '${r.speech.restarts}'),
-          ..._speed(r.speech.speed),
+          ..._speed(r.speech.speed, continuous: r.speech.engine == 'Vosk offline'),
           if (r.speech.lastError != null) _KeyValue('Last recognizer message', r.speech.lastError!),
         ],
         _KeyValue('Accuracy so far (§3)',
@@ -176,7 +176,7 @@ class _ReadingSection extends StatelessWidget {
 }
 
 /// The speed meter: how long from the child's voice to the screen.
-List<Widget> _speed(SpeedSummary? s) {
+List<Widget> _speed(SpeedSummary? s, {bool continuous = false}) {
   String v(int? ms) => ms == null ? '?' : '$ms ms';
   const build = kReleaseMode
       ? 'release'
@@ -192,7 +192,8 @@ List<Widget> _speed(SpeedSummary? s) {
           '${v(s.totalMs)} = recognizer ${v(s.recognizerMs)} + settling '
           '${v(s.settlingMs)} + screen ${v(s.screenMs)}'),
       if (s.last != null) _KeyValue('Last word', s.last!),
-      _KeyValue('Mic off while restarting', v(s.restartGapMs)),
+      _KeyValue('Mic off while restarting',
+          continuous ? 'never (listens continuously)' : v(s.restartGapMs)),
     ],
   ];
 }

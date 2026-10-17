@@ -877,6 +877,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "15.3.0"
+  vosk_flutter:
+    dependency: "direct main"
+    description:
+      path: "packages/vosk_flutter"
+      relative: true
+    source: path
+    version: "0.3.48+readaloud.1"
   watcher:
     dependency: transitive
     description:

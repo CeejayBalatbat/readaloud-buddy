@@ -13,11 +13,16 @@ class WordTiming {
   final String word;
   final Duration passedOnAt;
 
-  /// From the start of speaking (the mic got loud) until the word first
-  /// showed up in a recognizer result. null if no loudness was seen.
-  /// When the child reads several words without a pause this counts from
-  /// the start of the phrase, so it is an upper bound for later words.
-  final int? recognizerMs;
+  /// From when the word was said until it first showed up in a recognizer
+  /// result. Android: "said" = the mic got loud (when the child reads
+  /// several words without a pause this counts from the start of the
+  /// phrase, so it is an upper bound for later words). Vosk: the word's own
+  /// start time in the audio, filled in by [SpeechTimer.spokenAt] when the
+  /// utterance's final result arrives. null if unknown.
+  int? recognizerMs;
+
+  /// Already printed to the console.
+  bool reported = false;
 
   /// From first showing up until we passed it on: 0 when it was accepted
   /// from a partial result; longer when we waited for it to stop changing.
@@ -73,6 +78,7 @@ class SpeechTimer {
   final int keep;
 
   final _firstSeen = <int, Duration>{}; // word position → first seen
+  final _utterance = <int, WordTiming>{}; // word position → its timing
   final _samples = <WordTiming>[];
   final _restartGaps = <int>[];
   Duration? _onset;
@@ -90,7 +96,25 @@ class SpeechTimer {
   }
 
   /// A new utterance starts (word positions count from 0 again).
-  void newUtterance() => _firstSeen.clear();
+  void newUtterance() {
+    _firstSeen.clear();
+    _utterance.clear();
+  }
+
+  /// Word [index] of the utterance started at [at] (Vosk word timestamps):
+  /// sets its recognizer time exactly.
+  void spokenAt(int index, Duration at) {
+    final t = _utterance[index], seen = _firstSeen[index];
+    if (t == null || seen == null) return;
+    final ms = (seen - at).inMilliseconds;
+    t.recognizerMs = ms < 0 ? 0 : ms;
+  }
+
+  /// Words with every part measured that weren't printed yet (marks them).
+  List<WordTiming> takeComplete() => [
+        for (final t in _samples)
+          if (!t.reported && t.totalMs != null) t..reported = true,
+      ];
 
   /// A recognizer result with [count] words arrived.
   void result(int count, Duration at) {
@@ -110,6 +134,7 @@ class SpeechTimer {
       passedOnAt: at,
     );
     _samples.add(t);
+    _utterance[index] = t;
     if (_samples.length > keep) _samples.removeAt(0);
     return t;
   }

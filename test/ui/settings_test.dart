@@ -4,6 +4,7 @@ import 'package:readaloud_buddy/app/current_learner.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
 import 'package:readaloud_buddy/data/repositories/learner_repository.dart';
 import 'package:readaloud_buddy/data/repositories/settings_repository.dart';
+import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/ui/screens/home_shell.dart';
 import 'package:readaloud_buddy/ui/screens/read_along_screen.dart';
 import 'package:readaloud_buddy/ui/theme/reading_style.dart';
@@ -98,6 +99,25 @@ void main() {
     await tester.tap(find.text('Use automatic'));
     await settle(tester);
     expect((await reader(tester, app)).hintWaitSec, isNull);
+  });
+
+  testWidgets('How Buddy listens: Offline (Vosk) by default; choices save',
+      (tester) async {
+    final app = await withReader(tester);
+    await app.pump(tester, const HomeShell());
+    await settle(tester);
+    await tester.tap(find.text('Settings'));
+    await settle(tester);
+    final phone = find.text('🎤 Phone recognizer');
+    await tester.scrollUntilVisible(phone, 300);
+    await settle(tester);
+    expect(app.container.read(speechModeProvider).value, SpeechMode.vosk);
+    await tester.tap(phone);
+    await settle(tester);
+    expect(app.container.read(speechModeProvider).value, SpeechMode.voice);
+    final saved = await tester.runAsync(
+        () => SettingsRepository(app.db).get(SettingKeys.speechMode));
+    expect(saved, 'voice');
   });
 
   testWidgets('with a PIN, Settings asks for it; a wrong one is refused',

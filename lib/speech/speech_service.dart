@@ -34,6 +34,7 @@ class SpeechState {
     this.restarts = 0,
     this.lastError,
     this.speed,
+    this.engine,
   });
 
   final MicStatus status;
@@ -51,6 +52,10 @@ class SpeechState {
   /// Measured delay from speaking to the screen (real mic only).
   final SpeedSummary? speed;
 
+  /// Which recognizer is listening ("Vosk offline", "Android"), for
+  /// Buddy's brain and speed comparisons.
+  final String? engine;
+
   SpeechState copyWith({
     MicStatus? status,
     bool? onDevice,
@@ -58,6 +63,7 @@ class SpeechState {
     int? restarts,
     String? lastError,
     SpeedSummary? speed,
+    String? engine,
   }) =>
       SpeechState(
         status: status ?? this.status,
@@ -66,6 +72,7 @@ class SpeechState {
         restarts: restarts ?? this.restarts,
         lastError: lastError ?? this.lastError,
         speed: speed ?? this.speed,
+        engine: engine ?? this.engine,
       );
 }
 
@@ -95,6 +102,11 @@ abstract class SpeechService {
   /// The word the child should say next. Lets the recognizer pass on a
   /// still-changing last word early when it already matches.
   set expectedWord(String? word);
+
+  /// The words the child may read right now (the page, or the review
+  /// words). Vosk listens only for these (grammar mode); other recognizers
+  /// ignore it.
+  set vocabulary(List<String> words);
 
   /// While true (e.g. Buddy is speaking a hint), heard words are dropped
   /// so Buddy's own voice is not taken as the child's reading.

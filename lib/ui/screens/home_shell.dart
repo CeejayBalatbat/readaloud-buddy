@@ -481,53 +481,68 @@ class _SpeechModeCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mode = ref.watch(speechModeProvider).value ?? SpeechMode.voice;
+    final mode = ref.watch(speechModeProvider).value ?? SpeechMode.vosk;
     void set(SpeechMode m) => ref.read(speechModeProvider.notifier).set(m);
+    Widget choice(SpeechMode m, String label, String about) {
+      final on = mode == m;
+      return Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Semantics(
+          button: true,
+          selected: on,
+          label: label,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(16),
+            onTap: () => set(m),
+            child: Container(
+              constraints: const BoxConstraints(minHeight: 56),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              decoration: BoxDecoration(
+                color: on ? AppColors.tealLight : Colors.white,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: on ? AppColors.teal : AppColors.line, width: 2),
+              ),
+              child: Row(
+                children: [
+                  Icon(on ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+                      color: on ? AppColors.teal : AppColors.ink2),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(label,
+                            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800)),
+                        Text(about,
+                            style: const TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
     return AppCard(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text('How Buddy listens',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
-          const SizedBox(height: 4),
+          choice(SpeechMode.vosk, '🎧 Offline (Vosk)',
+              'Fastest. Works without internet and listens only for the words on the page.'),
+          choice(SpeechMode.voice, '🎤 Phone recognizer',
+              "Android's speech recognizer. May need internet."),
+          choice(SpeechMode.tap, '👆 Tap to read',
+              'Tap each word (long-press = misread), for testing without speaking.'),
+          const SizedBox(height: 8),
           const Text(
-            'Microphone: the child reads aloud. Tap to read: tap each word '
-            '(long-press = misread), for testing without speaking.',
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              Expanded(
-                child: AppChip(
-                  label: '🎤 Microphone',
-                  center: true,
-                  fontSize: 15,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  selected: mode == SpeechMode.voice,
-                  onTap: () => set(SpeechMode.voice),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: AppChip(
-                  label: '👆 Tap to read',
-                  center: true,
-                  fontSize: 15,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  selected: mode == SpeechMode.tap,
-                  onTap: () => set(SpeechMode.tap),
-                ),
-              ),
-            ],
-          ),
-          if (mode == SpeechMode.voice) ...[
-            const SizedBox(height: 8),
-            const Text(
-                "Filipino stories use the microphone if this phone's speech "
-                'recognizer knows Filipino (fil-PH); otherwise tap to read.',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
-          ],
+              "Filipino stories use the phone recognizer if it knows Filipino (fil-PH); "
+              'otherwise tap to read.',
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
         ],
       ),
     );

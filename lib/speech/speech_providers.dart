@@ -6,22 +6,30 @@ import 'android_speech_service.dart';
 import 'fake_speech_service.dart';
 import 'speech_service.dart';
 import 'tts_service.dart';
+import 'vosk_speech_service.dart';
 
 enum SpeechMode {
-  /// The microphone and the phone's speech recognizer.
+  /// The microphone with Vosk, offline, listening only for the page's
+  /// words (default). Filipino stories use the phone's recognizer, as
+  /// there is no small Filipino Vosk model.
+  vosk,
+
+  /// The microphone and the phone's (Android) speech recognizer.
   voice,
 
   /// Tap a word to "read" it (testing and demos without speaking).
   tap,
 }
 
+/// Microphone modes (not tap-to-read).
+bool usesMic(SpeechMode m) => m != SpeechMode.tap;
 
-/// Voice or tap, saved in the settings table (default: voice).
+/// How Buddy listens, saved in the settings table (default: Vosk).
 class SpeechModeNotifier extends AsyncNotifier<SpeechMode> {
   @override
   Future<SpeechMode> build() async {
     final v = await ref.watch(settingsRepositoryProvider).get(SettingKeys.speechMode);
-    return v == SpeechMode.tap.name ? SpeechMode.tap : SpeechMode.voice;
+    return SpeechMode.values.where((m) => m.name == v).firstOrNull ?? SpeechMode.vosk;
   }
 
   Future<void> set(SpeechMode mode) async {
@@ -50,8 +58,8 @@ final voiceLanguageProvider = FutureProvider.family<bool, String>((ref, language
 /// Before opening a story: makes sure we know whether its language can use
 /// the microphone, so [speechServiceProvider] picks the right service.
 Future<void> prepareVoice(ProviderContainer container, String language) async {
-  final mode = container.read(speechModeProvider).value ?? SpeechMode.voice;
-  if (mode == SpeechMode.voice && language != 'EN') {
+  final mode = container.read(speechModeProvider).value ?? SpeechMode.vosk;
+  if (usesMic(mode) && language != 'EN') {
     await container.read(voiceLanguageProvider(language).future);
   }
 }
@@ -59,12 +67,21 @@ Future<void> prepareVoice(ProviderContainer container, String language) async {
 /// The speech service for a story language ("EN" / "FIL"): the microphone
 /// when chosen and the phone supports the language, else tap-to-read.
 final speechServiceProvider = Provider.family<SpeechService, String>((ref, language) {
-  final mode = ref.watch(speechModeProvider).value ?? SpeechMode.voice;
-  final voice = mode == SpeechMode.voice &&
-      (language == 'EN' || ref.watch(voiceLanguageProvider(language)).value == true);
-  final SpeechService service = voice ? AndroidSpeechService() : FakeSpeechService();
+  final mode = ref.watch(speechModeProvider).value ?? SpeechMode.vosk;
+  final phoneCanHear =
+      language == 'EN' || ref.watch(voiceLanguageProvider(language)).value == true;
+  final SpeechService service = switch (mode) {
+    SpeechMode.vosk when language == 'EN' =>
+      VoskSpeechService(missingWords: ref.watch(voskMissingWordsProvider).value ?? const {}),
+    SpeechMode.tap => FakeSpeechService(),
+    _ when phoneCanHear => AndroidSpeechService(),
+    _ => FakeSpeechService(),
+  };
   ref.onDispose(service.dispose);
   return service;
 });
 
 final ttsServiceProvider = Provider<TtsService>((ref) => FlutterTtsService());
+
+/// Story words the offline model doesn't know (loaded at app start).
+final voskMissingWordsProvider = FutureProvider<Set<String>>((ref) => loadVoskMissingWords());

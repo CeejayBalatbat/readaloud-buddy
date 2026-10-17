@@ -134,6 +134,18 @@ void main() {
       expect(c.resultOf(0), WordResult.misread);
     });
 
+    test("Vosk grammar: this page's words + the next page's first 2", () async {
+      final page1 = [for (final i in c.pages[0]) s01.words[i].word];
+      final next2 = [for (final i in c.pages[1].take(2)) s01.words[i].word];
+      expect(speech.vocabularyNow, [...page1, ...next2]);
+      for (final w in page1) {
+        await hear(w);
+      }
+      expect(c.pageIndex, 1);
+      expect(speech.vocabularyNow.first, s01.words[c.pages[1].first].word);
+      expect(speech.vocabularyNow.length, lessThan(page1.length + 15));
+    });
+
     test('tap-to-read never says "I can\'t hear you"', () {
       clock.advance(const Duration(seconds: 60));
       c.tick();
