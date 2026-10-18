@@ -35,5 +35,13 @@ One commit per step; each step builds and its tests pass.
 5. *(Committed together with step 4: the shelf's inputs changed, so the app had to switch over in the same step to keep building.)* **App:** database schema v2 with a migration (reading score, prediction correction, predicted accuracy per session), session service, shelf, reading check, results, settings, weekly summary and Buddy's brain use the new rules. `level` is removed from `stories.json`.
 **Done when:** `flutter test` passes; a new reader's reading check sets a score; the shelf shows "just right" books + one re-read; Buddy's brain shows predicted vs actual accuracy; a story added with `tools/add_stories.py` appears on the shelf.
 
+## Phase 5c – Filipino speech with Vosk (October 2026)
+1. **Measure first** on a real phone (`integration_test/filipino_model_benchmark_test.dart`): unpack and load time, memory, speed, words found.
+2. **Docs:** AGENT_SPEC (Filipino spelling variants, the Filipino model, when it falls back), SCREENS (5c), BUILD_PLAN, README and KNOWN_ISSUES (license: CC BY-NC-SA, non-commercial).
+3. **Model store:** download with progress, resume, size + MD5 check, unpack, delete; copied zip or folder; free space check.
+4. **Speech:** per-language Vosk engines sharing the microphone, free-text mode for Filipino, spelling variants, per-language crash protection, memory / load-time / speed limits.
+5. **Screens:** Filipino setup screen (5c), Settings part, reading note.
+**Done when:** a Filipino story on the phone downloads the model once, then words light up as they are read; too-heavy phones fall back to tapping with a reason in Settings.
+
 ## Phase 6 – Later
-~~Parent weekly summary (11)~~ (built early), Firebase sync, teacher web dashboard (12–13), ~~Vosk offline speech~~ (done), Filipino speech recognition, more stories (with `tools/add_stories.py`).
+~~Parent weekly summary (11)~~ (built early), Firebase sync, teacher web dashboard (12–13), ~~Vosk offline speech~~ (done), ~~Filipino speech recognition~~ (Phase 5c), more stories (with `tools/add_stories.py`).

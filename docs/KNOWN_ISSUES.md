@@ -61,11 +61,28 @@ round at the end. Add new reports at the bottom of the right section.
   about 70 MB of phone storage). Buddy shows "Getting ready…" meanwhile.
 - 3 story words aren't in the Vosk model (jen, marco, turon); `[unk]` there
   is recorded as `unsure` (never against the child).
-- No small Filipino Vosk model exists. The only one is 314 MB, has a
-  fixed vocabulary (no grammar mode) and a non-commercial license
-  (CC-BY-NC-SA), so **Filipino stories use tap to read** for now (with a
-  small note on the reading screen). A Filipino child's reading check is
-  tapped too, so their starting score depends on honest tapping.
+- **Filipino model license: CC BY-NC-SA 4.0 (non-commercial use
+  only).** `vosk-model-tl-ph-generic-0.6` is © 2020 Federico Ang. OK for
+  this school project; selling the app (or anything commercial) would need
+  a different Filipino model or the author's permission. Share-alike also
+  applies to changed versions of the model itself.
+- **The Filipino model is big:** 314 MB download, 775 MB unpacked, about
+  860 MB of memory while in use (measured on a Galaxy S25 Ultra: unpack
+  1.8 s, load 0.6 s, 0.06 × real time, 92.6% of words found on TTS
+  speech). Phones with less than ~1.2 GB free memory fall back to tapping.
+  **Only tested on one high-end phone;** a mid-range phone (4 GB RAM) is
+  the real test.
+- **Filipino uses free text (no grammar mode):** a misread shows up as a
+  `misread` (unlike English, where Vosk only knows the page's words), but
+  the model can also hear a correct word wrongly. Names it doesn't know
+  well were the most common misses in the benchmark (*Mimi* heard as
+  "mommy", *Biyaya* as "baae"). Measured only with the phone's TTS voice,
+  not with children.
+- Filipino spelling variants (*lumpiya*/lumpia, *letse*/leche, …) are
+  treated as the same word (AGENT_SPEC §1). One possible false match:
+  *linggo* and *lingo* become the same.
+- Downloading over mobile data uses 314 MB; the screen recommends Wi-Fi
+  but doesn't detect the connection type.
 - `packages/vosk_flutter` is a vendored copy of the official plugin
   (updated for Dart 3) using vosk-android 0.3.47; 0.3.75 exists and may be
   faster, but needs the plugin's Java code checked first.

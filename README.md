@@ -31,10 +31,20 @@ English stories use **Vosk offline** (small English model, on the phone,
 never needs internet). It listens only for the words on the current page
 (grammar mode) plus `[unk]`, continuously, with no restart gaps.
 
-**Filipino stories use tap to read** for now (tap a word = read, long-press
-= misread), with a small note on the reading screen: the only Filipino Vosk
-model is 314 MB, has a fixed vocabulary (no grammar mode) and a
-non-commercial license.
+**Filipino stories use Vosk too**, with the `vosk-model-tl-ph-generic-0.6`
+model (314 MB download, 775 MB on the phone, about 860 MB of memory while
+in use). It is not in the APK: the app downloads it the first time a
+Filipino story opens (internet needed once, MD5-checked), or you can copy
+the zip onto the phone (see `docs/AGENT_SPEC.md`, "Speech recognition").
+It has no grammar mode, so it hears free text and Buddy matches it against
+the page. On phones where it is too heavy, Filipino falls back to tap to
+read by itself, and Settings says why.
+
+> ⚠️ **License:** the Filipino model is © 2020 Federico Ang, licensed
+> **CC BY-NC-SA 4.0 — non-commercial use only** (share-alike, with
+> attribution). It is fine for this school project; a commercial release
+> would need another Filipino model or the author's permission. The
+> English model and the app's own code don't have this limit.
 
 If Vosk fails or crashes on a phone, stories switch to tap to read and
 Settings → How Buddy listens shows why, with "Try offline again".
@@ -61,6 +71,6 @@ plugin (Apache 2.0), updated for Dart 3; see its README for the changes.
 ## Known limitations
 
 - **The app is fully offline.** No audio is ever stored or uploaded.
-- **Filipino stories are tapped, not spoken,** until there is a usable Filipino recognizer.
+- **Filipino listening needs a one-time download** (314 MB) or a copied zip, and about 1.1 GB of free space while installing. Its model is non-commercial (CC BY-NC-SA 4.0).
 - **Fonts:** Nunito and Lexend (dyslexia mode) are bundled in `assets/fonts`.
 - See [docs/KNOWN_ISSUES.md](docs/KNOWN_ISSUES.md) for everything found but not fixed yet.
