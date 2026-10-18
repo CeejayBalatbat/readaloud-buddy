@@ -18,8 +18,10 @@ error. Afterwards it lists English words that need a human check (names,
 words not in the pronouncing dictionary) and, if the Vosk model is
 downloaded, words the offline recognizer doesn't know.
 
-`python tools/check_stories.py` validates the library at any time (it also
-runs in `flutter test` through `test/data/story_test.dart`).
+`python tools/check_stories.py` validates the library at any time.
+`flutter test` checks the basics too (`test/data/story_test.dart`).
+`python tools/story_difficulty.py --check` shows every book's difficulty
+and its parts.
 
 ## Format
 

@@ -3,6 +3,7 @@
   "id": "S01",
   "title": "Sam and the Cat",
   "language": "EN",
+  "difficulty": 18,
   "level": 1,
   "text": "Sam has a cat. The cat is big and fat. The cat sat on a red mat. Sam had a nap. The cat had a nap too.",
   "words": [
@@ -290,17 +291,17 @@
     "choices": [
      {
       "text": "On a red mat",
-      "emoji": "\ud83d\udfe5",
+      "emoji": "🟥",
       "correct": true
      },
      {
       "text": "On a blue bed",
-      "emoji": "\ud83d\udecf\ufe0f",
+      "emoji": "🛏️",
       "correct": false
      },
      {
       "text": "Under a tree",
-      "emoji": "\ud83c\udf33",
+      "emoji": "🌳",
       "correct": false
      }
     ]
@@ -313,17 +314,17 @@
     "choices": [
      {
       "text": "He ran to school",
-      "emoji": "\ud83c\udfc3",
+      "emoji": "🏃",
       "correct": false
      },
      {
       "text": "He had a nap",
-      "emoji": "\ud83d\ude34",
+      "emoji": "😴",
       "correct": true
      },
      {
       "text": "He ate a cake",
-      "emoji": "\ud83c\udf70",
+      "emoji": "🍰",
       "correct": false
      }
     ]
@@ -336,17 +337,17 @@
     "choices": [
      {
       "text": "Blue",
-      "emoji": "\ud83d\udd35",
+      "emoji": "🔵",
       "correct": false
      },
      {
       "text": "Green",
-      "emoji": "\ud83d\udfe2",
+      "emoji": "🟢",
       "correct": false
      },
      {
       "text": "Red",
-      "emoji": "\ud83d\udd34",
+      "emoji": "🔴",
       "correct": true
      }
     ]
@@ -357,6 +358,7 @@
   "id": "S02",
   "title": "Ben and the Bus",
   "language": "EN",
+  "difficulty": 9,
   "level": 1,
   "text": "The bus is big. It is red. Ben got on the bus. The bus went up the hill. Ben sat with his mom. They had fun.",
   "words": [
@@ -636,17 +638,17 @@
     "choices": [
      {
       "text": "Red",
-      "emoji": "\ud83d\udd34",
+      "emoji": "🔴",
       "correct": true
      },
      {
       "text": "Yellow",
-      "emoji": "\ud83d\udfe1",
+      "emoji": "🟡",
       "correct": false
      },
      {
       "text": "Blue",
-      "emoji": "\ud83d\udd35",
+      "emoji": "🔵",
       "correct": false
      }
     ]
@@ -659,17 +661,17 @@
     "choices": [
      {
       "text": "His dog",
-      "emoji": "\ud83d\udc36",
+      "emoji": "🐶",
       "correct": false
      },
      {
       "text": "His mom",
-      "emoji": "\ud83d\udc69",
+      "emoji": "👩",
       "correct": true
      },
      {
       "text": "His teacher",
-      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "emoji": "🧑‍🏫",
       "correct": false
      }
     ]
@@ -682,17 +684,17 @@
     "choices": [
      {
       "text": "Into the sea",
-      "emoji": "\ud83c\udf0a",
+      "emoji": "🌊",
       "correct": false
      },
      {
       "text": "To the shop",
-      "emoji": "\ud83c\udfea",
+      "emoji": "🏪",
       "correct": false
      },
      {
       "text": "Up the hill",
-      "emoji": "\u26f0\ufe0f",
+      "emoji": "⛰️",
       "correct": true
      }
     ]
@@ -703,6 +705,7 @@
   "id": "S03",
   "title": "Pip the Pig",
   "language": "EN",
+  "difficulty": 7,
   "level": 1,
   "text": "Pip is a pig. Pip can dig. Pip dug in the mud. Pip got wet. Mom said, get in the tub, Pip!",
   "words": [
@@ -939,17 +942,17 @@
     "choices": [
      {
       "text": "In the mud",
-      "emoji": "\ud83d\udfeb",
+      "emoji": "🟫",
       "correct": true
      },
      {
       "text": "In the sand",
-      "emoji": "\ud83c\udfd6\ufe0f",
+      "emoji": "🏖️",
       "correct": false
      },
      {
       "text": "In the tub",
-      "emoji": "\ud83d\udec1",
+      "emoji": "🛁",
       "correct": false
      }
     ]
@@ -962,17 +965,17 @@
     "choices": [
      {
       "text": "It rained on him",
-      "emoji": "\ud83c\udf27\ufe0f",
+      "emoji": "🌧️",
       "correct": false
      },
      {
       "text": "He dug in the mud",
-      "emoji": "\ud83d\udca6",
+      "emoji": "💦",
       "correct": true
      },
      {
       "text": "He fell in a pond",
-      "emoji": "\ud83e\udd86",
+      "emoji": "🦆",
       "correct": false
      }
     ]
@@ -985,17 +988,17 @@
     "choices": [
      {
       "text": "Go to bed",
-      "emoji": "\ud83d\udecf\ufe0f",
+      "emoji": "🛏️",
       "correct": false
      },
      {
       "text": "Eat his food",
-      "emoji": "\ud83c\udf7d\ufe0f",
+      "emoji": "🍽️",
       "correct": false
      },
      {
       "text": "Get in the tub",
-      "emoji": "\ud83d\udec1",
+      "emoji": "🛁",
       "correct": true
      }
     ]
@@ -1006,6 +1009,7 @@
   "id": "S04",
   "title": "Ang Bola ni Ana",
   "language": "FIL",
+  "difficulty": 22,
   "level": 1,
   "text": "May bola si Ana. Pula ang bola. Ibinato ni Ana ang bola. Sinalo ito ni Lito. Masaya sila.",
   "words": [
@@ -1203,17 +1207,17 @@
     "choices": [
      {
       "text": "Pula",
-      "emoji": "\ud83d\udd34",
+      "emoji": "🔴",
       "correct": true
      },
      {
       "text": "Asul",
-      "emoji": "\ud83d\udd35",
+      "emoji": "🔵",
       "correct": false
      },
      {
       "text": "Dilaw",
-      "emoji": "\ud83d\udfe1",
+      "emoji": "🟡",
       "correct": false
      }
     ]
@@ -1226,17 +1230,17 @@
     "choices": [
      {
       "text": "Si Ana",
-      "emoji": "\ud83d\udc67",
+      "emoji": "👧",
       "correct": false
      },
      {
       "text": "Si Lito",
-      "emoji": "\ud83d\udc66",
+      "emoji": "👦",
       "correct": true
      },
      {
       "text": "Si Nanay",
-      "emoji": "\ud83d\udc69",
+      "emoji": "👩",
       "correct": false
      }
     ]
@@ -1249,17 +1253,17 @@
     "choices": [
      {
       "text": "Malungkot sila",
-      "emoji": "\ud83d\ude22",
+      "emoji": "😢",
       "correct": false
      },
      {
       "text": "Galit sila",
-      "emoji": "\ud83d\ude20",
+      "emoji": "😠",
       "correct": false
      },
      {
       "text": "Masaya sila",
-      "emoji": "\ud83d\ude0a",
+      "emoji": "😊",
       "correct": true
      }
     ]
@@ -1270,6 +1274,7 @@
   "id": "S05",
   "title": "Si Mimi",
   "language": "FIL",
+  "difficulty": 10,
   "level": 1,
   "text": "Si Mimi ay pusa. Puti si Mimi. Gusto ni Mimi ng isda. Kumain si Mimi. Natulog si Mimi sa mesa.",
   "words": [
@@ -1485,17 +1490,17 @@
     "choices": [
      {
       "text": "Pusa",
-      "emoji": "\ud83d\udc31",
+      "emoji": "🐱",
       "correct": true
      },
      {
       "text": "Aso",
-      "emoji": "\ud83d\udc36",
+      "emoji": "🐶",
       "correct": false
      },
      {
       "text": "Ibon",
-      "emoji": "\ud83d\udc26",
+      "emoji": "🐦",
       "correct": false
      }
     ]
@@ -1508,17 +1513,17 @@
     "choices": [
      {
       "text": "Gatas",
-      "emoji": "\ud83e\udd5b",
+      "emoji": "🥛",
       "correct": false
      },
      {
       "text": "Isda",
-      "emoji": "\ud83d\udc1f",
+      "emoji": "🐟",
       "correct": true
      },
      {
       "text": "Tinapay",
-      "emoji": "\ud83c\udf5e",
+      "emoji": "🍞",
       "correct": false
      }
     ]
@@ -1531,17 +1536,17 @@
     "choices": [
      {
       "text": "Sa kama",
-      "emoji": "\ud83d\udecf\ufe0f",
+      "emoji": "🛏️",
       "correct": false
      },
      {
       "text": "Sa sahig",
-      "emoji": "\ud83d\udfeb",
+      "emoji": "🟫",
       "correct": false
      },
      {
       "text": "Sa mesa",
-      "emoji": "\ud83e\ude91",
+      "emoji": "🪑",
       "correct": true
      }
     ]
@@ -1552,6 +1557,7 @@
   "id": "S06",
   "title": "The Big Red Kite",
   "language": "EN",
+  "difficulty": 38,
   "level": 2,
   "text": "Mia ran up the hill with her kite. The wind was strong. The kite went up, up, up! It flew through the clouds. Then the wind stopped. The kite came down on a tree. Dad helped Mia get it back. Let's try again, said Mia.",
   "words": [
@@ -2030,17 +2036,17 @@
     "choices": [
      {
       "text": "The wind was strong",
-      "emoji": "\ud83c\udf2c\ufe0f",
+      "emoji": "🌬️",
       "correct": true
      },
      {
       "text": "Dad threw it up",
-      "emoji": "\ud83d\udc68",
+      "emoji": "👨",
       "correct": false
      },
      {
       "text": "The sun was hot",
-      "emoji": "\u2600\ufe0f",
+      "emoji": "☀️",
       "correct": false
      }
     ]
@@ -2053,17 +2059,17 @@
     "choices": [
      {
       "text": "On a house",
-      "emoji": "\ud83c\udfe0",
+      "emoji": "🏠",
       "correct": false
      },
      {
       "text": "On a tree",
-      "emoji": "\ud83c\udf33",
+      "emoji": "🌳",
       "correct": true
      },
      {
       "text": "In a lake",
-      "emoji": "\ud83c\udfde\ufe0f",
+      "emoji": "🏞️",
       "correct": false
      }
     ]
@@ -2076,17 +2082,17 @@
     "choices": [
      {
       "text": "Mom",
-      "emoji": "\ud83d\udc69",
+      "emoji": "👩",
       "correct": false
      },
      {
       "text": "Her friend",
-      "emoji": "\ud83d\udc67",
+      "emoji": "👧",
       "correct": false
      },
      {
       "text": "Dad",
-      "emoji": "\ud83d\udc68",
+      "emoji": "👨",
       "correct": true
      }
     ]
@@ -2097,6 +2103,7 @@
   "id": "S07",
   "title": "Dot Finds a Shell",
   "language": "EN",
+  "difficulty": 37,
   "level": 2,
   "text": "Dot went to the beach with her dad. She saw a shell in the sand. It was pink and shiny. Dot put the shell by her ear. I can hear the sea, she said. She took the shell home and put it on a shelf.",
   "words": [
@@ -2575,17 +2582,17 @@
     "choices": [
      {
       "text": "In the sand",
-      "emoji": "\ud83c\udfd6\ufe0f",
+      "emoji": "🏖️",
       "correct": true
      },
      {
       "text": "In the water",
-      "emoji": "\ud83c\udf0a",
+      "emoji": "🌊",
       "correct": false
      },
      {
       "text": "Under a rock",
-      "emoji": "\ud83e\udea8",
+      "emoji": "🪨",
       "correct": false
      }
     ]
@@ -2598,17 +2605,17 @@
     "choices": [
      {
       "text": "A bird",
-      "emoji": "\ud83d\udc26",
+      "emoji": "🐦",
       "correct": false
      },
      {
       "text": "The sea",
-      "emoji": "\ud83c\udf0a",
+      "emoji": "🌊",
       "correct": true
      },
      {
       "text": "Her dad",
-      "emoji": "\ud83d\udc68",
+      "emoji": "👨",
       "correct": false
      }
     ]
@@ -2621,17 +2628,17 @@
     "choices": [
      {
       "text": "In a box",
-      "emoji": "\ud83d\udce6",
+      "emoji": "📦",
       "correct": false
      },
      {
       "text": "On her bed",
-      "emoji": "\ud83d\udecf\ufe0f",
+      "emoji": "🛏️",
       "correct": false
      },
      {
       "text": "On a shelf",
-      "emoji": "\ud83d\udcda",
+      "emoji": "📚",
       "correct": true
      }
     ]
@@ -2642,6 +2649,7 @@
   "id": "S08",
   "title": "The Rainy Day Race",
   "language": "EN",
+  "difficulty": 39,
   "level": 2,
   "text": "It was a rainy day. Ben and Jen could not play outside. Let's have a race, said Jen. They made two paper boats. They put the boats in the rain water by the gate. The boats sailed fast. Jen's boat won the race!",
   "words": [
@@ -3098,17 +3106,17 @@
     "choices": [
      {
       "text": "It was raining",
-      "emoji": "\ud83c\udf27\ufe0f",
+      "emoji": "🌧️",
       "correct": true
      },
      {
       "text": "It was night",
-      "emoji": "\ud83c\udf19",
+      "emoji": "🌙",
       "correct": false
      },
      {
       "text": "They were sick",
-      "emoji": "\ud83e\udd12",
+      "emoji": "🤒",
       "correct": false
      }
     ]
@@ -3121,17 +3129,17 @@
     "choices": [
      {
       "text": "Paper planes",
-      "emoji": "\u2708\ufe0f",
+      "emoji": "✈️",
       "correct": false
      },
      {
       "text": "Paper boats",
-      "emoji": "\u26f5",
+      "emoji": "⛵",
       "correct": true
      },
      {
       "text": "A kite",
-      "emoji": "\ud83e\ude81",
+      "emoji": "🪁",
       "correct": false
      }
     ]
@@ -3144,17 +3152,17 @@
     "choices": [
      {
       "text": "Ben's boat",
-      "emoji": "\ud83d\udc66",
+      "emoji": "👦",
       "correct": false
      },
      {
       "text": "No boat won",
-      "emoji": "\ud83e\udd1d",
+      "emoji": "🤝",
       "correct": false
      },
      {
       "text": "Jen's boat",
-      "emoji": "\ud83d\udc67",
+      "emoji": "👧",
       "correct": true
      }
     ]
@@ -3165,6 +3173,7 @@
   "id": "S09",
   "title": "Si Lolo at ang Bangka",
   "language": "FIL",
+  "difficulty": 41,
   "level": 2,
   "text": "Maagang gumising si Lolo Ben. Pumunta siya sa dagat. Sumakay siya sa kanyang bangka. Nanghuli siya ng maraming isda. Pag-uwi niya, nagluto si Lola. Masaya silang kumain ng hapunan.",
   "words": [
@@ -3473,17 +3482,17 @@
     "choices": [
      {
       "text": "Sa dagat",
-      "emoji": "\ud83c\udf0a",
+      "emoji": "🌊",
       "correct": true
      },
      {
       "text": "Sa bundok",
-      "emoji": "\u26f0\ufe0f",
+      "emoji": "⛰️",
       "correct": false
      },
      {
       "text": "Sa palengke",
-      "emoji": "\ud83c\udfea",
+      "emoji": "🏪",
       "correct": false
      }
     ]
@@ -3496,17 +3505,17 @@
     "choices": [
      {
       "text": "Maraming alimango",
-      "emoji": "\ud83e\udd80",
+      "emoji": "🦀",
       "correct": false
      },
      {
       "text": "Maraming isda",
-      "emoji": "\ud83d\udc1f",
+      "emoji": "🐟",
       "correct": true
      },
      {
       "text": "Isang bola",
-      "emoji": "\u26bd",
+      "emoji": "⚽",
       "correct": false
      }
     ]
@@ -3519,17 +3528,17 @@
     "choices": [
      {
       "text": "Si Lolo Ben",
-      "emoji": "\ud83d\udc74",
+      "emoji": "👴",
       "correct": false
      },
      {
       "text": "Si Nanay",
-      "emoji": "\ud83d\udc69",
+      "emoji": "👩",
       "correct": false
      },
      {
       "text": "Si Lola",
-      "emoji": "\ud83d\udc75",
+      "emoji": "👵",
       "correct": true
      }
     ]
@@ -3540,6 +3549,7 @@
   "id": "S10",
   "title": "Ang Hardin ni Nena",
   "language": "FIL",
+  "difficulty": 52,
   "level": 2,
   "text": "May maliit na hardin si Nena. Nagtanim siya ng kamatis at talong. Dinidiligan niya ang mga halaman tuwing umaga. Pagkalipas ng ilang linggo, may bunga na ang mga ito. Ibinigay ni Nena ang kamatis sa kanyang kapitbahay.",
   "words": [
@@ -3936,17 +3946,17 @@
     "choices": [
      {
       "text": "Kamatis at talong",
-      "emoji": "\ud83c\udf45",
+      "emoji": "🍅",
       "correct": true
      },
      {
       "text": "Mangga at saging",
-      "emoji": "\ud83e\udd6d",
+      "emoji": "🥭",
       "correct": false
      },
      {
       "text": "Mais at kamote",
-      "emoji": "\ud83c\udf3d",
+      "emoji": "🌽",
       "correct": false
      }
     ]
@@ -3959,17 +3969,17 @@
     "choices": [
      {
       "text": "Tuwing gabi",
-      "emoji": "\ud83c\udf19",
+      "emoji": "🌙",
       "correct": false
      },
      {
       "text": "Tuwing umaga",
-      "emoji": "\ud83c\udf05",
+      "emoji": "🌅",
       "correct": true
      },
      {
       "text": "Tuwing Linggo",
-      "emoji": "\ud83d\udcc5",
+      "emoji": "📅",
       "correct": false
      }
     ]
@@ -3982,17 +3992,17 @@
     "choices": [
      {
       "text": "Sa kanyang guro",
-      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "emoji": "🧑‍🏫",
       "correct": false
      },
      {
       "text": "Sa kanyang lola",
-      "emoji": "\ud83d\udc75",
+      "emoji": "👵",
       "correct": false
      },
      {
       "text": "Sa kanyang kapitbahay",
-      "emoji": "\ud83c\udfe0",
+      "emoji": "🏠",
       "correct": true
      }
     ]
@@ -4003,6 +4013,7 @@
   "id": "S11",
   "title": "The Thin Thread",
   "language": "EN",
+  "difficulty": 46,
   "level": 3,
   "text": "Thea wanted to fix her torn shirt. Her grandmother gave her a needle and a thin thread. Pull the thread through the hole, Grandma said. Thea tried three times. The thread kept slipping. On the fourth try, she did it! She stitched the shirt slowly. When she finished, she thanked her grandmother. Now you can fix things too, Grandma said with a smile.",
   "words": [
@@ -4695,17 +4706,17 @@
     "choices": [
      {
       "text": "Her torn shirt",
-      "emoji": "\ud83d\udc55",
+      "emoji": "👕",
       "correct": true
      },
      {
       "text": "Her old shoe",
-      "emoji": "\ud83d\udc5f",
+      "emoji": "👟",
       "correct": false
      },
      {
       "text": "Her school bag",
-      "emoji": "\ud83c\udf92",
+      "emoji": "🎒",
       "correct": false
      }
     ]
@@ -4718,17 +4729,17 @@
     "choices": [
      {
       "text": "The first try",
-      "emoji": "1\ufe0f\u20e3",
+      "emoji": "1️⃣",
       "correct": false
      },
      {
       "text": "The fourth try",
-      "emoji": "4\ufe0f\u20e3",
+      "emoji": "4️⃣",
       "correct": true
      },
      {
       "text": "The third try",
-      "emoji": "3\ufe0f\u20e3",
+      "emoji": "3️⃣",
       "correct": false
      }
     ]
@@ -4741,17 +4752,17 @@
     "choices": [
      {
       "text": "Her teacher",
-      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "emoji": "🧑‍🏫",
       "correct": false
      },
      {
       "text": "Her father",
-      "emoji": "\ud83d\udc68",
+      "emoji": "👨",
       "correct": false
      },
      {
       "text": "Her grandmother",
-      "emoji": "\ud83d\udc75",
+      "emoji": "👵",
       "correct": true
      }
     ]
@@ -4762,6 +4773,7 @@
   "id": "S12",
   "title": "Three Little Ships",
   "language": "EN",
+  "difficulty": 58,
   "level": 3,
   "text": "Three little ships sailed on the sea. The first ship carried fish. The second ship carried fruit. The third ship carried children going to school on another island. One morning, a storm came. The ships stayed close together. They helped each other reach the shore safely. After the storm, the children waved at the sailors and shouted, thank you!",
   "words": [
@@ -5403,17 +5415,17 @@
     "choices": [
      {
       "text": "Children going to school",
-      "emoji": "\ud83e\uddd2",
+      "emoji": "🧒",
       "correct": true
      },
      {
       "text": "Fish",
-      "emoji": "\ud83d\udc1f",
+      "emoji": "🐟",
       "correct": false
      },
      {
       "text": "Fruit",
-      "emoji": "\ud83c\udf4e",
+      "emoji": "🍎",
       "correct": false
      }
     ]
@@ -5426,17 +5438,17 @@
     "choices": [
      {
       "text": "Sailed far away",
-      "emoji": "\ud83c\udf0a",
+      "emoji": "🌊",
       "correct": false
      },
      {
       "text": "Stayed close and helped each other",
-      "emoji": "\ud83e\udd1d",
+      "emoji": "🤝",
       "correct": true
      },
      {
       "text": "Went under the water",
-      "emoji": "\u2b07\ufe0f",
+      "emoji": "⬇️",
       "correct": false
      }
     ]
@@ -5449,17 +5461,17 @@
     "choices": [
      {
       "text": "Goodbye",
-      "emoji": "\ud83d\udc4b",
+      "emoji": "👋",
       "correct": false
      },
      {
       "text": "Help us",
-      "emoji": "\ud83c\udd98",
+      "emoji": "🆘",
       "correct": false
      },
      {
       "text": "Thank you",
-      "emoji": "\ud83d\ude4f",
+      "emoji": "🙏",
       "correct": true
      }
     ]
@@ -5470,6 +5482,7 @@
   "id": "S13",
   "title": "The Strong Ant",
   "language": "EN",
+  "difficulty": 54,
   "level": 3,
   "text": "A little ant found a big grain of rice. It was too heavy to carry alone. The ant pushed and pulled, but the rice did not move. Then the ant called its friends. Ten ants came running. Together, they lifted the rice and carried it home. That night, all the ants shared a big dinner. We are strong when we work together, said the little ant.",
   "words": [
@@ -6163,17 +6176,17 @@
     "choices": [
      {
       "text": "A big grain of rice",
-      "emoji": "\ud83c\udf5a",
+      "emoji": "🍚",
       "correct": true
      },
      {
       "text": "A big leaf",
-      "emoji": "\ud83c\udf43",
+      "emoji": "🍃",
       "correct": false
      },
      {
       "text": "A red apple",
-      "emoji": "\ud83c\udf4e",
+      "emoji": "🍎",
       "correct": false
      }
     ]
@@ -6186,17 +6199,17 @@
     "choices": [
      {
       "text": "Two",
-      "emoji": "2\ufe0f\u20e3",
+      "emoji": "2️⃣",
       "correct": false
      },
      {
       "text": "Ten",
-      "emoji": "\ud83d\udd1f",
+      "emoji": "🔟",
       "correct": true
      },
      {
       "text": "Five",
-      "emoji": "5\ufe0f\u20e3",
+      "emoji": "5️⃣",
       "correct": false
      }
     ]
@@ -6209,17 +6222,17 @@
     "choices": [
      {
       "text": "Big things are too heavy",
-      "emoji": "\ud83e\udea8",
+      "emoji": "🪨",
       "correct": false
      },
      {
       "text": "Ants like to eat rice",
-      "emoji": "\ud83d\udc1c",
+      "emoji": "🐜",
       "correct": false
      },
      {
       "text": "We are strong when we work together",
-      "emoji": "\ud83d\udcaa",
+      "emoji": "💪",
       "correct": true
      }
     ]
@@ -6230,6 +6243,7 @@
   "id": "S14",
   "title": "Ang Batang Mahilig Magbasa",
   "language": "FIL",
+  "difficulty": 73,
   "level": 3,
   "text": "Si Carlo ay mahilig magbasa ng mga kuwento. Tuwing hapon, pumupunta siya sa silid-aklatan ng barangay. Doon, binabasa niya ang mga aklat tungkol sa mga hayop at sa kalawakan. Isang araw, napansin niyang hindi pa marunong magbasa ang kanyang kapatid na si Bea. Tinuruan niya si Bea araw-araw. Makalipas ang isang buwan, nakabasa na si Bea ng kanyang unang aklat.",
   "words": [
@@ -6859,17 +6873,17 @@
     "choices": [
      {
       "text": "Sa silid-aklatan ng barangay",
-      "emoji": "\ud83d\udcda",
+      "emoji": "📚",
       "correct": true
      },
      {
       "text": "Sa palaruan",
-      "emoji": "\ud83d\udedd",
+      "emoji": "🛝",
       "correct": false
      },
      {
       "text": "Sa palengke",
-      "emoji": "\ud83c\udfea",
+      "emoji": "🏪",
       "correct": false
      }
     ]
@@ -6882,17 +6896,17 @@
     "choices": [
      {
       "text": "Si Nanay",
-      "emoji": "\ud83d\udc69",
+      "emoji": "👩",
       "correct": false
      },
      {
       "text": "Si Bea, ang kanyang kapatid",
-      "emoji": "\ud83d\udc67",
+      "emoji": "👧",
       "correct": true
      },
      {
       "text": "Ang kanyang kaibigan",
-      "emoji": "\ud83e\uddd2",
+      "emoji": "🧒",
       "correct": false
      }
     ]
@@ -6905,17 +6919,17 @@
     "choices": [
      {
       "text": "Isang araw",
-      "emoji": "\u2600\ufe0f",
+      "emoji": "☀️",
       "correct": false
      },
      {
       "text": "Isang taon",
-      "emoji": "\ud83c\udf82",
+      "emoji": "🎂",
       "correct": false
      },
      {
       "text": "Isang buwan",
-      "emoji": "\ud83d\uddd3\ufe0f",
+      "emoji": "🗓️",
       "correct": true
      }
     ]
@@ -6926,6 +6940,7 @@
   "id": "S15",
   "title": "Ang Ulan sa Bayan",
   "language": "FIL",
+  "difficulty": 69,
   "level": 3,
   "text": "Malakas ang ulan sa bayan ng San Isidro. Bumaha sa kalsada malapit sa paaralan. Hindi makauwi ang mga bata. Dumating ang mga tanod at tumulong. Binuhat nila ang maliliit na bata papunta sa ligtas na lugar. Nagdala rin ang mga magulang ng payong at kapote. Pagtila ng ulan, nagpasalamat ang mga bata sa mga tumulong sa kanila.",
   "words": [
@@ -7526,17 +7541,17 @@
     "choices": [
      {
       "text": "Sa kalsada malapit sa paaralan",
-      "emoji": "\ud83c\udfeb",
+      "emoji": "🏫",
       "correct": true
      },
      {
       "text": "Sa loob ng simbahan",
-      "emoji": "\u26ea",
+      "emoji": "⛪",
       "correct": false
      },
      {
       "text": "Sa tabing-dagat",
-      "emoji": "\ud83c\udfd6\ufe0f",
+      "emoji": "🏖️",
       "correct": false
      }
     ]
@@ -7549,17 +7564,17 @@
     "choices": [
      {
       "text": "Ang mga guro",
-      "emoji": "\ud83e\uddd1\u200d\ud83c\udfeb",
+      "emoji": "🧑‍🏫",
       "correct": false
      },
      {
       "text": "Ang mga tanod",
-      "emoji": "\ud83d\udc6e",
+      "emoji": "👮",
       "correct": true
      },
      {
       "text": "Ang mga bumbero",
-      "emoji": "\ud83d\ude92",
+      "emoji": "🚒",
       "correct": false
      }
     ]
@@ -7572,17 +7587,17 @@
     "choices": [
      {
       "text": "Pagkain at tubig",
-      "emoji": "\ud83c\udf71",
+      "emoji": "🍱",
       "correct": false
      },
      {
       "text": "Kumot at unan",
-      "emoji": "\ud83d\udecf\ufe0f",
+      "emoji": "🛏️",
       "correct": false
      },
      {
       "text": "Payong at kapote",
-      "emoji": "\u2602\ufe0f",
+      "emoji": "☂️",
       "correct": true
      }
     ]
@@ -7593,6 +7608,7 @@
   "id": "S16",
   "title": "The Night Market",
   "language": "EN",
+  "difficulty": 83,
   "level": 4,
   "text": "Every Friday night, the plaza turns into a busy market. Lights hang between the stalls like tiny stars. Marco helps his mother sell banana cue and turon. He counts the coins carefully and gives the right change. One night, a customer forgot her wallet on the table. Marco ran through the crowd to return it. The woman was so thankful that she bought ten pieces of turon for her family. Marco's mother smiled proudly. Being honest is worth more than any money, she said.",
   "words": [
@@ -8473,17 +8489,17 @@
     "choices": [
      {
       "text": "Banana cue and turon",
-      "emoji": "\ud83c\udf4c",
+      "emoji": "🍌",
       "correct": true
      },
      {
       "text": "Fish and rice",
-      "emoji": "\ud83d\udc1f",
+      "emoji": "🐟",
       "correct": false
      },
      {
       "text": "Toys and balloons",
-      "emoji": "\ud83c\udf88",
+      "emoji": "🎈",
       "correct": false
      }
     ]
@@ -8496,17 +8512,17 @@
     "choices": [
      {
       "text": "Her umbrella",
-      "emoji": "\u2602\ufe0f",
+      "emoji": "☂️",
       "correct": false
      },
      {
       "text": "Her wallet",
-      "emoji": "\ud83d\udc5b",
+      "emoji": "👛",
       "correct": true
      },
      {
       "text": "Her phone",
-      "emoji": "\ud83d\udcf1",
+      "emoji": "📱",
       "correct": false
      }
     ]
@@ -8519,17 +8535,17 @@
     "choices": [
      {
       "text": "Being fast",
-      "emoji": "\ud83c\udfc3",
+      "emoji": "🏃",
       "correct": false
      },
      {
       "text": "Being strong",
-      "emoji": "\ud83d\udcaa",
+      "emoji": "💪",
       "correct": false
      },
      {
       "text": "Being honest",
-      "emoji": "\ud83d\udc96",
+      "emoji": "💖",
       "correct": true
      }
     ]
@@ -8540,6 +8556,7 @@
   "id": "S17",
   "title": "Planting Mangroves",
   "language": "EN",
+  "difficulty": 73,
   "level": 4,
   "text": "Our class went on a trip to the coast to plant mangroves. Our teacher explained that mangrove roots hold the soil and protect the village from strong waves during typhoons. They are also homes for crabs, fish and birds. We walked carefully in the soft mud. Each of us planted three young mangroves and tied them to bamboo sticks so the water would not wash them away. In ten years, our small plants will grow into a forest that keeps our town safe.",
   "words": [
@@ -9410,17 +9427,17 @@
     "choices": [
      {
       "text": "They protect the village from strong waves",
-      "emoji": "\ud83c\udf0a",
+      "emoji": "🌊",
       "correct": true
      },
      {
       "text": "They make the water sweet",
-      "emoji": "\ud83d\udca7",
+      "emoji": "💧",
       "correct": false
      },
      {
       "text": "They give us fruit to eat",
-      "emoji": "\ud83c\udf4e",
+      "emoji": "🍎",
       "correct": false
      }
     ]
@@ -9433,17 +9450,17 @@
     "choices": [
      {
       "text": "One",
-      "emoji": "1\ufe0f\u20e3",
+      "emoji": "1️⃣",
       "correct": false
      },
      {
       "text": "Three",
-      "emoji": "3\ufe0f\u20e3",
+      "emoji": "3️⃣",
       "correct": true
      },
      {
       "text": "Ten",
-      "emoji": "\ud83d\udd1f",
+      "emoji": "🔟",
       "correct": false
      }
     ]
@@ -9456,17 +9473,17 @@
     "choices": [
      {
       "text": "Big rocks",
-      "emoji": "\ud83e\udea8",
+      "emoji": "🪨",
       "correct": false
      },
      {
       "text": "The boat",
-      "emoji": "\ud83d\udea4",
+      "emoji": "🚤",
       "correct": false
      },
      {
       "text": "Bamboo sticks",
-      "emoji": "\ud83c\udf8b",
+      "emoji": "🎋",
       "correct": true
      }
     ]
@@ -9477,6 +9494,7 @@
   "id": "S18",
   "title": "The Robot Who Could Not Read",
   "language": "EN",
+  "difficulty": 87,
   "level": 4,
   "text": "In a busy library lived a small robot named Bolt. Bolt could sort books, sweep the floor and fix the lights, but Bolt could not read. Every afternoon, a girl named Lia came to the library. One day she noticed Bolt staring at a picture book. Do you want me to teach you, she asked. Bolt beeped happily. Each day, Lia pointed at words and sounded them out slowly. After many weeks, Bolt read a whole story aloud to the other children. Everyone clapped, and Lia clapped the loudest.",
   "words": [
@@ -10412,17 +10430,17 @@
     "choices": [
      {
       "text": "Read",
-      "emoji": "\ud83d\udcd6",
+      "emoji": "📖",
       "correct": true
      },
      {
       "text": "Sweep the floor",
-      "emoji": "\ud83e\uddf9",
+      "emoji": "🧹",
       "correct": false
      },
      {
       "text": "Fix the lights",
-      "emoji": "\ud83d\udca1",
+      "emoji": "💡",
       "correct": false
      }
     ]
@@ -10435,17 +10453,17 @@
     "choices": [
      {
       "text": "The librarian",
-      "emoji": "\ud83e\uddd1\u200d\ud83d\udcbc",
+      "emoji": "🧑‍💼",
       "correct": false
      },
      {
       "text": "Lia",
-      "emoji": "\ud83d\udc67",
+      "emoji": "👧",
       "correct": true
      },
      {
       "text": "Another robot",
-      "emoji": "\ud83e\udd16",
+      "emoji": "🤖",
       "correct": false
      }
     ]
@@ -10458,17 +10476,17 @@
     "choices": [
      {
       "text": "Fixed all the lights",
-      "emoji": "\ud83d\udca1",
+      "emoji": "💡",
       "correct": false
      },
      {
       "text": "Left the library",
-      "emoji": "\ud83d\udeaa",
+      "emoji": "🚪",
       "correct": false
      },
      {
       "text": "Read a whole story aloud",
-      "emoji": "\ud83d\udde3\ufe0f",
+      "emoji": "🗣️",
       "correct": true
      }
     ]
@@ -10479,6 +10497,7 @@
   "id": "S19",
   "title": "Ang Pista sa Aming Baryo",
   "language": "FIL",
+  "difficulty": 79,
   "level": 4,
   "text": "Tuwing Mayo, ipinagdiriwang ang pista sa aming baryo. Ilang araw bago nito, naglilinis at nagdedekorasyon ang lahat ng pamilya. Nagsasabit kami ng makukulay na banderitas sa kalye. Sa araw ng pista, may parada, palaro at sayawan sa plaza. Nagluluto si Nanay ng pansit, lumpia at leche flan para sa mga bisita. Masayang-masaya ako dahil umuuwi rin ang aking mga pinsan mula sa Maynila. Sa gabi, nanonood kami ng paputok kasama ang buong pamilya.",
   "words": [
@@ -11242,17 +11261,17 @@
     "choices": [
      {
       "text": "Tuwing Mayo",
-      "emoji": "\ud83c\udf38",
+      "emoji": "🌸",
       "correct": true
      },
      {
       "text": "Tuwing Disyembre",
-      "emoji": "\ud83c\udf84",
+      "emoji": "🎄",
       "correct": false
      },
      {
       "text": "Tuwing Hunyo",
-      "emoji": "\u2614",
+      "emoji": "☔",
       "correct": false
      }
     ]
@@ -11265,17 +11284,17 @@
     "choices": [
      {
       "text": "Adobo at kanin",
-      "emoji": "\ud83c\udf5b",
+      "emoji": "🍛",
       "correct": false
      },
      {
       "text": "Pansit, lumpia at leche flan",
-      "emoji": "\ud83c\udf5c",
+      "emoji": "🍜",
       "correct": true
      },
      {
       "text": "Lechon at puto",
-      "emoji": "\ud83d\udc16",
+      "emoji": "🐖",
       "correct": false
      }
     ]
@@ -11288,17 +11307,17 @@
     "choices": [
      {
       "text": "Sa Cebu",
-      "emoji": "\ud83c\udfdd\ufe0f",
+      "emoji": "🏝️",
       "correct": false
      },
      {
       "text": "Sa ibang bansa",
-      "emoji": "\u2708\ufe0f",
+      "emoji": "✈️",
       "correct": false
      },
      {
       "text": "Sa Maynila",
-      "emoji": "\ud83c\udfd9\ufe0f",
+      "emoji": "🏙️",
       "correct": true
      }
     ]
@@ -11309,6 +11328,7 @@
   "id": "S20",
   "title": "Si Pagong at ang Plastik",
   "language": "FIL",
+  "difficulty": 73,
   "level": 4,
   "text": "Isang umaga, lumangoy si Pagong sa malinaw na dagat. Bigla siyang nakakita ng isang bagay na lumulutang. Akala niya ay dikya ito, kaya sinubukan niyang kainin. Ngunit plastik pala ito! Mabuti na lamang at may mga batang naglilinis ng dalampasigan. Nakita nila si Pagong at maingat nilang tinanggal ang plastik. Mula noon, nangako ang mga bata na hindi na sila magtatapon ng basura sa dagat. Masayang lumangoy palayo si Pagong.",
   "words": [
@@ -12044,17 +12064,17 @@
     "choices": [
      {
       "text": "Dikya",
-      "emoji": "\ud83e\udebc",
+      "emoji": "🪼",
       "correct": true
      },
      {
       "text": "Isda",
-      "emoji": "\ud83d\udc1f",
+      "emoji": "🐟",
       "correct": false
      },
      {
       "text": "Bato",
-      "emoji": "\ud83e\udea8",
+      "emoji": "🪨",
       "correct": false
      }
     ]
@@ -12067,17 +12087,17 @@
     "choices": [
      {
       "text": "Isang mangingisda",
-      "emoji": "\ud83c\udfa3",
+      "emoji": "🎣",
       "correct": false
      },
      {
       "text": "Mga batang naglilinis ng dalampasigan",
-      "emoji": "\ud83e\uddd2",
+      "emoji": "🧒",
       "correct": true
      },
      {
       "text": "Isang dolphin",
-      "emoji": "\ud83d\udc2c",
+      "emoji": "🐬",
       "correct": false
      }
     ]
@@ -12090,17 +12110,17 @@
     "choices": [
      {
       "text": "Lalangoy sila araw-araw",
-      "emoji": "\ud83c\udfca",
+      "emoji": "🏊",
       "correct": false
      },
      {
       "text": "Mag-aalaga sila ng pagong",
-      "emoji": "\ud83d\udc22",
+      "emoji": "🐢",
       "correct": false
      },
      {
       "text": "Hindi na sila magtatapon ng basura sa dagat",
-      "emoji": "\ud83d\udeaf",
+      "emoji": "🚯",
       "correct": true
      }
     ]
