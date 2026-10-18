@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../agent/agent.dart';
@@ -20,10 +17,10 @@ class WeeklySummary {
     required this.stories,
     required this.wcpm,
     required this.wcpmChange,
-    required this.level,
-    required this.levelProgress,
-    required this.almostNext,
-    required this.topLevel,
+    required this.score,
+    required this.profile,
+    required this.profileProgress,
+    required this.scoreChange,
     required this.celebrateWords,
     required this.tipPattern,
     required this.trickyWords,
@@ -42,14 +39,25 @@ class WeeklySummary {
 
   /// This week's average minus the 7 days before (null: nothing to compare).
   final double? wcpmChange;
-  final int level;
 
-  /// 0–1: Independent results in a row toward moving up (AGENT_SPEC §5).
-  final double levelProgress;
+  /// The reading score (0–100) and its CRLA profile (AGENT_SPEC §5).
+  final double score;
+  final ReadingProfile profile;
 
-  /// One more Independent story moves the reader up.
-  final bool almostNext;
-  final bool topLevel;
+  /// 0–1: how far through the profile toward the next one (1 at the top).
+  final double profileProgress;
+
+  /// The score now minus at the start of the 7 days (null: no story yet).
+  final double? scoreChange;
+
+  /// Within [almostPoints] of the next profile.
+  bool get almostNext {
+    final next = profile.next;
+    return next != null &&
+        const ReadingScorer().minScoreOf(next) - score <= almostPoints;
+  }
+
+  static const almostPoints = 5;
 
   /// Words missed before this week and read on their own this week.
   final List<String> celebrateWords;
@@ -67,7 +75,6 @@ class WeeklySummary {
     required List<ReadingSession> sessions,
     required List<WordEvent> events,
     required SoundMastery mastery,
-    required LevelState levelState,
     required List<String> trickyWords,
     required DateTime now,
     AgentConfig config = const AgentConfig(),
@@ -86,13 +93,14 @@ class WeeklySummary {
     final wcpm = avg(storiesWeek);
     final prev = avg(storiesPrev);
 
-    // §5: Independent results in a row at this level.
-    var streak = 0;
-    for (final r in levelState.resultsAtLevel.reversed) {
-      if (r != PhilIriLevel.independent) break;
-      streak++;
-    }
-    final top = levelState.level >= config.maxLevel;
+    // §5: the score now, and at the start of the 7 days: after the last
+    // story before them, else before the first story in them.
+    final scorer = ReadingScorer(config);
+    final stories = sessions.where((s) => s.type == SessionType.story).toList()
+      ..sort((a, b) => a.startedAt.compareTo(b.startedAt));
+    final before = stories.where((s) => s.startedAt.isBefore(from)).lastOrNull;
+    final startScore = before?.scoreAfter ?? storiesWeek.firstOrNull?.scoreBefore;
+    final score = learner.readingScore;
 
     // Celebrate: missed before this week, read on their own this week (and
     // not missed again this week).
@@ -128,36 +136,16 @@ class WeeklySummary {
       stories: storiesWeek.length,
       wcpm: wcpm,
       wcpmChange: wcpm != null && prev != null ? wcpm - prev : null,
-      level: levelState.level,
-      levelProgress: top ? 1 : (streak / config.framesToMoveUp).clamp(0, 1).toDouble(),
-      almostNext: !top && streak == config.framesToMoveUp - 1,
-      topLevel: top,
+      score: score,
+      profile: scorer.profileOf(score),
+      profileProgress: scorer.progressInProfile(score),
+      scoreChange: startScore == null ? null : score - startScore,
       celebrateWords: celebrate.take(3).toList(),
       tipPattern: practised.firstOrNull,
       trickyWords: trickyWords,
     );
   }
 }
-
-/// A sound pattern from assets/data/sound_patterns.json.
-class SoundPattern {
-  const SoundPattern(this.code, this.name, this.examples);
-  final String code;
-  final String name;
-  final List<String> examples;
-}
-
-final soundPatternsProvider = FutureProvider<Map<String, SoundPattern>>((ref) async {
-  final list = jsonDecode(await rootBundle.loadString('assets/data/sound_patterns.json')) as List;
-  return {
-    for (final p in list.cast<Map<String, dynamic>>())
-      p['code'] as String: SoundPattern(
-        p['code'] as String,
-        p['name'] as String,
-        [for (final e in (p['examples'] as String).split(',')) e.trim()],
-      ),
-  };
-});
 
 /// The current reader's weekly summary.
 final weeklySummaryProvider = FutureProvider.autoDispose<WeeklySummary?>((ref) async {
@@ -175,7 +163,6 @@ final weeklySummaryProvider = FutureProvider.autoDispose<WeeklySummary?>((ref) a
     sessions: sessions,
     events: events,
     mastery: await progress.loadMastery(learner.id),
-    levelState: await sessionsRepo.levelState(learner.id),
     trickyWords: [for (final t in await progress.trickyWordEntries(learner.id)) t.word],
     now: ref.watch(nowProvider)(),
   );

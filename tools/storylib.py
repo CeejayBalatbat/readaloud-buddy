@@ -290,6 +290,8 @@ def validate(stories, phonics, pattern_info, check_difficulty=True):
         for key in ("id", "title", "language", "text", "words", "questions", "difficulty"):
             if key not in s:
                 errors.append(f"{where}: missing '{key}'")
+        if "level" in s:
+            errors.append(f"{where}: has a 'level' (levels were removed; difficulty is computed)")
         if not re.fullmatch(r"S\d{2,}", str(s.get("id", ""))):
             errors.append(f"{where}: id should look like S21")
         if sid in ids:

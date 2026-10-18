@@ -9,13 +9,15 @@ void main() {
   final stories =
       parseStories(File('assets/data/stories.json').readAsStringSync());
   const game = WordGame();
+  // The books Buddy would recommend to a beginning reader.
+  const easyBooks = {'S01', 'S02', 'S03', 'S04', 'S05'};
 
   List<GameWord> pick(List<TrickyWord> tricky, {SoundMastery? mastery}) =>
       game.pickWords(
         tricky: tricky,
         mastery: mastery ?? SoundMastery(),
         stories: stories,
-        level: 1,
+        practiceStoryIds: easyBooks,
         languages: ['EN'],
         random: Random(1),
       );
@@ -33,9 +35,15 @@ void main() {
       expect(words.take(2).every((w) => w.fromTrickyList), isTrue);
     });
 
-    test('topped up to 5 with story words at the reader\'s level', () {
+    test('topped up to 5 with words from the recommended books', () {
       final words = pick(const [TrickyWord(word: 'ship', patternCode: 'EN-SH')]);
       expect(words, hasLength(5));
+      final easyWords = {
+        for (final s in stories)
+          if (easyBooks.contains(s.id))
+            for (final w in s.words) WordMatcher.normalize(w.word),
+      };
+      expect(words.skip(1).every((w) => easyWords.contains(w.word)), isTrue);
       expect(words.skip(1).any((w) => w.fromTrickyList), isFalse);
       expect(words.map((w) => w.word).toSet(), hasLength(5)); // no repeats
       for (final w in words.skip(1)) {
@@ -52,7 +60,7 @@ void main() {
         ],
         mastery: SoundMastery(),
         stories: stories,
-        level: 1,
+        practiceStoryIds: easyBooks,
         languages: ['FIL'],
       );
       expect(words.first.word, 'bata');

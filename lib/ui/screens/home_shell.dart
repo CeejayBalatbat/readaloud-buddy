@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../agent/agent.dart';
 import '../../app/current_learner.dart';
 import '../../app/feedback_mode.dart';
 import '../../app/hint_mode.dart';
@@ -291,7 +292,8 @@ class ShelfTab extends ConsumerWidget {
               child: Text('Pick a story',
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
             ),
-            Pill('Level ${shelf.level} · Just right',
+            // The child sees a rank, never a number or a level.
+            Pill('${shelf.profile.rank} reader',
                 background: AppColors.skyLight, color: const Color(0xFF1F6FAE)),
           ],
         ),
@@ -303,7 +305,7 @@ class ShelfTab extends ConsumerWidget {
         ),
         const SizedBox(height: 12),
         if (shelf.items.isEmpty)
-          const AppCard(child: Text('No stories at this level yet.'))
+          const AppCard(child: Text('No stories in this language yet.'))
         else
           // 2 × 2 covers; cards in a row share the taller card's height.
           for (var i = 0; i < shelf.items.length; i += 2)
@@ -336,11 +338,11 @@ class _StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pills = <Widget>[
+      if (item.isFavorite) const Pill('★ Read again', background: Color(0xFFF1F1F1)),
       if (item.isNew) const Pill('New', background: AppColors.violetLight, color: AppColors.violet),
       if (item.story.language == 'FIL')
         const Pill('Filipino', background: AppColors.tealLight, color: AppColors.tealDark),
       if (item.soundLabel != null) Pill(item.soundLabel!, background: AppColors.sunLight),
-      if (item.isFavorite) const Pill('★ Read again', background: Color(0xFFF1F1F1)),
     ].take(2).toList();
     return Semantics(
       button: true,
@@ -422,7 +424,9 @@ class SettingsTab extends ConsumerWidget {
                       minTileHeight: 56,
                       title: Text(r.nickname,
                           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
-                      subtitle: Text('Level ${r.currentLevel} · ⭐ ${r.stars}'),
+                      // For the grown-up: the CRLA profile and the score.
+                      subtitle: Text('${const ReadingScorer().profileOf(r.readingScore).label} · '
+                          '${r.readingScore.round()} · ⭐ ${r.stars}'),
                       trailing: r.id == current?.id
                           ? const Pill('Reading now', background: AppColors.tealLight, color: AppColors.tealDark)
                           : TextButton(

@@ -14,7 +14,12 @@ class Learners extends Table {
   IntColumn get grade => integer()(); // 0 = Kinder .. 3
   TextColumn get languages => text()(); // "EN", "FIL" or "EN,FIL"
   TextColumn get classCode => text().nullable()();
-  IntColumn get currentLevel => integer().withDefault(const Constant(1))();
+  /// 0–100 (AGENT_SPEC §5); set by the reading check, updated after
+  /// every story.
+  RealColumn get readingScore => real().withDefault(const Constant(10.0))();
+
+  /// The accuracy predictions' correction (§9). Null = the config default.
+  RealColumn get predictionBias => real().nullable()();
   BoolColumn get dyslexiaMode => boolean().withDefault(const Constant(false))();
   RealColumn get textScale => real().withDefault(const Constant(1.0))();
   BoolColumn get highContrast =>
@@ -55,11 +60,17 @@ class Sessions extends Table {
   RealColumn get comprehension => real()();
   TextColumn get philiriLevel => textEnum<PhilIriLevel>()();
 
-  /// "up" | "stay" | "down". Null for placement passages (placement
-  /// never makes a level decision).
-  TextColumn get agentDecision => textEnum<LevelMove>().nullable()();
-  IntColumn get levelBefore => integer()();
-  IntColumn get levelAfter => integer()();
+  /// The book's difficulty (0–100, §11).
+  RealColumn get bookDifficulty => real()();
+
+  /// The reading score before and after this story (§5). For a
+  /// reading-check passage both are that passage's evidence (§6).
+  RealColumn get scoreBefore => real()();
+  RealColumn get scoreAfter => real()();
+
+  /// What Buddy predicted the word accuracy would be (§9). Null for
+  /// reading-check passages and sessions saved before predictions existed.
+  RealColumn get predictedAccuracy => real().nullable()();
 
   @override
   Set<Column> get primaryKey => {id};

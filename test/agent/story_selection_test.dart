@@ -18,160 +18,138 @@ class FixedRandom implements Random {
   bool nextBool() => false;
 }
 
-Story story(String id, String lang, int level, List<String> patterns) => Story(
-      id: id,
-      title: id,
-      language: lang,
-      level: level,
-      text: '',
-      words: [
-        for (var i = 0; i < 4; i++)
-          StoryWord(
-            position: i + 1,
-            word: 'w$i',
-            patterns: patterns,
-            primaryPattern: patterns.first,
-            syllables: 1,
-            difficulty: 0.1,
-          ),
-      ],
-      questions: const [],
-    );
-
 void main() {
   final all = loadStories();
+  final predictor = AccuracyPredictor(patternDifficulty: loadPatternDifficulty());
 
-  group('§9 Story selection', () {
-    test('candidates: only stories at the learner level and language', () {
-      final shelf = StorySelector(random: Random(1)).select(
-        stories: all,
-        level: 1,
-        languages: ['EN'],
-        mastery: SoundMastery(),
+  StoryShelf shelf({
+    double score = 50,
+    double bias = 1.6,
+    List<String> languages = const ['EN'],
+    SoundMastery? mastery,
+    List<String> recent = const [],
+    Map<String, double> best = const {},
+    List<Story>? stories,
+    Random? random,
+  }) =>
+      StorySelector(random: random ?? FixedRandom(0)).select(
+        stories: stories ?? all,
+        languages: languages,
+        mastery: mastery ?? SoundMastery(),
+        score: score,
+        bias: bias,
+        predictor: predictor,
+        recentStoryIds: recent,
+        bestPastAccuracy: best,
       );
-      expect(shelf.picks, isNotEmpty);
-      for (final p in shelf.picks) {
-        expect((p.story.level, p.story.language), (1, 'EN'));
+
+  group('§9 Recommendation by prediction', () {
+    test('candidates: every story in the reader\'s language(s), predicted', () {
+      final en = shelf();
+      expect(en.predictions.map((p) => p.story.language).toSet(), {'EN'});
+      expect(en.predictions, hasLength(all.where((s) => s.language == 'EN').length));
+      final both = shelf(languages: ['EN', 'FIL']);
+      expect(both.predictions, hasLength(all.length));
+      // Most likely to be read well first.
+      final acc = [for (final p in both.predictions) p.accuracy];
+      expect(acc, [...acc]..sort((a, b) => b.compareTo(a)));
+    });
+
+    test('up to 3 "just right" (Instructional) books, never a Frustration one', () {
+      final s = shelf(score: 50);
+      final justRight = s.picks.where((p) => p.kind == PickKind.justRight).toList();
+      expect(justRight, isNotEmpty);
+      expect(justRight.length, lessThanOrEqualTo(3));
+      for (final p in justRight) {
+        expect(p.prediction.band, PhilIriLevel.instructional);
       }
+      expect(s.picks.any((p) => p.prediction.band == PhilIriLevel.frustration), isFalse);
+      expect(s.nothingFits, isFalse);
+      expect(s.picks, hasLength(4));
     });
 
-    test('"Both" (EN,FIL) sees stories in both languages', () {
-      final shelf = StorySelector(random: Random(1)).select(
-        stories: all,
-        level: 1,
-        languages: ['EN', 'FIL'],
-        mastery: SoundMastery(),
-      );
-      expect({for (final p in shelf.picks) p.story.language}, {'EN', 'FIL'});
+    test('one easy re-read: read before, now easy, the one read best', () {
+      final s = shelf(score: 50, best: {'S01': 0.92, 'S02': 0.99, 'S18': 1.0});
+      final again = s.picks.where((p) => p.isFavorite).toList();
+      expect(again.single.story.id, 'S02'); // S18 is too hard now
+      expect(again.single.prediction.band, PhilIriLevel.independent);
+      expect(s.picks.last.isFavorite, isTrue); // shown last
     });
 
-    test('shows all candidates, up to 4, ordered by score', () {
-      for (var level = 1; level <= 4; level++) {
-        final candidates = all
-            .where((s) => s.level == level && s.language == 'EN')
-            .length;
-        final shelf = StorySelector(random: Random(level)).select(
-          stories: all,
-          level: level,
-          languages: ['EN'],
-          mastery: SoundMastery(),
-        );
-        expect(shelf.picks.length, min(candidates, 4), reason: 'L$level');
-        final scores = [for (final p in shelf.picks) p.score];
-        expect(scores, [...scores]..sort((a, b) => b.compareTo(a)));
-      }
+    test('no re-read yet: the free slot is the easy book closest to just right', () {
+      final s = shelf(score: 50);
+      final easy = s.predictions.where((p) => p.band == PhilIriLevel.independent).toList();
+      final fill = s.picks.where((p) => p.kind == PickKind.easy).toList();
+      expect(fill, isNotEmpty);
+      final lowest = easy.map((p) => p.accuracy).reduce(min);
+      expect(fill.first.prediction.accuracy, lowest);
     });
 
-    test('score = weak-sound coverage: weaker sounds rank first', () {
-      final mastery = SoundMastery(mastery: {'EN-SH': 0.1, 'EN-SV': 0.9});
-      final shelf = StorySelector(random: FixedRandom(0)).select(
-        stories: [
-          story('easy', 'EN', 1, ['EN-SV']),
-          story('sh', 'EN', 1, ['EN-SH']),
-        ],
-        level: 1,
-        languages: ['EN'],
-        mastery: mastery,
-      );
-      expect(shelf.picks.first.story.id, 'sh');
-      expect(shelf.picks.first.score, closeTo(0.9, 1e-12)); // 1 - 0.1
-      expect(shelf.picks.last.score, closeTo(0.1, 1e-12)); // 1 - 0.9
+    test('a beginning reader (nothing fits yet): the easiest books, Buddy helps', () {
+      final s = shelf(score: 0);
+      expect(s.nothingFits, isTrue);
+      expect(s.picks, hasLength(3));
+      expect(s.picks.every((p) => p.kind == PickKind.challenge), isTrue);
+      expect(s.picks.map((p) => p.story.id), s.predictions.take(3).map((p) => p.story.id));
+      expect(s.reason, StorySelector.nothingFitsReason);
     });
 
-    test('recently read (last 3 sessions) gets −1.0 but is never hidden', () {
-      final stories = [
-        story('a', 'EN', 1, ['EN-SH']),
-        story('b', 'EN', 1, ['EN-SV']),
-      ];
-      final shelf = StorySelector(random: FixedRandom(0)).select(
-        stories: stories,
-        level: 1,
-        languages: ['EN'],
-        mastery: SoundMastery(),
-        recentStoryIds: ['a', 'x', 'y', 'z'],
-      );
-      expect([for (final p in shelf.picks) p.story.id], ['b', 'a']);
-      expect(shelf.picks.last.score, closeTo(0.65 - 1.0, 1e-12));
+    test('a strong reader: every book is easy, so the hardest easy ones', () {
+      final s = shelf(score: 100, bias: 3);
+      expect(s.picks, hasLength(4));
+      expect(s.picks.every((p) => p.prediction.band == PhilIriLevel.independent), isTrue);
+      expect(s.picks.map((p) => p.story.id), containsAll(['S18', 'S16']));
     });
 
-    test('only the last 3 sessions count as recent', () {
-      final shelf = StorySelector(random: FixedRandom(0)).select(
-        stories: [story('a', 'EN', 1, ['EN-SH'])],
-        level: 1,
-        languages: ['EN'],
-        mastery: SoundMastery(),
-        recentStoryIds: ['x', 'y', 'z', 'a'], // 'a' was 4 sessions ago
-      );
-      expect(shelf.picks.single.score, closeTo(0.65, 1e-12));
+    test('a higher reading score moves the shelf to harder books', () {
+      double avg(StoryShelf s) =>
+          s.picks.map((p) => p.story.difficulty).reduce((a, b) => a + b) / s.picks.length;
+      expect(avg(shelf(score: 60)), greaterThan(avg(shelf(score: 30))));
+    });
+
+    test('recently read (last 3 sessions) goes to the back of the just-right line', () {
+      // Three books that are all just right, so all three are shown.
+      final three = [
+        for (final p in shelf(score: 50).predictions)
+          if (p.band == PhilIriLevel.instructional) p.story,
+      ].take(3).toList();
+      List<String> ids(StoryShelf s) => [
+            for (final p in s.picks)
+              if (p.kind == PickKind.justRight) p.story.id,
+          ];
+      final first = ids(shelf(score: 50, stories: three)).first;
+      final after = ids(shelf(score: 50, stories: three, recent: [first]));
+      expect(after, contains(first)); // still on the shelf
+      expect(after.last, first);
+      // Only the last 3 sessions count.
+      expect(ids(shelf(score: 50, stories: three, recent: ['A', 'B', 'C', first])).first, first);
     });
 
     test('random variety bonus is between 0 and 0.15', () {
-      final shelf = StorySelector(random: FixedRandom(0.999999)).select(
-        stories: [story('a', 'EN', 1, ['EN-SH'])],
-        level: 1,
-        languages: ['EN'],
-        mastery: SoundMastery(),
-      );
-      expect(shelf.picks.single.score, closeTo(0.65 + 0.15, 1e-5));
+      final a = shelf(random: FixedRandom(0)).picks.first;
+      final b = shelf(random: FixedRandom(0.999)).picks.first;
+      expect(b.score - a.score, closeTo(0.15 * 0.999, 1e-9));
     });
 
-    test('includes one "read again" favorite if available', () {
-      final stories = [
-        for (final id in ['a', 'b', 'c', 'd', 'e']) story(id, 'EN', 2, ['EN-SV']),
-        story('fav', 'EN', 1, ['EN-SV']),
-      ];
-      final shelf = StorySelector(random: FixedRandom(0)).select(
-        stories: stories,
-        level: 2,
-        languages: ['EN'],
-        mastery: SoundMastery(),
-        favoriteStoryId: 'fav',
-      );
-      expect(shelf.picks, hasLength(4));
-      expect(shelf.picks.where((p) => p.isFavorite).single.story.id, 'fav');
+    test('explains the pick in one kid-friendly line, naming a specific sound', () {
+      final s = shelf(score: 50);
+      expect(s.focusPattern, isNotNull);
+      expect(const {'EN-SW', 'EN-SV'}.contains(s.focusPattern), isFalse);
+      expect(s.reason, "These stories have more '${kidPatternLabels[s.focusPattern]}' words");
     });
 
-    test('explains the pick in one kid-friendly line', () {
-      final shelf = StorySelector(random: FixedRandom(0)).select(
-        stories: [story('sh', 'EN', 1, ['EN-SH'])],
-        level: 1,
-        languages: ['EN'],
-        mastery: SoundMastery(),
+    test('weak-sound coverage: average of (1 − mastery) per word', () {
+      final story = Story(
+        id: 'X',
+        title: 'X',
+        language: 'EN',
+        difficulty: 10,
+        text: 'a b',
+        words: words('a b', patterns: ['EN-SH']),
+        questions: const [],
       );
-      expect(shelf.focusPattern, 'EN-SH');
-      expect(shelf.reason, "These stories have more 'sh' words");
-    });
-
-    test('the reason names a specific sound, not sight words', () {
-      final shelf = StorySelector(random: FixedRandom(0)).select(
-        stories: [story('mix', 'EN', 1, ['EN-SW', 'EN-TH'])],
-        level: 1,
-        languages: ['EN'],
-        mastery: SoundMastery(mastery: {'EN-TH': 0.9}),
-      );
-      // EN-SW is weaker (0.35 vs 0.9) but too common to be worth naming.
-      expect(shelf.focusPattern, 'EN-TH');
-      expect(shelf.reason, "These stories have more 'th' words");
+      expect(StorySelector.weakSoundCoverage(story, SoundMastery(mastery: {'EN-SH': 0.2})),
+          closeTo(0.8, 1e-9));
     });
 
     test('hint word parts keep every letter of every story word', () {

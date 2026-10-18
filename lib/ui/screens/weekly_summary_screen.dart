@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../app/tricky_words_print.dart';
 import '../../app/weekly_summary.dart';
 import '../../app/weekly_summary_text.dart';
+import '../../data/story_providers.dart';
 import '../theme/app_colors.dart';
 import '../widgets/common.dart';
 
@@ -100,14 +101,18 @@ class _WeeklySummaryScreenState extends ConsumerState<WeeklySummaryScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: Text(t.levelTitle,
+                    child: Text(t.profileTitle,
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                   ),
-                  Pill(t.levelBadge, background: AppColors.skyLight, color: const Color(0xFF1C6FB0)),
+                  Pill(t.profileBadge, background: AppColors.skyLight, color: const Color(0xFF1C6FB0)),
                 ],
               ),
               const SizedBox(height: 12),
-              ProgressBar(value: s.levelProgress, color: AppColors.sky),
+              ProgressBar(value: s.profileProgress, color: AppColors.sky),
+              const SizedBox(height: 8),
+              Text(t.profileNote,
+                  style: const TextStyle(
+                      fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2)),
             ],
           ),
         ),

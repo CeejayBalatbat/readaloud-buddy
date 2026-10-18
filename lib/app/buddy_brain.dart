@@ -44,15 +44,19 @@ class BrainReading {
   final bool tapMode;
 }
 
-/// What Buddy decided after the last story or placement passage.
+/// What Buddy decided after the last story or reading-check passage.
 class BrainDecision {
   const BrainDecision({
     required this.title,
     required this.scores,
     required this.philiri,
-    this.decision,
+    required this.bookDifficulty,
+    this.score,
+    this.evidence,
+    this.predictedAccuracy,
+    this.biasBefore,
+    this.biasAfter,
     this.plan,
-    this.resultsAtLevel = const [],
     this.newTrickyWords = const [],
     this.flags = const [],
     this.isPlacement = false,
@@ -61,9 +65,20 @@ class BrainDecision {
   final String title;
   final SessionScores scores;
   final PhilIriResult philiri;
-  final LevelDecision? decision; // null for placement passages
+  final double bookDifficulty;
+
+  /// The reading score before → after (stories only, §5).
+  final ScoreUpdate? score;
+
+  /// What this reading says about the child (§5; for a reading-check
+  /// passage, §6).
+  final ScoreEvidence? evidence;
+
+  /// Predicted word accuracy and the prediction correction (stories, §9).
+  final double? predictedAccuracy;
+  final double? biasBefore;
+  final double? biasAfter;
   final String? plan;
-  final List<PhilIriLevel> resultsAtLevel; // streak after this decision
   final List<String> newTrickyWords;
   final List<String> flags;
   final bool isPlacement;
@@ -95,7 +110,6 @@ class LearnerInsights {
   const LearnerInsights({
     required this.learner,
     required this.mastery,
-    required this.levelState,
     required this.hintStats,
     required this.trickyWords,
     required this.flags,
@@ -103,7 +117,6 @@ class LearnerInsights {
 
   final Learner learner;
   final SoundMastery mastery;
-  final LevelState levelState;
   final HintStats hintStats;
   final List<String> trickyWords;
   final List<String> flags;
@@ -123,11 +136,9 @@ final learnerInsightsProvider =
   final learner = await ref.watch(currentLearnerProvider.future);
   if (learner == null) return null;
   final progress = ref.watch(progressRepositoryProvider);
-  final sessions = ref.watch(sessionRepositoryProvider);
   return LearnerInsights(
     learner: learner,
     mastery: await progress.loadMastery(learner.id),
-    levelState: await sessions.levelState(learner.id),
     hintStats: await progress.loadHintStats(learner.id),
     trickyWords: [
       for (final t in await progress.trickyWordEntries(learner.id)) t.word,

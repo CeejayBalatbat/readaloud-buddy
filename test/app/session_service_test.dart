@@ -12,6 +12,8 @@ import 'package:readaloud_buddy/data/repositories/progress_repository.dart';
 import 'package:readaloud_buddy/data/repositories/session_repository.dart';
 import 'package:readaloud_buddy/data/story.dart';
 
+import '../agent/fixtures.dart' show loadPatternDifficulty;
+
 /// Reads [story] 1 s per word; words at [misread] positions are misread.
 List<WordOutcome> read(Story story, {Set<int> misread = const {}}) {
   final t = ReadingTracker(words: story.words, language: story.language);
@@ -26,7 +28,8 @@ void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
   final stories =
       parseStories(File('assets/data/stories.json').readAsStringSync());
-  final s06 = stories.firstWhere((s) => s.id == 'S06'); // level 2, 45 words
+  final s06 = stories.firstWhere((s) => s.id == 'S06'); // difficulty 38, 45 words
+  final predictor = AccuracyPredictor(patternDifficulty: loadPatternDifficulty());
 
   late AppDatabase db;
   late SessionService service;
@@ -34,9 +37,9 @@ void main() {
 
   setUp(() async {
     db = AppDatabase(NativeDatabase.memory());
-    service = SessionService(db);
+    service = SessionService(db, predictor: predictor);
     mia = await LearnerRepository(db)
-        .create(nickname: 'Mia', grade: 2, languages: 'EN', currentLevel: 2);
+        .create(nickname: 'Mia', grade: 2, languages: 'EN', readingScore: 30);
   });
   tearDown(() => db.close());
 
@@ -68,31 +71,49 @@ void main() {
     expect(const BuddyGrowth(0).justGotLeaf, isFalse);
   });
 
-  test('a perfect reading: Independent, 3 stars, one step from moving up',
-      () async {
+  test('a perfect reading: Independent, 3 stars, the score goes up (§5)', () async {
     final out = await finish(read(s06), 3);
     expect(out.scores.accuracy, 1.0);
     expect(out.scores.wcpm, 45);
     expect(out.philiri.overall, PhilIriLevel.independent);
-    expect(out.decision.move, LevelMove.stay);
     expect(out.stars, 3);
-    expect(out.plan, contains("move up to Level 3"));
-    final learner = await LearnerRepository(db).byId(mia.id);
-    expect(learner!.stars, 3);
+    expect(out.score.before, 30);
+    expect(out.score.after, greaterThan(30));
+    expect(out.score.evidence.difficulty, s06.difficulty);
+    final learner = (await LearnerRepository(db).byId(mia.id))!;
+    expect(learner.stars, 3);
+    expect(learner.readingScore, out.score.after);
 
-    // A second Independent story moves Mia up (§5).
-    final second = await finish(read(s06), 3);
-    expect(second.decision.move, LevelMove.up);
-    expect((await LearnerRepository(db).byId(mia.id))!.currentLevel, 3);
+    // Strong readings carry Mia into the next profile; Buddy celebrates.
+    var next = out;
+    while (const ReadingScorer().profileOf(next.score.after) == ReadingProfile.highEmerging) {
+      next = await finish(read(s06), 3);
+    }
+    expect(next.plan, 'Wow! You grew into a 🍃 Leaf reader! Hooray!');
   });
 
-  test('a hard reading moves down and adds tricky words', () async {
+  test('a hard reading: the score goes down, tricky words are added', () async {
     final out = await finish(read(s06, misread: {0, 3, 6, 9, 12, 15}), 1);
     expect(out.philiri.word, PhilIriLevel.frustration);
-    expect(out.decision.move, LevelMove.down);
     expect(out.stars, 1);
+    expect(out.score.after, lessThan(30));
     expect(out.newTrickyWords, contains('mia'));
-    expect((await LearnerRepository(db).byId(mia.id))!.currentLevel, 1);
+    expect((await LearnerRepository(db).byId(mia.id))!.readingScore, out.score.after);
+  });
+
+  test('prediction (§9): made before the reading, saved, and learned from', () async {
+    final expected = predictor.accuracy(s06, SoundMastery(), score: 30, bias: 1.6);
+    final out = await finish(read(s06, misread: {for (var i = 0; i < 36; i += 3) i}), 1);
+    expect(out.predictedAccuracy, closeTo(expected, 1e-12));
+    expect(out.biasBefore, 1.6);
+    // Mia read worse than predicted, so Buddy's next guesses come down.
+    expect(out.scores.accuracy, lessThan(out.predictedAccuracy));
+    expect(out.biasAfter, lessThan(out.biasBefore));
+    expect((await LearnerRepository(db).byId(mia.id))!.bias(), out.biasAfter);
+    final saved = await SessionRepository(db).byId(out.sessionId);
+    expect(saved!.session.predictedAccuracy, closeTo(expected, 1e-12));
+    expect((saved.session.scoreBefore, saved.session.scoreAfter),
+        (out.score.before, out.score.after));
   });
 
   test('mastery, hint stats and the saved session are all updated', () async {
@@ -109,12 +130,14 @@ void main() {
     expect(saved.session.philiriLevel, out.philiri.overall);
   });
 
-  group('placement (§6)', () {
-    test('passages are the opening sentences of a story at each level', () {
+  group('reading check (§6)', () {
+    test('passages are the opening sentences of the chosen books', () {
       for (final lang in ['EN', 'FIL']) {
-        for (var level = 1; level <= 3; level++) {
-          final p = placementPassage(stories, level, lang)!;
-          expect(p.story.level, level);
+        final check = ReadingCheck(stories: stories, language: lang);
+        while (!check.isDone) {
+          final story = check.nextStory!;
+          final p = placementPassage(story);
+          check.record(story, accuracy: 0.99, wcpm: 60);
           expect(p.story.language, lang);
           expect(p.words, isNotEmpty);
           expect(p.words.length, lessThanOrEqualTo(25), reason: p.story.id);
@@ -125,30 +148,34 @@ void main() {
       }
     });
 
-    test('a passage is saved and classified by word accuracy only', () async {
-      final p = placementPassage(stories, 1, 'EN')!;
+    test('a passage is saved and classified by word accuracy only; it sets the score',
+        () async {
+      final check = ReadingCheck(stories: stories, language: 'EN');
+      final p = placementPassage(check.nextStory!);
       final t = ReadingTracker(words: p.words, language: 'EN');
       for (final (i, w) in p.words.indexed) {
         t.onWordHeard(i < 3 ? 'zzxq' : w.word, Duration(seconds: i + 1));
       }
       final out = await service.savePlacementPassage(
         learner: mia,
+        check: check,
         passage: p,
-        passageLevel: 1,
         outcomes: t.outcomes,
         readingSeconds: 20,
         hintAttempts: const [],
         startedAt: DateTime(2026, 10, 15, 9),
       );
-      expect(out.wordLevel, PhilIriLevel.frustration); // 3 misreads in ~15
+      expect(out.passage.wordLevel, PhilIriLevel.frustration); // 3 misreads in ~15
+      expect(check.isDone, isTrue);
       final saved = (await SessionRepository(db).recent(mia.id)).single;
       expect(saved.type, SessionType.placement);
-      expect(saved.agentDecision, isNull);
-      expect(saved.levelBefore, 1);
+      expect(saved.predictedAccuracy, isNull);
+      expect(saved.scoreAfter, out.passage.evidence.value);
 
-      final check = PlacementCheck()..record(out.wordLevel);
       await service.finishPlacement(mia, check);
-      expect((await LearnerRepository(db).byId(mia.id))!.currentLevel, 1);
+      final score = (await LearnerRepository(db).byId(mia.id))!.readingScore;
+      expect(score, check.startScore);
+      expect(const ReadingScorer().profileOf(score), ReadingProfile.lowEmerging);
     });
   });
 

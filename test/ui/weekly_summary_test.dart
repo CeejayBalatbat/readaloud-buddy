@@ -8,6 +8,7 @@ import 'package:readaloud_buddy/app/weekly_summary_text.dart';
 import 'package:readaloud_buddy/data/repositories/learner_repository.dart';
 import 'package:readaloud_buddy/data/repositories/progress_repository.dart';
 import 'package:readaloud_buddy/data/repositories/session_repository.dart';
+import 'package:readaloud_buddy/data/sound_patterns.dart';
 import 'package:readaloud_buddy/ui/screens/weekly_summary_screen.dart';
 
 import 'test_app.dart';
@@ -31,18 +32,18 @@ void main() {
   WordOutcome strong(WordResult r) => WordOutcome(
       position: 1, word: 'strong', patterns: const ['EN-BL3'], primaryPattern: 'EN-BL3', result: r);
 
-  /// Mia: one story the week before (40 wpm, "strong" misread) and two this
-  /// week (46 wpm, "strong" read well; the last one Independent).
+  /// Mia: one story the week before (40 wpm, "strong" misread; score 30 →
+  /// 32) and two this week (46 wpm, "strong" read well; 32 → 34 → 37).
   Future<TestApp> seeded(WidgetTester tester, FakePrinter printer) async {
     final app = TestApp(); // "now" is Oct 15, 2026
     await tester.runAsync(() async {
       final mia = await LearnerRepository(app.db)
-          .create(nickname: 'Mia', grade: 2, languages: 'EN', currentLevel: 2);
+          .create(nickname: 'Mia', grade: 2, languages: 'EN', readingScore: 30);
       final sessions = SessionRepository(app.db);
-      for (final (day, wcpm, level, word) in [
-        (3, 40.0, PhilIriLevel.instructional, WordResult.misread),
-        (13, 46.0, PhilIriLevel.instructional, WordResult.correct),
-        (14, 46.0, PhilIriLevel.independent, WordResult.correct),
+      for (final (day, wcpm, level, word, before, after) in [
+        (3, 40.0, PhilIriLevel.instructional, WordResult.misread, 30.0, 32.0),
+        (13, 46.0, PhilIriLevel.instructional, WordResult.correct, 32.0, 34.0),
+        (14, 46.0, PhilIriLevel.independent, WordResult.correct, 34.0, 37.0),
       ]) {
         await sessions.saveStory(
           learnerId: mia.id,
@@ -54,7 +55,14 @@ void main() {
             questionsCorrect: 3, questionsTotal: 3,
           ),
           level: level,
-          decision: const LevelDecision(move: LevelMove.stay, levelBefore: 2, levelAfter: 2),
+          bookDifficulty: 38,
+          score: ScoreUpdate(
+            before: before,
+            after: after,
+            evidence: ScoreEvidence(difficulty: 38, accuracyPart: 0, fluencyPart: 0, value: after),
+          ),
+          predictedAccuracy: 0.95,
+          predictionBias: 1.6,
           words: [strong(word)],
         );
       }
@@ -72,7 +80,7 @@ void main() {
     return app;
   }
 
-  testWidgets('screen 11: minutes, stories, words/min, level, celebrate, tip, print',
+  testWidgets('screen 11: minutes, stories, words/min, profile, celebrate, tip, print',
       (tester) async {
     final printer = FakePrinter();
     final app = await seeded(tester, printer);
@@ -89,7 +97,9 @@ void main() {
     expect(find.text("Mia's reading week"), findsOneWidget);
     expect(find.text('2'), findsNWidgets(2)); // 2 minutes (2 × 60 s) and 2 stories
     expect(find.text('+6'), findsOneWidget); // 46 vs 40 words/min
-    expect(find.text('Level 2 → almost 3'), findsOneWidget);
+    // Grown-ups see the CRLA profile and the score, never a level.
+    expect(find.text('High Emerging · 37'), findsOneWidget);
+    expect(find.text('+5 this week · almost Developing'), findsOneWidget);
     expect(find.text('Mia read "strong" on their own this week. Those were hard before!'),
         findsOneWidget);
     expect(find.textContaining('"shell" and "ship"'), findsOneWidget); // weakest: sh
@@ -105,7 +115,8 @@ void main() {
     await settle(tester);
     expect(find.text('Linggo ng pagbasa ni Mia'), findsOneWidget);
     expect(find.text('🎉 Ipagdiwang'), findsOneWidget);
-    expect(find.text('Antas 2 → malapit na sa 3'), findsOneWidget);
+    expect(find.text('High Emerging · 37'), findsOneWidget);
+    expect(find.text('+5 ngayong linggo · malapit na sa Developing'), findsOneWidget);
   });
 
   group('SummaryText', () {
@@ -116,6 +127,8 @@ void main() {
       String? tip,
       int stories = 0,
       List<String> celebrate = const [],
+      double score = 85,
+      double? scoreChange,
     }) =>
         WeeklySummary(
           nickname: 'Jojo',
@@ -125,19 +138,22 @@ void main() {
           stories: stories,
           wcpm: wcpm,
           wcpmChange: change,
-          level: 4,
-          levelProgress: 1,
-          almostNext: false,
-          topLevel: true,
+          score: score,
+          profile: const ReadingScorer().profileOf(score),
+          profileProgress: const ReadingScorer().progressInProfile(score),
+          scoreChange: scoreChange,
           celebrateWords: celebrate,
           tipPattern: tip,
           trickyWords: const [],
         );
 
-    test('dates across two months, top level, no comparison', () {
+    test('dates across two months, top profile, no comparison', () {
       final t = SummaryText(summary(wcpm: 51.4));
       expect(t.dates, 'Sep 28 – Oct 4');
-      expect(t.levelBadge, 'Level 4 · top level');
+      expect(t.profileBadge, 'Reading at Grade Level · 85');
+      expect(t.profileNote, 'No stories yet · top profile');
+      expect(SummaryText(summary(score: 50, scoreChange: -3.4)).profileNote, '−3 this week');
+      expect(SummaryText(summary(score: 50, scoreChange: 0.2)).profileNote, 'No change this week');
       expect(t.wcpmValue, '51'); // no week before: just the average
       expect(SummaryText(summary(change: -2.2)).wcpmValue, '−2');
       expect(SummaryText(summary()).wcpmValue, '–');

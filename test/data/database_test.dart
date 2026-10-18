@@ -31,6 +31,14 @@ PhilIriLevel classify(SessionScores sc) => const PhilIriClassifier()
     .classify(accuracy: sc.accuracy, comprehension: sc.comprehension)
     .overall;
 
+/// A score change from [before] to [after] (the evidence doesn't matter
+/// for saving).
+ScoreUpdate scoreUpdate(double before, double after) => ScoreUpdate(
+      before: before,
+      after: after,
+      evidence: ScoreEvidence(difficulty: after, accuracyPart: 0, fluencyPart: 0, value: after),
+    );
+
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
 
@@ -64,15 +72,16 @@ void main() {
       final words = fakeReading(s01);
       final scores = scoresFor(words, questionsCorrect: 2);
       final level = classify(scores);
-      final (decision, _) =
-          LevelState(level: mia.currentLevel).apply(level);
       final sessionId = await SessionRepository(fileDb).saveStory(
         learnerId: mia.id,
         storyId: s01.id,
         startedAt: DateTime(2026, 10, 15, 9),
         scores: scores,
         level: level,
-        decision: decision,
+        bookDifficulty: s01.difficulty,
+        score: scoreUpdate(mia.readingScore, 14.5),
+        predictedAccuracy: 0.93,
+        predictionBias: 1.4,
         words: words,
       );
       await fileDb.close();
@@ -81,6 +90,8 @@ void main() {
       fileDb = AppDatabase(NativeDatabase(file));
       final reloaded = await LearnerRepository(fileDb).byId(mia.id);
       expect(reloaded!.nickname, 'Mia');
+      expect(reloaded.readingScore, 14.5);
+      expect(reloaded.bias(), 1.4);
 
       final record = await SessionRepository(fileDb).byId(sessionId);
       expect(record, isNotNull);
@@ -95,7 +106,9 @@ void main() {
       expect(saved.wcpm, closeTo(scores.wcpm, 1e-12));
       expect(saved.comprehension, closeTo(2 / 3, 1e-12));
       expect(saved.philiriLevel, level);
-      expect(saved.agentDecision, decision.move);
+      expect(saved.bookDifficulty, s01.difficulty);
+      expect((saved.scoreBefore, saved.scoreAfter), (10, 14.5));
+      expect(saved.predictedAccuracy, 0.93);
 
       expect(record.words, hasLength(s01.words.length));
       expect([for (final w in record.words) w.position],
@@ -118,7 +131,9 @@ void main() {
       expect(l.id, matches(RegExp(r'^[0-9a-f-]{36}$')));
       expect(l.nickname, 'Juan');
       expect(l.languageList, ['EN', 'FIL']);
-      expect(l.currentLevel, 1);
+      expect(l.readingScore, 10); // until the reading check sets it
+      expect(l.predictionBias, isNull);
+      expect(l.bias(), 1.6);
       expect(l.startHintLevel, 1);
       expect(l.hintWait(), 5);
     });
@@ -132,16 +147,16 @@ void main() {
           throwsArgumentError);
     });
 
-    test('settings changes, level and stars are saved', () async {
+    test('settings changes, reading score and stars are saved', () async {
       final l = await learners.create(nickname: 'Ana', grade: 0, languages: 'FIL');
       await learners.update(l.copyWith(dyslexiaMode: true, textScale: 1.3));
-      await learners.setLevel(l.id, 3);
+      await learners.setReadingScore(l.id, 47.5);
       await learners.addStars(l.id, 2);
       await learners.addStars(l.id, 3);
       final again = (await learners.byId(l.id))!;
       expect((again.dyslexiaMode, again.textScale), (true, 1.3));
       expect(again.hintWait(), 8); // dyslexia mode -> 8 s
-      expect((again.currentLevel, again.stars), (3, 5));
+      expect((again.readingScore, again.stars), (47.5, 5));
     });
 
     test('several readers on one phone are listed oldest first', () async {
@@ -156,16 +171,8 @@ void main() {
     test('deleting a reader deletes all of their data', () async {
       final l = await learners.create(nickname: 'Bo', grade: 1, languages: 'EN');
       final words = fakeReading(s01);
-      final sc = scoresFor(words);
-      await sessions.saveStory(
-        learnerId: l.id,
-        storyId: 'S01',
-        startedAt: DateTime(2026),
-        scores: sc,
-        level: classify(sc),
-        decision: LevelState(level: 1).apply(classify(sc)).$1,
-        words: words,
-      );
+      await _story(sessions, l.id, 'S01', DateTime(2026), classify(scoresFor(words)),
+          words: words);
       await progress.saveMastery(
           l.id, SoundMastery()..observe('EN-TH', correct: true));
       await learners.delete(l.id);
@@ -176,37 +183,22 @@ void main() {
   });
 
   group('sessions', () {
-    test('a story session also saves the learner\'s new level', () async {
+    test("a story session also saves the learner's new score and prediction correction",
+        () async {
       final l = await learners.create(nickname: 'Up', grade: 2, languages: 'EN');
-      const decision = LevelDecision(
-          move: LevelMove.up, levelBefore: 1, levelAfter: 2);
-      final words = fakeReading(s01);
-      await sessions.saveStory(
-        learnerId: l.id,
-        storyId: 'S01',
-        startedAt: DateTime(2026),
-        scores: scoresFor(words),
-        level: PhilIriLevel.independent,
-        decision: decision,
-        words: words,
-      );
-      expect((await learners.byId(l.id))!.currentLevel, 2);
+      await _story(sessions, l.id, 'S01', DateTime(2026), PhilIriLevel.independent,
+          before: 10, after: 21, bias: 1.9);
+      final again = (await learners.byId(l.id))!;
+      expect(again.readingScore, 21);
+      expect(again.bias(), 1.9);
     });
 
     test('nothing is saved if part of the save fails (unknown learner)',
         () async {
       final words = fakeReading(s01);
       await expectLater(
-        sessions.saveStory(
-          learnerId: 'no-such-learner',
-          storyId: 'S01',
-          startedAt: DateTime(2026),
-          scores: scoresFor(words),
-          level: PhilIriLevel.independent,
-          decision: const LevelDecision(
-              move: LevelMove.stay, levelBefore: 1, levelAfter: 1),
-          words: words,
-        ),
+        _story(sessions, 'no-such-learner', 'S01', DateTime(2026),
+            PhilIriLevel.independent, words: words),
         throwsA(anything),
       );
       expect(await db.select(db.sessions).get(), isEmpty);
@@ -218,63 +210,41 @@ void main() {
       final l = await learners.create(nickname: 'R', grade: 1, languages: 'EN');
       for (final (i, id) in ['S01', 'S02', 'S03', 'S05'].indexed) {
         await _story(sessions, l.id, id, DateTime(2026, 10, 1 + i),
-            PhilIriLevel.instructional, LevelMove.stay, 1);
+            PhilIriLevel.instructional);
       }
       expect(await sessions.recentStoryIds(l.id), ['S05', 'S03', 'S02']);
       expect((await sessions.recent(l.id, limit: 1)).single.storyId, 'S05');
     });
-  });
 
-  group('level state rebuilt from saved sessions (§5, §6)', () {
-    test('placement result at the start level counts as the first result',
+    test('best accuracy per story read (not reading-check passages), for the re-read',
         () async {
-      final l = await learners.create(nickname: 'P', grade: 2, languages: 'EN');
-      final placement = PlacementCheck();
-      for (final (i, r) in [
-        PhilIriLevel.independent,
-        PhilIriLevel.independent,
-        PhilIriLevel.frustration,
-      ].indexed) {
-        placement.record(r);
-        await _placement(sessions, l.id, DateTime(2026, 10, 1, 9, i), r, i + 1);
-      }
-      await learners.setLevel(l.id, placement.startLevel);
-
-      final state = await sessions.levelState(l.id);
-      final expected = placement.toLevelState();
-      expect(state.level, expected.level);
-      expect(state.resultsAtLevel, expected.resultsAtLevel);
-      // ...so one more Independent story moves the child up.
-      expect(state.apply(PhilIriLevel.independent).$1.move, LevelMove.up);
+      final l = await learners.create(nickname: 'B', grade: 1, languages: 'EN');
+      await _story(sessions, l.id, 'S01', DateTime(2026, 10, 1), PhilIriLevel.instructional,
+          accuracy: 0.91);
+      await _story(sessions, l.id, 'S01', DateTime(2026, 10, 2), PhilIriLevel.independent,
+          accuracy: 0.98);
+      await _story(sessions, l.id, 'S02', DateTime(2026, 10, 3), PhilIriLevel.instructional,
+          accuracy: 0.93);
+      await _placement(sessions, l.id, 'S03', DateTime(2026, 10, 4), evidence: 25);
+      expect(await sessions.bestAccuracies(l.id), {'S01': 0.98, 'S02': 0.93});
     });
 
-    test('only results since the last level change count', () async {
-      final l = await learners.create(nickname: 'Q', grade: 2, languages: 'EN');
-      await learners.setLevel(l.id, 3);
-      await _story(sessions, l.id, 'S06', DateTime(2026, 10, 1),
-          PhilIriLevel.independent, LevelMove.stay, 2);
-      await _story(sessions, l.id, 'S07', DateTime(2026, 10, 2),
-          PhilIriLevel.independent, LevelMove.up, 2, after: 3);
-      await _story(sessions, l.id, 'S11', DateTime(2026, 10, 3),
-          PhilIriLevel.instructional, LevelMove.stay, 3);
-      final state = await sessions.levelState(l.id);
-      expect(state.level, 3);
-      expect(state.resultsAtLevel, [PhilIriLevel.instructional]);
+    test('a reading-check passage stores its evidence and no prediction', () async {
+      final l = await learners.create(nickname: 'P', grade: 1, languages: 'EN');
+      await _placement(sessions, l.id, 'S01', DateTime(2026), evidence: 26.75);
+      final row = (await sessions.recent(l.id)).single;
+      expect(row.type, SessionType.placement);
+      expect((row.scoreBefore, row.scoreAfter), (26.75, 26.75));
+      expect(row.predictedAccuracy, isNull);
+      // The learner's score is only set when the whole check is done.
+      expect((await learners.byId(l.id))!.readingScore, 10);
     });
 
     test('summaries for the teacher flag list practised patterns', () async {
       final l = await learners.create(nickname: 'T', grade: 1, languages: 'EN');
       final words = fakeReading(s01);
       final sc = scoresFor(words);
-      await sessions.saveStory(
-        learnerId: l.id,
-        storyId: 'S01',
-        startedAt: DateTime(2026),
-        scores: sc,
-        level: classify(sc),
-        decision: LevelState(level: 1).apply(classify(sc)).$1,
-        words: words,
-      );
+      await _story(sessions, l.id, 'S01', DateTime(2026), classify(sc), words: words);
       final summary = (await sessions.summaries(l.id)).single;
       expect(summary.level, classify(sc));
       expect(summary.patternsPracticed,
@@ -375,7 +345,48 @@ void main() {
     await settings.remove(SettingKeys.parentPin);
     expect(await settings.get(SettingKeys.parentPin), isNull);
   });
+
+  test('upgrading from version 1: levels become reading scores', () async {
+    final old = AppDatabase(NativeDatabase.memory(setup: (raw) {
+      raw.execute(_version1Schema);
+      raw.execute("INSERT INTO learners (id, nickname, grade, languages, current_level, "
+          "created_at) VALUES ('a', 'Ana', 1, 'EN', 3, 1760000000)");
+      raw.execute("INSERT INTO sessions VALUES ('s1', 'a', 'S06', 'story', 1760000000, 60, "
+          "45, 43, 3, 3, 0, 2, 0, 0, 1, 0.955, 43, 1, 'instructional', 'up', 2, 3)");
+      raw.execute('PRAGMA user_version = 1');
+    }));
+    addTearDown(old.close);
+    final l = (await LearnerRepository(old).byId('a'))!;
+    expect(l.readingScore, 50); // level 3 -> 50
+    expect(l.predictionBias, isNull);
+    expect(l.nickname, 'Ana');
+    final row = (await SessionRepository(old).recent('a')).single;
+    expect((row.bookDifficulty, row.scoreBefore, row.scoreAfter), (30, 30, 50));
+    expect(row.predictedAccuracy, isNull);
+    expect(row.accuracy, 0.955);
+    expect(row.philiriLevel, PhilIriLevel.instructional);
+  });
 }
+
+/// The two tables version 2 changed, as version 1 created them.
+const _version1Schema = '''
+CREATE TABLE learners (id TEXT NOT NULL PRIMARY KEY, nickname TEXT NOT NULL,
+  grade INTEGER NOT NULL, languages TEXT NOT NULL, class_code TEXT NULL,
+  current_level INTEGER NOT NULL DEFAULT 1, dyslexia_mode INTEGER NOT NULL DEFAULT 0,
+  text_scale REAL NOT NULL DEFAULT 1.0, high_contrast INTEGER NOT NULL DEFAULT 0,
+  read_aloud INTEGER NOT NULL DEFAULT 1, hint_wait_sec REAL NULL,
+  start_hint_level INTEGER NOT NULL DEFAULT 1, stars INTEGER NOT NULL DEFAULT 0,
+  created_at INTEGER NOT NULL);
+CREATE TABLE sessions (id TEXT NOT NULL PRIMARY KEY, learner_id TEXT NOT NULL,
+  story_id TEXT NOT NULL, type TEXT NOT NULL, started_at INTEGER NOT NULL,
+  reading_seconds REAL NOT NULL, words_total INTEGER NOT NULL,
+  words_correct INTEGER NOT NULL, questions_total INTEGER NOT NULL,
+  questions_correct INTEGER NOT NULL, hesitations INTEGER NOT NULL,
+  miscues INTEGER NOT NULL, skips INTEGER NOT NULL, unsure_words INTEGER NOT NULL,
+  hints_given INTEGER NOT NULL, accuracy REAL NOT NULL, wcpm REAL NOT NULL,
+  comprehension REAL NOT NULL, philiri_level TEXT NOT NULL, agent_decision TEXT NULL,
+  level_before INTEGER NOT NULL, level_after INTEGER NOT NULL);
+''';
 
 WordOutcome _outcome(String word, WordResult r) => WordOutcome(
       position: 1,
@@ -385,41 +396,48 @@ WordOutcome _outcome(String word, WordResult r) => WordOutcome(
       result: r,
     );
 
-const _noScores = SessionScores(
-  wordsTotal: 0,
-  wordsCorrect: 0,
-  hesitations: 0,
-  miscues: 0,
-  skips: 0,
-  unsureWords: 0,
-  hintsGiven: 0,
-  readingSeconds: 0,
-  questionsCorrect: 0,
-  questionsTotal: 3,
-);
+SessionScores _scores({double accuracy = 0}) => SessionScores(
+      wordsTotal: 100,
+      wordsCorrect: (accuracy * 100).round(),
+      hesitations: 0,
+      miscues: 0,
+      skips: 0,
+      unsureWords: 0,
+      hintsGiven: 0,
+      readingSeconds: 0,
+      questionsCorrect: 0,
+      questionsTotal: 3,
+    );
 
 Future<void> _story(SessionRepository repo, String learnerId, String storyId,
-        DateTime at, PhilIriLevel level, LevelMove move, int before,
-        {int? after}) =>
+        DateTime at, PhilIriLevel level,
+        {double before = 10,
+        double after = 12,
+        double bias = 1.6,
+        double accuracy = 0.95,
+        List<WordOutcome> words = const []}) =>
     repo.saveStory(
       learnerId: learnerId,
       storyId: storyId,
       startedAt: at,
-      scores: _noScores,
+      scores: _scores(accuracy: accuracy),
       level: level,
-      decision: LevelDecision(
-          move: move, levelBefore: before, levelAfter: after ?? before),
-      words: const [],
+      bookDifficulty: 20,
+      score: scoreUpdate(before, after),
+      predictedAccuracy: 0.93,
+      predictionBias: bias,
+      words: words,
     );
 
-Future<void> _placement(SessionRepository repo, String learnerId, DateTime at,
-        PhilIriLevel level, int passageLevel) =>
+Future<void> _placement(SessionRepository repo, String learnerId, String storyId,
+        DateTime at, {required double evidence}) =>
     repo.savePlacementPassage(
       learnerId: learnerId,
-      storyId: 'P$passageLevel',
+      storyId: storyId,
       startedAt: at,
-      scores: _noScores,
-      level: level,
-      passageLevel: passageLevel,
+      scores: _scores(accuracy: 0.97),
+      level: PhilIriLevel.independent,
+      bookDifficulty: 18,
+      evidence: evidence,
       words: const [],
     );

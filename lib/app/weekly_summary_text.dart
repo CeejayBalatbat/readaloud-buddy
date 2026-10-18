@@ -1,3 +1,4 @@
+import '../data/sound_patterns.dart';
 import 'weekly_summary.dart';
 
 /// The weekly summary's words for the parent, in English or Filipino
@@ -40,14 +41,26 @@ class SummaryText {
     return w == null ? '–' : '${w.round()}';
   }
 
-  String get levelTitle => filipino ? 'Antas sa pagbasa' : 'Reading level';
-  String get levelBadge {
-    final l = summary.level;
-    if (summary.topLevel) return filipino ? 'Antas $l · pinakamataas' : 'Level $l · top level';
-    if (summary.almostNext) {
-      return filipino ? 'Antas $l → malapit na sa ${l + 1}' : 'Level $l → almost ${l + 1}';
-    }
-    return filipino ? 'Antas $l' : 'Level $l';
+  /// The CRLA profile names are DepEd's (English in both languages).
+  String get profileTitle => filipino ? 'Antas sa pagbasa (CRLA)' : 'Reading profile (CRLA)';
+  String get profileBadge => '${summary.profile.label} · ${summary.score.round()}';
+
+  /// "+5 this week", "No change this week", or how close the next profile is.
+  String get profileNote {
+    final change = summary.scoreChange?.round();
+    final next = summary.profile.next;
+    final parts = <String>[
+      if (change == null)
+        filipino ? 'Wala pang kuwento' : 'No stories yet'
+      else if (change == 0)
+        filipino ? 'Walang pagbabago ngayong linggo' : 'No change this week'
+      else
+        '${change > 0 ? '+' : '−'}${change.abs()} ${filipino ? 'ngayong linggo' : 'this week'}',
+      if (next != null && summary.almostNext)
+        filipino ? 'malapit na sa ${next.label}' : 'almost ${next.label}',
+      if (next == null) filipino ? 'pinakamataas na antas' : 'top profile',
+    ];
+    return parts.join(' · ');
   }
 
   String get celebrateTitle => filipino ? '🎉 Ipagdiwang' : '🎉 Celebrate';

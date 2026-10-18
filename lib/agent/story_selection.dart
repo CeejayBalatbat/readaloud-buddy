@@ -3,6 +3,8 @@ import 'dart:math';
 import '../data/story.dart';
 import 'agent_config.dart';
 import 'mastery.dart';
+import 'philiri.dart';
+import 'prediction.dart';
 
 /// Short, kid-friendly names for sound patterns, used in the shelf reason.
 const kidPatternLabels = <String, String>{
@@ -31,37 +33,69 @@ const kidPatternLabels = <String, String>{
   'FIL-ML': 'long',
 };
 
-class ShelfPick {
-  const ShelfPick({
-    required this.story,
-    required this.score,
-    this.isFavorite = false,
-  });
+/// Why a book is on the shelf.
+enum PickKind {
+  /// Predicted Instructional: just right.
+  justRight,
 
-  final Story story;
+  /// Read before and now predicted Independent: an easy re-read.
+  readAgain,
+
+  /// Predicted Independent, filling a free slot.
+  easy,
+
+  /// Nothing fits yet (a beginning reader): the easiest books.
+  challenge,
+}
+
+class ShelfPick {
+  const ShelfPick({required this.prediction, required this.kind, this.score = 0});
+
+  final BookPrediction prediction;
+  final PickKind kind;
+
+  /// Order among the just-right books (weak-sound coverage − recently
+  /// read + a little randomness).
   final double score;
-  final bool isFavorite; // the "read again" favorite
+
+  Story get story => prediction.story;
+  bool get isFavorite => kind == PickKind.readAgain;
 }
 
 class StoryShelf {
-  const StoryShelf({required this.picks, this.focusPattern, this.reason});
+  const StoryShelf({
+    required this.picks,
+    required this.predictions,
+    this.focusPattern,
+    this.reason,
+    this.nothingFits = false,
+  });
 
   final List<ShelfPick> picks;
+
+  /// Every candidate book's prediction, most likely to be read well first
+  /// (for Buddy's brain).
+  final List<BookPrediction> predictions;
 
   /// The weak sound these stories practise most, e.g. "EN-SH".
   final String? focusPattern;
 
   /// One kid-friendly line, e.g. "These stories have more 'sh' words".
   final String? reason;
+
+  /// No book is predicted Instructional or Independent yet.
+  final bool nothingFits;
 }
 
-/// Story selection for the story shelf (AGENT_SPEC §9).
+/// Story recommendation by prediction (AGENT_SPEC §9).
 class StorySelector {
   StorySelector({this.config = const AgentConfig(), Random? random})
       : _random = random ?? Random();
 
   final AgentConfig config;
   final Random _random;
+
+  static const nothingFitsReason = "Let's read these together. I'll help you!";
 
   /// Average over the story's words of (1 − mastery) of each word's
   /// patterns. Higher = more practice on weak sounds.
@@ -76,58 +110,86 @@ class StorySelector {
     return sum / story.words.length;
   }
 
-  /// [languages] e.g. ["EN"], ["FIL"] or ["EN", "FIL"] for "Both".
-  /// [recentStoryIds] are the stories of the learner's latest sessions,
-  /// newest first. [favoriteStoryId] is a story worth reading again.
+  /// The shelf for a learner with reading [score] and prediction
+  /// correction [bias]. [languages] e.g. ["EN"], ["FIL"] or both.
+  /// [recentStoryIds] are the stories of the latest sessions, newest first.
+  /// [bestPastAccuracy] is the best accuracy of each story read before.
   StoryShelf select({
     required List<Story> stories,
-    required int level,
     required List<String> languages,
     required SoundMastery mastery,
+    required double score,
+    required double bias,
+    required AccuracyPredictor predictor,
     List<String> recentStoryIds = const [],
-    String? favoriteStoryId,
+    Map<String, double> bestPastAccuracy = const {},
     Map<String, String> patternLabels = kidPatternLabels,
   }) {
     final recent = recentStoryIds.take(config.recentSessionsWindow).toSet();
-    final scored = [
+    final predictions = [
       for (final s in stories)
-        if (s.level == level && languages.contains(s.language))
+        if (languages.contains(s.language))
+          predictor.predict(s, mastery, score: score, bias: bias),
+    ]..sort((a, b) => b.accuracy.compareTo(a.accuracy));
+
+    final justRight = [
+      for (final p in predictions)
+        if (p.band == PhilIriLevel.instructional)
           ShelfPick(
-            story: s,
-            score: weakSoundCoverage(s, mastery) -
-                (recent.contains(s.id) ? config.recentlyReadPenalty : 0) +
+            prediction: p,
+            kind: PickKind.justRight,
+            score: weakSoundCoverage(p.story, mastery) -
+                (recent.contains(p.story.id) ? config.recentlyReadPenalty : 0) +
                 _random.nextDouble() * config.maxRandomBonus,
           ),
     ]..sort((a, b) => b.score.compareTo(a.score));
+    // Easy books, the ones closest to "just right" first.
+    final easy = predictions.where((p) => p.band == PhilIriLevel.independent).toList()
+      ..sort((a, b) => a.accuracy.compareTo(b.accuracy));
 
-    var picks = scored.take(config.shelfSize).toList();
+    final picks = justRight.take(config.instructionalPicks).toList();
+    bool picked(Story s) => picks.any((p) => p.story.id == s.id);
 
-    final favorite = favoriteStoryId == null
-        ? null
-        : stories.where((s) => s.id == favoriteStoryId).firstOrNull;
-    if (favorite != null && languages.contains(favorite.language)) {
-      final at = picks.indexWhere((p) => p.story.id == favorite.id);
-      final fav = ShelfPick(
-        story: favorite,
-        score: at >= 0 ? picks[at].score : double.negativeInfinity,
-        isFavorite: true,
-      );
-      if (at >= 0) {
-        picks[at] = fav;
-      } else if (picks.length < config.shelfSize) {
-        picks.add(fav);
-      } else {
-        picks[picks.length - 1] = fav;
-      }
+    // One easy re-read: read before, now easy, read best before.
+    final reRead = easy.where((p) => bestPastAccuracy.containsKey(p.story.id)).toList()
+      ..sort((a, b) => bestPastAccuracy[b.story.id]!.compareTo(bestPastAccuracy[a.story.id]!));
+    final favorite = reRead.firstOrNull;
+
+    // Free slots: easy books closest to just right, then more just-right ones.
+    final slots = config.shelfSize - (favorite == null ? 0 : 1);
+    final fill = [
+      for (final p in easy)
+        if (p.story.id != favorite?.story.id) ShelfPick(prediction: p, kind: PickKind.easy),
+      ...justRight.skip(config.instructionalPicks),
+    ];
+    for (final f in fill) {
+      if (picks.length >= slots) break;
+      if (!picked(f.story)) picks.add(f);
+    }
+    if (favorite != null) picks.add(ShelfPick(prediction: favorite, kind: PickKind.readAgain));
+
+    var nothingFits = false;
+    if (picks.isEmpty) {
+      // A beginning reader: every book is predicted too hard. Offer the
+      // easiest few, and Buddy helps.
+      nothingFits = true;
+      picks.addAll([
+        for (final p in predictions.take(config.instructionalPicks))
+          ShelfPick(prediction: p, kind: PickKind.challenge),
+      ]);
     }
 
     final focus = _focusPattern(picks, mastery);
     return StoryShelf(
       picks: picks,
+      predictions: predictions,
       focusPattern: focus,
-      reason: focus == null
-          ? null
-          : "These stories have more '${patternLabels[focus] ?? focus}' words",
+      nothingFits: nothingFits,
+      reason: nothingFits
+          ? nothingFitsReason
+          : focus == null
+              ? null
+              : "These stories have more '${patternLabels[focus] ?? focus}' words",
     );
   }
 

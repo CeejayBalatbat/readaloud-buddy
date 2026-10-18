@@ -8,7 +8,7 @@ class Story {
     required this.id,
     required this.title,
     required this.language,
-    required this.level,
+    required this.difficulty,
     required this.text,
     required this.words,
     required this.questions,
@@ -17,7 +17,7 @@ class Story {
   final String id; // e.g. "S01"
   final String title;
   final String language; // "EN" or "FIL"
-  final int level; // 1–4
+  final double difficulty; // 0–100, same scale as the reading score
   final String text;
   final List<StoryWord> words;
   final List<Question> questions;
@@ -26,7 +26,7 @@ class Story {
     id: json['id'] as String,
     title: json['title'] as String,
     language: json['language'] as String,
-    level: json['level'] as int,
+    difficulty: (json['difficulty'] as num).toDouble(),
     text: json['text'] as String,
     words: [
       for (final w in json['words'] as List)

@@ -59,17 +59,28 @@ class $LearnersTable extends Learners with TableInfo<$LearnersTable, Learner> {
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
-  static const VerificationMeta _currentLevelMeta = const VerificationMeta(
-    'currentLevel',
+  static const VerificationMeta _readingScoreMeta = const VerificationMeta(
+    'readingScore',
   );
   @override
-  late final GeneratedColumn<int> currentLevel = GeneratedColumn<int>(
-    'current_level',
+  late final GeneratedColumn<double> readingScore = GeneratedColumn<double>(
+    'reading_score',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.double,
     requiredDuringInsert: false,
-    defaultValue: const Constant(1),
+    defaultValue: const Constant(10.0),
+  );
+  static const VerificationMeta _predictionBiasMeta = const VerificationMeta(
+    'predictionBias',
+  );
+  @override
+  late final GeneratedColumn<double> predictionBias = GeneratedColumn<double>(
+    'prediction_bias',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
   );
   static const VerificationMeta _dyslexiaModeMeta = const VerificationMeta(
     'dyslexiaMode',
@@ -179,7 +190,8 @@ class $LearnersTable extends Learners with TableInfo<$LearnersTable, Learner> {
     grade,
     languages,
     classCode,
-    currentLevel,
+    readingScore,
+    predictionBias,
     dyslexiaMode,
     textScale,
     highContrast,
@@ -236,12 +248,21 @@ class $LearnersTable extends Learners with TableInfo<$LearnersTable, Learner> {
         classCode.isAcceptableOrUnknown(data['class_code']!, _classCodeMeta),
       );
     }
-    if (data.containsKey('current_level')) {
+    if (data.containsKey('reading_score')) {
       context.handle(
-        _currentLevelMeta,
-        currentLevel.isAcceptableOrUnknown(
-          data['current_level']!,
-          _currentLevelMeta,
+        _readingScoreMeta,
+        readingScore.isAcceptableOrUnknown(
+          data['reading_score']!,
+          _readingScoreMeta,
+        ),
+      );
+    }
+    if (data.containsKey('prediction_bias')) {
+      context.handle(
+        _predictionBiasMeta,
+        predictionBias.isAcceptableOrUnknown(
+          data['prediction_bias']!,
+          _predictionBiasMeta,
         ),
       );
     }
@@ -336,10 +357,14 @@ class $LearnersTable extends Learners with TableInfo<$LearnersTable, Learner> {
         DriftSqlType.string,
         data['${effectivePrefix}class_code'],
       ),
-      currentLevel: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}current_level'],
+      readingScore: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}reading_score'],
       )!,
+      predictionBias: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}prediction_bias'],
+      ),
       dyslexiaMode: attachedDatabase.typeMapping.read(
         DriftSqlType.bool,
         data['${effectivePrefix}dyslexia_mode'],
@@ -387,7 +412,13 @@ class Learner extends DataClass implements Insertable<Learner> {
   final int grade;
   final String languages;
   final String? classCode;
-  final int currentLevel;
+
+  /// 0–100 (AGENT_SPEC §5); set by the reading check, updated after
+  /// every story.
+  final double readingScore;
+
+  /// The accuracy predictions' correction (§9). Null = the config default.
+  final double? predictionBias;
   final bool dyslexiaMode;
   final double textScale;
   final bool highContrast;
@@ -405,7 +436,8 @@ class Learner extends DataClass implements Insertable<Learner> {
     required this.grade,
     required this.languages,
     this.classCode,
-    required this.currentLevel,
+    required this.readingScore,
+    this.predictionBias,
     required this.dyslexiaMode,
     required this.textScale,
     required this.highContrast,
@@ -425,7 +457,10 @@ class Learner extends DataClass implements Insertable<Learner> {
     if (!nullToAbsent || classCode != null) {
       map['class_code'] = Variable<String>(classCode);
     }
-    map['current_level'] = Variable<int>(currentLevel);
+    map['reading_score'] = Variable<double>(readingScore);
+    if (!nullToAbsent || predictionBias != null) {
+      map['prediction_bias'] = Variable<double>(predictionBias);
+    }
     map['dyslexia_mode'] = Variable<bool>(dyslexiaMode);
     map['text_scale'] = Variable<double>(textScale);
     map['high_contrast'] = Variable<bool>(highContrast);
@@ -448,7 +483,10 @@ class Learner extends DataClass implements Insertable<Learner> {
       classCode: classCode == null && nullToAbsent
           ? const Value.absent()
           : Value(classCode),
-      currentLevel: Value(currentLevel),
+      readingScore: Value(readingScore),
+      predictionBias: predictionBias == null && nullToAbsent
+          ? const Value.absent()
+          : Value(predictionBias),
       dyslexiaMode: Value(dyslexiaMode),
       textScale: Value(textScale),
       highContrast: Value(highContrast),
@@ -473,7 +511,8 @@ class Learner extends DataClass implements Insertable<Learner> {
       grade: serializer.fromJson<int>(json['grade']),
       languages: serializer.fromJson<String>(json['languages']),
       classCode: serializer.fromJson<String?>(json['classCode']),
-      currentLevel: serializer.fromJson<int>(json['currentLevel']),
+      readingScore: serializer.fromJson<double>(json['readingScore']),
+      predictionBias: serializer.fromJson<double?>(json['predictionBias']),
       dyslexiaMode: serializer.fromJson<bool>(json['dyslexiaMode']),
       textScale: serializer.fromJson<double>(json['textScale']),
       highContrast: serializer.fromJson<bool>(json['highContrast']),
@@ -493,7 +532,8 @@ class Learner extends DataClass implements Insertable<Learner> {
       'grade': serializer.toJson<int>(grade),
       'languages': serializer.toJson<String>(languages),
       'classCode': serializer.toJson<String?>(classCode),
-      'currentLevel': serializer.toJson<int>(currentLevel),
+      'readingScore': serializer.toJson<double>(readingScore),
+      'predictionBias': serializer.toJson<double?>(predictionBias),
       'dyslexiaMode': serializer.toJson<bool>(dyslexiaMode),
       'textScale': serializer.toJson<double>(textScale),
       'highContrast': serializer.toJson<bool>(highContrast),
@@ -511,7 +551,8 @@ class Learner extends DataClass implements Insertable<Learner> {
     int? grade,
     String? languages,
     Value<String?> classCode = const Value.absent(),
-    int? currentLevel,
+    double? readingScore,
+    Value<double?> predictionBias = const Value.absent(),
     bool? dyslexiaMode,
     double? textScale,
     bool? highContrast,
@@ -526,7 +567,10 @@ class Learner extends DataClass implements Insertable<Learner> {
     grade: grade ?? this.grade,
     languages: languages ?? this.languages,
     classCode: classCode.present ? classCode.value : this.classCode,
-    currentLevel: currentLevel ?? this.currentLevel,
+    readingScore: readingScore ?? this.readingScore,
+    predictionBias: predictionBias.present
+        ? predictionBias.value
+        : this.predictionBias,
     dyslexiaMode: dyslexiaMode ?? this.dyslexiaMode,
     textScale: textScale ?? this.textScale,
     highContrast: highContrast ?? this.highContrast,
@@ -543,9 +587,12 @@ class Learner extends DataClass implements Insertable<Learner> {
       grade: data.grade.present ? data.grade.value : this.grade,
       languages: data.languages.present ? data.languages.value : this.languages,
       classCode: data.classCode.present ? data.classCode.value : this.classCode,
-      currentLevel: data.currentLevel.present
-          ? data.currentLevel.value
-          : this.currentLevel,
+      readingScore: data.readingScore.present
+          ? data.readingScore.value
+          : this.readingScore,
+      predictionBias: data.predictionBias.present
+          ? data.predictionBias.value
+          : this.predictionBias,
       dyslexiaMode: data.dyslexiaMode.present
           ? data.dyslexiaMode.value
           : this.dyslexiaMode,
@@ -573,7 +620,8 @@ class Learner extends DataClass implements Insertable<Learner> {
           ..write('grade: $grade, ')
           ..write('languages: $languages, ')
           ..write('classCode: $classCode, ')
-          ..write('currentLevel: $currentLevel, ')
+          ..write('readingScore: $readingScore, ')
+          ..write('predictionBias: $predictionBias, ')
           ..write('dyslexiaMode: $dyslexiaMode, ')
           ..write('textScale: $textScale, ')
           ..write('highContrast: $highContrast, ')
@@ -593,7 +641,8 @@ class Learner extends DataClass implements Insertable<Learner> {
     grade,
     languages,
     classCode,
-    currentLevel,
+    readingScore,
+    predictionBias,
     dyslexiaMode,
     textScale,
     highContrast,
@@ -612,7 +661,8 @@ class Learner extends DataClass implements Insertable<Learner> {
           other.grade == this.grade &&
           other.languages == this.languages &&
           other.classCode == this.classCode &&
-          other.currentLevel == this.currentLevel &&
+          other.readingScore == this.readingScore &&
+          other.predictionBias == this.predictionBias &&
           other.dyslexiaMode == this.dyslexiaMode &&
           other.textScale == this.textScale &&
           other.highContrast == this.highContrast &&
@@ -629,7 +679,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
   final Value<int> grade;
   final Value<String> languages;
   final Value<String?> classCode;
-  final Value<int> currentLevel;
+  final Value<double> readingScore;
+  final Value<double?> predictionBias;
   final Value<bool> dyslexiaMode;
   final Value<double> textScale;
   final Value<bool> highContrast;
@@ -645,7 +696,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
     this.grade = const Value.absent(),
     this.languages = const Value.absent(),
     this.classCode = const Value.absent(),
-    this.currentLevel = const Value.absent(),
+    this.readingScore = const Value.absent(),
+    this.predictionBias = const Value.absent(),
     this.dyslexiaMode = const Value.absent(),
     this.textScale = const Value.absent(),
     this.highContrast = const Value.absent(),
@@ -662,7 +714,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
     required int grade,
     required String languages,
     this.classCode = const Value.absent(),
-    this.currentLevel = const Value.absent(),
+    this.readingScore = const Value.absent(),
+    this.predictionBias = const Value.absent(),
     this.dyslexiaMode = const Value.absent(),
     this.textScale = const Value.absent(),
     this.highContrast = const Value.absent(),
@@ -683,7 +736,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
     Expression<int>? grade,
     Expression<String>? languages,
     Expression<String>? classCode,
-    Expression<int>? currentLevel,
+    Expression<double>? readingScore,
+    Expression<double>? predictionBias,
     Expression<bool>? dyslexiaMode,
     Expression<double>? textScale,
     Expression<bool>? highContrast,
@@ -700,7 +754,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
       if (grade != null) 'grade': grade,
       if (languages != null) 'languages': languages,
       if (classCode != null) 'class_code': classCode,
-      if (currentLevel != null) 'current_level': currentLevel,
+      if (readingScore != null) 'reading_score': readingScore,
+      if (predictionBias != null) 'prediction_bias': predictionBias,
       if (dyslexiaMode != null) 'dyslexia_mode': dyslexiaMode,
       if (textScale != null) 'text_scale': textScale,
       if (highContrast != null) 'high_contrast': highContrast,
@@ -719,7 +774,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
     Value<int>? grade,
     Value<String>? languages,
     Value<String?>? classCode,
-    Value<int>? currentLevel,
+    Value<double>? readingScore,
+    Value<double?>? predictionBias,
     Value<bool>? dyslexiaMode,
     Value<double>? textScale,
     Value<bool>? highContrast,
@@ -736,7 +792,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
       grade: grade ?? this.grade,
       languages: languages ?? this.languages,
       classCode: classCode ?? this.classCode,
-      currentLevel: currentLevel ?? this.currentLevel,
+      readingScore: readingScore ?? this.readingScore,
+      predictionBias: predictionBias ?? this.predictionBias,
       dyslexiaMode: dyslexiaMode ?? this.dyslexiaMode,
       textScale: textScale ?? this.textScale,
       highContrast: highContrast ?? this.highContrast,
@@ -767,8 +824,11 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
     if (classCode.present) {
       map['class_code'] = Variable<String>(classCode.value);
     }
-    if (currentLevel.present) {
-      map['current_level'] = Variable<int>(currentLevel.value);
+    if (readingScore.present) {
+      map['reading_score'] = Variable<double>(readingScore.value);
+    }
+    if (predictionBias.present) {
+      map['prediction_bias'] = Variable<double>(predictionBias.value);
     }
     if (dyslexiaMode.present) {
       map['dyslexia_mode'] = Variable<bool>(dyslexiaMode.value);
@@ -808,7 +868,8 @@ class LearnersCompanion extends UpdateCompanion<Learner> {
           ..write('grade: $grade, ')
           ..write('languages: $languages, ')
           ..write('classCode: $classCode, ')
-          ..write('currentLevel: $currentLevel, ')
+          ..write('readingScore: $readingScore, ')
+          ..write('predictionBias: $predictionBias, ')
           ..write('dyslexiaMode: $dyslexiaMode, ')
           ..write('textScale: $textScale, ')
           ..write('highContrast: $highContrast, ')
@@ -1031,37 +1092,51 @@ class $SessionsTable extends Sessions
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   ).withConverter<PhilIriLevel>($SessionsTable.$converterphiliriLevel);
-  @override
-  late final GeneratedColumnWithTypeConverter<LevelMove?, String>
-  agentDecision = GeneratedColumn<String>(
-    'agent_decision',
-    aliasedName,
-    true,
-    type: DriftSqlType.string,
-    requiredDuringInsert: false,
-  ).withConverter<LevelMove?>($SessionsTable.$converteragentDecisionn);
-  static const VerificationMeta _levelBeforeMeta = const VerificationMeta(
-    'levelBefore',
+  static const VerificationMeta _bookDifficultyMeta = const VerificationMeta(
+    'bookDifficulty',
   );
   @override
-  late final GeneratedColumn<int> levelBefore = GeneratedColumn<int>(
-    'level_before',
+  late final GeneratedColumn<double> bookDifficulty = GeneratedColumn<double>(
+    'book_difficulty',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.double,
     requiredDuringInsert: true,
   );
-  static const VerificationMeta _levelAfterMeta = const VerificationMeta(
-    'levelAfter',
+  static const VerificationMeta _scoreBeforeMeta = const VerificationMeta(
+    'scoreBefore',
   );
   @override
-  late final GeneratedColumn<int> levelAfter = GeneratedColumn<int>(
-    'level_after',
+  late final GeneratedColumn<double> scoreBefore = GeneratedColumn<double>(
+    'score_before',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.double,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _scoreAfterMeta = const VerificationMeta(
+    'scoreAfter',
+  );
+  @override
+  late final GeneratedColumn<double> scoreAfter = GeneratedColumn<double>(
+    'score_after',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _predictedAccuracyMeta = const VerificationMeta(
+    'predictedAccuracy',
+  );
+  @override
+  late final GeneratedColumn<double> predictedAccuracy =
+      GeneratedColumn<double>(
+        'predicted_accuracy',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -1083,9 +1158,10 @@ class $SessionsTable extends Sessions
     wcpm,
     comprehension,
     philiriLevel,
-    agentDecision,
-    levelBefore,
-    levelAfter,
+    bookDifficulty,
+    scoreBefore,
+    scoreAfter,
+    predictedAccuracy,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -1253,24 +1329,44 @@ class $SessionsTable extends Sessions
     } else if (isInserting) {
       context.missing(_comprehensionMeta);
     }
-    if (data.containsKey('level_before')) {
+    if (data.containsKey('book_difficulty')) {
       context.handle(
-        _levelBeforeMeta,
-        levelBefore.isAcceptableOrUnknown(
-          data['level_before']!,
-          _levelBeforeMeta,
+        _bookDifficultyMeta,
+        bookDifficulty.isAcceptableOrUnknown(
+          data['book_difficulty']!,
+          _bookDifficultyMeta,
         ),
       );
     } else if (isInserting) {
-      context.missing(_levelBeforeMeta);
+      context.missing(_bookDifficultyMeta);
     }
-    if (data.containsKey('level_after')) {
+    if (data.containsKey('score_before')) {
       context.handle(
-        _levelAfterMeta,
-        levelAfter.isAcceptableOrUnknown(data['level_after']!, _levelAfterMeta),
+        _scoreBeforeMeta,
+        scoreBefore.isAcceptableOrUnknown(
+          data['score_before']!,
+          _scoreBeforeMeta,
+        ),
       );
     } else if (isInserting) {
-      context.missing(_levelAfterMeta);
+      context.missing(_scoreBeforeMeta);
+    }
+    if (data.containsKey('score_after')) {
+      context.handle(
+        _scoreAfterMeta,
+        scoreAfter.isAcceptableOrUnknown(data['score_after']!, _scoreAfterMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_scoreAfterMeta);
+    }
+    if (data.containsKey('predicted_accuracy')) {
+      context.handle(
+        _predictedAccuracyMeta,
+        predictedAccuracy.isAcceptableOrUnknown(
+          data['predicted_accuracy']!,
+          _predictedAccuracyMeta,
+        ),
+      );
     }
     return context;
   }
@@ -1361,20 +1457,22 @@ class $SessionsTable extends Sessions
           data['${effectivePrefix}philiri_level'],
         )!,
       ),
-      agentDecision: $SessionsTable.$converteragentDecisionn.fromSql(
-        attachedDatabase.typeMapping.read(
-          DriftSqlType.string,
-          data['${effectivePrefix}agent_decision'],
-        ),
+      bookDifficulty: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}book_difficulty'],
+      )!,
+      scoreBefore: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_before'],
+      )!,
+      scoreAfter: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}score_after'],
+      )!,
+      predictedAccuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}predicted_accuracy'],
       ),
-      levelBefore: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}level_before'],
-      )!,
-      levelAfter: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}level_after'],
-      )!,
     );
   }
 
@@ -1388,12 +1486,6 @@ class $SessionsTable extends Sessions
   static JsonTypeConverter2<PhilIriLevel, String, String>
   $converterphiliriLevel = const EnumNameConverter<PhilIriLevel>(
     PhilIriLevel.values,
-  );
-  static JsonTypeConverter2<LevelMove, String, String> $converteragentDecision =
-      const EnumNameConverter<LevelMove>(LevelMove.values);
-  static JsonTypeConverter2<LevelMove?, String?, String?>
-  $converteragentDecisionn = JsonTypeConverter2.asNullable(
-    $converteragentDecision,
   );
 }
 
@@ -1418,11 +1510,17 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
   final double comprehension;
   final PhilIriLevel philiriLevel;
 
-  /// "up" | "stay" | "down". Null for placement passages (placement
-  /// never makes a level decision).
-  final LevelMove? agentDecision;
-  final int levelBefore;
-  final int levelAfter;
+  /// The book's difficulty (0–100, §11).
+  final double bookDifficulty;
+
+  /// The reading score before and after this story (§5). For a
+  /// reading-check passage both are that passage's evidence (§6).
+  final double scoreBefore;
+  final double scoreAfter;
+
+  /// What Buddy predicted the word accuracy would be (§9). Null for
+  /// reading-check passages and sessions saved before predictions existed.
+  final double? predictedAccuracy;
   const ReadingSession({
     required this.id,
     required this.learnerId,
@@ -1443,9 +1541,10 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
     required this.wcpm,
     required this.comprehension,
     required this.philiriLevel,
-    this.agentDecision,
-    required this.levelBefore,
-    required this.levelAfter,
+    required this.bookDifficulty,
+    required this.scoreBefore,
+    required this.scoreAfter,
+    this.predictedAccuracy,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -1475,13 +1574,12 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
         $SessionsTable.$converterphiliriLevel.toSql(philiriLevel),
       );
     }
-    if (!nullToAbsent || agentDecision != null) {
-      map['agent_decision'] = Variable<String>(
-        $SessionsTable.$converteragentDecisionn.toSql(agentDecision),
-      );
+    map['book_difficulty'] = Variable<double>(bookDifficulty);
+    map['score_before'] = Variable<double>(scoreBefore);
+    map['score_after'] = Variable<double>(scoreAfter);
+    if (!nullToAbsent || predictedAccuracy != null) {
+      map['predicted_accuracy'] = Variable<double>(predictedAccuracy);
     }
-    map['level_before'] = Variable<int>(levelBefore);
-    map['level_after'] = Variable<int>(levelAfter);
     return map;
   }
 
@@ -1506,11 +1604,12 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
       wcpm: Value(wcpm),
       comprehension: Value(comprehension),
       philiriLevel: Value(philiriLevel),
-      agentDecision: agentDecision == null && nullToAbsent
+      bookDifficulty: Value(bookDifficulty),
+      scoreBefore: Value(scoreBefore),
+      scoreAfter: Value(scoreAfter),
+      predictedAccuracy: predictedAccuracy == null && nullToAbsent
           ? const Value.absent()
-          : Value(agentDecision),
-      levelBefore: Value(levelBefore),
-      levelAfter: Value(levelAfter),
+          : Value(predictedAccuracy),
     );
   }
 
@@ -1543,11 +1642,12 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
       philiriLevel: $SessionsTable.$converterphiliriLevel.fromJson(
         serializer.fromJson<String>(json['philiriLevel']),
       ),
-      agentDecision: $SessionsTable.$converteragentDecisionn.fromJson(
-        serializer.fromJson<String?>(json['agentDecision']),
+      bookDifficulty: serializer.fromJson<double>(json['bookDifficulty']),
+      scoreBefore: serializer.fromJson<double>(json['scoreBefore']),
+      scoreAfter: serializer.fromJson<double>(json['scoreAfter']),
+      predictedAccuracy: serializer.fromJson<double?>(
+        json['predictedAccuracy'],
       ),
-      levelBefore: serializer.fromJson<int>(json['levelBefore']),
-      levelAfter: serializer.fromJson<int>(json['levelAfter']),
     );
   }
   @override
@@ -1577,11 +1677,10 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
       'philiriLevel': serializer.toJson<String>(
         $SessionsTable.$converterphiliriLevel.toJson(philiriLevel),
       ),
-      'agentDecision': serializer.toJson<String?>(
-        $SessionsTable.$converteragentDecisionn.toJson(agentDecision),
-      ),
-      'levelBefore': serializer.toJson<int>(levelBefore),
-      'levelAfter': serializer.toJson<int>(levelAfter),
+      'bookDifficulty': serializer.toJson<double>(bookDifficulty),
+      'scoreBefore': serializer.toJson<double>(scoreBefore),
+      'scoreAfter': serializer.toJson<double>(scoreAfter),
+      'predictedAccuracy': serializer.toJson<double?>(predictedAccuracy),
     };
   }
 
@@ -1605,9 +1704,10 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
     double? wcpm,
     double? comprehension,
     PhilIriLevel? philiriLevel,
-    Value<LevelMove?> agentDecision = const Value.absent(),
-    int? levelBefore,
-    int? levelAfter,
+    double? bookDifficulty,
+    double? scoreBefore,
+    double? scoreAfter,
+    Value<double?> predictedAccuracy = const Value.absent(),
   }) => ReadingSession(
     id: id ?? this.id,
     learnerId: learnerId ?? this.learnerId,
@@ -1628,11 +1728,12 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
     wcpm: wcpm ?? this.wcpm,
     comprehension: comprehension ?? this.comprehension,
     philiriLevel: philiriLevel ?? this.philiriLevel,
-    agentDecision: agentDecision.present
-        ? agentDecision.value
-        : this.agentDecision,
-    levelBefore: levelBefore ?? this.levelBefore,
-    levelAfter: levelAfter ?? this.levelAfter,
+    bookDifficulty: bookDifficulty ?? this.bookDifficulty,
+    scoreBefore: scoreBefore ?? this.scoreBefore,
+    scoreAfter: scoreAfter ?? this.scoreAfter,
+    predictedAccuracy: predictedAccuracy.present
+        ? predictedAccuracy.value
+        : this.predictedAccuracy,
   );
   ReadingSession copyWithCompanion(SessionsCompanion data) {
     return ReadingSession(
@@ -1675,15 +1776,18 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
       philiriLevel: data.philiriLevel.present
           ? data.philiriLevel.value
           : this.philiriLevel,
-      agentDecision: data.agentDecision.present
-          ? data.agentDecision.value
-          : this.agentDecision,
-      levelBefore: data.levelBefore.present
-          ? data.levelBefore.value
-          : this.levelBefore,
-      levelAfter: data.levelAfter.present
-          ? data.levelAfter.value
-          : this.levelAfter,
+      bookDifficulty: data.bookDifficulty.present
+          ? data.bookDifficulty.value
+          : this.bookDifficulty,
+      scoreBefore: data.scoreBefore.present
+          ? data.scoreBefore.value
+          : this.scoreBefore,
+      scoreAfter: data.scoreAfter.present
+          ? data.scoreAfter.value
+          : this.scoreAfter,
+      predictedAccuracy: data.predictedAccuracy.present
+          ? data.predictedAccuracy.value
+          : this.predictedAccuracy,
     );
   }
 
@@ -1709,9 +1813,10 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
           ..write('wcpm: $wcpm, ')
           ..write('comprehension: $comprehension, ')
           ..write('philiriLevel: $philiriLevel, ')
-          ..write('agentDecision: $agentDecision, ')
-          ..write('levelBefore: $levelBefore, ')
-          ..write('levelAfter: $levelAfter')
+          ..write('bookDifficulty: $bookDifficulty, ')
+          ..write('scoreBefore: $scoreBefore, ')
+          ..write('scoreAfter: $scoreAfter, ')
+          ..write('predictedAccuracy: $predictedAccuracy')
           ..write(')'))
         .toString();
   }
@@ -1737,9 +1842,10 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
     wcpm,
     comprehension,
     philiriLevel,
-    agentDecision,
-    levelBefore,
-    levelAfter,
+    bookDifficulty,
+    scoreBefore,
+    scoreAfter,
+    predictedAccuracy,
   ]);
   @override
   bool operator ==(Object other) =>
@@ -1764,9 +1870,10 @@ class ReadingSession extends DataClass implements Insertable<ReadingSession> {
           other.wcpm == this.wcpm &&
           other.comprehension == this.comprehension &&
           other.philiriLevel == this.philiriLevel &&
-          other.agentDecision == this.agentDecision &&
-          other.levelBefore == this.levelBefore &&
-          other.levelAfter == this.levelAfter);
+          other.bookDifficulty == this.bookDifficulty &&
+          other.scoreBefore == this.scoreBefore &&
+          other.scoreAfter == this.scoreAfter &&
+          other.predictedAccuracy == this.predictedAccuracy);
 }
 
 class SessionsCompanion extends UpdateCompanion<ReadingSession> {
@@ -1789,9 +1896,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
   final Value<double> wcpm;
   final Value<double> comprehension;
   final Value<PhilIriLevel> philiriLevel;
-  final Value<LevelMove?> agentDecision;
-  final Value<int> levelBefore;
-  final Value<int> levelAfter;
+  final Value<double> bookDifficulty;
+  final Value<double> scoreBefore;
+  final Value<double> scoreAfter;
+  final Value<double?> predictedAccuracy;
   final Value<int> rowid;
   const SessionsCompanion({
     this.id = const Value.absent(),
@@ -1813,9 +1921,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
     this.wcpm = const Value.absent(),
     this.comprehension = const Value.absent(),
     this.philiriLevel = const Value.absent(),
-    this.agentDecision = const Value.absent(),
-    this.levelBefore = const Value.absent(),
-    this.levelAfter = const Value.absent(),
+    this.bookDifficulty = const Value.absent(),
+    this.scoreBefore = const Value.absent(),
+    this.scoreAfter = const Value.absent(),
+    this.predictedAccuracy = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   SessionsCompanion.insert({
@@ -1838,9 +1947,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
     required double wcpm,
     required double comprehension,
     required PhilIriLevel philiriLevel,
-    this.agentDecision = const Value.absent(),
-    required int levelBefore,
-    required int levelAfter,
+    required double bookDifficulty,
+    required double scoreBefore,
+    required double scoreAfter,
+    this.predictedAccuracy = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        learnerId = Value(learnerId),
@@ -1861,8 +1971,9 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
        wcpm = Value(wcpm),
        comprehension = Value(comprehension),
        philiriLevel = Value(philiriLevel),
-       levelBefore = Value(levelBefore),
-       levelAfter = Value(levelAfter);
+       bookDifficulty = Value(bookDifficulty),
+       scoreBefore = Value(scoreBefore),
+       scoreAfter = Value(scoreAfter);
   static Insertable<ReadingSession> custom({
     Expression<String>? id,
     Expression<String>? learnerId,
@@ -1883,9 +1994,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
     Expression<double>? wcpm,
     Expression<double>? comprehension,
     Expression<String>? philiriLevel,
-    Expression<String>? agentDecision,
-    Expression<int>? levelBefore,
-    Expression<int>? levelAfter,
+    Expression<double>? bookDifficulty,
+    Expression<double>? scoreBefore,
+    Expression<double>? scoreAfter,
+    Expression<double>? predictedAccuracy,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -1908,9 +2020,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
       if (wcpm != null) 'wcpm': wcpm,
       if (comprehension != null) 'comprehension': comprehension,
       if (philiriLevel != null) 'philiri_level': philiriLevel,
-      if (agentDecision != null) 'agent_decision': agentDecision,
-      if (levelBefore != null) 'level_before': levelBefore,
-      if (levelAfter != null) 'level_after': levelAfter,
+      if (bookDifficulty != null) 'book_difficulty': bookDifficulty,
+      if (scoreBefore != null) 'score_before': scoreBefore,
+      if (scoreAfter != null) 'score_after': scoreAfter,
+      if (predictedAccuracy != null) 'predicted_accuracy': predictedAccuracy,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -1935,9 +2048,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
     Value<double>? wcpm,
     Value<double>? comprehension,
     Value<PhilIriLevel>? philiriLevel,
-    Value<LevelMove?>? agentDecision,
-    Value<int>? levelBefore,
-    Value<int>? levelAfter,
+    Value<double>? bookDifficulty,
+    Value<double>? scoreBefore,
+    Value<double>? scoreAfter,
+    Value<double?>? predictedAccuracy,
     Value<int>? rowid,
   }) {
     return SessionsCompanion(
@@ -1960,9 +2074,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
       wcpm: wcpm ?? this.wcpm,
       comprehension: comprehension ?? this.comprehension,
       philiriLevel: philiriLevel ?? this.philiriLevel,
-      agentDecision: agentDecision ?? this.agentDecision,
-      levelBefore: levelBefore ?? this.levelBefore,
-      levelAfter: levelAfter ?? this.levelAfter,
+      bookDifficulty: bookDifficulty ?? this.bookDifficulty,
+      scoreBefore: scoreBefore ?? this.scoreBefore,
+      scoreAfter: scoreAfter ?? this.scoreAfter,
+      predictedAccuracy: predictedAccuracy ?? this.predictedAccuracy,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -2031,16 +2146,17 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
         $SessionsTable.$converterphiliriLevel.toSql(philiriLevel.value),
       );
     }
-    if (agentDecision.present) {
-      map['agent_decision'] = Variable<String>(
-        $SessionsTable.$converteragentDecisionn.toSql(agentDecision.value),
-      );
+    if (bookDifficulty.present) {
+      map['book_difficulty'] = Variable<double>(bookDifficulty.value);
     }
-    if (levelBefore.present) {
-      map['level_before'] = Variable<int>(levelBefore.value);
+    if (scoreBefore.present) {
+      map['score_before'] = Variable<double>(scoreBefore.value);
     }
-    if (levelAfter.present) {
-      map['level_after'] = Variable<int>(levelAfter.value);
+    if (scoreAfter.present) {
+      map['score_after'] = Variable<double>(scoreAfter.value);
+    }
+    if (predictedAccuracy.present) {
+      map['predicted_accuracy'] = Variable<double>(predictedAccuracy.value);
     }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
@@ -2070,9 +2186,10 @@ class SessionsCompanion extends UpdateCompanion<ReadingSession> {
           ..write('wcpm: $wcpm, ')
           ..write('comprehension: $comprehension, ')
           ..write('philiriLevel: $philiriLevel, ')
-          ..write('agentDecision: $agentDecision, ')
-          ..write('levelBefore: $levelBefore, ')
-          ..write('levelAfter: $levelAfter, ')
+          ..write('bookDifficulty: $bookDifficulty, ')
+          ..write('scoreBefore: $scoreBefore, ')
+          ..write('scoreAfter: $scoreAfter, ')
+          ..write('predictedAccuracy: $predictedAccuracy, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -4302,7 +4419,8 @@ typedef $$LearnersTableCreateCompanionBuilder = LearnersCompanion Function({
   required int grade,
   required String languages,
   Value<String?> classCode,
-  Value<int> currentLevel,
+  Value<double> readingScore,
+  Value<double?> predictionBias,
   Value<bool> dyslexiaMode,
   Value<double> textScale,
   Value<bool> highContrast,
@@ -4319,7 +4437,8 @@ typedef $$LearnersTableUpdateCompanionBuilder = LearnersCompanion Function({
   Value<int> grade,
   Value<String> languages,
   Value<String?> classCode,
-  Value<int> currentLevel,
+  Value<double> readingScore,
+  Value<double?> predictionBias,
   Value<bool> dyslexiaMode,
   Value<double> textScale,
   Value<bool> highContrast,
@@ -4466,8 +4585,13 @@ class $$LearnersTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get currentLevel => $composableBuilder(
-    column: $table.currentLevel,
+  ColumnFilters<double> get readingScore => $composableBuilder(
+    column: $table.readingScore,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get predictionBias => $composableBuilder(
+    column: $table.predictionBias,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -4671,8 +4795,13 @@ class $$LearnersTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get currentLevel => $composableBuilder(
-    column: $table.currentLevel,
+  ColumnOrderings<double> get readingScore => $composableBuilder(
+    column: $table.readingScore,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get predictionBias => $composableBuilder(
+    column: $table.predictionBias,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -4741,8 +4870,13 @@ class $$LearnersTableAnnotationComposer
   GeneratedColumn<String> get classCode =>
       $composableBuilder(column: $table.classCode, builder: (column) => column);
 
-  GeneratedColumn<int> get currentLevel => $composableBuilder(
-    column: $table.currentLevel,
+  GeneratedColumn<double> get readingScore => $composableBuilder(
+    column: $table.readingScore,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get predictionBias => $composableBuilder(
+    column: $table.predictionBias,
     builder: (column) => column,
   );
 
@@ -4944,7 +5078,8 @@ class $$LearnersTableTableManager
                 Value<int> grade = const Value.absent(),
                 Value<String> languages = const Value.absent(),
                 Value<String?> classCode = const Value.absent(),
-                Value<int> currentLevel = const Value.absent(),
+                Value<double> readingScore = const Value.absent(),
+                Value<double?> predictionBias = const Value.absent(),
                 Value<bool> dyslexiaMode = const Value.absent(),
                 Value<double> textScale = const Value.absent(),
                 Value<bool> highContrast = const Value.absent(),
@@ -4960,7 +5095,8 @@ class $$LearnersTableTableManager
                 grade: grade,
                 languages: languages,
                 classCode: classCode,
-                currentLevel: currentLevel,
+                readingScore: readingScore,
+                predictionBias: predictionBias,
                 dyslexiaMode: dyslexiaMode,
                 textScale: textScale,
                 highContrast: highContrast,
@@ -4978,7 +5114,8 @@ class $$LearnersTableTableManager
                 required int grade,
                 required String languages,
                 Value<String?> classCode = const Value.absent(),
-                Value<int> currentLevel = const Value.absent(),
+                Value<double> readingScore = const Value.absent(),
+                Value<double?> predictionBias = const Value.absent(),
                 Value<bool> dyslexiaMode = const Value.absent(),
                 Value<double> textScale = const Value.absent(),
                 Value<bool> highContrast = const Value.absent(),
@@ -4994,7 +5131,8 @@ class $$LearnersTableTableManager
                 grade: grade,
                 languages: languages,
                 classCode: classCode,
-                currentLevel: currentLevel,
+                readingScore: readingScore,
+                predictionBias: predictionBias,
                 dyslexiaMode: dyslexiaMode,
                 textScale: textScale,
                 highContrast: highContrast,
@@ -5186,9 +5324,10 @@ typedef $$SessionsTableCreateCompanionBuilder = SessionsCompanion Function({
   required double wcpm,
   required double comprehension,
   required PhilIriLevel philiriLevel,
-  Value<LevelMove?> agentDecision,
-  required int levelBefore,
-  required int levelAfter,
+  required double bookDifficulty,
+  required double scoreBefore,
+  required double scoreAfter,
+  Value<double?> predictedAccuracy,
   Value<int> rowid,
 });
 typedef $$SessionsTableUpdateCompanionBuilder = SessionsCompanion Function({
@@ -5211,9 +5350,10 @@ typedef $$SessionsTableUpdateCompanionBuilder = SessionsCompanion Function({
   Value<double> wcpm,
   Value<double> comprehension,
   Value<PhilIriLevel> philiriLevel,
-  Value<LevelMove?> agentDecision,
-  Value<int> levelBefore,
-  Value<int> levelAfter,
+  Value<double> bookDifficulty,
+  Value<double> scoreBefore,
+  Value<double> scoreAfter,
+  Value<double?> predictedAccuracy,
   Value<int> rowid,
 });
 
@@ -5358,19 +5498,23 @@ class $$SessionsTableFilterComposer
     builder: (column) => ColumnWithTypeConverterFilters(column),
   );
 
-  ColumnWithTypeConverterFilters<LevelMove?, LevelMove, String>
-  get agentDecision => $composableBuilder(
-    column: $table.agentDecision,
-    builder: (column) => ColumnWithTypeConverterFilters(column),
-  );
-
-  ColumnFilters<int> get levelBefore => $composableBuilder(
-    column: $table.levelBefore,
+  ColumnFilters<double> get bookDifficulty => $composableBuilder(
+    column: $table.bookDifficulty,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get levelAfter => $composableBuilder(
-    column: $table.levelAfter,
+  ColumnFilters<double> get scoreBefore => $composableBuilder(
+    column: $table.scoreBefore,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get scoreAfter => $composableBuilder(
+    column: $table.scoreAfter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get predictedAccuracy => $composableBuilder(
+    column: $table.predictedAccuracy,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -5522,18 +5666,23 @@ class $$SessionsTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get agentDecision => $composableBuilder(
-    column: $table.agentDecision,
+  ColumnOrderings<double> get bookDifficulty => $composableBuilder(
+    column: $table.bookDifficulty,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get levelBefore => $composableBuilder(
-    column: $table.levelBefore,
+  ColumnOrderings<double> get scoreBefore => $composableBuilder(
+    column: $table.scoreBefore,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get levelAfter => $composableBuilder(
-    column: $table.levelAfter,
+  ColumnOrderings<double> get scoreAfter => $composableBuilder(
+    column: $table.scoreAfter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get predictedAccuracy => $composableBuilder(
+    column: $table.predictedAccuracy,
     builder: (column) => ColumnOrderings(column),
   );
 
@@ -5645,19 +5794,23 @@ class $$SessionsTableAnnotationComposer
         builder: (column) => column,
       );
 
-  GeneratedColumnWithTypeConverter<LevelMove?, String> get agentDecision =>
-      $composableBuilder(
-        column: $table.agentDecision,
-        builder: (column) => column,
-      );
-
-  GeneratedColumn<int> get levelBefore => $composableBuilder(
-    column: $table.levelBefore,
+  GeneratedColumn<double> get bookDifficulty => $composableBuilder(
+    column: $table.bookDifficulty,
     builder: (column) => column,
   );
 
-  GeneratedColumn<int> get levelAfter => $composableBuilder(
-    column: $table.levelAfter,
+  GeneratedColumn<double> get scoreBefore => $composableBuilder(
+    column: $table.scoreBefore,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get scoreAfter => $composableBuilder(
+    column: $table.scoreAfter,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get predictedAccuracy => $composableBuilder(
+    column: $table.predictedAccuracy,
     builder: (column) => column,
   );
 
@@ -5757,9 +5910,10 @@ class $$SessionsTableTableManager
                 Value<double> wcpm = const Value.absent(),
                 Value<double> comprehension = const Value.absent(),
                 Value<PhilIriLevel> philiriLevel = const Value.absent(),
-                Value<LevelMove?> agentDecision = const Value.absent(),
-                Value<int> levelBefore = const Value.absent(),
-                Value<int> levelAfter = const Value.absent(),
+                Value<double> bookDifficulty = const Value.absent(),
+                Value<double> scoreBefore = const Value.absent(),
+                Value<double> scoreAfter = const Value.absent(),
+                Value<double?> predictedAccuracy = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => SessionsCompanion(
                 id: id,
@@ -5781,9 +5935,10 @@ class $$SessionsTableTableManager
                 wcpm: wcpm,
                 comprehension: comprehension,
                 philiriLevel: philiriLevel,
-                agentDecision: agentDecision,
-                levelBefore: levelBefore,
-                levelAfter: levelAfter,
+                bookDifficulty: bookDifficulty,
+                scoreBefore: scoreBefore,
+                scoreAfter: scoreAfter,
+                predictedAccuracy: predictedAccuracy,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -5807,9 +5962,10 @@ class $$SessionsTableTableManager
                 required double wcpm,
                 required double comprehension,
                 required PhilIriLevel philiriLevel,
-                Value<LevelMove?> agentDecision = const Value.absent(),
-                required int levelBefore,
-                required int levelAfter,
+                required double bookDifficulty,
+                required double scoreBefore,
+                required double scoreAfter,
+                Value<double?> predictedAccuracy = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => SessionsCompanion.insert(
                 id: id,
@@ -5831,9 +5987,10 @@ class $$SessionsTableTableManager
                 wcpm: wcpm,
                 comprehension: comprehension,
                 philiriLevel: philiriLevel,
-                agentDecision: agentDecision,
-                levelBefore: levelBefore,
-                levelAfter: levelAfter,
+                bookDifficulty: bookDifficulty,
+                scoreBefore: scoreBefore,
+                scoreAfter: scoreAfter,
+                predictedAccuracy: predictedAccuracy,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

@@ -60,7 +60,7 @@ void main() {
   testWidgets('read a story, answer, and see Buddy\'s plan', (tester) async {
     final app = TestApp();
     final mia = await tester.runAsync(() => LearnerRepository(app.db)
-        .create(nickname: 'Mia', grade: 2, languages: 'EN', currentLevel: 2));
+        .create(nickname: 'Mia', grade: 2, languages: 'EN', readingScore: 50));
     await tester.runAsync(() => app.container.read(currentLearnerProvider.notifier).select(mia!.id));
     await app.pump(tester, const HomeShell());
     await settle(tester);
@@ -88,21 +88,26 @@ void main() {
     expect(find.text('100%'), findsOneWidget);
     expect(find.text('3 / 3'), findsOneWidget);
     expect(find.text("BUDDY'S PLAN"), findsOneWidget);
-    expect(find.textContaining("move up to Level 3"), findsOneWidget);
+    // Score 50 goes up after a perfect reading of a difficulty-38 book.
+    expect(find.textContaining("You're growing toward 🌳 Tree!"), findsOneWidget);
     expect(find.text('Next story →'), findsOneWidget);
     await app.screenshot(tester, 's08_results');
 
-    // The session really was saved, with the agent's decision.
+    // The session really was saved, with the new score and the prediction.
     final saved = await tester.runAsync(() => SessionRepository(app.db).recent(mia!.id));
     expect(saved!.single.philiriLevel, PhilIriLevel.independent);
-    expect(saved.single.agentDecision, LevelMove.stay);
+    expect(saved.single.scoreBefore, 50);
+    expect(saved.single.scoreAfter, greaterThan(50));
+    expect(saved.single.predictedAccuracy, isNotNull);
 
-    // Buddy's brain shows the decision too.
+    // Buddy's brain shows the decision too: predicted vs actual accuracy.
     await tester.longPress(find.text("BUDDY'S PLAN"));
     await settle(tester);
-    expect(find.text('LAST STORY DECISION (§3–§5)'), findsOneWidget);
+    expect(find.textContaining('LAST STORY'), findsOneWidget);
+    expect(find.textContaining(RegExp(r'predicted \d+%, actual 100%')), findsOneWidget);
     final brain = app.container.read(buddyBrainProvider).last!;
     expect(brain.philiri.overall, PhilIriLevel.independent);
+    expect(brain.predictedAccuracy, saved.single.predictedAccuracy);
     await app.screenshot(tester, 'brain_decision');
     await tester.tapAt(const Offset(195, 40));
     await settle(tester);

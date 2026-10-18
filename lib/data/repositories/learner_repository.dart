@@ -21,7 +21,7 @@ class LearnerRepository {
     required int grade,
     required String languages,
     String? classCode,
-    int currentLevel = 1,
+    double? readingScore,
   }) async {
     final name = nickname.trim();
     if (name.isEmpty) throw ArgumentError.value(nickname, 'nickname');
@@ -35,7 +35,7 @@ class LearnerRepository {
       grade: grade,
       languages: languages,
       classCode: classCode,
-      currentLevel: currentLevel,
+      readingScore: readingScore ?? const AgentConfig().startScoreDefault,
       dyslexiaMode: false,
       textScale: 1.0,
       highContrast: false,
@@ -67,9 +67,10 @@ class LearnerRepository {
   Future<void> update(Learner learner) =>
       _db.update(_db.learners).replace(learner);
 
-  Future<void> setLevel(String id, int level) =>
+  /// The starting score from the reading check (AGENT_SPEC §6).
+  Future<void> setReadingScore(String id, double score) =>
       (_db.update(_db.learners)..where((l) => l.id.equals(id)))
-          .write(LearnersCompanion(currentLevel: Value(level)));
+          .write(LearnersCompanion(readingScore: Value(score)));
 
   Future<void> setStartHintLevel(String id, int level) =>
       (_db.update(_db.learners)..where((l) => l.id.equals(id)))
@@ -89,6 +90,10 @@ class LearnerRepository {
 extension LearnerX on Learner {
   /// ["EN"], ["FIL"] or ["EN", "FIL"] for story selection.
   List<String> get languageList => languages.split(',');
+
+  /// The accuracy predictions' correction (§9).
+  double bias([AgentConfig config = const AgentConfig()]) =>
+      predictionBias ?? config.predictionBiasStart;
 
   /// Seconds before each hint step for this reader.
   double hintWait([AgentConfig config = const AgentConfig()]) =>

@@ -105,7 +105,10 @@ void main() {
 
     expect(find.text('All done, Mia!'), findsOneWidget);
     final placed = await tester.runAsync(() => LearnerRepository(app.db).all());
-    expect(placed!.single.currentLevel, 2); // highest level not Frustration
+    // Between the 2nd passage (read well, difficulty 39) and the 3rd
+    // (too hard, difficulty 58): the two evidences averaged (§6).
+    final score = placed!.single.readingScore;
+    expect(score, inExclusiveRange(25, 55));
     await app.screenshot(tester, 's02_done');
 
     await tester.tap(find.text("📖 Let's read!"));
@@ -113,10 +116,11 @@ void main() {
     expect(find.text('Mia!'), findsOneWidget); // Home
     await tester.tap(find.text('Stories'));
     await settle(tester);
-    expect(find.text('Level 2 · Just right'), findsOneWidget);
+    // The child sees a rank, never the score.
+    expect(find.text('${const ReadingScorer().profileOf(score).rank} reader'), findsOneWidget);
   });
 
-  testWidgets('closing the reading check keeps level 1 and goes home',
+  testWidgets('closing the reading check keeps the default score and goes home',
       (tester) async {
     final app = TestApp();
     await app.pump(tester, const AppStart());
@@ -135,7 +139,7 @@ void main() {
     await settle(tester);
     expect(find.text('Jojo!'), findsOneWidget);
     final jojo = await tester.runAsync(() => LearnerRepository(app.db).all());
-    expect(jojo!.single.currentLevel, 1);
+    expect(jojo!.single.readingScore, 10); // startScoreDefault
   });
 
   testWidgets('home shows greeting, stars, streak, minutes and Read!',
@@ -143,7 +147,7 @@ void main() {
     final app = TestApp();
     await tester.runAsync(() async {
       final mia = await LearnerRepository(app.db)
-          .create(nickname: 'Mia', grade: 2, languages: 'EN', currentLevel: 2);
+          .create(nickname: 'Mia', grade: 2, languages: 'EN', readingScore: 30);
       await LearnerRepository(app.db).addStars(mia.id, 124);
       final sessions = SessionRepository(app.db);
       for (final (day, secs) in [
@@ -160,7 +164,14 @@ void main() {
             questionsCorrect: 2, questionsTotal: 3,
           ),
           level: PhilIriLevel.instructional,
-          decision: const LevelDecision(move: LevelMove.stay, levelBefore: 2, levelAfter: 2),
+          bookDifficulty: 38,
+          score: const ScoreUpdate(
+            before: 30,
+            after: 30,
+            evidence: ScoreEvidence(difficulty: 38, accuracyPart: 0, fluencyPart: 0, value: 30),
+          ),
+          predictedAccuracy: 0.95,
+          predictionBias: 1.6,
           words: const [],
         );
       }
@@ -190,7 +201,7 @@ void main() {
     final app = TestApp();
     await tester.runAsync(() async {
       final mia = await LearnerRepository(app.db)
-          .create(nickname: 'Mia', grade: 2, languages: 'EN,FIL', currentLevel: 2);
+          .create(nickname: 'Mia', grade: 2, languages: 'EN,FIL', readingScore: 30);
       await app.container.read(currentLearnerProvider.notifier).select(mia.id);
     });
     await app.pump(tester, const HomeShell());
@@ -198,10 +209,11 @@ void main() {
     await tester.tap(find.text('Stories'));
     await settle(tester);
 
-    expect(find.text('Level 2 · Just right'), findsOneWidget);
+    expect(find.text('🌿 Sprout reader'), findsOneWidget); // score 30
+    expect(find.textContaining('Level'), findsNothing);
     expect(find.text('BUDDY PICKED THESE'), findsOneWidget);
     expect(find.textContaining('These stories have more'), findsOneWidget);
-    // Level 2 has 5 stories in EN + FIL; the shelf shows 4, all new.
+    // Up to 3 just-right books + 1 easy one; nothing read yet, so all new.
     expect(find.text('New'), findsNWidgets(4));
     await app.screenshot(tester, 's04_shelf');
   });

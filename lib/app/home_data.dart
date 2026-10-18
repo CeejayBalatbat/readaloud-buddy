@@ -98,58 +98,74 @@ class ShelfItem {
   const ShelfItem({
     required this.story,
     required this.isNew,
-    required this.isFavorite,
+    required this.kind,
+    required this.predictedAccuracy,
     this.soundLabel,
   });
 
   final Story story;
   final bool isNew;
-  final bool isFavorite;
+  final PickKind kind;
+
+  /// Buddy's guess of the share of words the child will read right (§9).
+  final double predictedAccuracy;
   final String? soundLabel; // e.g. "sh": the weak sound it practises most
+
+  bool get isFavorite => kind == PickKind.readAgain;
 }
 
 class ShelfData {
-  const ShelfData({required this.level, required this.items, required this.reason});
-  final int level;
+  const ShelfData({
+    required this.score,
+    required this.profile,
+    required this.items,
+    required this.reason,
+    required this.predictions,
+  });
+
+  /// The reader's score and profile (the child only sees the rank).
+  final double score;
+  final ReadingProfile profile;
   final List<ShelfItem> items;
   final String reason;
+
+  /// Every candidate book's prediction, for Buddy's brain.
+  final List<BookPrediction> predictions;
+}
+
+/// Buddy's recommendation for [learner] (AGENT_SPEC §9).
+Future<StoryShelf> recommend(Ref ref, Learner learner) async {
+  final stories = await ref.watch(storiesProvider.future);
+  final predictor = await ref.watch(predictorProvider.future);
+  final sessions = ref.watch(sessionRepositoryProvider);
+  final mastery = await ref.watch(progressRepositoryProvider).loadMastery(learner.id);
+  return StorySelector().select(
+    stories: stories,
+    languages: learner.languageList,
+    mastery: mastery,
+    score: learner.readingScore,
+    bias: learner.bias(),
+    predictor: predictor,
+    recentStoryIds: [for (final s in await sessions.recent(learner.id)) s.storyId],
+    bestPastAccuracy: await sessions.bestAccuracies(learner.id),
+  );
 }
 
 /// Buddy's story picks (AGENT_SPEC §9) for the current reader.
 final shelfProvider = FutureProvider.autoDispose<ShelfData?>((ref) async {
   final learner = await ref.watch(currentLearnerProvider.future);
   if (learner == null) return null;
-  final stories = await ref.watch(storiesProvider.future);
-  final sessionsRepo = ref.watch(sessionRepositoryProvider);
-  final mastery =
-      await ref.watch(progressRepositoryProvider).loadMastery(learner.id);
-  final sessions = await sessionsRepo.recent(learner.id);
-  final storySessions = sessions.where((s) => s.type == SessionType.story);
-  final readIds = {for (final s in storySessions) s.storyId};
-
-  // Favorite = the story at this level the reader read best before.
-  final atLevel = {
-    for (final s in stories)
-      if (s.level == learner.currentLevel) s.id,
-  };
-  final best = storySessions.where((s) => atLevel.contains(s.storyId)).toList()
-    ..sort((a, b) => b.accuracy.compareTo(a.accuracy));
-
-  final shelf = StorySelector().select(
-    stories: stories,
-    level: learner.currentLevel,
-    languages: learner.languageList,
-    mastery: mastery,
-    recentStoryIds: [for (final s in sessions) s.storyId],
-    favoriteStoryId: best.isEmpty ? null : best.first.storyId,
-  );
+  final shelf = await recommend(ref, learner);
+  final mastery = await ref.watch(progressRepositoryProvider).loadMastery(learner.id);
+  final readIds = (await ref.watch(sessionRepositoryProvider).bestAccuracies(learner.id)).keys.toSet();
 
   final items = [
     for (final p in shelf.picks)
       ShelfItem(
         story: p.story,
         isNew: !readIds.contains(p.story.id),
-        isFavorite: p.isFavorite,
+        kind: p.kind,
+        predictedAccuracy: p.prediction.accuracy,
         soundLabel: _topSound(p.story, mastery),
       ),
   ];
@@ -159,10 +175,18 @@ final shelfProvider = FutureProvider.autoDispose<ShelfData?>((ref) async {
     if (newCount > 1 && newCount < items.length) '$newCount are new',
     if (items.any((i) => i.isFavorite)) 'one you loved',
   ];
-  final reason = shelf.reason == null
-      ? 'These stories are just right for you.'
-      : '${shelf.reason}.${extras.isEmpty ? '' : ' ${extras.join(', ')}.'}';
-  return ShelfData(level: learner.currentLevel, items: items, reason: reason);
+  final reason = shelf.nothingFits
+      ? shelf.reason!
+      : shelf.reason == null
+          ? 'These stories are just right for you.'
+          : '${shelf.reason}.${extras.isEmpty ? '' : ' ${extras.join(', ')}.'}';
+  return ShelfData(
+    score: learner.readingScore,
+    profile: const ReadingScorer().profileOf(learner.readingScore),
+    items: items,
+    reason: reason,
+    predictions: shelf.predictions,
+  );
 });
 
 /// The kid label of the weak sound a story practises most.
@@ -193,11 +217,19 @@ final gamePlanProvider = FutureProvider.autoDispose<GamePlan?>((ref) async {
   if (learner == null) return null;
   final stories = await ref.watch(storiesProvider.future);
   final progress = ref.watch(progressRepositoryProvider);
+  // Practice words come from the books Buddy would recommend: not too hard
+  // (or the easiest ones when nothing fits yet).
+  final shelf = await recommend(ref, learner);
   final words = const WordGame().pickWords(
     tricky: (await progress.loadTrickyWords(learner.id)).words,
     mastery: await progress.loadMastery(learner.id),
     stories: stories,
-    level: learner.currentLevel,
+    practiceStoryIds: shelf.nothingFits
+        ? {for (final p in shelf.picks) p.story.id}
+        : {
+            for (final p in shelf.predictions)
+              if (p.band != PhilIriLevel.frustration) p.story.id,
+          },
     languages: learner.languageList,
   );
   return GamePlan(

@@ -48,6 +48,7 @@ class AppStart extends ConsumerWidget {
         !loaded(ref.watch(hintModeProvider)) ||
         !loaded(ref.watch(feedbackModeProvider)) ||
         !loaded(ref.watch(phonicsProvider)) ||
+        !loaded(ref.watch(predictorProvider)) ||
         !loaded(ref.watch(voskMissingWordsProvider)) ||
         !loaded(ref.watch(voskHealthProvider))) {
       return splash;

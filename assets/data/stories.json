@@ -4,7 +4,6 @@
   "title": "Sam and the Cat",
   "language": "EN",
   "difficulty": 18,
-  "level": 1,
   "text": "Sam has a cat. The cat is big and fat. The cat sat on a red mat. Sam had a nap. The cat had a nap too.",
   "words": [
    {
@@ -359,7 +358,6 @@
   "title": "Ben and the Bus",
   "language": "EN",
   "difficulty": 9,
-  "level": 1,
   "text": "The bus is big. It is red. Ben got on the bus. The bus went up the hill. Ben sat with his mom. They had fun.",
   "words": [
    {
@@ -706,7 +704,6 @@
   "title": "Pip the Pig",
   "language": "EN",
   "difficulty": 7,
-  "level": 1,
   "text": "Pip is a pig. Pip can dig. Pip dug in the mud. Pip got wet. Mom said, get in the tub, Pip!",
   "words": [
    {
@@ -1010,7 +1007,6 @@
   "title": "Ang Bola ni Ana",
   "language": "FIL",
   "difficulty": 22,
-  "level": 1,
   "text": "May bola si Ana. Pula ang bola. Ibinato ni Ana ang bola. Sinalo ito ni Lito. Masaya sila.",
   "words": [
    {
@@ -1275,7 +1271,6 @@
   "title": "Si Mimi",
   "language": "FIL",
   "difficulty": 10,
-  "level": 1,
   "text": "Si Mimi ay pusa. Puti si Mimi. Gusto ni Mimi ng isda. Kumain si Mimi. Natulog si Mimi sa mesa.",
   "words": [
    {
@@ -1558,7 +1553,6 @@
   "title": "The Big Red Kite",
   "language": "EN",
   "difficulty": 38,
-  "level": 2,
   "text": "Mia ran up the hill with her kite. The wind was strong. The kite went up, up, up! It flew through the clouds. Then the wind stopped. The kite came down on a tree. Dad helped Mia get it back. Let's try again, said Mia.",
   "words": [
    {
@@ -2104,7 +2098,6 @@
   "title": "Dot Finds a Shell",
   "language": "EN",
   "difficulty": 37,
-  "level": 2,
   "text": "Dot went to the beach with her dad. She saw a shell in the sand. It was pink and shiny. Dot put the shell by her ear. I can hear the sea, she said. She took the shell home and put it on a shelf.",
   "words": [
    {
@@ -2650,7 +2643,6 @@
   "title": "The Rainy Day Race",
   "language": "EN",
   "difficulty": 39,
-  "level": 2,
   "text": "It was a rainy day. Ben and Jen could not play outside. Let's have a race, said Jen. They made two paper boats. They put the boats in the rain water by the gate. The boats sailed fast. Jen's boat won the race!",
   "words": [
    {
@@ -3174,7 +3166,6 @@
   "title": "Si Lolo at ang Bangka",
   "language": "FIL",
   "difficulty": 41,
-  "level": 2,
   "text": "Maagang gumising si Lolo Ben. Pumunta siya sa dagat. Sumakay siya sa kanyang bangka. Nanghuli siya ng maraming isda. Pag-uwi niya, nagluto si Lola. Masaya silang kumain ng hapunan.",
   "words": [
    {
@@ -3550,7 +3541,6 @@
   "title": "Ang Hardin ni Nena",
   "language": "FIL",
   "difficulty": 52,
-  "level": 2,
   "text": "May maliit na hardin si Nena. Nagtanim siya ng kamatis at talong. Dinidiligan niya ang mga halaman tuwing umaga. Pagkalipas ng ilang linggo, may bunga na ang mga ito. Ibinigay ni Nena ang kamatis sa kanyang kapitbahay.",
   "words": [
    {
@@ -4014,7 +4004,6 @@
   "title": "The Thin Thread",
   "language": "EN",
   "difficulty": 46,
-  "level": 3,
   "text": "Thea wanted to fix her torn shirt. Her grandmother gave her a needle and a thin thread. Pull the thread through the hole, Grandma said. Thea tried three times. The thread kept slipping. On the fourth try, she did it! She stitched the shirt slowly. When she finished, she thanked her grandmother. Now you can fix things too, Grandma said with a smile.",
   "words": [
    {
@@ -4774,7 +4763,6 @@
   "title": "Three Little Ships",
   "language": "EN",
   "difficulty": 58,
-  "level": 3,
   "text": "Three little ships sailed on the sea. The first ship carried fish. The second ship carried fruit. The third ship carried children going to school on another island. One morning, a storm came. The ships stayed close together. They helped each other reach the shore safely. After the storm, the children waved at the sailors and shouted, thank you!",
   "words": [
    {
@@ -5483,7 +5471,6 @@
   "title": "The Strong Ant",
   "language": "EN",
   "difficulty": 54,
-  "level": 3,
   "text": "A little ant found a big grain of rice. It was too heavy to carry alone. The ant pushed and pulled, but the rice did not move. Then the ant called its friends. Ten ants came running. Together, they lifted the rice and carried it home. That night, all the ants shared a big dinner. We are strong when we work together, said the little ant.",
   "words": [
    {
@@ -6244,7 +6231,6 @@
   "title": "Ang Batang Mahilig Magbasa",
   "language": "FIL",
   "difficulty": 73,
-  "level": 3,
   "text": "Si Carlo ay mahilig magbasa ng mga kuwento. Tuwing hapon, pumupunta siya sa silid-aklatan ng barangay. Doon, binabasa niya ang mga aklat tungkol sa mga hayop at sa kalawakan. Isang araw, napansin niyang hindi pa marunong magbasa ang kanyang kapatid na si Bea. Tinuruan niya si Bea araw-araw. Makalipas ang isang buwan, nakabasa na si Bea ng kanyang unang aklat.",
   "words": [
    {
@@ -6941,7 +6927,6 @@
   "title": "Ang Ulan sa Bayan",
   "language": "FIL",
   "difficulty": 69,
-  "level": 3,
   "text": "Malakas ang ulan sa bayan ng San Isidro. Bumaha sa kalsada malapit sa paaralan. Hindi makauwi ang mga bata. Dumating ang mga tanod at tumulong. Binuhat nila ang maliliit na bata papunta sa ligtas na lugar. Nagdala rin ang mga magulang ng payong at kapote. Pagtila ng ulan, nagpasalamat ang mga bata sa mga tumulong sa kanila.",
   "words": [
    {
@@ -7609,7 +7594,6 @@
   "title": "The Night Market",
   "language": "EN",
   "difficulty": 83,
-  "level": 4,
   "text": "Every Friday night, the plaza turns into a busy market. Lights hang between the stalls like tiny stars. Marco helps his mother sell banana cue and turon. He counts the coins carefully and gives the right change. One night, a customer forgot her wallet on the table. Marco ran through the crowd to return it. The woman was so thankful that she bought ten pieces of turon for her family. Marco's mother smiled proudly. Being honest is worth more than any money, she said.",
   "words": [
    {
@@ -8557,7 +8541,6 @@
   "title": "Planting Mangroves",
   "language": "EN",
   "difficulty": 73,
-  "level": 4,
   "text": "Our class went on a trip to the coast to plant mangroves. Our teacher explained that mangrove roots hold the soil and protect the village from strong waves during typhoons. They are also homes for crabs, fish and birds. We walked carefully in the soft mud. Each of us planted three young mangroves and tied them to bamboo sticks so the water would not wash them away. In ten years, our small plants will grow into a forest that keeps our town safe.",
   "words": [
    {
@@ -9495,7 +9478,6 @@
   "title": "The Robot Who Could Not Read",
   "language": "EN",
   "difficulty": 87,
-  "level": 4,
   "text": "In a busy library lived a small robot named Bolt. Bolt could sort books, sweep the floor and fix the lights, but Bolt could not read. Every afternoon, a girl named Lia came to the library. One day she noticed Bolt staring at a picture book. Do you want me to teach you, she asked. Bolt beeped happily. Each day, Lia pointed at words and sounded them out slowly. After many weeks, Bolt read a whole story aloud to the other children. Everyone clapped, and Lia clapped the loudest.",
   "words": [
    {
@@ -10498,7 +10480,6 @@
   "title": "Ang Pista sa Aming Baryo",
   "language": "FIL",
   "difficulty": 79,
-  "level": 4,
   "text": "Tuwing Mayo, ipinagdiriwang ang pista sa aming baryo. Ilang araw bago nito, naglilinis at nagdedekorasyon ang lahat ng pamilya. Nagsasabit kami ng makukulay na banderitas sa kalye. Sa araw ng pista, may parada, palaro at sayawan sa plaza. Nagluluto si Nanay ng pansit, lumpia at leche flan para sa mga bisita. Masayang-masaya ako dahil umuuwi rin ang aking mga pinsan mula sa Maynila. Sa gabi, nanonood kami ng paputok kasama ang buong pamilya.",
   "words": [
    {
@@ -11329,7 +11310,6 @@
   "title": "Si Pagong at ang Plastik",
   "language": "FIL",
   "difficulty": 73,
-  "level": 4,
   "text": "Isang umaga, lumangoy si Pagong sa malinaw na dagat. Bigla siyang nakakita ng isang bagay na lumulutang. Akala niya ay dikya ito, kaya sinubukan niyang kainin. Ngunit plastik pala ito! Mabuti na lamang at may mga batang naglilinis ng dalampasigan. Nakita nila si Pagong at maingat nilang tinanggal ang plastik. Mula noon, nangako ang mga bata na hindi na sila magtatapon ng basura sa dagat. Masayang lumangoy palayo si Pagong.",
   "words": [
    {

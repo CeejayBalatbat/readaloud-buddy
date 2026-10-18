@@ -41,12 +41,13 @@ class WordGame {
   static const _sightPatterns = {'EN-SW', 'FIL-SW'};
 
   /// The child's tricky words first, weakest sound first; topped up with
-  /// words from stories at their level that practise their weakest sounds.
+  /// words that practise their weakest sounds from [practiceStoryIds]: the
+  /// stories Buddy would recommend (AGENT_SPEC §8, §9).
   List<GameWord> pickWords({
     required List<TrickyWord> tricky,
     required SoundMastery mastery,
     required List<Story> stories,
-    required int level,
+    required Set<String> practiceStoryIds,
     required List<String> languages,
     Random? random,
   }) {
@@ -76,7 +77,7 @@ class WordGame {
     if (picked.length < roundSize) {
       final pool = <String, (GameWord, double)>{};
       for (final s in stories) {
-        if (s.level != level || !languages.contains(s.language)) continue;
+        if (!practiceStoryIds.contains(s.id) || !languages.contains(s.language)) continue;
         for (final w in s.words) {
           final word = WordMatcher.normalize(w.word);
           if (!usable(word) || word.length < 3 || seen.contains(word)) continue;

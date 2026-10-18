@@ -93,6 +93,34 @@ round at the end. Add new reports at the bottom of the right section.
 - The sound-clip hook (`assets/sounds/<PHONEME>.mp3`) needs an audio
   player package before it does anything.
 
+## Reading score and recommendations (Phase 5b)
+- **The numbers are a first guess, not research-validated.** The score
+  formula (AGENT_SPEC §5), the prediction (§9) and the book difficulty
+  (§11) were tuned on our 20 books and a *pretend* child
+  (`test/agent/score_loop_test.dart`). They need checking against real
+  children's readings: Buddy's brain logs predicted vs actual accuracy
+  for every story, so that data will show how far off it is.
+- **CRLA cut-offs are the same for every grade.** "Reading at Grade
+  Level" means score ≥ 80 whatever the child's grade; the real CRLA judges
+  against the child's own grade. The grade is saved, so cut-offs per grade
+  could be added in `agent_config.dart`.
+- **The library is small at the bottom.** English has only 3 books below
+  difficulty 20 and Filipino 2, so a beginning reader's shelf has 2–3
+  books, and a reader under about 15 gets "Let's read these together" with
+  books predicted too hard. More easy books (with `tools/add_stories.py`)
+  fix this.
+- **A shelf can have fewer than 4 books** (e.g. score 20: only 2 are just
+  right and none is easy yet). Buddy never fills it with a book it expects
+  to be too hard.
+- **The reading-check passage uses the whole book's difficulty,** though
+  the child reads only its opening (~25 words, so shorter than the book).
+- **Old readers were converted** from levels 1–4 to scores 10/30/50/70
+  (database version 2). Their first stories will move the score quickly.
+- **Filipino readers' check is tapped,** so their starting score is only
+  as good as the tapping.
+- Word tags for new words come from rules (`tools/storylib.py`, 93% the
+  same as the starter tags); check the tags `add_stories.py` prints.
+
 ## Reading check (placement)
 - No Help button. With Hints = "Only when I tap Help", a child gets no
   hints at all during the reading check.

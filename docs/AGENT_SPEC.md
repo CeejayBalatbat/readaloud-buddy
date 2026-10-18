@@ -176,14 +176,14 @@ for each sound pattern p:
 for each word w of the book:
   m_w   = the lowest m(p) of the word's patterns   (the weakest sound decides)
   raw_w = m_w × (1 − slip) + (1 − m_w) × guess    (BKT chance of reading it right, §7 params)
-  p_w   = σ( logit(raw_w) + bias + 0.35 × clamp((S − D) / 10, −3, 3) )
+  p_w   = σ( logit(raw_w) + bias + 0.5 × clamp((S − D) / 10, −4, 4) )
 predicted accuracy = average of p_w over the book's words
 ```
-σ is the logistic function, logit its inverse. The last term is a small correction for books that are longer or have longer sentences than the child is used to (sounds alone don't make a book hard). `bias` is the learner's **prediction correction**, starting at 1.6.
+σ is the logistic function, logit its inverse. The last term corrects for books that are longer or have longer sentences than the child is used to: once the common sounds are mastered, sounds alone don't tell an easy book from a hard one. (Its size was tuned with `test/agent/score_loop_test.dart`, a pretend child reading 30 recommended books.) `bias` is the learner's **prediction correction**, starting at 1.6.
 
 **Learning from the error:** before each story's results are saved, Buddy computes the predicted accuracy (with the mastery and score from *before* the reading) and saves it with the session. Afterwards:
 ```
-bias = clamp(bias + 0.5 × (logit(actual) − logit(predicted)), −2, 5)   // accuracies clamped to 0.01–0.995
+bias = clamp(bias + 0.3 × (logit(actual) − logit(predicted)), −2, 5)   // accuracies clamped to 0.01–0.995
 ```
 So if Buddy keeps guessing too high, its next guesses come down, and vice versa. Buddy's brain shows "predicted 93%, actual 91%".
 
@@ -191,10 +191,12 @@ So if Buddy keeps guessing too high, its next guesses come down, and vice versa.
 
 **The shelf** (up to `shelfSize` = 4 books):
 1. Up to 3 **Instructional** books, ordered by
-   `weak-sound coverage (average over words of 1 − mastery of each pattern) − 1.0 if read in the last 3 sessions + random 0–0.15` (re-reading is fine: the penalty only changes the order).
+   `weak-sound coverage (average over words of 1 − mastery of each pattern) − 1.0 if read in the last 3 sessions + random 0–0.15`. A recently read book goes to the back of the line, so with more than 3 just-right books it makes room for another (it can still come back as the re-read).
 2. **One easy re-read:** a book the child has already read that is now predicted Independent, the one with the best past accuracy ("★ Read again"). If there is none, the slot is filled like step 3.
-3. If fewer than 4 books so far: the **Independent** books closest to the Instructional band (lowest predicted accuracy first).
-4. **Never a predicted-Frustration book**, unless no book at all is Instructional or Independent (a beginning reader): then the 4 books with the highest predicted accuracy, and Buddy says "Let's read these together. I'll help you!".
+3. If fewer than 4 books so far: the **Independent** books closest to the Instructional band (lowest predicted accuracy first), then any further Instructional books.
+4. **Never a predicted-Frustration book**, unless no book at all is Instructional or Independent (a beginning reader): then the 3 books with the highest predicted accuracy, and Buddy says "Let's read these together. I'll help you!".
+
+So the shelf can have fewer than 4 books (e.g. only 2 are just right and none is easy yet): Buddy never fills it with a book it expects to be too hard.
 
 Explain the pick in one kid-friendly line ("These stories have more 'sh' words").
 

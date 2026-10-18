@@ -19,14 +19,18 @@ class SessionRepository {
   static const _uuid = Uuid();
 
   /// Saves a finished story reading. The session, its word events and the
-  /// learner's new level are written together: either all or nothing.
+  /// learner's new reading score and prediction correction are written
+  /// together: either all or nothing.
   Future<String> saveStory({
     required String learnerId,
     required String storyId,
     required DateTime startedAt,
     required SessionScores scores,
     required PhilIriLevel level,
-    required LevelDecision decision,
+    required double bookDifficulty,
+    required ScoreUpdate score,
+    required double predictedAccuracy,
+    required double predictionBias,
     required List<WordOutcome> words,
   }) =>
       _db.transaction(() async {
@@ -37,26 +41,29 @@ class SessionRepository {
           startedAt: startedAt,
           scores: scores,
           level: level,
-          decision: decision.move,
-          levelBefore: decision.levelBefore,
-          levelAfter: decision.levelAfter,
+          bookDifficulty: bookDifficulty,
+          scoreBefore: score.before,
+          scoreAfter: score.after,
+          predictedAccuracy: predictedAccuracy,
           words: words,
         );
-        await (_db.update(_db.learners)..where((l) => l.id.equals(learnerId)))
-            .write(LearnersCompanion(currentLevel: Value(decision.levelAfter)));
+        await (_db.update(_db.learners)..where((l) => l.id.equals(learnerId))).write(
+            LearnersCompanion(
+                readingScore: Value(score.after), predictionBias: Value(predictionBias)));
         return id;
       });
 
-  /// Saves one placement passage (read at [passageLevel]). Placement makes
-  /// no level decision; set the start level with LearnerRepository.setLevel
-  /// when the placement check is done.
+  /// Saves one reading-check passage (§6). Its score columns hold the
+  /// passage's evidence; set the starting score with
+  /// LearnerRepository.setReadingScore when the check is done.
   Future<String> savePlacementPassage({
     required String learnerId,
     required String storyId,
     required DateTime startedAt,
     required SessionScores scores,
     required PhilIriLevel level,
-    required int passageLevel,
+    required double bookDifficulty,
+    required double evidence,
     required List<WordOutcome> words,
   }) =>
       _db.transaction(() => _insert(
@@ -66,9 +73,10 @@ class SessionRepository {
             startedAt: startedAt,
             scores: scores,
             level: level,
-            decision: null,
-            levelBefore: passageLevel,
-            levelAfter: passageLevel,
+            bookDifficulty: bookDifficulty,
+            scoreBefore: evidence,
+            scoreAfter: evidence,
+            predictedAccuracy: null,
             words: words,
           ));
 
@@ -79,9 +87,10 @@ class SessionRepository {
     required DateTime startedAt,
     required SessionScores scores,
     required PhilIriLevel level,
-    required LevelMove? decision,
-    required int levelBefore,
-    required int levelAfter,
+    required double bookDifficulty,
+    required double scoreBefore,
+    required double scoreAfter,
+    required double? predictedAccuracy,
     required List<WordOutcome> words,
   }) async {
     final id = _uuid.v4();
@@ -105,9 +114,10 @@ class SessionRepository {
           wcpm: scores.wcpm,
           comprehension: scores.comprehension,
           philiriLevel: level,
-          agentDecision: Value(decision),
-          levelBefore: levelBefore,
-          levelAfter: levelAfter,
+          bookDifficulty: bookDifficulty,
+          scoreBefore: scoreBefore,
+          scoreAfter: scoreAfter,
+          predictedAccuracy: Value(predictedAccuracy),
         ));
     await _db.batch((b) => b.insertAll(_db.wordEvents, [
           for (final w in words)
@@ -151,32 +161,16 @@ class SessionRepository {
   Future<List<String>> recentStoryIds(String learnerId, {int limit = 3}) async =>
       [for (final s in await recent(learnerId, limit: limit)) s.storyId];
 
-  /// Rebuilds the agent's [LevelState]: the learner's current level plus
-  /// only the results since the last level change (AGENT_SPEC §5). If no
-  /// story has changed the level yet, the placement passage read at the
-  /// starting level counts as the first result.
-  Future<LevelState> levelState(String learnerId) async {
-    final learner = await (_db.select(_db.learners)
-          ..where((l) => l.id.equals(learnerId)))
-        .getSingle();
-    final level = learner.currentLevel;
-    final sessions = await recent(learnerId);
-    final results = <PhilIriLevel>[]; // newest first while walking back
-    for (final s in sessions) {
-      if (s.type == SessionType.placement) {
-        // Placement is the start of the history: use its passage at the
-        // starting level (if any), then stop.
-        final atLevel = sessions
-            .where((p) => p.type == SessionType.placement)
-            .where((p) => p.levelBefore == level)
-            .firstOrNull;
-        if (atLevel != null) results.add(atLevel.philiriLevel);
-        break;
-      }
-      if (s.agentDecision != LevelMove.stay) break; // last level change
-      results.add(s.philiriLevel);
+  /// The best accuracy of every story the learner has read (not
+  /// reading-check passages), for the "read again" pick (§9).
+  Future<Map<String, double>> bestAccuracies(String learnerId) async {
+    final best = <String, double>{};
+    for (final s in await recent(learnerId)) {
+      if (s.type != SessionType.story) continue;
+      final b = best[s.storyId];
+      if (b == null || s.accuracy > b) best[s.storyId] = s.accuracy;
     }
-    return LevelState(level: level, resultsAtLevel: results.reversed.toList());
+    return best;
   }
 
   /// Oldest → newest summaries for the teacher flag. Patterns practised are

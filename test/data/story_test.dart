@@ -10,14 +10,17 @@ void main() {
     stories = parseStories(File('assets/data/stories.json').readAsStringSync());
   });
 
-  test('loads all 20 stories', () {
-    expect(stories, hasLength(20));
+  test('loads the library (at least the 20 starter stories)', () {
+    expect(stories.length, greaterThanOrEqualTo(20));
     expect(stories.first.title, 'Sam and the Cat');
+    expect({for (final s in stories) s.id}, hasLength(stories.length)); // unique ids
   });
 
-  test('every story has a valid level, language and tagged words', () {
+  test('every story has a difficulty (0–100), a language and tagged words', () {
     for (final s in stories) {
-      expect(s.level, inInclusiveRange(1, 4), reason: s.id);
+      expect(s.difficulty, inInclusiveRange(0, 100), reason: s.id);
+      // The words line up with the text (one per space-separated token).
+      expect(s.words, hasLength(s.text.split(RegExp(r'\s+')).length), reason: s.id);
       expect(s.language, anyOf('EN', 'FIL'), reason: s.id);
       expect(s.words, isNotEmpty, reason: s.id);
       for (final w in s.words) {

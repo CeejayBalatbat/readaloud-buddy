@@ -1,7 +1,7 @@
 /// Every tunable number the agent uses, in one place (AGENT_SPEC.md).
 ///
 /// Use `const AgentConfig()` for the defaults. Tests (or a future settings
-/// screen) can override single values, e.g. `AgentConfig(framesToMoveDown: 2)`.
+/// screen) can override single values, e.g. `AgentConfig(developingMin: 45)`.
 class AgentConfig {
   const AgentConfig({
     // §1 Word results
@@ -25,13 +25,41 @@ class AgentConfig {
     this.instructionalAccuracy = 0.90,
     this.independentComprehension = 0.80,
     this.instructionalComprehension = 0.59,
-    // §5 Level decisions
-    this.minLevel = 1,
-    this.maxLevel = 4,
-    this.framesToMoveUp = 2,
-    this.framesToMoveDown = 1,
-    // §6 Placement
-    this.placementMaxLevel = 3,
+    // §5 Reading score and CRLA profiles (each cut-off is a lower bound)
+    this.startScoreDefault = 10,
+    this.highEmergingMin = 20,
+    this.developingMin = 40,
+    this.transitioningMin = 60,
+    this.gradeLevelMin = 80,
+    this.targetAccuracy = 0.935,
+    this.accuracyWeight = 250,
+    this.targetComprehension = 0.66,
+    this.comprehensionWeight = 15,
+    this.wcpmAtZero = 20,
+    this.wcpmPerPoint = 0.9,
+    this.fluencyWeight = 8,
+    this.fluencyRatioMin = 0.5,
+    this.fluencyRatioMax = 1.5,
+    this.targetMastery = 0.6,
+    this.masteryWeight = 10,
+    this.evidenceMaxGap = 30,
+    this.scoreLearningRate = 0.35,
+    this.maxScoreStep = 12,
+    // §6 Reading check
+    this.readingCheckTargets = const [15, 40, 65],
+    // §9 Accuracy prediction
+    this.priorSpread = 10,
+    this.priorMin = 0.02,
+    this.priorMax = 0.98,
+    this.predictionBiasStart = 1.6,
+    this.textGapWeight = 0.5,
+    this.textGapMaxSteps = 4,
+    this.biasLearningRate = 0.3,
+    this.biasMin = -2,
+    this.biasMax = 5,
+    this.accuracyClampMin = 0.01,
+    this.accuracyClampMax = 0.995,
+    this.instructionalPicks = 3,
     // §7 Bayesian Knowledge Tracing
     this.bktP0 = 0.35,
     this.bktLearn = 0.12,
@@ -78,12 +106,78 @@ class AgentConfig {
   final double independentComprehension;
   final double instructionalComprehension;
 
-  final int minLevel;
-  final int maxLevel;
-  final int framesToMoveUp;
-  final int framesToMoveDown;
 
-  final int placementMaxLevel;
+  /// §5 Reading score (0–100). Used when the reading check was closed
+  /// before any passage was finished.
+  final double startScoreDefault;
+
+  /// CRLA profile cut-offs on the reading score (lower bounds): below
+  /// [highEmergingMin] is Low Emerging (🌱 Seed), then High Emerging
+  /// (🌿 Sprout), Developing (🍃 Leaf), Transitioning (🌳 Tree) and from
+  /// [gradeLevelMin] Reading at Grade Level (⭐ Super Reader).
+  final double highEmergingMin;
+  final double developingMin;
+  final double transitioningMin;
+  final double gradeLevelMin;
+
+  /// Evidence from one reading = book difficulty + these parts (§5).
+  /// accuracyPart = accuracyWeight × (accuracy − targetAccuracy).
+  final double targetAccuracy;
+  final double accuracyWeight;
+
+  /// comprehensionPart = comprehensionWeight × (comprehension − target).
+  final double targetComprehension;
+  final double comprehensionWeight;
+
+  /// expectedWcpm(D) = wcpmAtZero + wcpmPerPoint × D; fluencyPart =
+  /// fluencyWeight × (clamp(WCPM / expected, min, max) − 1).
+  final double wcpmAtZero;
+  final double wcpmPerPoint;
+  final double fluencyWeight;
+  final double fluencyRatioMin;
+  final double fluencyRatioMax;
+
+  /// masteryPart = masteryWeight × (bookMastery − targetMastery).
+  final double targetMastery;
+  final double masteryWeight;
+
+  /// Evidence stays within the book difficulty ± this.
+  final double evidenceMaxGap;
+
+  /// The score moves this share of the way to the evidence, at most
+  /// [maxScoreStep] points per reading.
+  final double scoreLearningRate;
+  final double maxScoreStep;
+
+  /// §6 Book difficulties the reading-check passages aim for.
+  final List<double> readingCheckTargets;
+
+  /// §9 Prior mastery of a sound not read yet: σ((score − 100 × d) /
+  /// priorSpread), kept within [priorMin, priorMax].
+  final double priorSpread;
+  final double priorMin;
+  final double priorMax;
+
+  /// The learner's prediction correction starts here (logit units).
+  final double predictionBiasStart;
+
+  /// textGapWeight × clamp((score − D) / 10, ±textGapMaxSteps) is added to
+  /// each word's logit: books harder than the reader's score come down.
+  final double textGapWeight;
+  final double textGapMaxSteps;
+
+  /// After each story: bias += biasLearningRate × (logit(actual) −
+  /// logit(predicted)), kept within [biasMin, biasMax]. Accuracies are
+  /// clamped to [accuracyClampMin, accuracyClampMax] first.
+  final double biasLearningRate;
+  final double biasMin;
+  final double biasMax;
+  final double accuracyClampMin;
+  final double accuracyClampMax;
+
+  /// Instructional ("just right") books on the shelf; one more slot is the
+  /// easy re-read.
+  final int instructionalPicks;
 
   final double bktP0;
   final double bktLearn;

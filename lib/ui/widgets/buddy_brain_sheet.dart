@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../agent/agent.dart';
 import '../../app/buddy_brain.dart';
+import '../../app/home_data.dart';
+import '../../data/repositories/learner_repository.dart';
 import '../../speech/speech_service.dart';
 import '../../speech/speech_timing.dart';
 import '../theme/app_colors.dart';
@@ -37,6 +39,7 @@ class BuddyBrainPanel extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final brain = ref.watch(buddyBrainProvider);
     final insights = ref.watch(learnerInsightsProvider);
+    final shelf = ref.watch(shelfProvider).value;
     return ListView(
       controller: scrollController,
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
@@ -98,6 +101,42 @@ class BuddyBrainPanel extends ConsumerWidget {
                 )
               : _LearnerSection(i),
         ),
+        if (shelf != null) _PredictionSection(shelf),
+      ],
+    );
+  }
+}
+
+/// §9: every book's predicted word accuracy for this reader.
+class _PredictionSection extends StatelessWidget {
+  const _PredictionSection(this.shelf);
+  final ShelfData shelf;
+
+  @override
+  Widget build(BuildContext context) {
+    final onShelf = {for (final i in shelf.items) i.story.id: i.kind};
+    String band(PhilIriLevel b) => switch (b) {
+          PhilIriLevel.independent => 'easy',
+          PhilIriLevel.instructional => 'just right',
+          PhilIriLevel.frustration => 'too hard',
+        };
+    String kind(PickKind k) => switch (k) {
+          PickKind.justRight => '✓ on shelf',
+          PickKind.readAgain => '★ read again',
+          PickKind.easy => '✓ on shelf (easy)',
+          PickKind.challenge => '✓ on shelf (nothing fits yet)',
+        };
+    return _Section(
+      title: 'Recommendation by prediction (§9)',
+      subtitle: 'Predicted word accuracy for each book · difficulty',
+      children: [
+        for (final p in shelf.predictions)
+          _KeyValue(
+            '${p.story.id} ${p.story.title} · ${p.story.difficulty.round()}',
+            '${_pct(p.accuracy)} ${band(p.band)}'
+            '${onShelf[p.story.id] == null ? '' : '  ${kind(onShelf[p.story.id]!)}'}',
+            strong: onShelf.containsKey(p.story.id),
+          ),
       ],
     );
   }
@@ -199,14 +238,15 @@ class _DecisionSection extends StatelessWidget {
   const _DecisionSection(this.d);
   final BrainDecision d;
 
+  static String _signed(double v) => '${v >= 0 ? '+' : '−'}${v.abs().toStringAsFixed(1)}';
+
   @override
   Widget build(BuildContext context) {
-    final dec = d.decision;
+    const scorer = ReadingScorer();
+    final u = d.score, e = d.evidence, predicted = d.predictedAccuracy;
     return _Section(
-      title: d.isPlacement
-          ? 'Last placement passage (§6)'
-          : 'Last story decision (§3–§5)',
-      subtitle: d.title,
+      title: d.isPlacement ? 'Last reading-check passage (§6)' : 'Last story (§3–§5, §9)',
+      subtitle: '${d.title} · difficulty ${d.bookDifficulty.round()}',
       children: [
         _KeyValue('Accuracy', _pct(d.scores.accuracy)),
         _KeyValue('WCPM', d.scores.wcpm.toStringAsFixed(1)),
@@ -217,15 +257,31 @@ class _DecisionSection extends StatelessWidget {
         if (!d.isPlacement)
           _KeyValue('Phil-IRI comprehension', d.philiri.comprehension.label),
         _KeyValue('Phil-IRI overall', d.philiri.overall.label, strong: true),
-        if (dec != null) ...[
+        if (predicted != null)
           _KeyValue(
-            'Level decision',
-            '${dec.move.name.toUpperCase()}  (level ${dec.levelBefore} → ${dec.levelAfter})',
+            'Prediction (§9)',
+            'predicted ${(100 * predicted).round()}%, actual ${(100 * d.scores.accuracy).round()}% '
+                '(error ${_signed(100 * (d.scores.accuracy - predicted))} points)',
             strong: true,
           ),
-          _KeyValue('Results counted at this level',
-              d.resultsAtLevel.isEmpty ? '(reset after level change)' : d.resultsAtLevel.map((l) => l.label).join(', ')),
-        ],
+        if (d.biasBefore != null && d.biasAfter != null)
+          _KeyValue('Prediction correction',
+              '${d.biasBefore!.toStringAsFixed(2)} → ${d.biasAfter!.toStringAsFixed(2)}'),
+        if (e != null)
+          _KeyValue(
+            d.isPlacement ? 'Evidence (§6)' : 'Evidence (§5)',
+            '${e.value.toStringAsFixed(1)} = difficulty ${e.difficulty.round()} '
+                '${_signed(e.accuracyPart)} accuracy ${_signed(e.fluencyPart)} speed'
+                '${e.comprehensionPart == null ? '' : ' ${_signed(e.comprehensionPart!)} questions'}'
+                '${e.masteryPart == null ? '' : ' ${_signed(e.masteryPart!)} sounds'}',
+          ),
+        if (u != null)
+          _KeyValue(
+            'Reading score (§5)',
+            '${u.before.toStringAsFixed(1)} → ${u.after.toStringAsFixed(1)} · '
+                '${scorer.profileOf(u.after).label} (${scorer.profileOf(u.after).rank})',
+            strong: true,
+          ),
         if (d.plan != null) _KeyValue("Buddy's plan (shown to child)", d.plan!),
         if (d.newTrickyWords.isNotEmpty)
           _KeyValue('New tricky words (§8)', d.newTrickyWords.join(', ')),
@@ -243,18 +299,17 @@ class _LearnerSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final weak = i.weakestSounds.take(6).toList();
     final h = i.hintStats;
+    final profile = const ReadingScorer().profileOf(i.learner.readingScore);
     return Column(
       children: [
         _Section(
           title: 'Learner model · ${i.learner.nickname}',
           children: [
-            _KeyValue('Current level', '${i.levelState.level}'),
-            _KeyValue(
-              'Streak since last level change (§5)',
-              i.levelState.resultsAtLevel.isEmpty
-                  ? 'none yet'
-                  : i.levelState.resultsAtLevel.map((l) => l.label).join(' → '),
-            ),
+            _KeyValue('Reading score (§5)', '${i.learner.readingScore.toStringAsFixed(1)} / 100',
+                strong: true),
+            _KeyValue('CRLA profile (grown-ups)', profile.label),
+            _KeyValue('Rank (child)', profile.rank),
+            _KeyValue('Prediction correction (§9)', i.learner.bias().toStringAsFixed(2)),
             _KeyValue('Hint wait', '${i.learner.hintWaitSec ?? (i.learner.dyslexiaMode ? 8 : 5)} s'),
           ],
         ),

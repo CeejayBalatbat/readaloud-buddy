@@ -20,14 +20,15 @@ import '../widgets/common.dart';
 import '../widgets/story_text.dart';
 import '../widgets/svg_art.dart';
 
-/// Screen 2: the reading check. Up to 3 short passages (levels 1 → 3),
-/// stopping at the first Frustration (AGENT_SPEC §6). No score is shown.
+/// Screen 2: the reading check. Up to 3 short passages from books closest
+/// to difficulty 15, 40 and 65, stopping at the first Frustration
+/// (AGENT_SPEC §6). It sets the starting reading score. No score is shown.
 class PlacementScreen extends ConsumerStatefulWidget {
   const PlacementScreen({super.key, required this.learner, required this.onDone});
 
   final Learner learner;
 
-  /// Called after the starting level is saved (or the check was closed).
+  /// Called after the starting score is saved (or the check was closed).
   final VoidCallback onDone;
 
   @override
@@ -35,7 +36,7 @@ class PlacementScreen extends ConsumerStatefulWidget {
 }
 
 class _PlacementScreenState extends ConsumerState<PlacementScreen> {
-  final _check = PlacementCheck();
+  ReadingCheck? _check; // created once the stories are loaded
   ReadingController? _c;
   PlacementPassage? _passage;
   DateTime _startedAt = DateTime.now();
@@ -43,7 +44,8 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   bool _saving = false;
   (int, int)? _spokenHint;
 
-  int get _level => _check.nextPassageLevel ?? _check.results.length;
+  /// Which passage this is (1, 2 or 3).
+  int get _number => (_check?.passages.length ?? 0) + (_c == null || _c!.isFinished ? 0 : 1);
   String get _language => widget.learner.languageList.first;
 
   @override
@@ -53,9 +55,12 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   }
 
   Future<void> _next() async {
-    final level = _check.nextPassageLevel;
-    final stories = await ref.read(storiesProvider.future);
-    final passage = level == null ? null : placementPassage(stories, level, _language);
+    final check = _check ??= ReadingCheck(
+      stories: await ref.read(storiesProvider.future),
+      language: _language,
+    );
+    final story = check.isDone ? null : check.nextStory;
+    final passage = story == null ? null : placementPassage(story);
     if (!mounted) return;
     if (passage == null) return _finish();
     _c?.removeListener(_changed);
@@ -93,32 +98,35 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
 
   Future<void> _passageDone(ReadingController c) async {
     _saving = true;
-    final level = _check.nextPassageLevel!;
+    final check = _check!;
     final outcome = await ref.read(sessionServiceProvider).savePlacementPassage(
           learner: widget.learner,
+          check: check,
           passage: _passage!,
-          passageLevel: level,
           outcomes: c.outcomes,
           readingSeconds: c.readingSeconds,
           hintAttempts: c.tracker.hintAttempts,
           startedAt: _startedAt,
         );
-    _check.record(outcome.wordLevel);
+    final p = outcome.passage;
+    final profile = const ReadingScorer().profileOf(check.startScore);
     ref.read(buddyBrainProvider.notifier).showDecision(BrainDecision(
-          title: 'Reading check · level $level passage (${_passage!.story.title})',
+          title: 'Reading check · passage ${check.passages.length} (${p.story.title})',
           scores: outcome.scores,
-          philiri: PhilIriResult(outcome.wordLevel, outcome.wordLevel, outcome.wordLevel),
-          plan: _check.isDone
-              ? 'Placement done: start at level ${_check.startLevel} '
-                  '(highest level that was not Frustration, max ${_check.config.placementMaxLevel})'
-              : outcome.wordLevel == PhilIriLevel.frustration
+          philiri: PhilIriResult(p.wordLevel, p.wordLevel, p.wordLevel),
+          bookDifficulty: p.story.difficulty,
+          evidence: p.evidence,
+          plan: check.isDone
+              ? 'Check done: starting score ${check.startScore.toStringAsFixed(1)} '
+                  '(${profile.label}, ${profile.rank})'
+              : p.wordLevel == PhilIriLevel.frustration
                   ? 'Frustration: stop here'
-                  : 'Not Frustration: try the level ${level + 1} passage',
+                  : 'Not Frustration: try a harder passage',
           isPlacement: true,
         ));
     _saving = false;
     if (!mounted) return;
-    if (_check.isDone) {
+    if (check.isDone) {
       await _finish();
     } else {
       await _next();
@@ -127,14 +135,15 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
 
   Future<void> _finish() async {
     _c?.removeListener(_changed);
-    if (_check.results.isNotEmpty) {
-      await ref.read(sessionServiceProvider).finishPlacement(widget.learner, _check);
+    final check = _check;
+    if (check != null) {
+      await ref.read(sessionServiceProvider).finishPlacement(widget.learner, check);
     }
     if (mounted) setState(() => _done = true);
   }
 
-  /// ✕: stop the check. Passages already read still set the level
-  /// (level 1 if none were read).
+  /// ✕: stop the check. Passages already read still set the starting
+  /// score (the default score if none were read).
   Future<void> _close() async {
     await _finish();
     widget.onDone();
@@ -167,7 +176,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
     if (hint != null) {
       return buddySaysForHint(hint);
     }
-    return switch (_check.results.length) {
+    return switch (_check?.passages.length ?? 0) {
       0 => "Hi $name! Read this to me out loud. I'll find the stories that are just right for you.",
       1 => "Nice! Here's another one.",
       _ => 'Last one! Read it to me.',
@@ -178,7 +187,7 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   Widget build(BuildContext context) {
     if (_done) return _doneView();
     final c = _c;
-    final total = _check.config.placementMaxLevel;
+    final total = _check?.total ?? const AgentConfig().readingCheckTargets.length;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -186,12 +195,16 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
           child: Column(
             children: [
               ScreenHeader(
-                title: 'Reading check · $_level of $total',
+                title: 'Reading check · ${_number.clamp(1, total)} of $total',
                 onClose: _close,
               ),
               const SizedBox(height: 14),
               ProgressBar(
-                value: c == null ? 0 : (_level - 1 + c.outcomes.length / c.words.length) / total,
+                value: c == null
+                    ? 0
+                    : ((_check?.passages.length ?? 0) +
+                            (c.isFinished ? 0 : c.outcomes.length / c.words.length)) /
+                        total,
                 color: AppColors.violet,
               ),
               const SizedBox(height: 14),
@@ -228,8 +241,8 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
                       AgentCard(
                         tag: 'Buddy is checking',
                         child: Text(
-                          "Word accuracy decides ${widget.learner.nickname}'s starting "
-                          'level. No score is shown to the child.',
+                          "Word accuracy sets ${widget.learner.nickname}'s starting "
+                          'reading score. No score is shown to the child.',
                         ),
                       ),
                     ],

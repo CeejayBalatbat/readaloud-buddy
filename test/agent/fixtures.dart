@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:readaloud_buddy/agent/agent.dart';
+import 'package:readaloud_buddy/data/sound_patterns.dart';
 import 'package:readaloud_buddy/data/story.dart';
 
 /// Reads a CSV from docs/dataset/ as a list of {column: value} rows.
@@ -88,3 +89,7 @@ Duration s(num seconds) => Duration(milliseconds: (seconds * 1000).round());
 
 List<Story> loadStories() =>
     parseStories(File('assets/data/stories.json').readAsStringSync());
+
+/// Each sound pattern's difficulty (assets/data/sound_patterns.json).
+Map<String, double> loadPatternDifficulty() => patternDifficulties(
+    parseSoundPatterns(File('assets/data/sound_patterns.json').readAsStringSync()));

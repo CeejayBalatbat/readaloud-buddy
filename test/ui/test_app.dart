@@ -14,6 +14,7 @@ import 'package:readaloud_buddy/app/home_data.dart';
 import 'package:readaloud_buddy/app/reading_controller.dart';
 import 'package:readaloud_buddy/data/database_providers.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
+import 'package:readaloud_buddy/data/sound_patterns.dart';
 import 'package:readaloud_buddy/data/story.dart';
 import 'package:readaloud_buddy/data/story_providers.dart';
 import 'package:readaloud_buddy/speech/fake_speech_service.dart';
@@ -75,6 +76,8 @@ class TestApp {
     readingClockProvider.overrideWithValue(() => clock),
     storiesProvider.overrideWith((ref) async => stories),
     phonicsProvider.overrideWith((ref) async => phonics),
+    soundPatternsProvider.overrideWith((ref) async =>
+        parseSoundPatterns(File('assets/data/sound_patterns.json').readAsStringSync())),
     voskMissingWordsProvider.overrideWith((ref) async => const <String>{}),
     exitInfoProvider.overrideWithValue(const NoExitInfo()),
   ]);
@@ -83,6 +86,7 @@ class TestApp {
     await loadFonts();
     // The app loads this on the splash screen, before any story opens.
     await tester.runAsync(() => container.read(phonicsProvider.future));
+    await tester.runAsync(() => container.read(predictorProvider.future));
     await tester.runAsync(() => container.read(currentLearnerProvider.future));
     // The mockups are drawn for a 390 × 844 phone.
     tester.view.physicalSize = const Size(390 * 2, 844 * 2);
