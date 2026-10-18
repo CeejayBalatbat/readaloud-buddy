@@ -17,12 +17,32 @@ class WordMatcher {
 
   /// True when [heard] counts as reading [expected] in [language] ("EN"/"FIL").
   bool matches(String expected, String heard, String language) {
-    final e = normalize(expected);
-    final h = normalize(heard);
+    var e = normalize(expected);
+    var h = normalize(heard);
     if (e.isEmpty || h.isEmpty) return false;
     if (e == h) return true;
+    if (language == 'FIL' && config.filSpellingVariants) {
+      e = filipinoSpelling(e);
+      h = filipinoSpelling(h);
+      if (e == h) return true;
+    }
     return levenshtein(e, h) <= maxDistanceFor(e, language);
   }
+
+  static final _consonantUw = RegExp('([bcdfghjklmnpqrstvxyz])uw');
+
+  /// One spelling for Filipino words written more than one way (AGENT_SPEC
+  /// §1): the recognizer writes lumpiya, letse, plastic, baranggay where our
+  /// stories have lumpia, leche, plastik, barangay. [word] is normalized.
+  static String filipinoSpelling(String word) => word
+      .replaceAll('ch', 'ts')
+      .replaceAll('qu', 'k')
+      .replaceAll('c', 'k')
+      .replaceAll('f', 'p')
+      .replaceAll('v', 'b')
+      .replaceAll('ngg', 'ng')
+      .replaceAll('iya', 'ia')
+      .replaceAllMapped(_consonantUw, (m) => '${m[1]}w');
 
   /// Allowed edit distance for an expected (normalized) word.
   int maxDistanceFor(String normalizedExpected, String language) {

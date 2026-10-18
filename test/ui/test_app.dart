@@ -18,19 +18,25 @@ import 'package:readaloud_buddy/data/sound_patterns.dart';
 import 'package:readaloud_buddy/data/story.dart';
 import 'package:readaloud_buddy/data/story_providers.dart';
 import 'package:readaloud_buddy/speech/fake_speech_service.dart';
+import 'package:readaloud_buddy/speech/filipino_model.dart';
+import 'package:readaloud_buddy/speech/model_store.dart';
 import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/tts_service.dart';
 import 'package:readaloud_buddy/speech/vosk_health.dart';
+import 'package:readaloud_buddy/speech/vosk_speech_service.dart';
 import 'package:readaloud_buddy/ui/theme/app_theme.dart';
 
 /// Shared setup for screen tests: real Nunito font, phone-sized screen,
 /// in-memory database, tap-to-read speech, silent TTS and a manual clock.
 class TestApp {
-  TestApp({SpeechService? speechService}) {
+  TestApp({SpeechService? speechService, this.filipinoStore}) {
     _speechService = speechService;
     driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
   }
+
+  /// The Filipino model's store (default: an empty folder, no model).
+  final ModelStore? filipinoStore;
 
   final db = AppDatabase(NativeDatabase.memory());
   final speech = FakeSpeechService();
@@ -78,7 +84,13 @@ class TestApp {
     phonicsProvider.overrideWith((ref) async => phonics),
     soundPatternsProvider.overrideWith((ref) async =>
         parseSoundPatterns(File('assets/data/sound_patterns.json').readAsStringSync())),
-    voskMissingWordsProvider.overrideWith((ref) async => const <String>{}),
+    voskMissingWordsProvider.overrideWith((ref) async => const VoskMissingWords()),
+    // No Filipino model on the test "phone" (a folder that stays empty).
+    filipinoModelStoreProvider.overrideWithValue(filipinoStore ??
+        ModelStore(
+          spec: filipinoModel,
+          installDir: () async => Directory('${Directory.systemTemp.path}/readaloud_no_model'),
+        )),
     exitInfoProvider.overrideWithValue(const NoExitInfo()),
   ]);
 

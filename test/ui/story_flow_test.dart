@@ -67,18 +67,22 @@ void main() {
     await tester.tap(find.text('Stories'));
     await settle(tester);
 
-    await tester.tap(find.text('The Big Red Kite'));
+    // Score 50 has four just-right books and room for three (a little
+    // randomness picks), so read whichever English book comes first.
+    final story = TestApp.stories.firstWhere(
+        (s) => s.language == 'EN' && find.text(s.title).evaluate().isNotEmpty);
+    await tester.tap(find.text(story.title));
     await settle(tester);
     expect(find.text('Help'), findsOneWidget);
 
-    for (final w in kite.words) {
+    for (final w in story.words) {
       app.speech.hear(w.word);
       await tester.pump();
     }
     await settle(tester);
     expect(find.text('Story questions · 1 of 3'), findsOneWidget);
 
-    for (final q in kite.questions) {
+    for (final q in story.questions) {
       await answer(tester, q.answer);
       await tester.tap(find.textContaining('→'));
       await settle(tester);
@@ -88,7 +92,7 @@ void main() {
     expect(find.text('100%'), findsOneWidget);
     expect(find.text('3 / 3'), findsOneWidget);
     expect(find.text("BUDDY'S PLAN"), findsOneWidget);
-    // Score 50 goes up after a perfect reading of a difficulty-38 book.
+    // Score 50 goes up after a perfect reading of a just-right book.
     expect(find.textContaining("You're growing toward 🌳 Tree!"), findsOneWidget);
     expect(find.text('Next story →'), findsOneWidget);
     await app.screenshot(tester, 's08_results');

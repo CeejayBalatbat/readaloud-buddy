@@ -132,6 +132,11 @@ void main() {
     await tester.pump();
     await tester.tap(find.text('Start reading check'));
     await settle(tester);
+    // A Filipino reader: first, set up Filipino listening (5c) or not now.
+    expect(find.text('Filipino listening'), findsOneWidget);
+    await app.screenshot(tester, 's05c_filipino_setup');
+    await tester.tap(find.text('Not now (read by tapping)'));
+    await settle(tester);
     expect(find.text('Reading check · 1 of 3'), findsOneWidget);
     expect(find.textContaining('Hi Jojo!'), findsOneWidget);
 

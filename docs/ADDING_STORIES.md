@@ -16,7 +16,8 @@ and difficulty, writes question ids, regenerates `assets/data/phonics.json`
 then validates the whole library. Nothing is written if a story has an
 error. Afterwards it lists English words that need a human check (names,
 words not in the pronouncing dictionary) and, if the Vosk model is
-downloaded, words the offline recognizer doesn't know.
+downloaded, words the offline recognizer doesn't know. For Filipino stories,
+also run `python tools/check_vosk_vocab.py --fil <path to the Filipino model zip>`.
 
 `python tools/check_stories.py` validates the library at any time.
 `flutter test` checks the basics too (`test/data/story_test.dart`).

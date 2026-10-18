@@ -70,8 +70,18 @@ round at the end. Add new reports at the bottom of the right section.
   860 MB of memory while in use (measured on a Galaxy S25 Ultra: unpack
   1.8 s, load 0.6 s, 0.06 × real time, 92.6% of words found on TTS
   speech). Phones with less than ~1.2 GB free memory fall back to tapping.
-  **Only tested on one high-end phone;** a mid-range phone (4 GB RAM) is
-  the real test.
+  With the app's own code on the same phone: download 54 s (Wi-Fi), MD5
+  check 3.6 s, unpack 4.1 s, load 1.35 s; with both models loaded the app
+  uses about 1.3 GB. **Only tested on one high-end phone;** a mid-range
+  phone (4 GB RAM) is the real test.
+- **Live Filipino reading is not tested yet.** On the phone the model was
+  fed TTS audio files; reading aloud into the microphone (and how fast
+  words appear) still needs a person. Buddy's brain shows the speed meter
+  and the load time.
+- *pagtila* (S15) isn't in the Filipino model; it is usually heard as
+  "pag tila", so the extra "tila" can count as a misread of the next word.
+- The on-phone integration tests must run with `--no-uninstall`, or
+  `flutter test` uninstalls the app (and deletes its data) afterwards.
 - **Filipino uses free text (no grammar mode):** a misread shows up as a
   `misread` (unlike English, where Vosk only knows the page's words), but
   the model can also hear a correct word wrongly. Names it doesn't know

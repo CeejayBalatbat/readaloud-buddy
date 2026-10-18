@@ -8,12 +8,13 @@ import '../data/repositories/settings_repository.dart';
 class AppExit {
   const AppExit({required this.reason, required this.timestamp, this.description = ''});
 
-  /// ApplicationExitInfo reason: 4 = Java crash, 5 = native crash.
+  /// ApplicationExitInfo reason: 3 = killed for low memory, 4 = Java
+  /// crash, 5 = native crash, 6 = not responding (ANR, a freeze).
   final int reason;
   final DateTime timestamp;
   final String description;
 
-  bool get isCrash => reason == 4 || reason == 5;
+  bool get isCrash => reason == 3 || reason == 4 || reason == 5 || reason == 6;
 }
 
 abstract class ExitInfo {
@@ -43,8 +44,10 @@ class PlatformExitInfo implements ExitInfo {
 
 final exitInfoProvider = Provider<ExitInfo>((ref) => const PlatformExitInfo());
 
-/// Whether the offline recognizer (Vosk) works on this phone. Holds the
-/// reason it was turned off, or null while it is fine.
+/// Whether the offline recognizer (Vosk) for a language ("EN" or "FIL")
+/// works on this phone. Holds the reason it was turned off, or null while
+/// it is fine. Each language is protected on its own: the big Filipino
+/// model can fail on a phone where English works.
 ///
 /// Errors Vosk reports are caught where they happen ([fail]). A crash
 /// inside Vosk's native code can't be caught, so the app marks Vosk as
@@ -53,23 +56,30 @@ final exitInfoProvider = Provider<ExitInfo>((ref) => const PlatformExitInfo());
 /// stories then use tap-to-read until a grown-up taps "Try offline again"
 /// in Settings ([retry]).
 class VoskHealth extends AsyncNotifier<String?> {
+  VoskHealth(this.language);
+
+  final String language;
+
   static const crashReason = 'The offline recognizer stopped the app last time.';
+
+  String get _activeKey => SettingKeys.vosk(language).$1;
+  String get _failedKey => SettingKeys.vosk(language).$2;
 
   @override
   Future<String?> build() async {
     final settings = ref.watch(settingsRepositoryProvider);
-    final failed = await settings.get(SettingKeys.voskFailed);
-    final active = await settings.get(SettingKeys.voskActive);
+    final failed = await settings.get(_failedKey);
+    final active = await settings.get(_activeKey);
     if (active == null) return failed;
     // The app ended while Vosk was running.
-    await settings.remove(SettingKeys.voskActive);
+    await settings.remove(_activeKey);
     final since = DateTime.fromMillisecondsSinceEpoch(int.tryParse(active) ?? 0);
     final exit = await ref.watch(exitInfoProvider).lastExit();
     // Unknown (older Android) counts as a crash: better tap-to-read than
     // a child's app closing again.
     final crashed = exit == null || (exit.isCrash && !exit.timestamp.isBefore(since));
     if (!crashed) return failed;
-    await settings.set(SettingKeys.voskFailed, crashReason);
+    await settings.set(_failedKey, crashReason);
     return crashReason;
   }
 
@@ -77,21 +87,23 @@ class VoskHealth extends AsyncNotifier<String?> {
   Future<void> running(bool on) async {
     final settings = ref.read(settingsRepositoryProvider);
     if (on) {
-      await settings.set(SettingKeys.voskActive, '${DateTime.now().millisecondsSinceEpoch}');
+      await settings.set(_activeKey, '${DateTime.now().millisecondsSinceEpoch}');
     } else {
-      await settings.remove(SettingKeys.voskActive);
+      await settings.remove(_activeKey);
     }
   }
 
   Future<void> fail(String reason) async {
-    await ref.read(settingsRepositoryProvider).set(SettingKeys.voskFailed, reason);
+    await ref.read(settingsRepositoryProvider).set(_failedKey, reason);
     state = AsyncData(reason);
   }
 
   Future<void> retry() async {
-    await ref.read(settingsRepositoryProvider).remove(SettingKeys.voskFailed);
+    await ref.read(settingsRepositoryProvider).remove(_failedKey);
     state = const AsyncData(null);
   }
 }
 
-final voskHealthProvider = AsyncNotifierProvider<VoskHealth, String?>(VoskHealth.new);
+/// Per language: `voskHealthProvider('EN')`, `voskHealthProvider('FIL')`.
+final voskHealthProvider =
+    AsyncNotifierProvider.family<VoskHealth, String?, String>(VoskHealth.new);

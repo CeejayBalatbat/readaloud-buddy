@@ -114,6 +114,8 @@ void main() {
     expect(app.container.read(speechModeProvider).value, SpeechMode.vosk);
     expect(find.textContaining('Phone recognizer'), findsNothing);
     expect(find.textContaining('Filipino stories: your child taps'), findsOneWidget);
+    expect(find.text('Set up Filipino listening…'), findsOneWidget);
+    expect(find.textContaining('CC BY-NC-SA 4.0'), findsOneWidget);
     const devSwitch = '🛠 Tap to read (developer / demo)';
     expect(find.text(devSwitch), findsNothing);
 
@@ -128,6 +130,8 @@ void main() {
     expect(saved, 'tap');
 
     // Hidden again, the card still says tap mode is on.
+    await tester.ensureVisible(card);
+    await settle(tester);
     await tester.longPress(card);
     await settle(tester);
     expect(find.text(devSwitch), findsNothing);

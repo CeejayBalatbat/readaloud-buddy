@@ -9,6 +9,7 @@ import '../data/db/app_database.dart';
 import '../data/repositories/learner_repository.dart';
 import '../app/home_data.dart';
 import '../data/story.dart';
+import 'screens/filipino_setup_screen.dart';
 import 'screens/questions_screen.dart';
 import 'screens/read_along_screen.dart';
 import 'screens/results_screen.dart';
@@ -19,6 +20,8 @@ Future<void> startStory(BuildContext context, Story story) async {
   final container = ProviderScope.containerOf(context);
   final navigator = Navigator.of(context);
   final learner = await _learner(container);
+  // Filipino: the first time, offer to set up Filipino listening (5c).
+  if (story.language == 'FIL' && context.mounted) await ensureFilipinoListening(context);
   final startedAt = DateTime.now();
 
   void showResults(StoryOutcome outcome) {

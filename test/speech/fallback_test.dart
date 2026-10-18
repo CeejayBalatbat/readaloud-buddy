@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:drift/native.dart';
@@ -8,8 +9,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/data/database_providers.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
 import 'package:readaloud_buddy/data/repositories/settings_repository.dart';
+import 'package:readaloud_buddy/speech/device_info.dart';
 import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/speech/fallback_speech_service.dart';
+import 'package:readaloud_buddy/speech/filipino_model.dart';
+import 'package:readaloud_buddy/speech/model_store.dart';
 import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/vosk_health.dart';
@@ -148,14 +152,14 @@ void main() {
         .set(SettingKeys.voskActive, '${t.millisecondsSinceEpoch}');
 
     test('fine by default', () async {
-      expect(await c.read(voskHealthProvider.future), isNull);
+      expect(await c.read(voskHealthProvider('EN').future), isNull);
     });
 
     test('the app crashed while Vosk was running: Vosk is turned off', () async {
       final t = DateTime(2026, 10, 17, 18);
       await wasRunningAt(t);
       exit.exit = AppExit(reason: 5, timestamp: t.add(const Duration(seconds: 3)));
-      expect(await c.read(voskHealthProvider.future), VoskHealth.crashReason);
+      expect(await c.read(voskHealthProvider('EN').future), VoskHealth.crashReason);
       expect(await SettingsRepository(db).get(SettingKeys.voskActive), isNull);
       expect(await SettingsRepository(db).get(SettingKeys.voskFailed), VoskHealth.crashReason);
     });
@@ -164,63 +168,151 @@ void main() {
       final t = DateTime(2026, 10, 17, 18);
       await wasRunningAt(t);
       exit.exit = AppExit(reason: 10, timestamp: t.add(const Duration(minutes: 1))); // user closed it
-      expect(await c.read(voskHealthProvider.future), isNull);
+      expect(await c.read(voskHealthProvider('EN').future), isNull);
       expect(await SettingsRepository(db).get(SettingKeys.voskActive), isNull);
     });
 
     test('Android can\'t say why (older phone): treated as a crash', () async {
       await wasRunningAt(DateTime(2026, 10, 17, 18));
-      expect(await c.read(voskHealthProvider.future), isNotNull);
+      expect(await c.read(voskHealthProvider('EN').future), isNotNull);
     });
 
     test('an old crash from before Vosk ran doesn\'t count', () async {
       final t = DateTime(2026, 10, 17, 18);
       await wasRunningAt(t);
       exit.exit = AppExit(reason: 5, timestamp: t.subtract(const Duration(days: 1)));
-      expect(await c.read(voskHealthProvider.future), isNull);
+      expect(await c.read(voskHealthProvider('EN').future), isNull);
     });
 
     test('"Try offline again" clears it', () async {
-      await c.read(voskHealthProvider.future);
-      await c.read(voskHealthProvider.notifier).fail('broken');
-      expect(c.read(voskHealthProvider).value, 'broken');
-      await c.read(voskHealthProvider.notifier).retry();
-      expect(c.read(voskHealthProvider).value, isNull);
+      await c.read(voskHealthProvider('EN').future);
+      await c.read(voskHealthProvider('EN').notifier).fail('broken');
+      expect(c.read(voskHealthProvider('EN')).value, 'broken');
+      await c.read(voskHealthProvider('EN').notifier).retry();
+      expect(c.read(voskHealthProvider('EN')).value, isNull);
       expect(await SettingsRepository(db).get(SettingKeys.voskFailed), isNull);
     });
   });
 
-  group('which listening a story gets', () {
-    test('Filipino: tap; English: Vosk; Vosk off: tap with a note; developer mode: tap',
-        () async {
+  group('VoskHealth per language', () {
+    test('Filipino failing leaves English on, and vice versa', () async {
       driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
       final db = AppDatabase(NativeDatabase.memory());
       final c = ProviderContainer(overrides: [
         appDatabaseProvider.overrideWithValue(db),
         exitInfoProvider.overrideWithValue(FakeExit(null)),
-        voskMissingWordsProvider.overrideWith((ref) async => const <String>{}),
       ]);
       addTearDown(() async {
         c.dispose();
         await db.close();
       });
-      await c.read(speechModeProvider.future);
-      await c.read(voskHealthProvider.future);
+      await c.read(voskHealthProvider('FIL').future);
+      await c.read(voskHealthProvider('FIL').notifier).fail('too slow');
+      expect(await c.read(voskHealthProvider('EN').future), isNull);
+      expect(await SettingsRepository(db).get(SettingKeys.voskFilFailed), 'too slow');
+    });
 
-      expect(c.read(speechServiceProvider('FIL')), isA<FakeSpeechService>());
+    test('killed for low memory or frozen (ANR) while Filipino ran: turned off', () async {
+      for (final reason in [3, 6]) {
+        driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
+        final db = AppDatabase(NativeDatabase.memory());
+        final t = DateTime(2026, 10, 18, 18);
+        await SettingsRepository(db).set(SettingKeys.voskFilActive, '${t.millisecondsSinceEpoch}');
+        final c = ProviderContainer(overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          exitInfoProvider.overrideWithValue(
+              FakeExit(AppExit(reason: reason, timestamp: t.add(const Duration(seconds: 5))))),
+        ]);
+        expect(await c.read(voskHealthProvider('FIL').future), VoskHealth.crashReason,
+            reason: 'exit reason $reason');
+        expect(await c.read(voskHealthProvider('EN').future), isNull);
+        c.dispose();
+        await db.close();
+      }
+    });
+  });
+
+  group('which listening a story gets', () {
+    late AppDatabase db;
+    late ProviderContainer c;
+    late Directory dir;
+
+    /// A phone with ([withModel]) or without the Filipino model.
+    Future<void> phone({required bool withModel}) async {
+      driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
+      db = AppDatabase(NativeDatabase.memory());
+      dir = Directory.systemTemp.createTempSync('fil_model');
+      if (withModel) {
+        final m = Directory('${dir.path}/models/${filipinoModel.name}');
+        for (final f in filipinoModel.requiredFiles) {
+          File('${m.path}/$f').createSync(recursive: true);
+        }
+        File('${m.path}/.ready').writeAsStringSync('ok');
+      }
+      c = ProviderContainer(overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        exitInfoProvider.overrideWithValue(FakeExit(null)),
+        voskMissingWordsProvider.overrideWith((ref) async => const VoskMissingWords()),
+        filipinoModelStoreProvider.overrideWithValue(ModelStore(
+          spec: filipinoModel,
+          installDir: () async => Directory('${dir.path}/models'),
+        )),
+      ]);
+      addTearDown(() async {
+        c.dispose();
+        await db.close();
+        dir.deleteSync(recursive: true);
+      });
+      await c.read(speechModeProvider.future);
+      await c.read(voskHealthProvider('EN').future);
+      await c.read(voskHealthProvider('FIL').future);
+      await c.read(filipinoModelProvider.notifier).refresh();
+    }
+
+    test('English: Vosk; Vosk off: tap with a note; developer mode: tap', () async {
+      await phone(withModel: false);
       final en = c.read(speechServiceProvider('EN'));
       expect(en, isA<FallbackSpeechService>());
       expect(tapToRead(en), isNull); // the microphone
 
-      await c.read(voskHealthProvider.notifier).fail('broken');
+      await c.read(voskHealthProvider('EN').notifier).fail('broken');
       c.invalidate(speechServiceProvider);
       final off = c.read(speechServiceProvider('EN'));
       expect(tapToRead(off), isNotNull);
       expect(off.state.value.notice, voskOffNote);
 
-      await c.read(voskHealthProvider.notifier).retry();
+      await c.read(voskHealthProvider('EN').notifier).retry();
       await c.read(speechModeProvider.notifier).set(SpeechMode.tap);
       expect(c.read(speechServiceProvider('EN')), isA<FakeSpeechService>());
+    });
+
+    test('Filipino without the model: tap to read', () async {
+      await phone(withModel: false);
+      expect(c.read(filipinoModelProvider).phase, ModelPhase.missing);
+      expect(c.read(speechServiceProvider('FIL')), isA<FakeSpeechService>());
+    });
+
+    test('Filipino with the model: Vosk (free text); too heavy: tap with a note', () async {
+      await phone(withModel: true);
+      expect(c.read(filipinoModelProvider).isReady, isTrue);
+      final fil = c.read(speechServiceProvider('FIL'));
+      expect(fil, isA<FallbackSpeechService>());
+      expect(tapToRead(fil), isNull);
+      expect(fil.state.value.engine, 'Vosk offline (Filipino, free text)');
+
+      await c.read(voskHealthProvider('FIL').notifier).fail('not enough free memory');
+      c.invalidate(speechServiceProvider);
+      final off = c.read(speechServiceProvider('FIL'));
+      expect(tapToRead(off), isNotNull);
+      expect(off.state.value.notice, filipinoOffNote);
+      // English is not affected.
+      expect(tapToRead(c.read(speechServiceProvider('EN'))), isNull);
+    });
+
+    test('free memory check: refuses below the limit', () async {
+      await expectLater(checkFreeMemory(_Memory(800), 1200), throwsStateError);
+      await checkFreeMemory(_Memory(3000), 1200); // fine
+      await checkFreeMemory(_Memory(null), 1200); // unknown: try
     });
   });
 
@@ -257,4 +349,14 @@ class _GrammarFails extends FakeVosk {
     if (failNext) throw StateError('grammar refused');
     return super.setGrammar(grammar);
   }
+}
+
+class _Memory implements DeviceInfo {
+  _Memory(this.freeMb);
+  final int? freeMb;
+  @override
+  Future<MemoryInfo?> memory() async =>
+      freeMb == null ? null : MemoryInfo(totalMb: 8000, freeMb: freeMb!, appMb: 300);
+  @override
+  Future<int?> freeSpaceMb() async => null;
 }

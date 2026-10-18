@@ -10,6 +10,9 @@ import '../../app/hint_mode.dart';
 import '../../app/home_data.dart';
 import '../../data/database_providers.dart';
 import '../../data/db/app_database.dart';
+import '../../data/repositories/learner_repository.dart';
+import '../../speech/filipino_model.dart';
+import '../../speech/model_store.dart';
 import '../../speech/speech_providers.dart';
 import '../../speech/vosk_health.dart';
 import '../story_flow.dart';
@@ -19,6 +22,7 @@ import '../widgets/buddy_brain_sheet.dart';
 import '../widgets/common.dart';
 import '../widgets/story_cover.dart';
 import '../widgets/svg_art.dart';
+import 'filipino_setup_screen.dart';
 import 'games_tab.dart';
 import 'grown_up_gate.dart';
 import 'placement_screen.dart';
@@ -499,7 +503,31 @@ class _SpeechModeCardState extends ConsumerState<_SpeechModeCard> {
   @override
   Widget build(BuildContext context) {
     final tap = (ref.watch(speechModeProvider).value ?? SpeechMode.vosk) == SpeechMode.tap;
-    final voskProblem = ref.watch(voskHealthProvider).value;
+    final enProblem = ref.watch(voskHealthProvider('EN')).value;
+    final filProblem = ref.watch(voskHealthProvider('FIL')).value;
+    final fil = ref.watch(filipinoModelProvider);
+    Widget problem(String language, String text) => Container(
+          margin: const EdgeInsets.only(top: 8),
+          padding: const EdgeInsets.fromLTRB(12, 8, 4, 4),
+          decoration:
+              BoxDecoration(color: AppColors.coralLight, borderRadius: BorderRadius.circular(12)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(text, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () async {
+                    await ref.read(voskHealthProvider(language).notifier).retry();
+                    ref.invalidate(speechServiceProvider);
+                  },
+                  child: Text(language == 'FIL' ? 'Try again' : 'Try offline again'),
+                ),
+              ),
+            ],
+          ),
+        );
     return GestureDetector(
       onLongPress: () => setState(() => _showDeveloper = !_showDeveloper),
       child: AppCard(
@@ -513,37 +541,50 @@ class _SpeechModeCardState extends ConsumerState<_SpeechModeCard> {
                 '🎧 English stories: offline listening (Vosk). Works without internet '
                 'and listens only for the words on the page.',
                 style: _small),
-            const SizedBox(height: 4),
+            if (enProblem != null)
+              problem('EN',
+                  'English listening is turned off on this phone: $enProblem Stories use tap to read until it works.'),
+            const SizedBox(height: 8),
+            Text(
+              switch (fil.phase) {
+                ModelPhase.ready =>
+                  '🎧 Filipino stories: offline listening (Vosk Filipino model, ${filipinoModel.unpackedMb} MB on the phone).',
+                ModelPhase.downloading =>
+                  '⬇️ Filipino listening is downloading… ${((fil.progress ?? 0) * 100).round()}%',
+                ModelPhase.verifying || ModelPhase.unpacking => '⬇️ Filipino listening is installing…',
+                ModelPhase.checking => '🎧 Filipino stories: …',
+                _ => "👆 Filipino stories: your child taps each word. Filipino listening isn't set up "
+                    '(a one-time ${filipinoModel.sizeMb} MB download).',
+              },
+              style: _small,
+            ),
+            if (filProblem != null)
+              problem('FIL',
+                  'Filipino listening is turned off on this phone: $filProblem Filipino stories use tap to read.'),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: fil.isReady
+                  ? TextButton(
+                      onPressed: () async {
+                        await ref.read(filipinoModelProvider.notifier).delete();
+                        ref.invalidate(speechServiceProvider);
+                      },
+                      child: Text('Delete Filipino listening (frees ${filipinoModel.unpackedMb} MB)'),
+                    )
+                  : TextButton(
+                      onPressed: () async {
+                        await ref.read(filipinoSetupDeclinedProvider.notifier).set(false);
+                        if (context.mounted) {
+                          await Navigator.of(context).push(MaterialPageRoute<void>(
+                              builder: (_) => const FilipinoSetupScreen()));
+                        }
+                      },
+                      child: const Text('Set up Filipino listening…'),
+                    ),
+            ),
             const Text(
-                '👆 Filipino stories: your child taps each word while reading, for now.',
-                style: _small),
-            if (voskProblem != null)
-              Container(
-                margin: const EdgeInsets.only(top: 8),
-                padding: const EdgeInsets.fromLTRB(12, 8, 4, 4),
-                decoration: BoxDecoration(
-                    color: AppColors.coralLight, borderRadius: BorderRadius.circular(12)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Offline listening is turned off on this phone: $voskProblem '
-                      'Stories use tap to read until it works.',
-                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () async {
-                          await ref.read(voskHealthProvider.notifier).retry();
-                          ref.invalidate(speechServiceProvider);
-                        },
-                        child: const Text('Try offline again'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                'Filipino model © 2020 Federico Ang, CC BY-NC-SA 4.0 (non-commercial use only).',
+                style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: AppColors.ink2)),
             if (tap && !_showDeveloper)
               const Padding(
                 padding: EdgeInsets.only(top: 8),
@@ -702,9 +743,11 @@ final allLearnersProvider = StreamProvider.autoDispose<List<Learner>>(
 
 /// After setup: the reading check (s02), then the new reader becomes the
 /// current reader and lands on Home.
-void afterSetup(BuildContext context, Learner learner) {
+Future<void> afterSetup(BuildContext context, Learner learner) async {
   final nav = Navigator.of(context);
   final container = ProviderScope.containerOf(context);
+  // A Filipino reader's reading check is in Filipino: set up listening first.
+  if (learner.languageList.first == 'FIL') await ensureFilipinoListening(context);
   final route = MaterialPageRoute<void>(
     builder: (_) => PlacementScreen(
       learner: learner,

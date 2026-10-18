@@ -25,8 +25,10 @@ import '../widgets/svg_art.dart';
 
 /// Notes the reading screen shows (tests look for them).
 abstract final class ReadAlongScreenNotes {
-  /// Filipino stories are read by tapping for now (no Filipino recognizer).
-  static const filipino = 'Filipino listening is coming soon. Tap each word as you read it.';
+  /// A Filipino story read by tapping because Filipino listening isn't set
+  /// up on this phone (screen 5c).
+  static const filipino =
+      "Filipino listening isn't set up on this phone, so tap each word as you read it.";
 }
 
 /// Screens 5 (read-along), 6 (hint) and 5b (page review). The hint layout
@@ -78,8 +80,13 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   bool _saidQuiet = false; // "can't hear you" was said for this quiet spell
   int? _introducedReview; // page whose review Buddy already introduced
 
-  /// Filipino stories are read by tapping for now (no Filipino recognizer).
-  bool get _filipinoTap => widget.story.language != 'EN' && _fake != null;
+  /// A Filipino story read by tapping because its model isn't set up (not
+  /// the developer tap mode, and not after a failure, which has its own note).
+  bool get _filipinoTap =>
+      widget.story.language == 'FIL' &&
+      _fake != null &&
+      c.speech.state.value.notice == null &&
+      ref.read(speechModeProvider).value != SpeechMode.tap;
 
   static const quietMessage = "I can't hear you. Try reading a bit louder!";
   static const reviewIntro = "Let's practise these words. Tap one to hear it, then say it!";

@@ -1,8 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Offline speech recognition (Vosk). Audio is processed on the phone
-         and never saved or uploaded. No internet permission: the app works
-         offline (debug builds add it for Flutter's tools). -->
+         and never saved or uploaded. -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- Only to download the Filipino speech model once (screen 5c). -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="ReadAloud Buddy"
         android:name="${applicationName}"

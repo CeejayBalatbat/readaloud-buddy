@@ -5,6 +5,8 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Debug
+import android.os.StatFs
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -34,6 +36,32 @@ class MainActivity : FlutterActivity() {
                 micResult?.success(false)
                 micResult = result
                 requestPermissions(arrayOf(Manifest.permission.RECORD_AUDIO), MIC_REQUEST)
+            }
+        // How much memory the phone has and this app uses, so the app can
+        // tell whether the big Filipino speech model fits (and measure it).
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "readaloud/device")
+            .setMethodCallHandler { call, result ->
+                if (call.method == "freeSpaceMb") {
+                    // Free space where the app keeps its files (the model goes there).
+                    result.success(StatFs(filesDir.path).availableBytes / (1024 * 1024))
+                    return@setMethodCallHandler
+                }
+                if (call.method != "memory") {
+                    result.notImplemented()
+                    return@setMethodCallHandler
+                }
+                val am = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+                val info = ActivityManager.MemoryInfo()
+                am.getMemoryInfo(info)
+                result.success(
+                    mapOf(
+                        "totalMb" to info.totalMem / (1024 * 1024),
+                        "availMb" to info.availMem / (1024 * 1024),
+                        "lowMemory" to info.lowMemory,
+                        "appPssMb" to Debug.getPss() / 1024, // KB -> MB
+                        "largeHeap" to am.largeMemoryClass,
+                    )
+                )
             }
         // Why the app's previous run ended (Android 11+), so the app can tell
         // whether the offline recognizer (Vosk) crashed it last time.

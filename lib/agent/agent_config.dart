@@ -12,6 +12,11 @@ class AgentConfig {
     this.enMinLettersForTypoTolerance = 5,
     this.enMaxEditDistance = 1,
     this.filMaxEditDistance = 0,
+    this.filSpellingVariants = true,
+    // Speech: when the big Filipino model is too heavy for the phone
+    this.filMinFreeMemoryMb = 1200,
+    this.filMaxLoadSeconds = 60,
+    this.filMaxRecognizerMs = 2500,
     // §2 Hint ladder
     this.hintWaitSec = 5,
     this.dyslexiaHintWaitSec = 8,
@@ -88,6 +93,21 @@ class AgentConfig {
   final int enMinLettersForTypoTolerance;
   final int enMaxEditDistance;
   final int filMaxEditDistance;
+
+  /// Filipino spelling variants count as the same word (lumpiya = lumpia,
+  /// letse = leche, plastic = plastik; AGENT_SPEC §1).
+  final bool filSpellingVariants;
+
+  /// The Filipino Vosk model (about 860 MB in memory) is only loaded with
+  /// at least this much free memory; otherwise Filipino uses tap-to-read.
+  final int filMinFreeMemoryMb;
+
+  /// Loading it longer than this counts as "too heavy for this phone".
+  final int filMaxLoadSeconds;
+
+  /// Median ms from a word being said to the model reporting it (over 10
+  /// words); slower counts as "too slow on this phone".
+  final int filMaxRecognizerMs;
 
   final double hintWaitSec;
   final double dyslexiaHintWaitSec;

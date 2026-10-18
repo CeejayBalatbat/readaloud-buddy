@@ -35,6 +35,7 @@ class SpeechState {
     this.speed,
     this.engine,
     this.notice,
+    this.loadMs,
   });
 
   final MicStatus status;
@@ -53,6 +54,9 @@ class SpeechState {
   /// Which recognizer is listening ("Vosk offline"), for Buddy's brain.
   final String? engine;
 
+  /// How long loading the model took (the first time), in ms.
+  final int? loadMs;
+
   /// A short note for the reading screen (e.g. the offline recognizer
   /// failed, so the story switched to tap-to-read).
   final String? notice;
@@ -65,6 +69,7 @@ class SpeechState {
     SpeedSummary? speed,
     String? engine,
     String? notice,
+    int? loadMs,
   }) =>
       SpeechState(
         status: status ?? this.status,
@@ -74,6 +79,7 @@ class SpeechState {
         speed: speed ?? this.speed,
         engine: engine ?? this.engine,
         notice: notice ?? this.notice,
+        loadMs: loadMs ?? this.loadMs,
       );
 }
 

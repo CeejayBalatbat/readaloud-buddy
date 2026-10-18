@@ -1,6 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/agent/agent.dart';
 
+import 'fixtures.dart';
+
 void main() {
   const m = WordMatcher();
 
@@ -28,6 +30,42 @@ void main() {
       expect(m.matches('bata', 'bato', 'FIL'), isFalse);
       expect(m.matches('naglilinis', 'naglilinas', 'FIL'), isFalse);
       expect(m.matches('Bata.', 'bata', 'FIL'), isTrue);
+    });
+
+    test('FIL: spelling variants the recognizer writes count as the same word', () {
+      for (final (story, heard) in [
+        ('lumpia', 'lumpiya'),
+        ('leche', 'letse'),
+        ('plastik', 'plastic'),
+        ('barangay', 'baranggay'),
+        ('kuwento', 'kwento'),
+        ('Pilipino', 'filipino'),
+        ('Bisaya', 'visaya'),
+      ]) {
+        expect(m.matches(story, heard, 'FIL'), isTrue, reason: '$story / $heard');
+      }
+      // Real differences stay different.
+      expect(m.matches('bata', 'bato', 'FIL'), isFalse);
+      expect(m.matches('uso', 'oso', 'FIL'), isFalse);
+      expect(m.matches('noon', 'nuon', 'FIL'), isFalse);
+      // English is not affected, and the variants can be switched off.
+      expect(m.matches('cat', 'kat', 'EN'), isFalse);
+      const strict = WordMatcher(AgentConfig(filSpellingVariants: false));
+      expect(strict.matches('lumpia', 'lumpiya', 'FIL'), isFalse);
+    });
+
+    test('FIL: no word in our Filipino stories turns into another one', () {
+      final stories = loadStories().where((s) => s.language == 'FIL');
+      final byVariant = <String, Set<String>>{};
+      for (final s in stories) {
+        for (final w in s.words) {
+          final n = WordMatcher.normalize(w.word);
+          (byVariant[WordMatcher.filipinoSpelling(n)] ??= {}).add(n);
+        }
+      }
+      for (final e in byVariant.entries) {
+        expect(e.value, hasLength(1), reason: '${e.value} would match each other');
+      }
     });
 
     test('Levenshtein distance is computed correctly', () {

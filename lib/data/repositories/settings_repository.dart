@@ -8,8 +8,15 @@ abstract final class SettingKeys {
   static const speechMode = 'speech_mode'; // "vosk" or "tap" (developer)
   static const hintMode = 'hint_mode'; // "automatic" or "helpOnly"
   static const feedbackMode = 'feedback_mode'; // "review" or "live"
-  static const voskActive = 'vosk_active'; // ms since epoch while Vosk runs
-  static const voskFailed = 'vosk_failed'; // why Vosk was turned off
+  static const voskActive = 'vosk_active'; // ms since epoch while English Vosk runs
+  static const voskFailed = 'vosk_failed'; // why English Vosk was turned off
+  static const voskFilActive = 'vosk_fil_active'; // the same for Filipino
+  static const voskFilFailed = 'vosk_fil_failed';
+  static const filipinoModelDeclined = 'fil_model_declined'; // "Not now" on the setup screen
+
+  /// The keys of Vosk's crash protection for [language] ("EN" or "FIL").
+  static (String active, String failed) vosk(String language) =>
+      language == 'FIL' ? (voskFilActive, voskFilFailed) : (voskActive, voskFailed);
 }
 
 /// App-wide key/value settings (parent PIN, consent date, ...).

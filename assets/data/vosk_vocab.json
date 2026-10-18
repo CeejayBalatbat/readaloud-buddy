@@ -4,5 +4,9 @@
   "jen",
   "marco",
   "turon"
+ ],
+ "fil_model": "vosk-model-tl-ph-generic-0.6",
+ "fil_missing": [
+  "pagtila"
  ]
 }

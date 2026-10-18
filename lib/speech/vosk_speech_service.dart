@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show MethodChannel, rootBundle;
 import 'package:vosk_flutter/vosk_flutter.dart' as vosk;
 
 import '../agent/agent.dart';
@@ -14,8 +14,15 @@ import 'transcript_tracker.dart';
 
 /// The bits of Vosk we use, so the service logic can be tested with a fake.
 abstract class VoskEngine {
-  /// Loads the model, recognizer and microphone service (once per app).
-  /// Throws when the model is missing or broken.
+  /// true: the recognizer only knows a word list (grammar mode, English).
+  /// false: it hears free text (the big Filipino model can't use a grammar).
+  bool get usesGrammar;
+
+  /// The model is in memory already (loading again is free).
+  bool get isLoaded;
+
+  /// Loads the model and recognizer (once per app). Throws when the model
+  /// is missing or broken. [grammar] is ignored without [usesGrammar].
   Future<void> load(List<String> grammar);
 
   /// Only these words (+ "[unk]") can be heard (grammar mode). Vosk
@@ -29,6 +36,9 @@ abstract class VoskEngine {
 
   /// Drops the current utterance.
   Future<void> reset();
+
+  /// Starts the microphone for this recognizer (taking it over from another
+  /// language's recognizer if needed).
   Future<void> start();
   Future<void> stop();
 
@@ -42,18 +52,39 @@ abstract class VoskEngine {
   Stream<String> get results;
 }
 
-/// The real engine: the vendored vosk_flutter plugin with the bundled small
-/// English model. One recognizer and one microphone service for the app.
+/// The real engine: the vendored vosk_flutter plugin. One per model: the
+/// bundled small English model (grammar mode) and the downloaded Filipino
+/// model (free text). The plugin has a single microphone service, so the
+/// engine that starts last takes it over.
 class VoskFlutterEngine implements VoskEngine {
-  VoskFlutterEngine._();
-  static final instance = VoskFlutterEngine._();
+  VoskFlutterEngine._({this.asset, this.modelPath, required this.usesGrammar});
 
-  static const modelAsset = 'assets/models/vosk-model-small-en-us-0.15.zip';
+  static const englishModelAsset = 'assets/models/vosk-model-small-en-us-0.15.zip';
   static const sampleRate = 16000;
 
+  static final english = VoskFlutterEngine._(asset: englishModelAsset, usesGrammar: true);
+  static final _byPath = <String, VoskFlutterEngine>{};
+
+  /// The Filipino model unpacked at [modelPath] (see ModelStore).
+  static VoskFlutterEngine filipino(String modelPath) =>
+      _byPath[modelPath] ??= VoskFlutterEngine._(modelPath: modelPath, usesGrammar: false);
+
+  final String? asset;
+  final String? modelPath;
+  @override
+  final bool usesGrammar;
+
+  // Results come through the plugin's global event channels, whichever
+  // recognizer holds the microphone.
+  static final _events = vosk.SpeechService(const MethodChannel('vosk_flutter'));
+  static VoskFlutterEngine? _micHolder;
+  static vosk.SpeechService? _service;
+
   vosk.Recognizer? _recognizer;
-  vosk.SpeechService? _service;
   Future<void>? _loading;
+
+  @override
+  bool get isLoaded => _recognizer != null;
 
   @override
   Future<void> load(List<String> grammar) => _loading ??= _load(grammar).catchError((Object e) {
@@ -63,71 +94,126 @@ class VoskFlutterEngine implements VoskEngine {
 
   Future<void> _load(List<String> grammar) async {
     final plugin = vosk.VoskFlutterPlugin.instance();
-    // Unzips to app storage the first time (a few seconds), then reuses it.
-    final path = await vosk.ModelLoader().loadFromAssets(modelAsset);
+    // English: unzips to app storage the first time (a few seconds), then
+    // reuses it. Filipino: already unpacked by ModelStore.
+    final path = asset != null ? await vosk.ModelLoader().loadFromAssets(asset!) : modelPath!;
     final model = await plugin.createModel(path);
     final recognizer = await plugin.createRecognizer(
       model: model,
       sampleRate: sampleRate,
-      grammar: grammar,
+      grammar: usesGrammar ? grammar : null,
     );
     await recognizer.setWords(words: true); // word start times for the speed meter
     _recognizer = recognizer;
-    _service = await plugin.initSpeechService(recognizer);
+  }
+
+  /// Hands the microphone back so another recognizer can take it.
+  static Future<void> _releaseMic() async {
+    final s = _service;
+    _service = null;
+    _micHolder = null;
+    if (s == null) return;
+    try {
+      await s.stop();
+    } catch (_) {}
+    try {
+      await s.dispose();
+    } catch (_) {}
   }
 
   @override
-  Future<void> setGrammar(List<String> grammar) async => _recognizer?.setGrammar(grammar);
+  Future<void> setGrammar(List<String> grammar) async {
+    if (usesGrammar) await _recognizer?.setGrammar(grammar);
+  }
+
   @override
   Future<String> finalResult() async => await _recognizer?.getFinalResult() ?? '{}';
   @override
   Future<void> reset() async => _recognizer?.reset();
+
   @override
-  Future<void> start() async => _service?.start();
+  Future<void> start() async {
+    final recognizer = _recognizer;
+    if (recognizer == null) return;
+    if (_micHolder != this) {
+      await _releaseMic();
+      _service = await vosk.VoskFlutterPlugin.instance().initSpeechService(recognizer);
+      _micHolder = this;
+    }
+    await _service?.start();
+  }
+
   @override
-  Future<void> stop() async => _service?.stop();
+  Future<void> stop() async {
+    if (_micHolder == this) await _service?.stop();
+  }
+
   @override
-  Future<void> setPause(bool paused) async => _service?.setPause(paused: paused);
+  Future<void> setPause(bool paused) async {
+    if (_micHolder == this) await _service?.setPause(paused: paused);
+  }
+
   @override
-  Stream<String> get partials => _service?.onPartial() ?? const Stream.empty();
+  Stream<String> get partials => _events.onPartial();
   @override
-  Stream<String> get results => _service?.onResult() ?? const Stream.empty();
+  Stream<String> get results => _events.onResult();
 }
 
-/// Story words the model doesn't know (assets/data/vosk_vocab.json, made
-/// by tools/check_vosk_vocab.py).
-Future<Set<String>> loadVoskMissingWords() async {
+/// Story words a model doesn't know (assets/data/vosk_vocab.json, made by
+/// tools/check_vosk_vocab.py), per language.
+class VoskMissingWords {
+  const VoskMissingWords({this.english = const {}, this.filipino = const {}});
+  final Set<String> english;
+  final Set<String> filipino;
+
+  Set<String> of(String language) => language == 'FIL' ? filipino : english;
+}
+
+Future<VoskMissingWords> loadVoskMissingWords() async {
   try {
-    final j = jsonDecode(await rootBundle.loadString('assets/data/vosk_vocab.json'));
-    return {for (final w in (j as Map<String, dynamic>)['missing'] as List) w as String};
+    final j = jsonDecode(await rootBundle.loadString('assets/data/vosk_vocab.json')) as Map<String, dynamic>;
+    Set<String> list(String key) => {for (final w in (j[key] as List?) ?? const []) w as String};
+    return VoskMissingWords(english: list('missing'), filipino: list('fil_missing'));
   } catch (_) {
-    return const {};
+    return const VoskMissingWords();
   }
 }
 
-/// Offline speech recognition with Vosk, the only recognizer (English
-/// stories; Filipino stories use tap-to-read for now).
+/// Offline speech recognition with Vosk, the only recognizer.
 ///
-/// - **Grammar mode:** listens only for the words on the current page (see
-///   [vocabulary]) plus "[unk]", so it is fast and never "autocorrects" a
-///   child into another word.
+/// - **English, grammar mode:** listens only for the words on the current
+///   page (see [vocabulary]) plus "[unk]", so it is fast and never
+///   "autocorrects" a child into another word.
+/// - **Filipino, free text:** the big Filipino model can't use a grammar,
+///   so every word it hears is passed on and the reading tracker matches it
+///   with the Filipino rules (§1); words not on the page are misreads.
+///   Before the first load it checks [beforeLoad] (enough free memory), the
+///   load must finish within [loadTimeout], and if recognition is slower
+///   than [maxRecognizerMs] per word it reports itself unavailable (the
+///   app then switches the story to tap-to-read).
 /// - **Continuous:** one microphone session for the whole story; Vosk
 ///   splits utterances itself, so there are no stop/restart gaps.
 /// - "[unk]" (speech that is none of the page's words) counts as the child
 ///   speaking (it keeps the hint timer going) but is not scored as a
 ///   misread, so coughs and "um"s never count against the child. For the
 ///   few story words the model doesn't know ([missingWords]), "[unk]" at
-///   that word counts as an `unsure` read (never against the child, §1).
+///   that word (free text: any word that isn't on the page) counts as an
+///   `unsure` read (never against the child, §1).
 class VoskSpeechService implements SpeechService {
   VoskSpeechService({
     VoskEngine? engine,
     MicPermission? permissions,
+    this.language = 'EN',
     this.missingWords = const {},
     this.grammarSwapDelay = const Duration(milliseconds: 100),
     this.onRunning,
+    this.beforeLoad,
+    this.loadTimeout,
+    this.maxRecognizerMs,
+    this.slowCheckWords = 10,
     Duration Function()? now,
     void Function(void Function() callback)? onNextFrame,
-  })  : _engine = engine ?? VoskFlutterEngine.instance,
+  })  : _engine = engine ?? VoskFlutterEngine.english,
         _permissions = permissions ?? const PlatformMicPermission(),
         _now = now ?? _stopwatch(),
         _onNextFrame = onNextFrame ??
@@ -142,7 +228,22 @@ class VoskSpeechService implements SpeechService {
 
   final VoskEngine _engine;
   final MicPermission _permissions;
+
+  /// "EN" or "FIL": the matching rules for passing on a word early.
+  final String language;
   final Set<String> missingWords;
+
+  /// Runs before the model is first loaded; throws to refuse (e.g. not
+  /// enough free memory for the big Filipino model).
+  final Future<void> Function()? beforeLoad;
+
+  /// Loading longer than this counts as a failure.
+  final Duration? loadTimeout;
+
+  /// Recognition slower than this (median ms from a word being said to Vosk
+  /// reporting it, over [slowCheckWords] words) counts as a failure.
+  final int? maxRecognizerMs;
+  final int slowCheckWords;
 
   /// Vosk decodes on its own audio thread; the grammar is swapped while
   /// paused, after this wait, so it never changes mid-decode.
@@ -159,7 +260,7 @@ class VoskSpeechService implements SpeechService {
 
   final _words = StreamController<HeardWord>.broadcast(sync: true);
   final _voice = StreamController<void>.broadcast(sync: true);
-  final _state = ValueNotifier(const SpeechState(engine: 'Vosk offline'));
+  late final _state = ValueNotifier(SpeechState(engine: engineName));
   final _tracker = TranscriptTracker();
   final _matcher = const WordMatcher();
   final _subs = <StreamSubscription<String>>[];
@@ -172,6 +273,7 @@ class VoskSpeechService implements SpeechService {
   bool _paused = false; // audio dropped (muted or swapping the grammar)
   String? _expected;
   List<String> _grammar = const [unk];
+  Set<String> _pageWords = const {}; // free text: the words the child may read now
   Future<void> _queue = Future.value(); // grammar swaps and pauses, in order
 
   // Maps Vosk's audio time (seconds of audio fed, which keeps counting
@@ -194,6 +296,10 @@ class VoskSpeechService implements SpeechService {
   @override
   set expectedWord(String? word) => _expected = word;
 
+  /// For Buddy's brain: which model and how it listens.
+  String get engineName =>
+      _engine.usesGrammar ? 'Vosk offline' : 'Vosk offline (Filipino, free text)';
+
   /// Normalized page words + "[unk]", without words the model doesn't know.
   static List<String> grammarFor(Iterable<String> words, Set<String> missing) {
     final set = <String>{};
@@ -206,6 +312,10 @@ class VoskSpeechService implements SpeechService {
 
   @override
   set vocabulary(List<String> words) {
+    if (!_engine.usesGrammar) {
+      _pageWords = {for (final w in words) WordMatcher.normalize(w), for (final w in words) ...WordMatcher.normalize(w).split('-')};
+      return;
+    }
     final grammar = grammarFor(words, missingWords);
     if (listEquals(grammar, _grammar)) return;
     _grammar = grammar;
@@ -222,13 +332,23 @@ class VoskSpeechService implements SpeechService {
         _set(status: MicStatus.noPermission);
         return;
       }
+      final firstLoad = !_engine.isLoaded;
+      if (firstLoad) await beforeLoad?.call();
       await _setRunning(true);
-      await _engine.load(_grammar);
+      final loading = Stopwatch()..start();
+      final load = _engine.load(_grammar);
+      final limit = loadTimeout;
+      await (limit == null
+          ? load
+          : load.timeout(limit,
+              onTimeout: () => throw TimeoutException(
+                  'loading took longer than ${limit.inSeconds} s on this phone')));
+      if (firstLoad) _set(loadMs: loading.elapsedMilliseconds);
       if (!_wanted) return;
       // The recognizer is shared across stories: drop the last story's
       // leftovers so the grammar can change (see VoskEngine.setGrammar).
       await _engine.reset();
-      await _engine.setGrammar(_grammar);
+      if (_engine.usesGrammar) await _engine.setGrammar(_grammar);
       _subs
         ..add(_engine.partials.listen(_onPartial))
         ..add(_engine.results.listen(_onResult));
@@ -387,7 +507,7 @@ class VoskSpeechService implements SpeechService {
       },
       acceptEarly: (w) {
         final expected = _expected;
-        return w != unk && expected != null && _matcher.matches(expected, w, 'EN');
+        return w != unk && expected != null && _matcher.matches(expected, w, language);
       },
     );
     if (passedOn) _onNextFrame(_measureScreen);
@@ -395,8 +515,19 @@ class VoskSpeechService implements SpeechService {
 
   /// What a recognized token means for the reading.
   HeardWord? _heard(String token) {
-    if (token != unk) return HeardWord(token);
     final expected = _expected;
+    if (!_engine.usesGrammar) {
+      // Free text: a word that isn't on the page where the model can't
+      // know the expected word is probably that word: unsure, never
+      // against the child. Anything else goes to the reading tracker.
+      if (expected != null &&
+          missingWords.contains(WordMatcher.normalize(expected)) &&
+          !_pageWords.contains(WordMatcher.normalize(token))) {
+        return HeardWord(expected, confidence: 0);
+      }
+      return HeardWord(token);
+    }
+    if (token != unk) return HeardWord(token);
     // The model can't hear this word, so "[unk]" here is probably it:
     // counted as unsure, never against the child.
     if (expected != null && missingWords.contains(WordMatcher.normalize(expected))) {
@@ -414,10 +545,23 @@ class VoskSpeechService implements SpeechService {
     for (final t in timer.takeComplete()) {
       debugPrint('[speed] Vosk $t');
     }
-    _set(speed: timer.summary());
+    final speed = timer.summary();
+    _set(speed: speed);
+    // Too slow on this phone: give up, the story carries on by tapping.
+    final max = maxRecognizerMs, ms = speed.recognizerMs;
+    if (_listening && max != null && ms != null && speed.words >= slowCheckWords && ms > max) {
+      _fail(TimeoutException('too slow on this phone: about $ms ms from a word to Vosk hearing it'));
+    }
   }
 
-  void _set({MicStatus? status, bool? onDevice, String? transcript, String? lastError, SpeedSummary? speed}) {
+  void _set({
+    MicStatus? status,
+    bool? onDevice,
+    String? transcript,
+    String? lastError,
+    SpeedSummary? speed,
+    int? loadMs,
+  }) {
     if (_disposed) return; // stop() finishes after dispose()
     _state.value = _state.value.copyWith(
       status: status,
@@ -425,6 +569,7 @@ class VoskSpeechService implements SpeechService {
       transcript: transcript,
       lastError: lastError,
       speed: speed,
+      loadMs: loadMs,
     );
   }
 

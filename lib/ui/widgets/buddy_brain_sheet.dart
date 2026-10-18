@@ -198,7 +198,8 @@ class _ReadingSection extends StatelessWidget {
                 MicStatus.off => 'off',
                 MicStatus.noPermission => 'no mic permission',
                 MicStatus.unavailable => 'recognizer not available',
-              }} · Vosk offline, page words only'),
+              }} · ${r.speech.engine ?? 'Vosk'}${r.speech.engine == 'Vosk offline' ? ', page words only' : ''}'
+              '${r.speech.loadMs == null ? '' : ' · loaded in ${r.speech.loadMs} ms'}'),
         if (!r.tapMode) ...[
           _KeyValue('Recognizer heard', r.speech.transcript.isEmpty ? '…' : '"${r.speech.transcript}"'),
           ..._speed(r.speech.speed),

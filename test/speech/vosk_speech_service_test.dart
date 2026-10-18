@@ -10,9 +10,19 @@ import 'package:readaloud_buddy/speech/vosk_speech_service.dart';
 /// real Vosk it refuses a grammar change mid-utterance (on the phone that
 /// aborts the whole app).
 class FakeVosk implements VoskEngine {
+  FakeVosk({this.usesGrammar = true});
+
+  @override
+  final bool usesGrammar;
   final calls = <String>[];
   List<String>? loadedWith;
   bool fail = false;
+
+  /// Loading never finishes (a phone that can't cope).
+  bool hang = false;
+
+  @override
+  bool get isLoaded => loadedWith != null;
 
   /// Audio heard since the last utterance ended.
   bool midUtterance = false;
@@ -42,12 +52,14 @@ class FakeVosk implements VoskEngine {
   @override
   Future<void> load(List<String> grammar) async {
     if (fail) throw StateError('model missing');
+    if (hang) await Completer<void>().future;
     loadedWith = grammar;
     calls.add('load');
   }
 
   @override
   Future<void> setGrammar(List<String> grammar) async {
+    if (!usesGrammar) throw StateError('this model has no grammar mode');
     if (midUtterance) throw StateError("Can't add grammar to already running recognizer");
     calls.add('grammar ${grammar.join(' ')}');
   }
@@ -281,6 +293,110 @@ void main() {
       await s.start(language: 'EN');
       expect(s.state.value.status, MicStatus.listening);
       expect(engine.calls, ['load', 'reset', 'grammar cat the [unk]', 'start']);
+    });
+  });
+
+  group('Filipino: free text (no grammar mode)', () {
+    late FakeVosk fil;
+    late VoskSpeechService f;
+    late List<HeardWord> got;
+
+    VoskSpeechService makeFil({
+      Set<String> missing = const {},
+      Future<void> Function()? beforeLoad,
+      Duration? loadTimeout,
+      int? maxRecognizerMs,
+    }) =>
+        VoskSpeechService(
+          engine: fil,
+          language: 'FIL',
+          permissions: Mic(),
+          missingWords: missing,
+          beforeLoad: beforeLoad,
+          loadTimeout: loadTimeout,
+          maxRecognizerMs: maxRecognizerMs,
+          now: () => now,
+          onNextFrame: frames.add,
+        );
+
+    setUp(() {
+      fil = FakeVosk(usesGrammar: false);
+      f = makeFil();
+      got = [];
+      f.words.listen(got.add);
+    });
+
+    test('never sets a grammar; every word heard is passed on', () async {
+      f.vocabulary = ['May', 'bola', 'si', 'Ana.'];
+      await f.start(language: 'FIL');
+      f.vocabulary = ['Pula', 'ang', 'bola.']; // a page turn: no grammar swap
+      await settle();
+      expect(fil.calls.where((c) => c.startsWith('grammar')), isEmpty);
+      expect(f.state.value.engine, 'Vosk offline (Filipino, free text)');
+      f.expectedWord = 'Pula';
+      fil.result('pula ang bata'); // "bata" is a misread of "bola"
+      expect([for (final h in got) h.text], ['pula', 'ang', 'bata']);
+    });
+
+    test('passes a word on early with the Filipino rules (spelling variants)', () async {
+      await f.start(language: 'FIL');
+      f.expectedWord = 'lumpia';
+      fil.partial('lumpiya');
+      expect([for (final h in got) h.text], ['lumpiya']);
+    });
+
+    test('a word the model can\'t know: something not on the page there is unsure', () async {
+      final g = makeFil(missing: {'pagtila'});
+      final out = <HeardWord>[];
+      g.words.listen(out.add);
+      g.vocabulary = ['Pagtila', 'ng', 'ulan'];
+      await g.start(language: 'FIL');
+      g.expectedWord = 'Pagtila';
+      fil.result('pag tila');
+      expect(out.first.text, 'Pagtila');
+      expect(out.first.confidence, 0); // unsure, never counted
+      // A word that is on the page still goes through (a skip).
+      g.expectedWord = 'Pagtila';
+      fil.result('ulan');
+      expect(out.last.text, 'ulan');
+    });
+
+    test('not enough free memory: refuses to load and says why', () async {
+      final g = makeFil(beforeLoad: () async => throw StateError('not enough free memory'));
+      await g.start(language: 'FIL');
+      expect(g.state.value.status, MicStatus.unavailable);
+      expect(g.state.value.lastError, contains('not enough free memory'));
+      expect(fil.calls, isNot(contains('load')));
+    });
+
+    test('loading too long: gives up', () async {
+      fil.hang = true;
+      final g = makeFil(loadTimeout: const Duration(milliseconds: 20));
+      await g.start(language: 'FIL');
+      expect(g.state.value.status, MicStatus.unavailable);
+      expect(g.state.value.lastError, contains('loading took longer'));
+    });
+
+    test('recognition too slow on this phone: gives up after 10 words', () async {
+      final g = makeFil(maxRecognizerMs: 2500);
+      await g.start(language: 'FIL');
+      for (var i = 0; i < 10; i++) {
+        now = Duration(seconds: 10 * (i + 1));
+        g.expectedWord = 'bata';
+        // Said 3 s before Vosk reported it.
+        fil.result('bata', [('bata', now.inMilliseconds / 1000 - 3)]);
+        for (final cb in [...frames]) {
+          cb();
+        }
+        frames.clear();
+      }
+      expect(g.state.value.status, MicStatus.unavailable);
+      expect(g.state.value.lastError, contains('too slow'));
+    });
+
+    test('loading time is reported for Buddy\'s brain', () async {
+      await f.start(language: 'FIL');
+      expect(f.state.value.loadMs, isNotNull);
     });
   });
 }

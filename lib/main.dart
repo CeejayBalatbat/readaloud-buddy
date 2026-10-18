@@ -50,7 +50,8 @@ class AppStart extends ConsumerWidget {
         !loaded(ref.watch(phonicsProvider)) ||
         !loaded(ref.watch(predictorProvider)) ||
         !loaded(ref.watch(voskMissingWordsProvider)) ||
-        !loaded(ref.watch(voskHealthProvider))) {
+        !loaded(ref.watch(voskHealthProvider('EN'))) ||
+        !loaded(ref.watch(voskHealthProvider('FIL')))) {
       return splash;
     }
     return ref.watch(currentLearnerProvider).when(
