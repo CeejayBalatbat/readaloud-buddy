@@ -196,7 +196,7 @@ class ReadingController extends ChangeNotifier {
   Future<void> start() async {
     _sub = speech.words.listen(_onHeard);
     _voiceSub = speech.voice.listen((_) => _onVoice());
-    speech.state.addListener(_notify);
+    speech.state.addListener(_onSpeechState);
     _expectNext();
     await speech.start(language: story.language);
     _clock.start();
@@ -386,6 +386,13 @@ class ReadingController extends ChangeNotifier {
     speech.stop();
   }
 
+  /// The recognizer changed (e.g. Vosk failed and the story switched to
+  /// tap-to-read, where silence means nothing).
+  void _onSpeechState() {
+    tracker.listensForQuiet = speech.hearsSilence;
+    _notify();
+  }
+
   void _notify() {
     _wasQuiet = isQuiet;
     if (!_disposed) notifyListeners();
@@ -397,7 +404,7 @@ class ReadingController extends ChangeNotifier {
     _ticker?.cancel();
     _sub?.cancel();
     _voiceSub?.cancel();
-    speech.state.removeListener(_notify);
+    speech.state.removeListener(_onSpeechState);
     speech.stop();
     super.dispose();
   }

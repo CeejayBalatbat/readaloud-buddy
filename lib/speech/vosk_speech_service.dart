@@ -7,7 +7,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:vosk_flutter/vosk_flutter.dart' as vosk;
 
 import '../agent/agent.dart';
-import 'android_speech_service.dart' show SpeechToTextEngine, SttEngine;
+import 'mic_permission.dart';
 import 'speech_service.dart';
 import 'speech_timing.dart';
 import 'transcript_tracker.dart';
@@ -105,7 +105,8 @@ Future<Set<String>> loadVoskMissingWords() async {
   }
 }
 
-/// Offline speech recognition with Vosk, the default for English stories.
+/// Offline speech recognition with Vosk, the only recognizer (English
+/// stories; Filipino stories use tap-to-read for now).
 ///
 /// - **Grammar mode:** listens only for the words on the current page (see
 ///   [vocabulary]) plus "[unk]", so it is fast and never "autocorrects" a
@@ -120,14 +121,14 @@ Future<Set<String>> loadVoskMissingWords() async {
 class VoskSpeechService implements SpeechService {
   VoskSpeechService({
     VoskEngine? engine,
-    SttEngine? permissions,
+    MicPermission? permissions,
     this.missingWords = const {},
     this.grammarSwapDelay = const Duration(milliseconds: 100),
     this.onRunning,
     Duration Function()? now,
     void Function(void Function() callback)? onNextFrame,
   })  : _engine = engine ?? VoskFlutterEngine.instance,
-        _permissions = permissions ?? SpeechToTextEngine.instance,
+        _permissions = permissions ?? const PlatformMicPermission(),
         _now = now ?? _stopwatch(),
         _onNextFrame = onNextFrame ??
             ((cb) => SchedulerBinding.instance.addPostFrameCallback((_) => cb()));
@@ -140,7 +141,7 @@ class VoskSpeechService implements SpeechService {
   static const unk = '[unk]';
 
   final VoskEngine _engine;
-  final SttEngine _permissions;
+  final MicPermission _permissions;
   final Set<String> missingWords;
 
   /// Vosk decodes on its own audio thread; the grammar is swapped while
@@ -164,6 +165,8 @@ class VoskSpeechService implements SpeechService {
   final _subs = <StreamSubscription<String>>[];
 
   bool _wanted = false;
+  bool _running = false; // reported to [onRunning]
+  bool _disposed = false;
   bool _listening = false;
   bool _muted = false;
   bool _paused = false; // audio dropped (muted or swapping the grammar)
@@ -214,13 +217,12 @@ class VoskSpeechService implements SpeechService {
     _wanted = true;
     _set(status: MicStatus.starting);
     try {
-      final ok = await _permissions.initialize(onStatus: (_) {}, onError: (_, _) {});
-      if (!ok || !await _permissions.hasPermission) {
+      if (!await _permissions.request()) {
         _wanted = false;
         _set(status: MicStatus.noPermission);
         return;
       }
-      await onRunning?.call(true);
+      await _setRunning(true);
       await _engine.load(_grammar);
       if (!_wanted) return;
       // The recognizer is shared across stories: drop the last story's
@@ -243,12 +245,12 @@ class VoskSpeechService implements SpeechService {
   }
 
   /// Any Vosk error: stop using it and say it's unavailable (the app then
-  /// switches to the phone's recognizer).
+  /// switches the story to tap-to-read).
   void _fail(Object e) {
     _wanted = false;
     _listening = false;
     _hold();
-    unawaited(onRunning?.call(false));
+    unawaited(_setRunning(false));
     _set(status: MicStatus.unavailable, lastError: 'Vosk: $e');
   }
 
@@ -266,7 +268,7 @@ class VoskSpeechService implements SpeechService {
         await _engine.stop();
       } catch (_) {}
     }
-    await onRunning?.call(false);
+    await _setRunning(false);
     _set(status: MicStatus.off);
   }
 
@@ -276,6 +278,14 @@ class VoskSpeechService implements SpeechService {
     if (_muted == muted) return;
     _muted = muted;
     if (_listening) _serial(() => muted ? _pause() : _unpause());
+  }
+
+  /// Tells [onRunning] only about changes, so stopping (or disposing) a
+  /// service that never ran reports nothing.
+  Future<void> _setRunning(bool on) async {
+    if (_running == on) return;
+    _running = on;
+    await onRunning?.call(on);
   }
 
   void _serial(Future<void> Function() step) =>
@@ -408,6 +418,7 @@ class VoskSpeechService implements SpeechService {
   }
 
   void _set({MicStatus? status, bool? onDevice, String? transcript, String? lastError, SpeedSummary? speed}) {
+    if (_disposed) return; // stop() finishes after dispose()
     _state.value = _state.value.copyWith(
       status: status,
       onDevice: onDevice,
@@ -420,6 +431,7 @@ class VoskSpeechService implements SpeechService {
   @override
   void dispose() {
     stop();
+    _disposed = true;
     _words.close();
     _voice.close();
     _state.dispose();

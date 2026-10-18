@@ -8,7 +8,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:readaloud_buddy/data/database_providers.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
 import 'package:readaloud_buddy/data/repositories/settings_repository.dart';
+import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/speech/fallback_speech_service.dart';
+import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/vosk_health.dart';
 import 'package:readaloud_buddy/speech/vosk_speech_service.dart';
@@ -66,21 +68,23 @@ class FakeExit implements ExitInfo {
 
 void main() {
   group('FallbackSpeechService', () {
-    late TestRecognizer vosk, phone;
+    late TestRecognizer vosk;
+    late FakeSpeechService tap;
     late List<String> failures;
     late FallbackSpeechService s;
     late List<String> heard;
 
     setUp(() {
       vosk = TestRecognizer('Vosk');
-      phone = TestRecognizer('Android');
+      tap = FakeSpeechService();
       failures = [];
-      s = FallbackSpeechService(primary: vosk, fallback: () => phone, onFailed: failures.add);
+      s = FallbackSpeechService(
+          primary: vosk, fallback: () => tap, onFailed: failures.add, note: voskOffNote);
       heard = [];
       s.words.listen((w) => heard.add(w.text));
     });
 
-    test('Vosk fails mid-story: switch to the phone recognizer and carry on', () async {
+    test('Vosk fails mid-story: switch to tap-to-read and carry on', () async {
       await s.start(language: 'EN');
       s.expectedWord = 'cat';
       s.vocabulary = ['the', 'cat'];
@@ -89,12 +93,20 @@ void main() {
       expect(failures, ['Vosk: KaldiFatalError']);
       expect(s.usingFallback, isTrue);
       expect(vosk.stopped, isTrue);
-      expect(phone.starts, ['EN']);
-      expect(phone.expected, 'cat');
-      expect(phone.vocab, ['the', 'cat']);
-      expect(s.state.value.notice, FallbackSpeechService.defaultNote);
-      phone.words_.add(const HeardWord('cat'));
+      expect(tap.isListening, isTrue);
+      expect(tap.vocabularyNow, ['the', 'cat']);
+      expect(s.state.value.notice, voskOffNote);
+      // The reading screen finds the tap-to-read service behind it.
+      expect(tapToRead(s), same(tap));
+      expect(s.hearsSilence, isFalse); // no "can't hear you" while tapping
+      tap.hear('cat');
+      await Future<void>.delayed(Duration.zero);
       expect(heard, ['cat']);
+    });
+
+    test('while Vosk works, the reading screen has no tap-to-read service', () {
+      expect(tapToRead(s), isNull);
+      expect(tapToRead(tap), same(tap));
     });
 
     test('no microphone permission is not a recognizer failure', () {
@@ -104,11 +116,12 @@ void main() {
       expect(s.state.value.status, MicStatus.noPermission);
     });
 
-    test('already failed before: starts on the phone recognizer with the note', () async {
-      final f = FallbackSpeechService.alreadyFailed(fallback: () => phone);
+    test('already failed before: starts on tap-to-read with the note', () async {
+      final f = FallbackSpeechService.alreadyFailed(fallback: () => tap, note: voskOffNote);
       await f.start(language: 'EN');
-      expect(phone.starts, ['EN']);
-      expect(f.state.value.notice, isNotNull);
+      expect(tap.isListening, isTrue);
+      expect(f.state.value.notice, voskOffNote);
+      expect(tapToRead(f), same(tap));
     });
   });
 
@@ -174,6 +187,40 @@ void main() {
       await c.read(voskHealthProvider.notifier).retry();
       expect(c.read(voskHealthProvider).value, isNull);
       expect(await SettingsRepository(db).get(SettingKeys.voskFailed), isNull);
+    });
+  });
+
+  group('which listening a story gets', () {
+    test('Filipino: tap; English: Vosk; Vosk off: tap with a note; developer mode: tap',
+        () async {
+      driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
+      final db = AppDatabase(NativeDatabase.memory());
+      final c = ProviderContainer(overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        exitInfoProvider.overrideWithValue(FakeExit(null)),
+        voskMissingWordsProvider.overrideWith((ref) async => const <String>{}),
+      ]);
+      addTearDown(() async {
+        c.dispose();
+        await db.close();
+      });
+      await c.read(speechModeProvider.future);
+      await c.read(voskHealthProvider.future);
+
+      expect(c.read(speechServiceProvider('FIL')), isA<FakeSpeechService>());
+      final en = c.read(speechServiceProvider('EN'));
+      expect(en, isA<FallbackSpeechService>());
+      expect(tapToRead(en), isNull); // the microphone
+
+      await c.read(voskHealthProvider.notifier).fail('broken');
+      c.invalidate(speechServiceProvider);
+      final off = c.read(speechServiceProvider('EN'));
+      expect(tapToRead(off), isNotNull);
+      expect(off.state.value.notice, voskOffNote);
+
+      await c.read(voskHealthProvider.notifier).retry();
+      await c.read(speechModeProvider.notifier).set(SpeechMode.tap);
+      expect(c.read(speechServiceProvider('EN')), isA<FakeSpeechService>());
     });
   });
 

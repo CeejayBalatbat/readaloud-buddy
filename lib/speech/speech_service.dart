@@ -8,7 +8,7 @@ class HeardWord {
 
   final String text;
 
-  /// 0–1, or null when the recognizer gives none (common on Android).
+  /// 0–1, or null when the recognizer gives none.
   final double? confidence;
 }
 
@@ -31,7 +31,6 @@ class SpeechState {
     this.status = MicStatus.off,
     this.onDevice,
     this.transcript = '',
-    this.restarts = 0,
     this.lastError,
     this.speed,
     this.engine,
@@ -46,26 +45,22 @@ class SpeechState {
   /// The latest (partial) transcript of the current utterance.
   final String transcript;
 
-  /// How many times listening restarted after the recognizer stopped.
-  final int restarts;
   final String? lastError;
 
   /// Measured delay from speaking to the screen (real mic only).
   final SpeedSummary? speed;
 
-  /// Which recognizer is listening ("Vosk offline", "Android"), for
-  /// Buddy's brain and speed comparisons.
+  /// Which recognizer is listening ("Vosk offline"), for Buddy's brain.
   final String? engine;
 
-  /// A short note for the reading screen (e.g. Buddy switched to the
-  /// phone's recognizer because the offline one failed).
+  /// A short note for the reading screen (e.g. the offline recognizer
+  /// failed, so the story switched to tap-to-read).
   final String? notice;
 
   SpeechState copyWith({
     MicStatus? status,
     bool? onDevice,
     String? transcript,
-    int? restarts,
     String? lastError,
     SpeedSummary? speed,
     String? engine,
@@ -75,7 +70,6 @@ class SpeechState {
         status: status ?? this.status,
         onDevice: onDevice ?? this.onDevice,
         transcript: transcript ?? this.transcript,
-        restarts: restarts ?? this.restarts,
         lastError: lastError ?? this.lastError,
         speed: speed ?? this.speed,
         engine: engine ?? this.engine,
@@ -84,8 +78,8 @@ class SpeechState {
 }
 
 /// Turns the child's voice into words. The reading screen only talks to
-/// this interface, so the Android recognizer ([AndroidSpeechService]),
-/// a future offline one (Vosk) and [FakeSpeechService] are interchangeable.
+/// this interface, so Vosk ([VoskSpeechService]) and tap-to-read
+/// ([FakeSpeechService]) are interchangeable.
 abstract class SpeechService {
   /// New words, one at a time, in the order they were heard.
   Stream<HeardWord> get words;

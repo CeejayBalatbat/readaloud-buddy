@@ -9,6 +9,7 @@ import '../../app/reading_controller.dart';
 import '../../data/story.dart';
 import '../../data/story_providers.dart';
 import '../../speech/fake_speech_service.dart';
+import '../../speech/fallback_speech_service.dart';
 import '../../speech/hint_voice.dart';
 import '../../speech/speech_providers.dart';
 import '../../speech/speech_service.dart';
@@ -21,6 +22,12 @@ import '../widgets/common.dart';
 import '../widgets/story_cover.dart';
 import '../widgets/story_text.dart';
 import '../widgets/svg_art.dart';
+
+/// Notes the reading screen shows (tests look for them).
+abstract final class ReadAlongScreenNotes {
+  /// Filipino stories are read by tapping for now (no Filipino recognizer).
+  static const filipino = 'Filipino listening is coming soon. Tap each word as you read it.';
+}
 
 /// Screens 5 (read-along), 6 (hint) and 5b (page review). The hint layout
 /// replaces the normal one while Buddy is giving a hint on the current
@@ -71,11 +78,8 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
   bool _saidQuiet = false; // "can't hear you" was said for this quiet spell
   int? _introducedReview; // page whose review Buddy already introduced
 
-  /// Microphone mode, but this phone can't recognize the story's language
-  /// (Filipino), so the child taps the words instead.
-  late final bool _tapFallback = widget.story.language != 'EN' &&
-      usesMic(ref.read(speechModeProvider).value ?? SpeechMode.vosk) &&
-      c.speech is FakeSpeechService;
+  /// Filipino stories are read by tapping for now (no Filipino recognizer).
+  bool get _filipinoTap => widget.story.language != 'EN' && _fake != null;
 
   static const quietMessage = "I can't hear you. Try reading a bit louder!";
   static const reviewIntro = "Let's practise these words. Tap one to hear it, then say it!";
@@ -165,10 +169,8 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
     super.dispose();
   }
 
-  FakeSpeechService? get _fake {
-    final s = c.speech;
-    return s is FakeSpeechService ? s : null;
-  }
+  /// Tap-to-read (a Filipino story, the developer tap mode, or Vosk off).
+  FakeSpeechService? get _fake => tapToRead(c.speech);
 
   void _tapWord(int i) {
     final fake = _fake;
@@ -253,16 +255,14 @@ class _ReadAlongScreenState extends ConsumerState<ReadAlongScreen> {
                     const SizedBox(height: 12),
                     const _BuddySays(quietMessage),
                   ],
-                  // e.g. Vosk failed and Buddy switched to the phone's recognizer.
+                  // e.g. Vosk failed, so the story switched to tap-to-read.
                   if (c.speech.state.value.notice case final notice?) ...[
                     const SizedBox(height: 12),
                     _SmallNote(notice),
                   ],
-                  if (_tapFallback) ...[
+                  if (_filipinoTap) ...[
                     const SizedBox(height: 12),
-                    const _BuddySays(
-                        "This phone can't listen in Filipino yet, so tap each "
-                        'word as you read it.'),
+                    const _SmallNote(ReadAlongScreenNotes.filipino),
                   ],
                   if (c.micStatus == MicStatus.noPermission ||
                       c.micStatus == MicStatus.unavailable) ...[

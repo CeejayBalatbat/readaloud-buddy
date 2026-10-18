@@ -19,9 +19,9 @@ round at the end. Add new reports at the bottom of the right section.
   always resets first; the tests' fake Vosk refuses mid-utterance grammar
   changes like the real one.
 - **Safety net (added):** any error Vosk *reports* (model missing, init
-  failing, a refused call) switches the story to the phone recognizer on
-  the spot, with a small note, and Vosk stays off (Settings shows why,
-  with "Try offline again"). A crash *inside* Vosk's native code (C++
+  failing, a refused call) switches the story to tap-to-read on the spot
+  (the phone recognizer was removed in Phase 5b), with a small note, and
+  Vosk stays off (Settings shows why, with "Try offline again"). A crash *inside* Vosk's native code (C++
   abort, like the one above) can't be caught by Dart or Java: that run
   still closes, but at the next start the app sees it crashed while Vosk
   was running (Android 11+ exit reason; on older phones any exit during
@@ -36,20 +36,22 @@ round at the end. Add new reports at the bottom of the right section.
   zipalign -P 16, no validation layer); the arm64 release APK passes.
   Debug APKs still contain the validation layer; Android's 16 KB warning
   on a debug install can come from it.
-- **Vosk (now the default) is untested on a real phone.** It builds
-  (debug and release APKs) and its logic is tested with a fake engine. On
-  this PC, with a synthetic voice reading page 1 of S01, grammar mode
-  showed each word a median **240 ms** after it ended (90%: 350 ms), vs
-  330 ms with the full vocabulary, at about 1/7 of the CPU. **Needs:** the
-  speed meter's numbers from the phone, Vosk vs Phone recognizer on the
-  same page.
-- **Recognition felt slow with the phone recognizer** (reported). That
-  path is unchanged; it is now the "Phone recognizer" fallback.
+- **Vosk (now the only recognizer) is untested on a real phone.** It
+  builds (debug and release APKs) and its logic is tested with a fake
+  engine. On this PC, with a synthetic voice reading page 1 of S01,
+  grammar mode showed each word a median **240 ms** after it ended (90%:
+  350 ms), vs 330 ms with the full vocabulary, at about 1/7 of the CPU.
+  **Needs:** the speed meter's numbers from the phone.
+- **The microphone permission is now asked by our own code**
+  (`MainActivity.kt`, channel `readaloud/mic`), since `speech_to_text`
+  (which used to ask) was removed. Untested on a phone: check that the
+  permission question appears on the first English story and that
+  "Mic is off" → tapping the mic asks again.
 - **Vosk doesn't score misreads as "misread".** A word that isn't on the
   page comes out as `[unk]`, which keeps the hint timer going but isn't
   scored, so a real misread shows up as hints and then `correctAfterHint`
-  or `skipped`. Both are miscues, but the per-word label differs from the
-  phone recognizer's.
+  or `skipped`. Both are miscues, but a misread is never labelled
+  `misread` by the microphone (only by a long-press in tap-to-read).
 - **Grammar mode can still hear a misread as another word on the same
   page** (e.g. "bat" heard as "cat" when "cat" is on the page). `[unk]`
   catches most other words, but not those.
@@ -61,7 +63,9 @@ round at the end. Add new reports at the bottom of the right section.
   is recorded as `unsure` (never against the child).
 - No small Filipino Vosk model exists. The only one is 314 MB, has a
   fixed vocabulary (no grammar mode) and a non-commercial license
-  (CC-BY-NC-SA), so Filipino uses the phone recognizer or tap to read.
+  (CC-BY-NC-SA), so **Filipino stories use tap to read** for now (with a
+  small note on the reading screen). A Filipino child's reading check is
+  tapped too, so their starting score depends on honest tapping.
 - `packages/vosk_flutter` is a vendored copy of the official plugin
   (updated for Dart 3) using vosk-android 0.3.47; 0.3.75 exists and may be
   faster, but needs the plugin's Java code checked first.
@@ -69,18 +73,13 @@ round at the end. Add new reports at the bottom of the right section.
   (`flutter build apk --release --split-per-abi`), 39 MB of it the model.
 - The model (39 MB) isn't in git: run `python tools/get_vosk_model.py`
   before building, or "Offline (Vosk)" reports the mic as not ready.
-- **Phone recognizer only:** words said while it restarts after ~1 s of
-  silence are lost ("Mic off while restarting" in the speed meter); some
-  phones beep at each restart.
-- **Filipino recognition is untested on a real phone.** fil-PH usually has
-  no on-device model, so it falls back to online recognition (needs
-  internet). The Filipino TTS voice for hints may also be missing on some
-  phones (Buddy then stays quiet).
-- The speed meter's "said" time differs by recognizer: Vosk uses each
-  word's start time in the audio (exact, but doesn't include the phone's
-  ~tens of ms of microphone buffering); the phone recognizer uses when the
-  mic got loud, so for words read without a pause it counts from the start
-  of the phrase and overestimates.
+- The Filipino TTS voice for hints may be missing on some phones (Buddy
+  then stays quiet).
+- The speed meter's "said" time is each word's start time in Vosk's audio
+  (exact, but doesn't include the phone's ~tens of ms of microphone
+  buffering).
+- The release manifest no longer asks for the INTERNET permission (the
+  app is offline; debug builds still add it for Flutter's tools).
 
 ## Hints and phonics
 - **TTS rime spellings are unchecked on a real voice** (e.g. "ed" for

@@ -14,11 +14,9 @@ class WordTiming {
   final Duration passedOnAt;
 
   /// From when the word was said until it first showed up in a recognizer
-  /// result. Android: "said" = the mic got loud (when the child reads
-  /// several words without a pause this counts from the start of the
-  /// phrase, so it is an upper bound for later words). Vosk: the word's own
-  /// start time in the audio, filled in by [SpeechTimer.spokenAt] when the
-  /// utterance's final result arrives. null if unknown.
+  /// result: the word's own start time in Vosk's audio, filled in by
+  /// [SpeechTimer.spokenAt] when the utterance's final result arrives.
+  /// null until then.
   int? recognizerMs;
 
   /// Already printed to the console.
@@ -49,7 +47,6 @@ class SpeedSummary {
     this.settlingMs,
     this.screenMs,
     this.totalMs,
-    this.restartGapMs,
     this.last,
   });
 
@@ -58,42 +55,21 @@ class SpeedSummary {
   final int? settlingMs;
   final int? screenMs;
   final int? totalMs;
-
-  /// Median time the mic was off while the recognizer restarted.
-  final int? restartGapMs;
   final String? last;
 }
 
 /// Measures speech-to-screen delay (pure Dart; the caller passes times).
 class SpeechTimer {
-  SpeechTimer({this.loudRms = 3.0, this.phraseGapMs = 300, this.keep = 30});
+  SpeechTimer({this.keep = 30});
 
-  /// Android sound level (rms dB, about -2 quiet … 10 loud) that counts as
-  /// speaking.
-  final double loudRms;
-
-  /// Quiet longer than this, then loud again = the child started speaking
-  /// again (a new onset).
-  final int phraseGapMs;
+  /// How many recent words the summary uses.
   final int keep;
 
   final _firstSeen = <int, Duration>{}; // word position → first seen
   final _utterance = <int, WordTiming>{}; // word position → its timing
   final _samples = <WordTiming>[];
-  final _restartGaps = <int>[];
-  Duration? _onset;
-  Duration? _lastLoud;
-  Duration? _stoppedAt;
 
   List<WordTiming> get samples => List.unmodifiable(_samples);
-
-  /// The mic's sound level.
-  void soundLevel(double rms, Duration at) {
-    if (rms < loudRms) return;
-    final last = _lastLoud;
-    if (last == null || (at - last).inMilliseconds > phraseGapMs) _onset = at;
-    _lastLoud = at;
-  }
 
   /// A new utterance starts (word positions count from 0 again).
   void newUtterance() {
@@ -126,10 +102,8 @@ class SpeechTimer {
   /// Word [index] of the utterance was passed on to the reading screen.
   WordTiming passedOn(int index, String word, Duration at) {
     final seen = _firstSeen[index] ?? at;
-    final onset = _onset;
     final t = WordTiming(
       word: word,
-      recognizerMs: onset == null || onset > seen ? null : (seen - onset).inMilliseconds,
       settlingMs: (at - seen).inMilliseconds,
       passedOnAt: at,
     );
@@ -152,24 +126,12 @@ class SpeechTimer {
     return done;
   }
 
-  /// The recognizer stopped (silence) / is listening again.
-  void stopped(Duration at) => _stoppedAt ??= at;
-  void listening(Duration at) {
-    final s = _stoppedAt;
-    if (s != null) {
-      _restartGaps.add((at - s).inMilliseconds);
-      if (_restartGaps.length > keep) _restartGaps.removeAt(0);
-    }
-    _stoppedAt = null;
-  }
-
   SpeedSummary summary() => SpeedSummary(
         words: _samples.length,
         recognizerMs: _median([for (final t in _samples) t.recognizerMs]),
         settlingMs: _median([for (final t in _samples) t.settlingMs]),
         screenMs: _median([for (final t in _samples) t.screenMs]),
         totalMs: _median([for (final t in _samples) t.totalMs]),
-        restartGapMs: _median(_restartGaps),
         last: _samples.isEmpty ? null : _samples.last.toString(),
       );
 

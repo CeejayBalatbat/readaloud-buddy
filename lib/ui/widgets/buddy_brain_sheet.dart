@@ -152,18 +152,17 @@ class _ReadingSection extends StatelessWidget {
         const SizedBox(height: 10),
         const SizedBox(height: 6),
         _KeyValue('Hearing', r.tapMode
-            ? 'Tap to read (no microphone)'
+            ? 'Tap to read (no microphone)${r.speech.notice != null ? ': offline listening is off' : ''}'
             : '${switch (r.speech.status) {
                 MicStatus.listening => 'listening',
                 MicStatus.starting => 'starting',
                 MicStatus.off => 'off',
                 MicStatus.noPermission => 'no mic permission',
                 MicStatus.unavailable => 'recognizer not available',
-              }} · ${r.speech.engine == 'Vosk offline' ? 'Vosk offline, page words only' : r.speech.onDevice == false ? 'Android, online' : 'Android, on-device first'}'),
+              }} · Vosk offline, page words only'),
         if (!r.tapMode) ...[
           _KeyValue('Recognizer heard', r.speech.transcript.isEmpty ? '…' : '"${r.speech.transcript}"'),
-          _KeyValue('Restarts after silence', '${r.speech.restarts}'),
-          ..._speed(r.speech.speed, continuous: r.speech.engine == 'Vosk offline'),
+          ..._speed(r.speech.speed),
           if (r.speech.lastError != null) _KeyValue('Last recognizer message', r.speech.lastError!),
         ],
         _KeyValue('Accuracy so far (§3)',
@@ -176,7 +175,7 @@ class _ReadingSection extends StatelessWidget {
 }
 
 /// The speed meter: how long from the child's voice to the screen.
-List<Widget> _speed(SpeedSummary? s, {bool continuous = false}) {
+List<Widget> _speed(SpeedSummary? s) {
   String v(int? ms) => ms == null ? '?' : '$ms ms';
   const build = kReleaseMode
       ? 'release'
@@ -192,8 +191,6 @@ List<Widget> _speed(SpeedSummary? s, {bool continuous = false}) {
           '${v(s.totalMs)} = recognizer ${v(s.recognizerMs)} + settling '
           '${v(s.settlingMs)} + screen ${v(s.screenMs)}'),
       if (s.last != null) _KeyValue('Last word', s.last!),
-      _KeyValue('Mic off while restarting',
-          continuous ? 'never (listens continuously)' : v(s.restartGapMs)),
     ],
   ];
 }

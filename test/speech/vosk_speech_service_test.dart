@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:readaloud_buddy/speech/android_speech_service.dart';
+import 'package:readaloud_buddy/speech/mic_permission.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
 import 'package:readaloud_buddy/speech/vosk_speech_service.dart';
 
@@ -80,28 +80,11 @@ class FakeVosk implements VoskEngine {
 }
 
 /// Microphone permission for the test.
-class Mic implements SttEngine {
+class Mic implements MicPermission {
   Mic({this.allowed = true});
   final bool allowed;
   @override
-  Future<bool> initialize({
-    required void Function(String status) onStatus,
-    required void Function(String error, bool permanent) onError,
-  }) async =>
-      allowed;
-  @override
-  Future<bool> get hasPermission async => allowed;
-  @override
-  Future<void> listen({
-    required String localeId,
-    required bool onDevice,
-    required void Function(String, bool, double?) onResult,
-    void Function(double)? onSoundLevel,
-  }) async {}
-  @override
-  Future<void> cancel() async {}
-  @override
-  Future<List<String>> locales() async => const [];
+  Future<bool> request() async => allowed;
 }
 
 void main() {

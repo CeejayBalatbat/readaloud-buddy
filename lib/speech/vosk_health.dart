@@ -50,8 +50,8 @@ final exitInfoProvider = Provider<ExitInfo>((ref) => const PlatformExitInfo());
 /// inside Vosk's native code can't be caught, so the app marks Vosk as
 /// running ([running]) and, at the next start, if the mark is still there
 /// and Android says the last run crashed, records the failure. Either way
-/// the app then uses the phone's recognizer until a grown-up taps "Try
-/// again" in Settings ([retry]).
+/// stories then use tap-to-read until a grown-up taps "Try offline again"
+/// in Settings ([retry]).
 class VoskHealth extends AsyncNotifier<String?> {
   static const crashReason = 'The offline recognizer stopped the app last time.';
 
@@ -65,8 +65,8 @@ class VoskHealth extends AsyncNotifier<String?> {
     await settings.remove(SettingKeys.voskActive);
     final since = DateTime.fromMillisecondsSinceEpoch(int.tryParse(active) ?? 0);
     final exit = await ref.watch(exitInfoProvider).lastExit();
-    // Unknown (older Android) counts as a crash: better the phone
-    // recognizer than a child's app closing again.
+    // Unknown (older Android) counts as a crash: better tap-to-read than
+    // a child's app closing again.
     final crashed = exit == null || (exit.isCrash && !exit.timestamp.isBefore(since));
     if (!crashed) return failed;
     await settings.set(SettingKeys.voskFailed, crashReason);

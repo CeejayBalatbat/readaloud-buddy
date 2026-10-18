@@ -16,7 +16,6 @@ dependencies:
   flutter_tts: ^4.2.5
   pdf: ^3.13.1
   printing: ^5.15.1
-  speech_to_text: ^7.5.0
   uuid: ^4.6.0
   # Offline speech (Vosk). Vendored: see packages/vosk_flutter/README.md.
   vosk_flutter:

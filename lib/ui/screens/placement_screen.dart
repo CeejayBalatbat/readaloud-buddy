@@ -10,6 +10,7 @@ import '../../data/db/app_database.dart';
 import '../../data/repositories/learner_repository.dart';
 import '../../data/story_providers.dart';
 import '../../speech/fake_speech_service.dart';
+import '../../speech/fallback_speech_service.dart';
 import '../../speech/hint_voice.dart';
 import '../../speech/speech_providers.dart';
 import '../theme/app_colors.dart';
@@ -57,8 +58,6 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
     final passage = level == null ? null : placementPassage(stories, level, _language);
     if (!mounted) return;
     if (passage == null) return _finish();
-    await prepareVoice(ProviderScope.containerOf(context), passage.story.language);
-    if (!mounted) return;
     _c?.removeListener(_changed);
     _c?.dispose();
     setState(() {
@@ -149,15 +148,15 @@ class _PlacementScreenState extends ConsumerState<PlacementScreen> {
   }
 
   void _tapWord(int i) {
-    final c = _c, s = _c?.speech;
-    if (c == null || s is! FakeSpeechService) return;
+    final c = _c, s = _c == null ? null : tapToRead(_c!.speech);
+    if (c == null || s == null) return;
     final ahead = i - c.currentIndex;
     if (ahead >= 0 && ahead <= c.config.lookAheadWords) s.hear(c.words[i].word);
   }
 
   void _longPressWord(int i) {
-    final c = _c, s = _c?.speech;
-    if (c == null || s is! FakeSpeechService || i != c.currentIndex) return;
+    final c = _c, s = _c == null ? null : tapToRead(_c!.speech);
+    if (c == null || s == null || i != c.currentIndex) return;
     s.hear(FakeSpeechService.misreadWord);
   }
 

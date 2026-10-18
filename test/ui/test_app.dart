@@ -16,7 +16,6 @@ import 'package:readaloud_buddy/data/database_providers.dart';
 import 'package:readaloud_buddy/data/db/app_database.dart';
 import 'package:readaloud_buddy/data/story.dart';
 import 'package:readaloud_buddy/data/story_providers.dart';
-import 'package:readaloud_buddy/speech/android_speech_service.dart';
 import 'package:readaloud_buddy/speech/fake_speech_service.dart';
 import 'package:readaloud_buddy/speech/speech_providers.dart';
 import 'package:readaloud_buddy/speech/speech_service.dart';
@@ -76,8 +75,6 @@ class TestApp {
     readingClockProvider.overrideWithValue(() => clock),
     storiesProvider.overrideWith((ref) async => stories),
     phonicsProvider.overrideWith((ref) async => phonics),
-    // No real recognizer in tests: Filipino falls back to tap-to-read.
-    sttEngineProvider.overrideWithValue(NoRecognizer()),
     voskMissingWordsProvider.overrideWith((ref) async => const <String>{}),
     exitInfoProvider.overrideWithValue(const NoExitInfo()),
   ]);
@@ -134,29 +131,6 @@ class TestApp {
       File('$dir/$name.png').writeAsBytesSync(bytes!.buffer.asUint8List());
     });
   }
-}
-
-/// A phone without a speech recognizer (or microphone permission).
-class NoRecognizer implements SttEngine {
-  @override
-  Future<bool> initialize({
-    required void Function(String status) onStatus,
-    required void Function(String error, bool permanent) onError,
-  }) async =>
-      false;
-  @override
-  Future<bool> get hasPermission async => false;
-  @override
-  Future<void> listen({
-    required String localeId,
-    required bool onDevice,
-    required void Function(String words, bool isFinal, double? confidence) onResult,
-    void Function(double rmsDb)? onSoundLevel,
-  }) async {}
-  @override
-  Future<void> cancel() async {}
-  @override
-  Future<List<String>> locales() async => const [];
 }
 
 /// Android has no record of how the last run ended.

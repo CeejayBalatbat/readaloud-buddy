@@ -9,7 +9,6 @@ import '../data/db/app_database.dart';
 import '../data/repositories/learner_repository.dart';
 import '../app/home_data.dart';
 import '../data/story.dart';
-import '../speech/speech_providers.dart';
 import 'screens/questions_screen.dart';
 import 'screens/read_along_screen.dart';
 import 'screens/results_screen.dart';
@@ -20,8 +19,6 @@ Future<void> startStory(BuildContext context, Story story) async {
   final container = ProviderScope.containerOf(context);
   final navigator = Navigator.of(context);
   final learner = await _learner(container);
-  // Filipino: find out once whether the phone can recognize it.
-  await prepareVoice(container, story.language);
   final startedAt = DateTime.now();
 
   void showResults(StoryOutcome outcome) {

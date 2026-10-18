@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Speech recognition. Audio is processed by the phone's recognizer and
-         never saved by the app. INTERNET is only for the online fallback. -->
+    <!-- Offline speech recognition (Vosk). Audio is processed on the phone
+         and never saved or uploaded. No internet permission: the app works
+         offline (debug builds add it for Flutter's tools). -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="ReadAloud Buddy"
         android:name="${applicationName}"
@@ -45,10 +45,7 @@
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
-        <!-- Android 11+: let the app find the speech recognizer and TTS engine. -->
-        <intent>
-            <action android:name="android.speech.RecognitionService"/>
-        </intent>
+        <!-- Android 11+: let the app find the text-to-speech engine. -->
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE"/>
         </intent>

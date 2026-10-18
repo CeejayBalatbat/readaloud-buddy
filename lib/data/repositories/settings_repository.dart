@@ -5,7 +5,7 @@ abstract final class SettingKeys {
   static const parentPin = 'parent_pin';
   static const consentDate = 'consent_date';
   static const activeLearnerId = 'active_learner_id';
-  static const speechMode = 'speech_mode'; // "voice" or "tap"
+  static const speechMode = 'speech_mode'; // "vosk" or "tap" (developer)
   static const hintMode = 'hint_mode'; // "automatic" or "helpOnly"
   static const feedbackMode = 'feedback_mode'; // "review" or "live"
   static const voskActive = 'vosk_active'; // ms since epoch while Vosk runs

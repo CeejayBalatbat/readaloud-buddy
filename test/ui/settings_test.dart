@@ -101,23 +101,46 @@ void main() {
     expect((await reader(tester, app)).hintWaitSec, isNull);
   });
 
-  testWidgets('How Buddy listens: Offline (Vosk) by default; choices save',
+  testWidgets('How Buddy listens: Vosk only; tap to read is hidden behind a long-press',
       (tester) async {
     final app = await withReader(tester);
     await app.pump(tester, const HomeShell());
     await settle(tester);
     await tester.tap(find.text('Settings'));
     await settle(tester);
-    final phone = find.text('🎤 Phone recognizer');
-    await tester.scrollUntilVisible(phone, 300);
+    final card = find.text('How Buddy listens');
+    await tester.scrollUntilVisible(card, 300);
     await settle(tester);
     expect(app.container.read(speechModeProvider).value, SpeechMode.vosk);
-    await tester.tap(phone);
+    expect(find.textContaining('Phone recognizer'), findsNothing);
+    expect(find.textContaining('Filipino stories: your child taps'), findsOneWidget);
+    const devSwitch = '🛠 Tap to read (developer / demo)';
+    expect(find.text(devSwitch), findsNothing);
+
+    await tester.longPress(card);
     await settle(tester);
-    expect(app.container.read(speechModeProvider).value, SpeechMode.voice);
+    await tester.scrollUntilVisible(find.text(devSwitch), 200);
+    await tester.tap(find.byType(Switch));
+    await settle(tester);
+    expect(app.container.read(speechModeProvider).value, SpeechMode.tap);
     final saved = await tester.runAsync(
         () => SettingsRepository(app.db).get(SettingKeys.speechMode));
-    expect(saved, 'voice');
+    expect(saved, 'tap');
+
+    // Hidden again, the card still says tap mode is on.
+    await tester.longPress(card);
+    await settle(tester);
+    expect(find.text(devSwitch), findsNothing);
+    expect(find.text('🛠 Developer mode: every story uses tap to read.'), findsOneWidget);
+  });
+
+  testWidgets('an old saved phone-recognizer choice reads as Vosk', (tester) async {
+    final app = await withReader(tester);
+    await tester.runAsync(() => SettingsRepository(app.db).set(SettingKeys.speechMode, 'voice'));
+    await app.pump(tester, const HomeShell());
+    await settle(tester);
+    expect(await tester.runAsync(() => app.container.read(speechModeProvider.future)),
+        SpeechMode.vosk);
   });
 
   testWidgets('with a PIN, Settings asks for it; a wrong one is refused',

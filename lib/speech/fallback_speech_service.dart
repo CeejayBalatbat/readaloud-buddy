@@ -2,15 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
+import 'fake_speech_service.dart';
 import 'speech_service.dart';
 
 /// Runs a [primary] recognizer (Vosk) and, if it reports a failure, swaps
-/// to a [fallback] (the phone's recognizer) on the spot: the reading goes
-/// on, the screen shows [note], and [onFailed] records why so later
-/// stories don't try the primary again.
+/// to a [fallback] (tap-to-read) on the spot: the reading goes on, the
+/// screen shows [note], and [onFailed] records why so later stories don't
+/// try the primary again.
 ///
-/// A missing microphone permission is not a recognizer failure (the
-/// fallback would need the same permission), so it doesn't trigger a swap.
+/// A missing microphone permission is not a recognizer failure (the child
+/// or a grown-up can still allow it), so it doesn't trigger a swap.
 class FallbackSpeechService implements SpeechService {
   FallbackSpeechService({
     required SpeechService primary,
@@ -35,9 +36,7 @@ class FallbackSpeechService implements SpeechService {
 
   static void _noop(String _) {}
 
-  static const defaultNote =
-      "Offline listening isn't working on this phone, so Buddy is using the "
-      "phone's recognizer.";
+  static const defaultNote = "Offline listening isn't working on this phone.";
 
   final SpeechService Function() _makeFallback;
   final void Function(String reason) onFailed;
@@ -59,6 +58,9 @@ class FallbackSpeechService implements SpeechService {
 
   /// True once the fallback is in use.
   bool get usingFallback => _switched;
+
+  /// The service in use right now (the primary or the fallback).
+  SpeechService get current => _current;
 
   void _attach() {
     _wordSub = _current.words.listen(_words.add);
@@ -159,3 +161,11 @@ class FallbackSpeechService implements SpeechService {
     _state.dispose();
   }
 }
+
+/// The tap-to-read service behind [s], if the child reads by tapping (tap
+/// mode, a Filipino story, or Vosk switched off). Null with a microphone.
+FakeSpeechService? tapToRead(SpeechService s) => switch (s) {
+      FakeSpeechService() => s,
+      FallbackSpeechService(current: final FakeSpeechService fake) => fake,
+      _ => null,
+    };

@@ -59,8 +59,9 @@ class ReadingTracker {
   final bool autoHints;
 
   /// true with a real microphone. false for tap-to-read, where there is no
-  /// voice to listen for, so silence never pauses the timer.
-  final bool listensForQuiet;
+  /// voice to listen for, so silence never pauses the timer. Can change
+  /// mid-story (the microphone failed and the story switched to tapping).
+  bool listensForQuiet;
 
   /// Indexes (into [words]) of the first word on each page. These words
   /// are never timed.

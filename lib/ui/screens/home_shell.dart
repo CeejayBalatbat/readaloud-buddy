@@ -476,103 +476,107 @@ class SettingsTab extends ConsumerWidget {
   }
 }
 
-/// Microphone or tap-to-read (for testing and demos without speaking).
-class _SpeechModeCard extends ConsumerWidget {
+/// How Buddy listens: Vosk for English, tap-to-read for Filipino. Tap to
+/// read for every story is a hidden developer/demo switch: long-press the
+/// card to show it (AGENT_SPEC "Speech recognition").
+class _SpeechModeCard extends ConsumerStatefulWidget {
   const _SpeechModeCard();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final mode = ref.watch(speechModeProvider).value ?? SpeechMode.vosk;
+  ConsumerState<_SpeechModeCard> createState() => _SpeechModeCardState();
+}
+
+class _SpeechModeCardState extends ConsumerState<_SpeechModeCard> {
+  bool _showDeveloper = false;
+
+  static const _small =
+      TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.ink2);
+
+  @override
+  Widget build(BuildContext context) {
+    final tap = (ref.watch(speechModeProvider).value ?? SpeechMode.vosk) == SpeechMode.tap;
     final voskProblem = ref.watch(voskHealthProvider).value;
-    void set(SpeechMode m) => ref.read(speechModeProvider.notifier).set(m);
-    Widget choice(SpeechMode m, String label, String about) {
-      final on = mode == m;
-      return Padding(
-        padding: const EdgeInsets.only(top: 8),
-        child: Semantics(
-          button: true,
-          selected: on,
-          label: label,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(16),
-            onTap: () => set(m),
-            child: Container(
-              constraints: const BoxConstraints(minHeight: 56),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              decoration: BoxDecoration(
-                color: on ? AppColors.tealLight : Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: on ? AppColors.teal : AppColors.line, width: 2),
+    return GestureDetector(
+      onLongPress: () => setState(() => _showDeveloper = !_showDeveloper),
+      child: AppCard(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text('How Buddy listens',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+            const SizedBox(height: 4),
+            const Text(
+                '🎧 English stories: offline listening (Vosk). Works without internet '
+                'and listens only for the words on the page.',
+                style: _small),
+            const SizedBox(height: 4),
+            const Text(
+                '👆 Filipino stories: your child taps each word while reading, for now.',
+                style: _small),
+            if (voskProblem != null)
+              Container(
+                margin: const EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.fromLTRB(12, 8, 4, 4),
+                decoration: BoxDecoration(
+                    color: AppColors.coralLight, borderRadius: BorderRadius.circular(12)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Offline listening is turned off on this phone: $voskProblem '
+                      'Stories use tap to read until it works.',
+                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () async {
+                          await ref.read(voskHealthProvider.notifier).retry();
+                          ref.invalidate(speechServiceProvider);
+                        },
+                        child: const Text('Try offline again'),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              child: Row(
+            if (tap && !_showDeveloper)
+              const Padding(
+                padding: EdgeInsets.only(top: 8),
+                child: Text('🛠 Developer mode: every story uses tap to read.',
+                    style: TextStyle(
+                        fontSize: 13, fontWeight: FontWeight.w800, color: AppColors.coral)),
+              ),
+            if (_showDeveloper) ...[
+              const SizedBox(height: 8),
+              const Divider(height: 1),
+              const SizedBox(height: 8),
+              Row(
                 children: [
-                  Icon(on ? Icons.radio_button_checked : Icons.radio_button_unchecked,
-                      color: on ? AppColors.teal : AppColors.ink2),
-                  const SizedBox(width: 10),
-                  Expanded(
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(label,
-                            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800)),
-                        Text(about,
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
+                        Text('🛠 Tap to read (developer / demo)',
+                            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800)),
+                        Text(
+                            'Every story: tap a word to read it, long-press to misread '
+                            'it. For testing and demos without speaking.',
+                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
                       ],
                     ),
                   ),
+                  Switch(
+                    value: tap,
+                    onChanged: (on) => ref
+                        .read(speechModeProvider.notifier)
+                        .set(on ? SpeechMode.tap : SpeechMode.vosk),
+                  ),
                 ],
               ),
-            ),
-          ),
+            ],
+          ],
         ),
-      );
-    }
-    return AppCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Text('How Buddy listens',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
-          choice(SpeechMode.vosk, '🎧 Offline (Vosk)',
-              'Fastest. Works without internet and listens only for the words on the page.'),
-          if (voskProblem != null)
-            Container(
-              margin: const EdgeInsets.only(top: 6),
-              padding: const EdgeInsets.fromLTRB(12, 8, 4, 4),
-              decoration: BoxDecoration(
-                  color: AppColors.coralLight, borderRadius: BorderRadius.circular(12)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Offline listening is turned off on this phone: $voskProblem '
-                    "Buddy uses the phone's recognizer instead.",
-                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () async {
-                        await ref.read(voskHealthProvider.notifier).retry();
-                        ref.invalidate(speechServiceProvider);
-                      },
-                      child: const Text('Try offline again'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          choice(SpeechMode.voice, '🎤 Phone recognizer',
-              "Android's speech recognizer. May need internet."),
-          choice(SpeechMode.tap, '👆 Tap to read',
-              'Tap each word (long-press = misread), for testing without speaking.'),
-          const SizedBox(height: 8),
-          const Text(
-              "Filipino stories use the phone recognizer if it knows Filipino (fil-PH); "
-              'otherwise tap to read.',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: AppColors.ink2)),
-        ],
       ),
     );
   }
