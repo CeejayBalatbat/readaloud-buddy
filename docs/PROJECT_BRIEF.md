@@ -16,12 +16,12 @@
 
 ## Core loop (what the app does)
 1. Parent sets up a reader (nickname, grade, language EN/FIL/both, optional class code, consent).
-2. Placement check: child reads a short passage → agent sets starting level (1–4).
-3. Story shelf: agent picks 3–4 stories at the child's level, favoring their weak sounds.
+2. Reading check: child reads up to 3 short passages → agent sets a starting reading score (0–100).
+3. Story shelf: agent predicts the child's word accuracy for every book and picks up to 3 "just right" (Instructional) books plus one easy re-read, favoring their weak sounds.
 4. Read-along: speech recognition tracks each word; words turn green (read), amber (took a while), current word yellow.
 5. Stuck on a word → hint ladder: first sound → word parts → whole word (spoken + shown).
 6. 3 picture-based comprehension questions, read aloud.
-7. Results: stars, % words right, words per minute, questions right, "Buddy's plan" (stay / level up / level down), new tricky words.
+7. Results: stars, % words right, words per minute, questions right, "Buddy's plan" (how it went; a new reading rank is celebrated), new tricky words.
 8. Tricky-word game: "build the word" with letter tiles from the child's weak words.
 9. Settings: dyslexia-friendly mode (Lexend, wider spacing, cream page), text size, high contrast, read instructions aloud, hint wait time, multiple readers per phone.
 10. Parent weekly summary.

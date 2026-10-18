@@ -2,7 +2,7 @@
 
 A school project (CS 403 – Intelligent Agents) that we also want to turn into a real, working app.
 
-**What it is:** an Android app (Flutter) where a child aged 5–9 reads a short story aloud. Speech recognition follows along word by word. An intelligent agent ("Buddy") scores the reading, gives the smallest helpful hint when the child is stuck, decides the child's reading level, tracks which sounds they struggle with, and picks the next story. Parents get a weekly summary; teachers get a dashboard (later phase).
+**What it is:** an Android app (Flutter) where a child aged 5–9 reads a short story aloud. Speech recognition follows along word by word. An intelligent agent ("Buddy") scores the reading, gives the smallest helpful hint when the child is stuck, keeps a 0–100 reading score (shown to grown-ups as a DepEd CRLA profile, to children as a friendly rank), tracks which sounds they struggle with, and picks the next story by predicting how many words the child will read correctly. Parents get a weekly summary; teachers get a dashboard (later phase).
 
 **Why:** SDG 4 (Quality Education). ~91% of Filipino 10-year-olds can't read and understand a simple text ("learning poverty"). Kids need daily read-aloud practice with feedback, and teachers with 40+ students can't listen to everyone.
 
@@ -12,13 +12,13 @@ A school project (CS 403 – Intelligent Agents) that we also want to turn into 
 - `docs/SCREENS.md` + `docs/mockups/s01.png … s13.png` – the approved UI design.
 - `docs/DATA_MODEL.md` – local database tables
 - `docs/BUILD_PLAN.md` – phases. Work one phase at a time.
-- `assets/data/stories.json` – 20 leveled stories (EN + FIL) with tagged words and questions. This is the app's content.
+- `assets/data/stories.json` – the stories (EN + FIL) with tagged words, questions and a 0–100 difficulty. This is the app's content. Add stories with `tools/add_stories.py` (`docs/ADDING_STORIES.md`).
 - `docs/dataset/*.csv` – simulated reading data; use it as test fixtures for the agent.
 
 ## Tech stack (decided)
 - Flutter + Dart, Android first. State management: Riverpod.
 - Local storage: SQLite via `drift` (or `sqflite` if drift causes trouble). Everything works offline.
-- Speech: start with the `speech_to_text` plugin (Android's recognizer, en-US and fil-PH) behind a `SpeechService` interface, so it can be swapped for Vosk (offline) later. Also build a `FakeSpeechService` (tap-to-advance) so the UI can be tested without a microphone.
+- Speech: Vosk offline (English) is the only recognizer, behind a `SpeechService` interface. Filipino stories use tap-to-read for now. `FakeSpeechService` (tap-to-read) is also a hidden developer/demo option and is used by tests.
 - Text-to-speech for hints: `flutter_tts`.
 - Fonts: Nunito (UI), Lexend (dyslexia mode) via `google_fonts` or bundled assets.
 - Teacher dashboard + cloud sync (Firebase) are a **later phase**, not MVP.

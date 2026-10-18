@@ -15,7 +15,7 @@ Tables from DATA_MODEL.md, repository classes, save/load learners, sessions, wor
 **Done when:** a test creates a learner, saves a fake session, reloads it.
 
 ## Phase 3 – Child UI with fake speech
-Screens 1, 3, 4, 5, 6, 7, 8 using `FakeSpeechService` (tap a word = read correctly, long-press = misread, wait = hesitation/hint). Wire to the agent and database so results, levels and mastery really update.
+Screens 1, 3, 4, 5, 6, 7, 8 using `FakeSpeechService` (tap a word = read correctly, long-press = misread, wait = hesitation/hint). Wire to the agent and database so results, levels and mastery really update. *(Levels were replaced by the reading score in Phase 5b.)*
 **Done when:** I can set up a reader, read a story by tapping, see hints, answer questions, and see Buddy's plan change my level.
 
 ## Phase 4 – Real speech recognition
@@ -26,5 +26,14 @@ Screens 1, 3, 4, 5, 6, 7, 8 using `FakeSpeechService` (tap a word = read correct
 Screen 9 (build-the-word), screen 10 (dyslexia mode, text size, contrast, read aloud, hint wait, multiple readers, parent PIN), Buddy pet growth, stars, streak, daily minutes.
 **Done when:** a full day of use works end to end, offline.
 
+## Phase 5b – Cleanup and reading-score redesign (October 2026)
+One commit per step; each step builds and its tests pass.
+1. **Docs:** AGENT_SPEC (§5 reading score + CRLA profiles, §6 reading check sets the score, §9 recommendation by prediction, §11 book difficulty, speech notes), SCREENS, DATA_MODEL, this plan, `docs/ADDING_STORIES.md`.
+2. **Speech cleanup:** Vosk is the only recognizer (English). Remove the Android phone recognizer (`speech_to_text`) and its setting; the microphone permission is asked through a small channel in `MainActivity`. Filipino stories use tap-to-read with a small note. Tap-to-read becomes a hidden developer/demo switch (long-press "How Buddy listens"). Crash protection stays; when Vosk is off, stories use tap-to-read.
+3. **Story tools:** `tools/storylib.py` (word tagging, difficulty, validation), `tools/story_difficulty.py`, `tools/add_stories.py`, `tools/check_stories.py`. Every story in `stories.json` gets `difficulty` (0–100).
+4. **Agent core (pure Dart) + tests:** reading score and profiles (§5), reading check (§6), accuracy prediction with error learning and the shelf (§9). Old level decisions and placement levels are removed.
+5. **App:** database schema v2 with a migration (reading score, prediction correction, predicted accuracy per session), session service, shelf, reading check, results, settings, weekly summary and Buddy's brain use the new rules. `level` is removed from `stories.json`.
+**Done when:** `flutter test` passes; a new reader's reading check sets a score; the shelf shows "just right" books + one re-read; Buddy's brain shows predicted vs actual accuracy; a story added with `tools/add_stories.py` appears on the shelf.
+
 ## Phase 6 – Later
-~~Parent weekly summary (11)~~ (built early), Firebase sync, teacher web dashboard (12–13), Vosk offline speech, more stories.
+~~Parent weekly summary (11)~~ (built early), Firebase sync, teacher web dashboard (12–13), ~~Vosk offline speech~~ (done), Filipino speech recognition, more stories (with `tools/add_stories.py`).
