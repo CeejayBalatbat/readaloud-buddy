@@ -272,6 +272,80 @@
    "needs_review": false,
    "word_say": "a"
   },
+  "about": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "b",
+    "ou",
+    "t"
+   ],
+   "phonemes": [
+    "AH",
+    "B",
+    "AW",
+    "T"
+   ],
+   "onset": "",
+   "rime": "about",
+   "rime_say": "about",
+   "onset_phonemes": [],
+   "keyword": "umbrella",
+   "emoji": "☂️",
+   "needs_review": false,
+   "word_say": "about"
+  },
+  "advice": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "d",
+    "v",
+    "i",
+    "c",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "AE",
+    "D",
+    "V",
+    "AY",
+    "S"
+   ],
+   "onset": "",
+   "rime": "advice",
+   "rime_say": "advice",
+   "onset_phonemes": [],
+   "keyword": "apple",
+   "emoji": "🍎",
+   "needs_review": false,
+   "word_say": "advice"
+  },
+  "afraid": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "f",
+    "r",
+    "ai",
+    "d"
+   ],
+   "phonemes": [
+    "AH",
+    "F",
+    "R",
+    "EY",
+    "D"
+   ],
+   "onset": "",
+   "rime": "afraid",
+   "rime_say": "afraid",
+   "onset_phonemes": [],
+   "keyword": "umbrella",
+   "emoji": "☂️",
+   "needs_review": false,
+   "word_say": "afraid"
+  },
   "after": {
    "type": "decodable",
    "graphemes": [
@@ -434,6 +508,69 @@
    "needs_review": false,
    "word_say": "also"
   },
+  "amy": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "m",
+    "y"
+   ],
+   "phonemes": [
+    "EY",
+    "M",
+    "IY"
+   ],
+   "onset": "",
+   "rime": "amy",
+   "rime_say": "amy",
+   "onset_phonemes": [],
+   "keyword": "acorn",
+   "emoji": "🌰",
+   "needs_review": false,
+   "word_say": "amy"
+  },
+  "amys": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "m",
+    "y",
+    "s"
+   ],
+   "phonemes": [
+    "EY",
+    "M",
+    "IY",
+    "Z"
+   ],
+   "onset": "",
+   "rime": "amys",
+   "rime_say": "amys",
+   "onset_phonemes": [],
+   "keyword": "acorn",
+   "emoji": "🌰",
+   "needs_review": false,
+   "word_say": "amys"
+  },
+  "an": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "n"
+   ],
+   "phonemes": [
+    "AE",
+    "N"
+   ],
+   "onset": "",
+   "rime": "an",
+   "rime_say": "an",
+   "onset_phonemes": [],
+   "keyword": "apple",
+   "emoji": "🍎",
+   "needs_review": false,
+   "word_say": "an"
+  },
   "and": {
    "type": "decodable",
    "graphemes": [
@@ -454,6 +591,25 @@
    "emoji": "🍎",
    "needs_review": false,
    "word_say": "and"
+  },
+  "ann": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "nn"
+   ],
+   "phonemes": [
+    "AE",
+    "N"
+   ],
+   "onset": "",
+   "rime": "ann",
+   "rime_say": "ann",
+   "onset_phonemes": [],
+   "keyword": "apple",
+   "emoji": "🍎",
+   "needs_review": false,
+   "word_say": "ann"
   },
   "another": {
    "type": "sight",
@@ -563,6 +719,50 @@
    "needs_review": false,
    "word_say": "are"
   },
+  "around": {
+   "type": "decodable",
+   "graphemes": [
+    "ar",
+    "ou",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "ER",
+    "AW",
+    "N",
+    "D"
+   ],
+   "onset": "",
+   "rime": "around",
+   "rime_say": "around",
+   "onset_phonemes": [],
+   "keyword": "earth",
+   "emoji": "🌍",
+   "needs_review": false,
+   "word_say": "around"
+  },
+  "ask": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "s",
+    "k"
+   ],
+   "phonemes": [
+    "AE",
+    "S",
+    "K"
+   ],
+   "onset": "",
+   "rime": "ask",
+   "rime_say": "ask",
+   "onset_phonemes": [],
+   "keyword": "apple",
+   "emoji": "🍎",
+   "needs_review": false,
+   "word_say": "ask"
+  },
   "asked": {
    "type": "decodable",
    "graphemes": [
@@ -604,6 +804,51 @@
    "emoji": "🍎",
    "needs_review": false,
    "word_say": "at"
+  },
+  "ate": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "t",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "EY",
+    "T"
+   ],
+   "onset": "",
+   "rime": "ate",
+   "rime_say": "ate",
+   "onset_phonemes": [],
+   "keyword": "acorn",
+   "emoji": "🌰",
+   "needs_review": false,
+   "word_say": "ate"
+  },
+  "avoided": {
+   "type": "decodable",
+   "graphemes": [
+    "a",
+    "v",
+    "oi",
+    "d",
+    "ed"
+   ],
+   "phonemes": [
+    "AH",
+    "V",
+    "OY",
+    "D",
+    "IH D"
+   ],
+   "onset": "",
+   "rime": "avoided",
+   "rime_say": "avoided",
+   "onset_phonemes": [],
+   "keyword": "umbrella",
+   "emoji": "☂️",
+   "needs_review": false,
+   "word_say": "avoided"
   },
   "away": {
    "type": "decodable",
@@ -648,6 +893,56 @@
    "emoji": "⚽",
    "needs_review": false,
    "word_say": "back"
+  },
+  "bag": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "a",
+    "g"
+   ],
+   "phonemes": [
+    "B",
+    "AE",
+    "G"
+   ],
+   "onset": "b",
+   "rime": "ag",
+   "rime_say": "ag",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bag"
+  },
+  "baking": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "a",
+    "k",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "B",
+    "EY",
+    "K",
+    "IH",
+    "NG"
+   ],
+   "onset": "b",
+   "rime": "aking",
+   "rime_say": "aking",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "baking"
   },
   "bamboo": {
    "type": "decodable",
@@ -705,6 +1000,35 @@
    "needs_review": false,
    "word_say": "banana"
   },
+  "basket": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "a",
+    "s",
+    "k",
+    "e",
+    "t"
+   ],
+   "phonemes": [
+    "B",
+    "AE",
+    "S",
+    "K",
+    "AH",
+    "T"
+   ],
+   "onset": "b",
+   "rime": "asket",
+   "rime_say": "asket",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "basket"
+  },
   "beach": {
    "type": "decodable",
    "graphemes": [
@@ -727,6 +1051,108 @@
    "emoji": "⚽",
    "needs_review": false,
    "word_say": "beach"
+  },
+  "beam": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "ea",
+    "m"
+   ],
+   "phonemes": [
+    "B",
+    "IY",
+    "M"
+   ],
+   "onset": "b",
+   "rime": "eam",
+   "rime_say": "eam",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "beam"
+  },
+  "became": {
+   "type": "tricky",
+   "graphemes": [
+    "b",
+    "e",
+    "c",
+    "a",
+    "m",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "B",
+    "IH",
+    "K",
+    "EY",
+    "M"
+   ],
+   "onset": "b",
+   "rime": "ecame",
+   "rime_say": "ecame",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "became"
+  },
+  "because": {
+   "type": "tricky",
+   "graphemes": [
+    "b",
+    "e",
+    "c",
+    "au",
+    "s",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "B",
+    "IH",
+    "K",
+    "AO",
+    "Z"
+   ],
+   "onset": "b",
+   "rime": "ecause",
+   "rime_say": "ecause",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "because"
+  },
+  "bed": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "e",
+    "d"
+   ],
+   "phonemes": [
+    "B",
+    "EH",
+    "D"
+   ],
+   "onset": "b",
+   "rime": "ed",
+   "rime_say": "ed",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bed"
   },
   "beeped": {
    "type": "decodable",
@@ -752,6 +1178,60 @@
    "emoji": "⚽",
    "needs_review": false,
    "word_say": "beeped"
+  },
+  "before": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "e",
+    "f",
+    "ore"
+   ],
+   "phonemes": [
+    "B",
+    "IY",
+    "F",
+    "AO R"
+   ],
+   "onset": "b",
+   "rime": "efore",
+   "rime_say": "efore",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "before"
+  },
+  "behind": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "e",
+    "h",
+    "i",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "B",
+    "IH",
+    "HH",
+    "AY",
+    "N",
+    "D"
+   ],
+   "onset": "b",
+   "rime": "ehind",
+   "rime_say": "ehind",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "behind"
   },
   "being": {
    "type": "decodable",
@@ -800,6 +1280,31 @@
    "emoji": "⚽",
    "needs_review": false,
    "word_say": "ben"
+  },
+  "bench": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "e",
+    "n",
+    "ch"
+   ],
+   "phonemes": [
+    "B",
+    "EH",
+    "N",
+    "CH"
+   ],
+   "onset": "b",
+   "rime": "ench",
+   "rime_say": "ench",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bench"
   },
   "between": {
    "type": "decodable",
@@ -877,6 +1382,30 @@
    "emoji": "⚽",
    "needs_review": false,
    "word_say": "birds"
+  },
+  "blue": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "l",
+    "ue"
+   ],
+   "phonemes": [
+    "B",
+    "L",
+    "UW"
+   ],
+   "onset": "bl",
+   "rime": "ue",
+   "rime_say": "oo",
+   "onset_phonemes": [
+    "B",
+    "L"
+   ],
+   "keyword": "block",
+   "emoji": "🧱",
+   "needs_review": false,
+   "word_say": "blue"
   },
   "boat": {
    "type": "decodable",
@@ -999,6 +1528,58 @@
    "needs_review": false,
    "word_say": "books"
   },
+  "bottle": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "o",
+    "tt",
+    "le"
+   ],
+   "phonemes": [
+    "B",
+    "AA",
+    "T",
+    "AH L"
+   ],
+   "onset": "b",
+   "rime": "ottle",
+   "rime_say": "ottle",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bottle"
+  },
+  "bottles": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "o",
+    "tt",
+    "le",
+    "s"
+   ],
+   "phonemes": [
+    "B",
+    "AA",
+    "T",
+    "AH L",
+    "Z"
+   ],
+   "onset": "b",
+   "rime": "ottles",
+   "rime_say": "ottles",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bottles"
+  },
   "bought": {
    "type": "tricky",
    "graphemes": [
@@ -1022,6 +1603,343 @@
    "needs_review": false,
    "word_say": "bought"
   },
+  "bowl": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "ow",
+    "l"
+   ],
+   "phonemes": [
+    "B",
+    "OW",
+    "L"
+   ],
+   "onset": "b",
+   "rime": "owl",
+   "rime_say": "ole",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bowl"
+  },
+  "box": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "o",
+    "x"
+   ],
+   "phonemes": [
+    "B",
+    "AA",
+    "K S"
+   ],
+   "onset": "b",
+   "rime": "ox",
+   "rime_say": "ox",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "box"
+  },
+  "boy": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "oy"
+   ],
+   "phonemes": [
+    "B",
+    "OY"
+   ],
+   "onset": "b",
+   "rime": "oy",
+   "rime_say": "oy",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "boy"
+  },
+  "bread": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "r",
+    "ea",
+    "d"
+   ],
+   "phonemes": [
+    "B",
+    "R",
+    "EH",
+    "D"
+   ],
+   "onset": "br",
+   "rime": "ead",
+   "rime_say": "ed",
+   "onset_phonemes": [
+    "B",
+    "R"
+   ],
+   "keyword": "broom",
+   "emoji": "🧹",
+   "needs_review": false,
+   "word_say": "bread"
+  },
+  "bright": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "r",
+    "igh",
+    "t"
+   ],
+   "phonemes": [
+    "B",
+    "R",
+    "AY",
+    "T"
+   ],
+   "onset": "br",
+   "rime": "ight",
+   "rime_say": "ight",
+   "onset_phonemes": [
+    "B",
+    "R"
+   ],
+   "keyword": "bread",
+   "emoji": "🍞",
+   "needs_review": false,
+   "word_say": "bright"
+  },
+  "brothers": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "r",
+    "o",
+    "th",
+    "er",
+    "s"
+   ],
+   "phonemes": [
+    "B",
+    "R",
+    "AH",
+    "DH",
+    "ER",
+    "Z"
+   ],
+   "onset": "br",
+   "rime": "others",
+   "rime_say": "others",
+   "onset_phonemes": [
+    "B",
+    "R"
+   ],
+   "keyword": "bread",
+   "emoji": "🍞",
+   "needs_review": false,
+   "word_say": "brothers"
+  },
+  "brought": {
+   "type": "tricky",
+   "graphemes": [
+    "b",
+    "r",
+    "ough",
+    "t"
+   ],
+   "phonemes": [
+    "B",
+    "R",
+    "AO",
+    "T"
+   ],
+   "onset": "br",
+   "rime": "ought",
+   "rime_say": "ought",
+   "onset_phonemes": [
+    "B",
+    "R"
+   ],
+   "keyword": "bread",
+   "emoji": "🍞",
+   "needs_review": false,
+   "word_say": "brought"
+  },
+  "brown": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "r",
+    "ow",
+    "n"
+   ],
+   "phonemes": [
+    "B",
+    "R",
+    "AW",
+    "N"
+   ],
+   "onset": "br",
+   "rime": "own",
+   "rime_say": "own",
+   "onset_phonemes": [
+    "B",
+    "R"
+   ],
+   "keyword": "bread",
+   "emoji": "🍞",
+   "needs_review": false,
+   "word_say": "brown"
+  },
+  "brushing": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "r",
+    "u",
+    "sh",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "B",
+    "R",
+    "AH",
+    "SH",
+    "IH",
+    "NG"
+   ],
+   "onset": "br",
+   "rime": "ushing",
+   "rime_say": "ushing",
+   "onset_phonemes": [
+    "B",
+    "R"
+   ],
+   "keyword": "bread",
+   "emoji": "🍞",
+   "needs_review": false,
+   "word_say": "brushing"
+  },
+  "bubbled": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "u",
+    "bb",
+    "le",
+    "d"
+   ],
+   "phonemes": [
+    "B",
+    "AH",
+    "B",
+    "AH L",
+    "D"
+   ],
+   "onset": "b",
+   "rime": "ubbled",
+   "rime_say": "ubbled",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bubbled"
+  },
+  "buckets": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "u",
+    "ck",
+    "e",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "B",
+    "AH",
+    "K",
+    "AH",
+    "T",
+    "S"
+   ],
+   "onset": "b",
+   "rime": "uckets",
+   "rime_say": "uckets",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "buckets"
+  },
+  "bugs": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "u",
+    "g",
+    "s"
+   ],
+   "phonemes": [
+    "B",
+    "AH",
+    "G",
+    "Z"
+   ],
+   "onset": "b",
+   "rime": "ugs",
+   "rime_say": "ugs",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bugs"
+  },
+  "build": {
+   "type": "tricky",
+   "graphemes": [
+    "b",
+    "ui",
+    "l",
+    "d"
+   ],
+   "phonemes": [
+    "B",
+    "IH",
+    "L",
+    "D"
+   ],
+   "onset": "b",
+   "rime": "uild",
+   "rime_say": "uild",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "build"
+  },
   "bus": {
    "type": "decodable",
    "graphemes": [
@@ -1044,6 +1962,29 @@
    "emoji": "⚽",
    "needs_review": false,
    "word_say": "bus"
+  },
+  "bush": {
+   "type": "decodable",
+   "graphemes": [
+    "b",
+    "u",
+    "sh"
+   ],
+   "phonemes": [
+    "B",
+    "UH",
+    "SH"
+   ],
+   "onset": "b",
+   "rime": "ush",
+   "rime_say": "ush",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "bush"
   },
   "busy": {
    "type": "tricky",
@@ -1093,6 +2034,28 @@
    "needs_review": false,
    "word_say": "but"
   },
+  "buy": {
+   "type": "tricky",
+   "graphemes": [
+    "b",
+    "u(silent)",
+    "y"
+   ],
+   "phonemes": [
+    "B",
+    "AY"
+   ],
+   "onset": "bu",
+   "rime": "y",
+   "rime_say": "eye",
+   "onset_phonemes": [
+    "B"
+   ],
+   "keyword": "ball",
+   "emoji": "⚽",
+   "needs_review": false,
+   "word_say": "buy"
+  },
   "by": {
    "type": "decodable",
    "graphemes": [
@@ -1138,6 +2101,29 @@
    "emoji": "🪁",
    "needs_review": false,
    "word_say": "called"
+  },
+  "calm": {
+   "type": "tricky",
+   "graphemes": [
+    "c",
+    "al",
+    "m"
+   ],
+   "phonemes": [
+    "K",
+    "AA",
+    "M"
+   ],
+   "onset": "c",
+   "rime": "alm",
+   "rime_say": "alm",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "calm"
   },
   "came": {
    "type": "decodable",
@@ -1186,6 +2172,56 @@
    "needs_review": false,
    "word_say": "can"
   },
+  "canteen": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "a",
+    "n",
+    "t",
+    "ee",
+    "n"
+   ],
+   "phonemes": [
+    "K",
+    "AE",
+    "N",
+    "T",
+    "IY",
+    "N"
+   ],
+   "onset": "c",
+   "rime": "anteen",
+   "rime_say": "anteen",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "canteen"
+  },
+  "care": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "are"
+   ],
+   "phonemes": [
+    "K",
+    "EH R"
+   ],
+   "onset": "c",
+   "rime": "are",
+   "rime_say": "are",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "care"
+  },
   "carefully": {
    "type": "decodable",
    "graphemes": [
@@ -1214,6 +2250,31 @@
    "emoji": "🪁",
    "needs_review": false,
    "word_say": "carefully"
+  },
+  "carlo": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "ar",
+    "l",
+    "o"
+   ],
+   "phonemes": [
+    "K",
+    "AA R",
+    "L",
+    "OW"
+   ],
+   "onset": "c",
+   "rime": "arlo",
+   "rime_say": "arlo",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "carlo"
   },
   "carried": {
    "type": "decodable",
@@ -1290,6 +2351,156 @@
    "needs_review": false,
    "word_say": "cat"
   },
+  "catch": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "a",
+    "tch"
+   ],
+   "phonemes": [
+    "K",
+    "AE",
+    "CH"
+   ],
+   "onset": "c",
+   "rime": "atch",
+   "rime_say": "atch",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "catch"
+  },
+  "caught": {
+   "type": "tricky",
+   "graphemes": [
+    "c",
+    "a",
+    "u(silent)",
+    "gh(silent)",
+    "t"
+   ],
+   "phonemes": [
+    "K",
+    "AA",
+    "T"
+   ],
+   "onset": "c",
+   "rime": "aught",
+   "rime_say": "ought",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "caught"
+  },
+  "celebrated": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "e",
+    "l",
+    "e",
+    "b",
+    "r",
+    "a",
+    "t",
+    "ed"
+   ],
+   "phonemes": [
+    "S",
+    "EH",
+    "L",
+    "AH",
+    "B",
+    "R",
+    "EY",
+    "T",
+    "IH D"
+   ],
+   "onset": "c",
+   "rime": "elebrated",
+   "rime_say": "elebrated",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "celebrated"
+  },
+  "certificate": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "er",
+    "t",
+    "i",
+    "f",
+    "i",
+    "c",
+    "a",
+    "t",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "ER",
+    "T",
+    "IH",
+    "F",
+    "IH",
+    "K",
+    "AH",
+    "T"
+   ],
+   "onset": "c",
+   "rime": "ertificate",
+   "rime_say": "ertificate",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "certificate"
+  },
+  "challenged": {
+   "type": "tricky",
+   "graphemes": [
+    "ch",
+    "a",
+    "ll",
+    "e",
+    "n",
+    "g",
+    "ed"
+   ],
+   "phonemes": [
+    "CH",
+    "AE",
+    "L",
+    "AH",
+    "N",
+    "JH",
+    "D"
+   ],
+   "onset": "ch",
+   "rime": "allenged",
+   "rime_say": "allenged",
+   "onset_phonemes": [
+    "CH"
+   ],
+   "keyword": "chair",
+   "emoji": "🪑",
+   "needs_review": false,
+   "word_say": "challenged"
+  },
   "change": {
    "type": "tricky",
    "graphemes": [
@@ -1315,6 +2526,31 @@
    "emoji": "🪑",
    "needs_review": false,
    "word_say": "change"
+  },
+  "chicks": {
+   "type": "decodable",
+   "graphemes": [
+    "ch",
+    "i",
+    "ck",
+    "s"
+   ],
+   "phonemes": [
+    "CH",
+    "IH",
+    "K",
+    "S"
+   ],
+   "onset": "ch",
+   "rime": "icks",
+   "rime_say": "icks",
+   "onset_phonemes": [
+    "CH"
+   ],
+   "keyword": "chair",
+   "emoji": "🪑",
+   "needs_review": false,
+   "word_say": "chicks"
   },
   "children": {
    "type": "decodable",
@@ -1346,6 +2582,31 @@
    "emoji": "🪑",
    "needs_review": false,
    "word_say": "children"
+  },
+  "city": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "i",
+    "t",
+    "y"
+   ],
+   "phonemes": [
+    "S",
+    "IH",
+    "T",
+    "IY"
+   ],
+   "onset": "c",
+   "rime": "ity",
+   "rime_say": "ity",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "city"
   },
   "clapped": {
    "type": "decodable",
@@ -1400,6 +2661,209 @@
    "emoji": "🕐",
    "needs_review": false,
    "word_say": "class"
+  },
+  "classmates": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "l",
+    "a",
+    "ss",
+    "m",
+    "a",
+    "t",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "AE",
+    "S",
+    "M",
+    "EY",
+    "T",
+    "S"
+   ],
+   "onset": "cl",
+   "rime": "assmates",
+   "rime_say": "assmates",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "classmates"
+  },
+  "classroom": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "l",
+    "a",
+    "ss",
+    "r",
+    "oo",
+    "m"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "AE",
+    "S",
+    "R",
+    "UW",
+    "M"
+   ],
+   "onset": "cl",
+   "rime": "assroom",
+   "rime_say": "assroom",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "classroom"
+  },
+  "clay": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "l",
+    "ay"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "EY"
+   ],
+   "onset": "cl",
+   "rime": "ay",
+   "rime_say": "ay",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "clay"
+  },
+  "cleaned": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "l",
+    "ea",
+    "n",
+    "ed"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "IY",
+    "N",
+    "D"
+   ],
+   "onset": "cl",
+   "rime": "eaned",
+   "rime_say": "eaned",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "cleaned"
+  },
+  "clever": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "l",
+    "e",
+    "v",
+    "er"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "EH",
+    "V",
+    "ER"
+   ],
+   "onset": "cl",
+   "rime": "ever",
+   "rime_say": "ever",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "clever"
+  },
+  "climb": {
+   "type": "tricky",
+   "graphemes": [
+    "c",
+    "l",
+    "i",
+    "m",
+    "b(silent)"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "AY",
+    "M"
+   ],
+   "onset": "cl",
+   "rime": "imb",
+   "rime_say": "imb",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "climb"
+  },
+  "climbed": {
+   "type": "tricky",
+   "graphemes": [
+    "c",
+    "l",
+    "i",
+    "m",
+    "b(silent)",
+    "ed"
+   ],
+   "phonemes": [
+    "K",
+    "L",
+    "AY",
+    "M",
+    "D"
+   ],
+   "onset": "cl",
+   "rime": "imbed",
+   "rime_say": "imbed",
+   "onset_phonemes": [
+    "K",
+    "L"
+   ],
+   "keyword": "clock",
+   "emoji": "🕐",
+   "needs_review": false,
+   "word_say": "climbed"
   },
   "close": {
    "type": "decodable",
@@ -1506,6 +2970,182 @@
    "needs_review": false,
    "word_say": "coins"
   },
+  "compost": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "o",
+    "m",
+    "p",
+    "o",
+    "s",
+    "t"
+   ],
+   "phonemes": [
+    "K",
+    "AA",
+    "M",
+    "P",
+    "OW",
+    "S",
+    "T"
+   ],
+   "onset": "c",
+   "rime": "ompost",
+   "rime_say": "ompost",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "compost"
+  },
+  "contact": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "o",
+    "n",
+    "t",
+    "a",
+    "c",
+    "t"
+   ],
+   "phonemes": [
+    "K",
+    "AA",
+    "N",
+    "T",
+    "AE",
+    "K",
+    "T"
+   ],
+   "onset": "c",
+   "rime": "ontact",
+   "rime_say": "ontact",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "contact"
+  },
+  "container": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "o",
+    "n",
+    "t",
+    "ai",
+    "n",
+    "er"
+   ],
+   "phonemes": [
+    "K",
+    "AH",
+    "N",
+    "T",
+    "EY",
+    "N",
+    "ER"
+   ],
+   "onset": "c",
+   "rime": "ontainer",
+   "rime_say": "ontainer",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "container"
+  },
+  "containers": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "o",
+    "n",
+    "t",
+    "ai",
+    "n",
+    "er",
+    "s"
+   ],
+   "phonemes": [
+    "K",
+    "AH",
+    "N",
+    "T",
+    "EY",
+    "N",
+    "ER",
+    "Z"
+   ],
+   "onset": "c",
+   "rime": "ontainers",
+   "rime_say": "ontainers",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "containers"
+  },
+  "cook": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "oo",
+    "k"
+   ],
+   "phonemes": [
+    "K",
+    "UH",
+    "K"
+   ],
+   "onset": "c",
+   "rime": "ook",
+   "rime_say": "ook",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "cook"
+  },
+  "copied": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "o",
+    "p",
+    "ie",
+    "d"
+   ],
+   "phonemes": [
+    "K",
+    "AA",
+    "P",
+    "IY",
+    "D"
+   ],
+   "onset": "c",
+   "rime": "opied",
+   "rime_say": "opied",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "copied"
+  },
   "could": {
    "type": "sight",
    "graphemes": [
@@ -1557,6 +3197,35 @@
    "needs_review": false,
    "word_say": "counts"
   },
+  "cousins": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "ou",
+    "s",
+    "i",
+    "n",
+    "s"
+   ],
+   "phonemes": [
+    "K",
+    "AH",
+    "Z",
+    "AH",
+    "N",
+    "Z"
+   ],
+   "onset": "c",
+   "rime": "ousins",
+   "rime_say": "ousins",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "cousins"
+  },
   "crabs": {
    "type": "decodable",
    "graphemes": [
@@ -1584,6 +3253,34 @@
    "emoji": "🦀",
    "needs_review": false,
    "word_say": "crabs"
+  },
+  "crater": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "r",
+    "a",
+    "t",
+    "er"
+   ],
+   "phonemes": [
+    "K",
+    "R",
+    "EY",
+    "T",
+    "ER"
+   ],
+   "onset": "cr",
+   "rime": "ater",
+   "rime_say": "ater",
+   "onset_phonemes": [
+    "K",
+    "R"
+   ],
+   "keyword": "crab",
+   "emoji": "🦀",
+   "needs_review": false,
+   "word_say": "crater"
   },
   "crowd": {
    "type": "decodable",
@@ -1631,6 +3328,29 @@
    "emoji": "🪁",
    "needs_review": false,
    "word_say": "cue"
+  },
+  "cup": {
+   "type": "decodable",
+   "graphemes": [
+    "c",
+    "u",
+    "p"
+   ],
+   "phonemes": [
+    "K",
+    "AH",
+    "P"
+   ],
+   "onset": "c",
+   "rime": "up",
+   "rime_say": "up",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "cup"
   },
   "customer": {
    "type": "decodable",
@@ -1686,6 +3406,60 @@
    "needs_review": false,
    "word_say": "dad"
   },
+  "dangerous": {
+   "type": "tricky",
+   "graphemes": [
+    "d",
+    "a",
+    "n",
+    "g",
+    "er",
+    "ou",
+    "s"
+   ],
+   "phonemes": [
+    "D",
+    "EY",
+    "N",
+    "JH",
+    "ER",
+    "AH",
+    "S"
+   ],
+   "onset": "d",
+   "rime": "angerous",
+   "rime_say": "angerous",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "dangerous"
+  },
+  "dark": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "ar",
+    "k"
+   ],
+   "phonemes": [
+    "D",
+    "AA R",
+    "K"
+   ],
+   "onset": "d",
+   "rime": "ark",
+   "rime_say": "ark",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "dark"
+  },
   "day": {
    "type": "decodable",
    "graphemes": [
@@ -1706,6 +3480,60 @@
    "emoji": "🐶",
    "needs_review": false,
    "word_say": "day"
+  },
+  "decided": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "e",
+    "c",
+    "i",
+    "d",
+    "ed"
+   ],
+   "phonemes": [
+    "D",
+    "IH",
+    "S",
+    "AY",
+    "D",
+    "IH D"
+   ],
+   "onset": "d",
+   "rime": "ecided",
+   "rime_say": "ecided",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "decided"
+  },
+  "desk": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "e",
+    "s",
+    "k"
+   ],
+   "phonemes": [
+    "D",
+    "EH",
+    "S",
+    "K"
+   ],
+   "onset": "d",
+   "rime": "esk",
+   "rime_say": "esk",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "desk"
   },
   "did": {
    "type": "decodable",
@@ -1778,6 +3606,37 @@
    "needs_review": false,
    "word_say": "dinner"
   },
+  "disappeared": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "i",
+    "s",
+    "a",
+    "pp",
+    "ear",
+    "ed"
+   ],
+   "phonemes": [
+    "D",
+    "IH",
+    "S",
+    "AH",
+    "P",
+    "IH R",
+    "D"
+   ],
+   "onset": "d",
+   "rime": "isappeared",
+   "rime_say": "isappeared",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "disappeared"
+  },
   "do": {
    "type": "sight",
    "graphemes": [
@@ -1798,6 +3657,105 @@
    "emoji": "🐶",
    "needs_review": false,
    "word_say": "do"
+  },
+  "dog": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "o",
+    "g"
+   ],
+   "phonemes": [
+    "D",
+    "AO",
+    "G"
+   ],
+   "onset": "d",
+   "rime": "og",
+   "rime_say": "og",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "duck",
+   "emoji": "🦆",
+   "needs_review": false,
+   "word_say": "dog"
+  },
+  "doghouse": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "o",
+    "g",
+    "h",
+    "ou",
+    "s",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "D",
+    "AO",
+    "G",
+    "HH",
+    "AW",
+    "S"
+   ],
+   "onset": "d",
+   "rime": "oghouse",
+   "rime_say": "oghouse",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "doghouse"
+  },
+  "dogs": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "o",
+    "g",
+    "s"
+   ],
+   "phonemes": [
+    "D",
+    "AA",
+    "G",
+    "Z"
+   ],
+   "onset": "d",
+   "rime": "ogs",
+   "rime_say": "ogs",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "dogs"
+  },
+  "door": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "oor"
+   ],
+   "phonemes": [
+    "D",
+    "AO R"
+   ],
+   "onset": "d",
+   "rime": "oor",
+   "rime_say": "oor",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "door"
   },
   "dot": {
    "type": "decodable",
@@ -1822,6 +3780,27 @@
    "needs_review": false,
    "word_say": "dot"
   },
+  "dough": {
+   "type": "tricky",
+   "graphemes": [
+    "d",
+    "ough"
+   ],
+   "phonemes": [
+    "D",
+    "OW"
+   ],
+   "onset": "d",
+   "rime": "ough",
+   "rime_say": "oh",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "dough"
+  },
   "down": {
    "type": "decodable",
    "graphemes": [
@@ -1844,6 +3823,111 @@
    "emoji": "🐶",
    "needs_review": false,
    "word_say": "down"
+  },
+  "drawings": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "r",
+    "aw",
+    "i",
+    "ng",
+    "s"
+   ],
+   "phonemes": [
+    "D",
+    "R",
+    "AO",
+    "IH",
+    "NG",
+    "Z"
+   ],
+   "onset": "dr",
+   "rime": "awings",
+   "rime_say": "awings",
+   "onset_phonemes": [
+    "D",
+    "R"
+   ],
+   "keyword": "drum",
+   "emoji": "🥁",
+   "needs_review": false,
+   "word_say": "drawings"
+  },
+  "driver": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "r",
+    "i",
+    "v",
+    "er"
+   ],
+   "phonemes": [
+    "D",
+    "R",
+    "AY",
+    "V",
+    "ER"
+   ],
+   "onset": "dr",
+   "rime": "iver",
+   "rime_say": "iver",
+   "onset_phonemes": [
+    "D",
+    "R"
+   ],
+   "keyword": "drum",
+   "emoji": "🥁",
+   "needs_review": false,
+   "word_say": "driver"
+  },
+  "dry": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "r",
+    "y"
+   ],
+   "phonemes": [
+    "D",
+    "R",
+    "AY"
+   ],
+   "onset": "dr",
+   "rime": "y",
+   "rime_say": "eye",
+   "onset_phonemes": [
+    "D",
+    "R"
+   ],
+   "keyword": "drum",
+   "emoji": "🥁",
+   "needs_review": false,
+   "word_say": "dry"
+  },
+  "duck": {
+   "type": "decodable",
+   "graphemes": [
+    "d",
+    "u",
+    "ck"
+   ],
+   "phonemes": [
+    "D",
+    "AH",
+    "K"
+   ],
+   "onset": "d",
+   "rime": "uck",
+   "rime_say": "uck",
+   "onset_phonemes": [
+    "D"
+   ],
+   "keyword": "dog",
+   "emoji": "🐶",
+   "needs_review": false,
+   "word_say": "duck"
   },
   "dug": {
    "type": "decodable",
@@ -1933,6 +4017,221 @@
    "needs_review": false,
    "word_say": "ear"
   },
+  "edges": {
+   "type": "tricky",
+   "graphemes": [
+    "edges"
+   ],
+   "phonemes": [
+    "EH JH AH Z"
+   ],
+   "onset": "",
+   "rime": "edges",
+   "rime_say": "edges",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "edges"
+  },
+  "eggplants": {
+   "type": "decodable",
+   "graphemes": [
+    "e",
+    "gg",
+    "p",
+    "l",
+    "a",
+    "n",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "EH",
+    "G",
+    "P",
+    "L",
+    "AE",
+    "N",
+    "T",
+    "S"
+   ],
+   "onset": "",
+   "rime": "eggplants",
+   "rime_say": "eggplants",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "eggplants"
+  },
+  "eggs": {
+   "type": "decodable",
+   "graphemes": [
+    "e",
+    "gg",
+    "s"
+   ],
+   "phonemes": [
+    "EH",
+    "G",
+    "Z"
+   ],
+   "onset": "",
+   "rime": "eggs",
+   "rime_say": "eggs",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "eggs"
+  },
+  "elena": {
+   "type": "tricky",
+   "graphemes": [
+    "elena"
+   ],
+   "phonemes": [
+    "EH L EY N AA"
+   ],
+   "onset": "",
+   "rime": "elena",
+   "rime_say": "elena",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "elena"
+  },
+  "end": {
+   "type": "decodable",
+   "graphemes": [
+    "e",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "EH",
+    "N",
+    "D"
+   ],
+   "onset": "",
+   "rime": "end",
+   "rime_say": "end",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "end"
+  },
+  "enormous": {
+   "type": "tricky",
+   "graphemes": [
+    "e",
+    "n",
+    "or",
+    "m",
+    "ou",
+    "s"
+   ],
+   "phonemes": [
+    "IH",
+    "N",
+    "AO R",
+    "M",
+    "AH",
+    "S"
+   ],
+   "onset": "",
+   "rime": "enormous",
+   "rime_say": "enormous",
+   "onset_phonemes": [],
+   "keyword": "insect",
+   "emoji": "🐛",
+   "needs_review": false,
+   "word_say": "enormous"
+  },
+  "entrance": {
+   "type": "decodable",
+   "graphemes": [
+    "e",
+    "n",
+    "t",
+    "r",
+    "a",
+    "n",
+    "c",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "EH",
+    "N",
+    "T",
+    "R",
+    "AH",
+    "N",
+    "S"
+   ],
+   "onset": "",
+   "rime": "entrance",
+   "rime_say": "entrance",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "entrance"
+  },
+  "erupt": {
+   "type": "decodable",
+   "graphemes": [
+    "e",
+    "r",
+    "u",
+    "p",
+    "t"
+   ],
+   "phonemes": [
+    "IH",
+    "R",
+    "AH",
+    "P",
+    "T"
+   ],
+   "onset": "",
+   "rime": "erupt",
+   "rime_say": "erupt",
+   "onset_phonemes": [],
+   "keyword": "insect",
+   "emoji": "🐛",
+   "needs_review": false,
+   "word_say": "erupt"
+  },
+  "evening": {
+   "type": "tricky",
+   "graphemes": [
+    "e",
+    "v",
+    "e(silent)",
+    "n",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "IY",
+    "V",
+    "N",
+    "IH",
+    "NG"
+   ],
+   "onset": "",
+   "rime": "evening",
+   "rime_say": "evening",
+   "onset_phonemes": [],
+   "keyword": "eagle",
+   "emoji": "🦅",
+   "needs_review": false,
+   "word_say": "evening"
+  },
   "every": {
    "type": "sight",
    "graphemes": [
@@ -1985,6 +4284,36 @@
    "needs_review": false,
    "word_say": "everyone"
   },
+  "everything": {
+   "type": "tricky",
+   "graphemes": [
+    "e",
+    "v",
+    "e(silent)",
+    "r",
+    "y",
+    "th",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "EH",
+    "V",
+    "R",
+    "IY",
+    "TH",
+    "IH",
+    "NG"
+   ],
+   "onset": "",
+   "rime": "everything",
+   "rime_say": "everything",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "everything"
+  },
   "explained": {
    "type": "decodable",
    "graphemes": [
@@ -2014,6 +4343,75 @@
    "needs_review": false,
    "word_say": "explained"
   },
+  "explanation": {
+   "type": "tricky",
+   "graphemes": [
+    "explanation"
+   ],
+   "phonemes": [
+    "EH K S P L AH N EY SH AH N"
+   ],
+   "onset": "",
+   "rime": "explanation",
+   "rime_say": "explanation",
+   "onset_phonemes": [],
+   "keyword": "egg",
+   "emoji": "🥚",
+   "needs_review": false,
+   "word_say": "explanation"
+  },
+  "fair": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "air"
+   ],
+   "phonemes": [
+    "F",
+    "EH R"
+   ],
+   "onset": "f",
+   "rime": "air",
+   "rime_say": "air",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "fair"
+  },
+  "families": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "a",
+    "m",
+    "i",
+    "l",
+    "ie",
+    "s"
+   ],
+   "phonemes": [
+    "F",
+    "AE",
+    "M",
+    "AH",
+    "L",
+    "IY",
+    "Z"
+   ],
+   "onset": "f",
+   "rime": "amilies",
+   "rime_say": "amilies",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "families"
+  },
   "family": {
    "type": "decodable",
    "graphemes": [
@@ -2042,6 +4440,27 @@
    "emoji": "🐟",
    "needs_review": false,
    "word_say": "family"
+  },
+  "far": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "ar"
+   ],
+   "phonemes": [
+    "F",
+    "AA R"
+   ],
+   "onset": "f",
+   "rime": "ar",
+   "rime_say": "ar",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "far"
   },
   "fast": {
    "type": "decodable",
@@ -2090,6 +4509,209 @@
    "emoji": "🐟",
    "needs_review": false,
    "word_say": "fat"
+  },
+  "father": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "a",
+    "th",
+    "er"
+   ],
+   "phonemes": [
+    "F",
+    "AA",
+    "DH",
+    "ER"
+   ],
+   "onset": "f",
+   "rime": "ather",
+   "rime_say": "ather",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "father"
+  },
+  "favorite": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "a",
+    "v",
+    "or",
+    "i",
+    "t",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "F",
+    "EY",
+    "V",
+    "ER",
+    "IH",
+    "T"
+   ],
+   "onset": "f",
+   "rime": "avorite",
+   "rime_say": "avorite",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "favorite"
+  },
+  "fell": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "e",
+    "ll"
+   ],
+   "phonemes": [
+    "F",
+    "EH",
+    "L"
+   ],
+   "onset": "f",
+   "rime": "ell",
+   "rime_say": "ell",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "fell"
+  },
+  "felt": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "e",
+    "l",
+    "t"
+   ],
+   "phonemes": [
+    "F",
+    "EH",
+    "L",
+    "T"
+   ],
+   "onset": "f",
+   "rime": "elt",
+   "rime_say": "elt",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "felt"
+  },
+  "fever": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "e",
+    "v",
+    "er"
+   ],
+   "phonemes": [
+    "F",
+    "IY",
+    "V",
+    "ER"
+   ],
+   "onset": "f",
+   "rime": "ever",
+   "rime_say": "ever",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "fever"
+  },
+  "field": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "ie",
+    "l",
+    "d"
+   ],
+   "phonemes": [
+    "F",
+    "IY",
+    "L",
+    "D"
+   ],
+   "onset": "f",
+   "rime": "ield",
+   "rime_say": "ield",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "field"
+  },
+  "filled": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "i",
+    "ll",
+    "ed"
+   ],
+   "phonemes": [
+    "F",
+    "IH",
+    "L",
+    "D"
+   ],
+   "onset": "f",
+   "rime": "illed",
+   "rime_say": "illed",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "filled"
+  },
+  "find": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "i",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "F",
+    "AY",
+    "N",
+    "D"
+   ],
+   "onset": "f",
+   "rime": "ind",
+   "rime_say": "ind",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "find"
   },
   "finished": {
    "type": "decodable",
@@ -2168,6 +4790,64 @@
    "needs_review": false,
    "word_say": "fish"
   },
+  "fisherman": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "i",
+    "sh",
+    "er",
+    "m",
+    "a",
+    "n"
+   ],
+   "phonemes": [
+    "F",
+    "IH",
+    "SH",
+    "ER",
+    "M",
+    "AE",
+    "N"
+   ],
+   "onset": "f",
+   "rime": "isherman",
+   "rime_say": "isherman",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "fisherman"
+  },
+  "fishing": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "i",
+    "sh",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "F",
+    "IH",
+    "SH",
+    "IH",
+    "NG"
+   ],
+   "onset": "f",
+   "rime": "ishing",
+   "rime_say": "ishing",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "fishing"
+  },
   "fix": {
    "type": "decodable",
    "graphemes": [
@@ -2215,6 +4895,32 @@
    "needs_review": false,
    "word_say": "flew"
   },
+  "float": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "l",
+    "oa",
+    "t"
+   ],
+   "phonemes": [
+    "F",
+    "L",
+    "OW",
+    "T"
+   ],
+   "onset": "fl",
+   "rime": "oat",
+   "rime_say": "oat",
+   "onset_phonemes": [
+    "F",
+    "L"
+   ],
+   "keyword": "flower",
+   "emoji": "🌸",
+   "needs_review": false,
+   "word_say": "float"
+  },
   "floor": {
    "type": "decodable",
    "graphemes": [
@@ -2238,6 +4944,184 @@
    "emoji": "🌸",
    "needs_review": false,
    "word_say": "floor"
+  },
+  "flour": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "l",
+    "our"
+   ],
+   "phonemes": [
+    "F",
+    "L",
+    "AW ER"
+   ],
+   "onset": "fl",
+   "rime": "our",
+   "rime_say": "our",
+   "onset_phonemes": [
+    "F",
+    "L"
+   ],
+   "keyword": "flower",
+   "emoji": "🌸",
+   "needs_review": false,
+   "word_say": "flour"
+  },
+  "flower": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "l",
+    "ow",
+    "er"
+   ],
+   "phonemes": [
+    "F",
+    "L",
+    "AW",
+    "ER"
+   ],
+   "onset": "fl",
+   "rime": "ower",
+   "rime_say": "ower",
+   "onset_phonemes": [
+    "F",
+    "L"
+   ],
+   "keyword": "flag",
+   "emoji": "🚩",
+   "needs_review": false,
+   "word_say": "flower"
+  },
+  "flowers": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "l",
+    "ow",
+    "er",
+    "s"
+   ],
+   "phonemes": [
+    "F",
+    "L",
+    "AW",
+    "ER",
+    "Z"
+   ],
+   "onset": "fl",
+   "rime": "owers",
+   "rime_say": "owers",
+   "onset_phonemes": [
+    "F",
+    "L"
+   ],
+   "keyword": "flower",
+   "emoji": "🌸",
+   "needs_review": false,
+   "word_say": "flowers"
+  },
+  "foam": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "oa",
+    "m"
+   ],
+   "phonemes": [
+    "F",
+    "OW",
+    "M"
+   ],
+   "onset": "f",
+   "rime": "oam",
+   "rime_say": "oam",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "foam"
+  },
+  "folded": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "o",
+    "l",
+    "d",
+    "ed"
+   ],
+   "phonemes": [
+    "F",
+    "OW",
+    "L",
+    "D",
+    "AH D"
+   ],
+   "onset": "f",
+   "rime": "olded",
+   "rime_say": "olded",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "folded"
+  },
+  "followed": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "o",
+    "ll",
+    "ow",
+    "ed"
+   ],
+   "phonemes": [
+    "F",
+    "AA",
+    "L",
+    "OW",
+    "D"
+   ],
+   "onset": "f",
+   "rime": "ollowed",
+   "rime_say": "ollowed",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "followed"
+  },
+  "food": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "oo",
+    "d"
+   ],
+   "phonemes": [
+    "F",
+    "UW",
+    "D"
+   ],
+   "onset": "f",
+   "rime": "ood",
+   "rime_say": "ood",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "food"
   },
   "for": {
    "type": "decodable",
@@ -2314,6 +5198,33 @@
    "needs_review": false,
    "word_say": "forgot"
   },
+  "forward": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "or",
+    "w",
+    "ar",
+    "d"
+   ],
+   "phonemes": [
+    "F",
+    "AO R",
+    "W",
+    "ER",
+    "D"
+   ],
+   "onset": "f",
+   "rime": "orward",
+   "rime_say": "orward",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "forward"
+  },
   "found": {
    "type": "decodable",
    "graphemes": [
@@ -2361,6 +5272,55 @@
    "emoji": "🐟",
    "needs_review": false,
    "word_say": "fourth"
+  },
+  "fox": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "o",
+    "x"
+   ],
+   "phonemes": [
+    "F",
+    "AA",
+    "K S"
+   ],
+   "onset": "f",
+   "rime": "ox",
+   "rime_say": "ox",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "fox"
+  },
+  "fresh": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "r",
+    "e",
+    "sh"
+   ],
+   "phonemes": [
+    "F",
+    "R",
+    "EH",
+    "SH"
+   ],
+   "onset": "fr",
+   "rime": "esh",
+   "rime_say": "esh",
+   "onset_phonemes": [
+    "F",
+    "R"
+   ],
+   "keyword": "frog",
+   "emoji": "🐸",
+   "needs_review": false,
+   "word_say": "fresh"
   },
   "friday": {
    "type": "decodable",
@@ -2420,6 +5380,32 @@
    "needs_review": false,
    "word_say": "friends"
   },
+  "frog": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "r",
+    "o",
+    "g"
+   ],
+   "phonemes": [
+    "F",
+    "R",
+    "AA",
+    "G"
+   ],
+   "onset": "fr",
+   "rime": "og",
+   "rime_say": "og",
+   "onset_phonemes": [
+    "F",
+    "R"
+   ],
+   "keyword": "fries",
+   "emoji": "🍟",
+   "needs_review": false,
+   "word_say": "frog"
+  },
   "from": {
    "type": "sight",
    "graphemes": [
@@ -2472,6 +5458,29 @@
    "needs_review": false,
    "word_say": "fruit"
   },
+  "full": {
+   "type": "decodable",
+   "graphemes": [
+    "f",
+    "u",
+    "ll"
+   ],
+   "phonemes": [
+    "F",
+    "UH",
+    "L"
+   ],
+   "onset": "f",
+   "rime": "ull",
+   "rime_say": "ull",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "full"
+  },
   "fun": {
    "type": "decodable",
    "graphemes": [
@@ -2494,6 +5503,76 @@
    "emoji": "🐟",
    "needs_review": false,
    "word_say": "fun"
+  },
+  "games": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "a",
+    "m",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "G",
+    "EY",
+    "M",
+    "Z"
+   ],
+   "onset": "g",
+   "rime": "ames",
+   "rime_say": "ames",
+   "onset_phonemes": [
+    "G"
+   ],
+   "keyword": "goat",
+   "emoji": "🐐",
+   "needs_review": false,
+   "word_say": "games"
+  },
+  "garbage": {
+   "type": "tricky",
+   "graphemes": [
+    "garbage"
+   ],
+   "phonemes": [
+    "G AA R B IH JH"
+   ],
+   "onset": "",
+   "rime": "garbage",
+   "rime_say": "garbage",
+   "onset_phonemes": [],
+   "keyword": "goat",
+   "emoji": "🐐",
+   "needs_review": false,
+   "word_say": "garbage"
+  },
+  "garden": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "ar",
+    "d",
+    "e",
+    "n"
+   ],
+   "phonemes": [
+    "G",
+    "AA R",
+    "D",
+    "AH",
+    "N"
+   ],
+   "onset": "g",
+   "rime": "arden",
+   "rime_say": "arden",
+   "onset_phonemes": [
+    "G"
+   ],
+   "keyword": "goat",
+   "emoji": "🐐",
+   "needs_review": false,
+   "word_say": "garden"
   },
   "gate": {
    "type": "decodable",
@@ -2615,6 +5694,82 @@
    "needs_review": false,
    "word_say": "gives"
   },
+  "glad": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "l",
+    "a",
+    "d"
+   ],
+   "phonemes": [
+    "G",
+    "L",
+    "AE",
+    "D"
+   ],
+   "onset": "gl",
+   "rime": "ad",
+   "rime_say": "ad",
+   "onset_phonemes": [
+    "G",
+    "L"
+   ],
+   "keyword": "glove",
+   "emoji": "🧤",
+   "needs_review": false,
+   "word_say": "glad"
+  },
+  "glass": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "l",
+    "a",
+    "ss"
+   ],
+   "phonemes": [
+    "G",
+    "L",
+    "AE",
+    "S"
+   ],
+   "onset": "gl",
+   "rime": "ass",
+   "rime_say": "ass",
+   "onset_phonemes": [
+    "G",
+    "L"
+   ],
+   "keyword": "glove",
+   "emoji": "🧤",
+   "needs_review": false,
+   "word_say": "glass"
+  },
+  "glue": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "l",
+    "ue"
+   ],
+   "phonemes": [
+    "G",
+    "L",
+    "UW"
+   ],
+   "onset": "gl",
+   "rime": "ue",
+   "rime_say": "oo",
+   "onset_phonemes": [
+    "G",
+    "L"
+   ],
+   "keyword": "glove",
+   "emoji": "🧤",
+   "needs_review": false,
+   "word_say": "glue"
+  },
   "going": {
    "type": "decodable",
    "graphemes": [
@@ -2639,6 +5794,29 @@
    "emoji": "🐐",
    "needs_review": false,
    "word_say": "going"
+  },
+  "good": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "oo",
+    "d"
+   ],
+   "phonemes": [
+    "G",
+    "UH",
+    "D"
+   ],
+   "onset": "g",
+   "rime": "ood",
+   "rime_say": "ood",
+   "onset_phonemes": [
+    "G"
+   ],
+   "keyword": "goat",
+   "emoji": "🐐",
+   "needs_review": false,
+   "word_say": "good"
   },
   "got": {
    "type": "decodable",
@@ -2757,6 +5935,147 @@
    "needs_review": false,
    "word_say": "grandmother"
   },
+  "grandpa": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "r",
+    "a",
+    "n",
+    "d",
+    "p",
+    "a"
+   ],
+   "phonemes": [
+    "G",
+    "R",
+    "AE",
+    "N",
+    "D",
+    "P",
+    "AA"
+   ],
+   "onset": "gr",
+   "rime": "andpa",
+   "rime_say": "andpa",
+   "onset_phonemes": [
+    "G",
+    "R"
+   ],
+   "keyword": "grapes",
+   "emoji": "🍇",
+   "needs_review": false,
+   "word_say": "grandpa"
+  },
+  "grateful": {
+   "type": "tricky",
+   "graphemes": [
+    "g",
+    "r",
+    "a",
+    "t",
+    "e(silent)",
+    "f",
+    "u",
+    "l"
+   ],
+   "phonemes": [
+    "G",
+    "R",
+    "EY",
+    "T",
+    "F",
+    "AH",
+    "L"
+   ],
+   "onset": "gr",
+   "rime": "ateful",
+   "rime_say": "ateful",
+   "onset_phonemes": [
+    "G",
+    "R"
+   ],
+   "keyword": "grapes",
+   "emoji": "🍇",
+   "needs_review": false,
+   "word_say": "grateful"
+  },
+  "green": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "r",
+    "ee",
+    "n"
+   ],
+   "phonemes": [
+    "G",
+    "R",
+    "IY",
+    "N"
+   ],
+   "onset": "gr",
+   "rime": "een",
+   "rime_say": "een",
+   "onset_phonemes": [
+    "G",
+    "R"
+   ],
+   "keyword": "grapes",
+   "emoji": "🍇",
+   "needs_review": false,
+   "word_say": "green"
+  },
+  "grew": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "r",
+    "ew"
+   ],
+   "phonemes": [
+    "G",
+    "R",
+    "UW"
+   ],
+   "onset": "gr",
+   "rime": "ew",
+   "rime_say": "oo",
+   "onset_phonemes": [
+    "G",
+    "R"
+   ],
+   "keyword": "grapes",
+   "emoji": "🍇",
+   "needs_review": false,
+   "word_say": "grew"
+  },
+  "group": {
+   "type": "decodable",
+   "graphemes": [
+    "g",
+    "r",
+    "ou",
+    "p"
+   ],
+   "phonemes": [
+    "G",
+    "R",
+    "UW",
+    "P"
+   ],
+   "onset": "gr",
+   "rime": "oup",
+   "rime_say": "oop",
+   "onset_phonemes": [
+    "G",
+    "R"
+   ],
+   "keyword": "grapes",
+   "emoji": "🍇",
+   "needs_review": false,
+   "word_say": "group"
+  },
   "grow": {
    "type": "decodable",
    "graphemes": [
@@ -2781,6 +6100,30 @@
    "needs_review": false,
    "word_say": "grow"
   },
+  "guard": {
+   "type": "tricky",
+   "graphemes": [
+    "g",
+    "u(silent)",
+    "ar",
+    "d"
+   ],
+   "phonemes": [
+    "G",
+    "AA R",
+    "D"
+   ],
+   "onset": "gu",
+   "rime": "ard",
+   "rime_say": "ard",
+   "onset_phonemes": [
+    "G"
+   ],
+   "keyword": "goat",
+   "emoji": "🐐",
+   "needs_review": false,
+   "word_say": "guard"
+  },
   "had": {
    "type": "decodable",
    "graphemes": [
@@ -2804,6 +6147,33 @@
    "needs_review": false,
    "word_say": "had"
   },
+  "hands": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "a",
+    "n",
+    "d",
+    "s"
+   ],
+   "phonemes": [
+    "HH",
+    "AE",
+    "N",
+    "D",
+    "Z"
+   ],
+   "onset": "h",
+   "rime": "ands",
+   "rime_say": "ands",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "hands"
+  },
   "hang": {
    "type": "decodable",
    "graphemes": [
@@ -2826,6 +6196,35 @@
    "emoji": "🎩",
    "needs_review": false,
    "word_say": "hang"
+  },
+  "happened": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "a",
+    "pp",
+    "e",
+    "n",
+    "ed"
+   ],
+   "phonemes": [
+    "HH",
+    "AE",
+    "P",
+    "AH",
+    "N",
+    "D"
+   ],
+   "onset": "h",
+   "rime": "appened",
+   "rime_say": "appened",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "happened"
   },
   "happily": {
    "type": "decodable",
@@ -2878,6 +6277,29 @@
    "emoji": "🎩",
    "needs_review": false,
    "word_say": "has"
+  },
+  "hat": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "a",
+    "t"
+   ],
+   "phonemes": [
+    "HH",
+    "AE",
+    "T"
+   ],
+   "onset": "h",
+   "rime": "at",
+   "rime_say": "at",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "horse",
+   "emoji": "🐴",
+   "needs_review": false,
+   "word_say": "hat"
   },
   "have": {
    "type": "sight",
@@ -2972,6 +6394,56 @@
    "needs_review": false,
    "word_say": "heavy"
   },
+  "held": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "e",
+    "l",
+    "d"
+   ],
+   "phonemes": [
+    "HH",
+    "EH",
+    "L",
+    "D"
+   ],
+   "onset": "h",
+   "rime": "eld",
+   "rime_say": "eld",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "held"
+  },
+  "help": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "e",
+    "l",
+    "p"
+   ],
+   "phonemes": [
+    "HH",
+    "EH",
+    "L",
+    "P"
+   ],
+   "onset": "h",
+   "rime": "elp",
+   "rime_say": "elp",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "help"
+  },
   "helped": {
    "type": "decodable",
    "graphemes": [
@@ -3026,6 +6498,29 @@
    "needs_review": false,
    "word_say": "helps"
   },
+  "hen": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "e",
+    "n"
+   ],
+   "phonemes": [
+    "HH",
+    "EH",
+    "N"
+   ],
+   "onset": "h",
+   "rime": "en",
+   "rime_say": "en",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "hen"
+  },
   "her": {
    "type": "decodable",
    "graphemes": [
@@ -3046,6 +6541,58 @@
    "emoji": "🎩",
    "needs_review": false,
    "word_say": "her"
+  },
+  "herself": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "er",
+    "s",
+    "e",
+    "l",
+    "f"
+   ],
+   "phonemes": [
+    "HH",
+    "ER",
+    "S",
+    "EH",
+    "L",
+    "F"
+   ],
+   "onset": "h",
+   "rime": "erself",
+   "rime_say": "erself",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "herself"
+  },
+  "hid": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "i",
+    "d"
+   ],
+   "phonemes": [
+    "HH",
+    "IH",
+    "D"
+   ],
+   "onset": "h",
+   "rime": "id",
+   "rime_say": "id",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "hid"
   },
   "hill": {
    "type": "decodable",
@@ -3069,6 +6616,29 @@
    "emoji": "🎩",
    "needs_review": false,
    "word_say": "hill"
+  },
+  "him": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "i",
+    "m"
+   ],
+   "phonemes": [
+    "HH",
+    "IH",
+    "M"
+   ],
+   "onset": "h",
+   "rime": "im",
+   "rime_say": "im",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "him"
   },
   "his": {
    "type": "decodable",
@@ -3117,6 +6687,62 @@
    "emoji": "🎩",
    "needs_review": false,
    "word_say": "hold"
+  },
+  "holding": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "o",
+    "l",
+    "d",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "HH",
+    "OW",
+    "L",
+    "D",
+    "IH",
+    "NG"
+   ],
+   "onset": "h",
+   "rime": "olding",
+   "rime_say": "olding",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "holding"
+  },
+  "holds": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "o",
+    "l",
+    "d",
+    "s"
+   ],
+   "phonemes": [
+    "HH",
+    "OW",
+    "L",
+    "D",
+    "Z"
+   ],
+   "onset": "h",
+   "rime": "olds",
+   "rime_say": "olds",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "holds"
   },
   "hole": {
    "type": "decodable",
@@ -3192,6 +6818,36 @@
    "needs_review": false,
    "word_say": "homes"
   },
+  "homework": {
+   "type": "tricky",
+   "graphemes": [
+    "h",
+    "o",
+    "m",
+    "e(silent)",
+    "w",
+    "or",
+    "k"
+   ],
+   "phonemes": [
+    "HH",
+    "OW",
+    "M",
+    "W",
+    "ER",
+    "K"
+   ],
+   "onset": "h",
+   "rime": "omework",
+   "rime_say": "omework",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "homework"
+  },
   "honest": {
    "type": "tricky",
    "graphemes": [
@@ -3218,6 +6874,122 @@
    "needs_review": false,
    "word_say": "honest"
   },
+  "horses": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "or",
+    "s",
+    "es"
+   ],
+   "phonemes": [
+    "HH",
+    "AO R",
+    "S",
+    "AH Z"
+   ],
+   "onset": "h",
+   "rime": "orses",
+   "rime_say": "orses",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "horses"
+  },
+  "hot": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "o",
+    "t"
+   ],
+   "phonemes": [
+    "HH",
+    "AA",
+    "T"
+   ],
+   "onset": "h",
+   "rime": "ot",
+   "rime_say": "ot",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "hot"
+  },
+  "house": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "ou",
+    "s",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "HH",
+    "AW",
+    "S"
+   ],
+   "onset": "h",
+   "rime": "ouse",
+   "rime_say": "ouse",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "house"
+  },
+  "how": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "ow"
+   ],
+   "phonemes": [
+    "HH",
+    "AW"
+   ],
+   "onset": "h",
+   "rime": "ow",
+   "rime_say": "ow",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "how"
+  },
+  "hug": {
+   "type": "decodable",
+   "graphemes": [
+    "h",
+    "u",
+    "g"
+   ],
+   "phonemes": [
+    "HH",
+    "AH",
+    "G"
+   ],
+   "onset": "h",
+   "rime": "ug",
+   "rime_say": "ug",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "hug"
+  },
   "i": {
    "type": "sight",
    "graphemes": [
@@ -3234,6 +7006,35 @@
    "emoji": "🧊",
    "needs_review": false,
    "word_say": "i"
+  },
+  "impressed": {
+   "type": "decodable",
+   "graphemes": [
+    "i",
+    "m",
+    "p",
+    "r",
+    "e",
+    "ss",
+    "ed"
+   ],
+   "phonemes": [
+    "IH",
+    "M",
+    "P",
+    "R",
+    "EH",
+    "S",
+    "T"
+   ],
+   "onset": "",
+   "rime": "impressed",
+   "rime_say": "impressed",
+   "onset_phonemes": [],
+   "keyword": "insect",
+   "emoji": "🐛",
+   "needs_review": false,
+   "word_say": "impressed"
   },
   "in": {
    "type": "decodable",
@@ -3253,6 +7054,32 @@
    "emoji": "🐛",
    "needs_review": false,
    "word_say": "in"
+  },
+  "inside": {
+   "type": "decodable",
+   "graphemes": [
+    "i",
+    "n",
+    "s",
+    "i",
+    "d",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "IH",
+    "N",
+    "S",
+    "AY",
+    "D"
+   ],
+   "onset": "",
+   "rime": "inside",
+   "rime_say": "inside",
+   "onset_phonemes": [],
+   "keyword": "insect",
+   "emoji": "🐛",
+   "needs_review": false,
+   "word_say": "inside"
   },
   "into": {
    "type": "decodable",
@@ -3362,6 +7189,86 @@
    "needs_review": false,
    "word_say": "its"
   },
+  "jam": {
+   "type": "decodable",
+   "graphemes": [
+    "j",
+    "a",
+    "m"
+   ],
+   "phonemes": [
+    "JH",
+    "AE",
+    "M"
+   ],
+   "onset": "j",
+   "rime": "am",
+   "rime_say": "am",
+   "onset_phonemes": [
+    "JH"
+   ],
+   "keyword": "juice",
+   "emoji": "🧃",
+   "needs_review": false,
+   "word_say": "jam"
+  },
+  "jasmine": {
+   "type": "decodable",
+   "graphemes": [
+    "j",
+    "a",
+    "s",
+    "m",
+    "i",
+    "n",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "JH",
+    "AE",
+    "Z",
+    "M",
+    "AH",
+    "N"
+   ],
+   "onset": "j",
+   "rime": "asmine",
+   "rime_say": "asmine",
+   "onset_phonemes": [
+    "JH"
+   ],
+   "keyword": "juice",
+   "emoji": "🧃",
+   "needs_review": false,
+   "word_say": "jasmine"
+  },
+  "jeepney": {
+   "type": "decodable",
+   "graphemes": [
+    "j",
+    "ee",
+    "p",
+    "n",
+    "ey"
+   ],
+   "phonemes": [
+    "JH",
+    "IY",
+    "P",
+    "N",
+    "IY"
+   ],
+   "onset": "j",
+   "rime": "eepney",
+   "rime_say": "eepney",
+   "onset_phonemes": [
+    "JH"
+   ],
+   "keyword": "juice",
+   "emoji": "🧃",
+   "needs_review": false,
+   "word_say": "jeepney"
+  },
   "jen": {
    "type": "decodable",
    "graphemes": [
@@ -3409,6 +7316,73 @@
    "emoji": "🧃",
    "needs_review": false,
    "word_say": "jens"
+  },
+  "job": {
+   "type": "decodable",
+   "graphemes": [
+    "j",
+    "o",
+    "b"
+   ],
+   "phonemes": [
+    "JH",
+    "AA",
+    "B"
+   ],
+   "onset": "j",
+   "rime": "ob",
+   "rime_say": "ob",
+   "onset_phonemes": [
+    "JH"
+   ],
+   "keyword": "juice",
+   "emoji": "🧃",
+   "needs_review": false,
+   "word_say": "job"
+  },
+  "judges": {
+   "type": "tricky",
+   "graphemes": [
+    "judges"
+   ],
+   "phonemes": [
+    "JH AH JH IH Z"
+   ],
+   "onset": "",
+   "rime": "judges",
+   "rime_say": "judges",
+   "onset_phonemes": [],
+   "keyword": "juice",
+   "emoji": "🧃",
+   "needs_review": false,
+   "word_say": "judges"
+  },
+  "jumped": {
+   "type": "decodable",
+   "graphemes": [
+    "j",
+    "u",
+    "m",
+    "p",
+    "ed"
+   ],
+   "phonemes": [
+    "JH",
+    "AH",
+    "M",
+    "P",
+    "T"
+   ],
+   "onset": "j",
+   "rime": "umped",
+   "rime_say": "umped",
+   "onset_phonemes": [
+    "JH"
+   ],
+   "keyword": "juice",
+   "emoji": "🧃",
+   "needs_review": false,
+   "word_say": "jumped"
   },
   "keeps": {
    "type": "decodable",
@@ -3460,6 +7434,83 @@
    "needs_review": false,
    "word_say": "kept"
   },
+  "kicking": {
+   "type": "decodable",
+   "graphemes": [
+    "k",
+    "i",
+    "ck",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "K",
+    "IH",
+    "K",
+    "IH",
+    "NG"
+   ],
+   "onset": "k",
+   "rime": "icking",
+   "rime_say": "icking",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "kicking"
+  },
+  "kim": {
+   "type": "decodable",
+   "graphemes": [
+    "k",
+    "i",
+    "m"
+   ],
+   "phonemes": [
+    "K",
+    "IH",
+    "M"
+   ],
+   "onset": "k",
+   "rime": "im",
+   "rime_say": "im",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "kim"
+  },
+  "kitchen": {
+   "type": "decodable",
+   "graphemes": [
+    "k",
+    "i",
+    "tch",
+    "e",
+    "n"
+   ],
+   "phonemes": [
+    "K",
+    "IH",
+    "CH",
+    "AH",
+    "N"
+   ],
+   "onset": "k",
+   "rime": "itchen",
+   "rime_say": "itchen",
+   "onset_phonemes": [
+    "K"
+   ],
+   "keyword": "kite",
+   "emoji": "🪁",
+   "needs_review": false,
+   "word_say": "kitchen"
+  },
   "kite": {
    "type": "decodable",
    "graphemes": [
@@ -3483,6 +7534,298 @@
    "emoji": "🔑",
    "needs_review": false,
    "word_say": "kite"
+  },
+  "lamp": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "a",
+    "m",
+    "p"
+   ],
+   "phonemes": [
+    "L",
+    "AE",
+    "M",
+    "P"
+   ],
+   "onset": "l",
+   "rime": "amp",
+   "rime_say": "amp",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "lamp"
+  },
+  "land": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "a",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "L",
+    "AE",
+    "N",
+    "D"
+   ],
+   "onset": "l",
+   "rime": "and",
+   "rime_say": "and",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "land"
+  },
+  "last": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "a",
+    "s",
+    "t"
+   ],
+   "phonemes": [
+    "L",
+    "AE",
+    "S",
+    "T"
+   ],
+   "onset": "l",
+   "rime": "ast",
+   "rime_say": "ast",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "last"
+  },
+  "laughed": {
+   "type": "tricky",
+   "graphemes": [
+    "laughed"
+   ],
+   "phonemes": [
+    "L AE F T"
+   ],
+   "onset": "",
+   "rime": "laughed",
+   "rime_say": "laughed",
+   "onset_phonemes": [],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "laughed"
+  },
+  "lava": {
+   "type": "tricky",
+   "graphemes": [
+    "l",
+    "a",
+    "v",
+    "a"
+   ],
+   "phonemes": [
+    "L",
+    "AA",
+    "V",
+    "AH"
+   ],
+   "onset": "l",
+   "rime": "ava",
+   "rime_say": "ava",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "lava"
+  },
+  "leaf": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "ea",
+    "f"
+   ],
+   "phonemes": [
+    "L",
+    "IY",
+    "F"
+   ],
+   "onset": "l",
+   "rime": "eaf",
+   "rime_say": "eaf",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "leaf"
+  },
+  "learned": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "ear",
+    "n",
+    "ed"
+   ],
+   "phonemes": [
+    "L",
+    "ER",
+    "N",
+    "D"
+   ],
+   "onset": "l",
+   "rime": "earned",
+   "rime_say": "earned",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "learned"
+  },
+  "leftover": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "e",
+    "f",
+    "t",
+    "o",
+    "v",
+    "er"
+   ],
+   "phonemes": [
+    "L",
+    "EH",
+    "F",
+    "T",
+    "OW",
+    "V",
+    "ER"
+   ],
+   "onset": "l",
+   "rime": "eftover",
+   "rime_say": "eftover",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "leftover"
+  },
+  "legs": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "e",
+    "g",
+    "s"
+   ],
+   "phonemes": [
+    "L",
+    "EH",
+    "G",
+    "Z"
+   ],
+   "onset": "l",
+   "rime": "egs",
+   "rime_say": "egs",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "legs"
+  },
+  "leo": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "e",
+    "o"
+   ],
+   "phonemes": [
+    "L",
+    "IY",
+    "OW"
+   ],
+   "onset": "l",
+   "rime": "eo",
+   "rime_say": "eo",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "leo"
+  },
+  "leos": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "e",
+    "o",
+    "s"
+   ],
+   "phonemes": [
+    "L",
+    "IY",
+    "OW",
+    "Z"
+   ],
+   "onset": "l",
+   "rime": "eos",
+   "rime_say": "eos",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "leos"
+  },
+  "less": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "e",
+    "ss"
+   ],
+   "phonemes": [
+    "L",
+    "EH",
+    "S"
+   ],
+   "onset": "l",
+   "rime": "ess",
+   "rime_say": "ess",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "less"
   },
   "lets": {
    "type": "decodable",
@@ -3590,6 +7933,59 @@
    "needs_review": false,
    "word_say": "lifted"
   },
+  "light": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "igh",
+    "t"
+   ],
+   "phonemes": [
+    "L",
+    "AY",
+    "T"
+   ],
+   "onset": "l",
+   "rime": "ight",
+   "rime_say": "ight",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "light"
+  },
+  "lighthouse": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "igh",
+    "t",
+    "h",
+    "ou",
+    "s",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "L",
+    "AY",
+    "T",
+    "HH",
+    "AW",
+    "S"
+   ],
+   "onset": "l",
+   "rime": "ighthouse",
+   "rime_say": "ighthouse",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "lighthouse"
+  },
   "lights": {
    "type": "decodable",
    "graphemes": [
@@ -3638,6 +8034,80 @@
    "emoji": "🦁",
    "needs_review": false,
    "word_say": "like"
+  },
+  "liked": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "i",
+    "k",
+    "ed"
+   ],
+   "phonemes": [
+    "L",
+    "AY",
+    "K",
+    "T"
+   ],
+   "onset": "l",
+   "rime": "iked",
+   "rime_say": "iked",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "liked"
+  },
+  "likes": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "i",
+    "k",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "L",
+    "AY",
+    "K",
+    "S"
+   ],
+   "onset": "l",
+   "rime": "ikes",
+   "rime_say": "ikes",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "likes"
+  },
+  "lit": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "i",
+    "t"
+   ],
+   "phonemes": [
+    "L",
+    "IH",
+    "T"
+   ],
+   "onset": "l",
+   "rime": "it",
+   "rime_say": "it",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "lit"
   },
   "little": {
    "type": "decodable",
@@ -3689,6 +8159,100 @@
    "needs_review": false,
    "word_say": "lived"
   },
+  "long": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "o",
+    "ng"
+   ],
+   "phonemes": [
+    "L",
+    "AO",
+    "NG"
+   ],
+   "onset": "l",
+   "rime": "ong",
+   "rime_say": "ong",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "long"
+  },
+  "look": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "oo",
+    "k"
+   ],
+   "phonemes": [
+    "L",
+    "UH",
+    "K"
+   ],
+   "onset": "l",
+   "rime": "ook",
+   "rime_say": "ook",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "look"
+  },
+  "looked": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "oo",
+    "k",
+    "ed"
+   ],
+   "phonemes": [
+    "L",
+    "UH",
+    "K",
+    "T"
+   ],
+   "onset": "l",
+   "rime": "ooked",
+   "rime_say": "ooked",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "looked"
+  },
+  "loud": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "ou",
+    "d"
+   ],
+   "phonemes": [
+    "L",
+    "AW",
+    "D"
+   ],
+   "onset": "l",
+   "rime": "oud",
+   "rime_say": "oud",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "loud"
+  },
   "loudest": {
    "type": "decodable",
    "graphemes": [
@@ -3718,6 +8282,53 @@
    "needs_review": false,
    "word_say": "loudest"
   },
+  "loves": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "o",
+    "v",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "L",
+    "AH",
+    "V",
+    "Z"
+   ],
+   "onset": "l",
+   "rime": "oves",
+   "rime_say": "uves",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "loves"
+  },
+  "low": {
+   "type": "decodable",
+   "graphemes": [
+    "l",
+    "ow"
+   ],
+   "phonemes": [
+    "L",
+    "OW"
+   ],
+   "onset": "l",
+   "rime": "ow",
+   "rime_say": "ow",
+   "onset_phonemes": [
+    "L"
+   ],
+   "keyword": "lion",
+   "emoji": "🦁",
+   "needs_review": false,
+   "word_say": "low"
+  },
   "made": {
    "type": "decodable",
    "graphemes": [
@@ -3741,6 +8352,62 @@
    "emoji": "🌙",
    "needs_review": false,
    "word_say": "made"
+  },
+  "mango": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "a",
+    "n",
+    "g",
+    "o"
+   ],
+   "phonemes": [
+    "M",
+    "AE",
+    "NG",
+    "G",
+    "OW"
+   ],
+   "onset": "m",
+   "rime": "ango",
+   "rime_say": "ango",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "mango"
+  },
+  "mangoes": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "a",
+    "n",
+    "g",
+    "oe",
+    "s"
+   ],
+   "phonemes": [
+    "M",
+    "AE",
+    "NG",
+    "G",
+    "OW",
+    "Z"
+   ],
+   "onset": "m",
+   "rime": "angoes",
+   "rime_say": "angoes",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "mangoes"
   },
   "mangrove": {
    "type": "decodable",
@@ -3935,6 +8602,77 @@
    "needs_review": false,
    "word_say": "mat"
   },
+  "max": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "a",
+    "x"
+   ],
+   "phonemes": [
+    "M",
+    "AE",
+    "K S"
+   ],
+   "onset": "m",
+   "rime": "ax",
+   "rime_say": "ax",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "max"
+  },
+  "mayon": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "ay",
+    "o",
+    "n"
+   ],
+   "phonemes": [
+    "M",
+    "EY",
+    "AO",
+    "N"
+   ],
+   "onset": "m",
+   "rime": "ayon",
+   "rime_say": "ayon",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "mayon"
+  },
+  "mayor": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "ay",
+    "or"
+   ],
+   "phonemes": [
+    "M",
+    "EY",
+    "ER"
+   ],
+   "onset": "m",
+   "rime": "ayor",
+   "rime_say": "ayor",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "mayor"
+  },
   "me": {
    "type": "decodable",
    "graphemes": [
@@ -3955,6 +8693,33 @@
    "emoji": "🌙",
    "needs_review": false,
    "word_say": "me"
+  },
+  "measured": {
+   "type": "tricky",
+   "graphemes": [
+    "m",
+    "ea",
+    "s",
+    "ur",
+    "ed"
+   ],
+   "phonemes": [
+    "M",
+    "EH",
+    "ZH",
+    "ER",
+    "D"
+   ],
+   "onset": "m",
+   "rime": "easured",
+   "rime_say": "esured",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "measured"
   },
   "mia": {
    "type": "tricky",
@@ -3979,6 +8744,113 @@
    "needs_review": false,
    "word_say": "mia"
   },
+  "milk": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "i",
+    "l",
+    "k"
+   ],
+   "phonemes": [
+    "M",
+    "IH",
+    "L",
+    "K"
+   ],
+   "onset": "m",
+   "rime": "ilk",
+   "rime_say": "ilk",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "milk"
+  },
+  "minutes": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "i",
+    "n",
+    "u",
+    "t",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "M",
+    "IH",
+    "N",
+    "AH",
+    "T",
+    "S"
+   ],
+   "onset": "m",
+   "rime": "inutes",
+   "rime_say": "inutes",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "minutes"
+  },
+  "mixed": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "i",
+    "x",
+    "ed"
+   ],
+   "phonemes": [
+    "M",
+    "IH",
+    "K S",
+    "T"
+   ],
+   "onset": "m",
+   "rime": "ixed",
+   "rime_say": "ixed",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "mixed"
+  },
+  "model": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "o",
+    "d",
+    "e",
+    "l"
+   ],
+   "phonemes": [
+    "M",
+    "AA",
+    "D",
+    "AH",
+    "L"
+   ],
+   "onset": "m",
+   "rime": "odel",
+   "rime_say": "odel",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "model"
+  },
   "mom": {
    "type": "decodable",
    "graphemes": [
@@ -4001,6 +8873,33 @@
    "emoji": "🌙",
    "needs_review": false,
    "word_say": "mom"
+  },
+  "monday": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "o",
+    "n",
+    "d",
+    "ay"
+   ],
+   "phonemes": [
+    "M",
+    "AH",
+    "N",
+    "D",
+    "EY"
+   ],
+   "onset": "m",
+   "rime": "onday",
+   "rime_say": "onday",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "monday"
   },
   "money": {
    "type": "decodable",
@@ -4026,6 +8925,83 @@
    "emoji": "🌙",
    "needs_review": false,
    "word_say": "money"
+  },
+  "monkey": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "o",
+    "n",
+    "k",
+    "ey"
+   ],
+   "phonemes": [
+    "M",
+    "AH",
+    "NG",
+    "K",
+    "IY"
+   ],
+   "onset": "m",
+   "rime": "onkey",
+   "rime_say": "onkey",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "monkey"
+  },
+  "months": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "o",
+    "n",
+    "th",
+    "s"
+   ],
+   "phonemes": [
+    "M",
+    "AH",
+    "N",
+    "TH",
+    "S"
+   ],
+   "onset": "m",
+   "rime": "onths",
+   "rime_say": "unths",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "months"
+  },
+  "moon": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "oo",
+    "n"
+   ],
+   "phonemes": [
+    "M",
+    "UW",
+    "N"
+   ],
+   "onset": "m",
+   "rime": "oon",
+   "rime_say": "oon",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "mouse",
+   "emoji": "🐭",
+   "needs_review": false,
+   "word_say": "moon"
   },
   "more": {
    "type": "decodable",
@@ -4100,6 +9076,35 @@
    "needs_review": false,
    "word_say": "mother"
   },
+  "mountain": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "ou",
+    "n",
+    "t",
+    "ai",
+    "n"
+   ],
+   "phonemes": [
+    "M",
+    "AW",
+    "N",
+    "T",
+    "AH",
+    "N"
+   ],
+   "onset": "m",
+   "rime": "ountain",
+   "rime_say": "ountain",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "mountain"
+  },
   "move": {
    "type": "sight",
    "graphemes": [
@@ -4124,6 +9129,29 @@
    "needs_review": false,
    "word_say": "move"
   },
+  "much": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "u",
+    "ch"
+   ],
+   "phonemes": [
+    "M",
+    "AH",
+    "CH"
+   ],
+   "onset": "m",
+   "rime": "uch",
+   "rime_say": "uch",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "much"
+  },
   "mud": {
    "type": "decodable",
    "graphemes": [
@@ -4146,6 +9174,60 @@
    "emoji": "🌙",
    "needs_review": false,
    "word_say": "mud"
+  },
+  "muddy": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "u",
+    "dd",
+    "y"
+   ],
+   "phonemes": [
+    "M",
+    "AH",
+    "D",
+    "IY"
+   ],
+   "onset": "m",
+   "rime": "uddy",
+   "rime_say": "uddy",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "muddy"
+  },
+  "museum": {
+   "type": "decodable",
+   "graphemes": [
+    "m",
+    "u",
+    "s",
+    "e",
+    "u",
+    "m"
+   ],
+   "phonemes": [
+    "M",
+    "Y UW",
+    "Z",
+    "IY",
+    "AH",
+    "M"
+   ],
+   "onset": "m",
+   "rime": "useum",
+   "rime_say": "useum",
+   "onset_phonemes": [
+    "M"
+   ],
+   "keyword": "moon",
+   "emoji": "🌙",
+   "needs_review": false,
+   "word_say": "museum"
   },
   "named": {
    "type": "decodable",
@@ -4195,6 +9277,44 @@
    "needs_review": false,
    "word_say": "nap"
   },
+  "national": {
+   "type": "tricky",
+   "graphemes": [
+    "national"
+   ],
+   "phonemes": [
+    "N AE SH AH N AH L"
+   ],
+   "onset": "",
+   "rime": "national",
+   "rime_say": "national",
+   "onset_phonemes": [],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "national"
+  },
+  "near": {
+   "type": "decodable",
+   "graphemes": [
+    "n",
+    "ear"
+   ],
+   "phonemes": [
+    "N",
+    "IH R"
+   ],
+   "onset": "n",
+   "rime": "ear",
+   "rime_say": "ear",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "near"
+  },
   "needle": {
    "type": "decodable",
    "graphemes": [
@@ -4220,6 +9340,117 @@
    "needs_review": false,
    "word_say": "needle"
   },
+  "neighbors": {
+   "type": "tricky",
+   "graphemes": [
+    "n",
+    "ei",
+    "gh(silent)",
+    "b",
+    "or",
+    "s"
+   ],
+   "phonemes": [
+    "N",
+    "EY",
+    "B",
+    "ER",
+    "Z"
+   ],
+   "onset": "n",
+   "rime": "eighbors",
+   "rime_say": "eighbors",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "neighbors"
+  },
+  "nervous": {
+   "type": "decodable",
+   "graphemes": [
+    "n",
+    "er",
+    "v",
+    "ou",
+    "s"
+   ],
+   "phonemes": [
+    "N",
+    "ER",
+    "V",
+    "AH",
+    "S"
+   ],
+   "onset": "n",
+   "rime": "ervous",
+   "rime_say": "ervous",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "nervous"
+  },
+  "newspaper": {
+   "type": "decodable",
+   "graphemes": [
+    "n",
+    "ew",
+    "s",
+    "p",
+    "a",
+    "p",
+    "er"
+   ],
+   "phonemes": [
+    "N",
+    "UW",
+    "Z",
+    "P",
+    "EY",
+    "P",
+    "ER"
+   ],
+   "onset": "n",
+   "rime": "ewspaper",
+   "rime_say": "oospaper",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "newspaper"
+  },
+  "next": {
+   "type": "decodable",
+   "graphemes": [
+    "n",
+    "e",
+    "x",
+    "t"
+   ],
+   "phonemes": [
+    "N",
+    "EH",
+    "K S",
+    "T"
+   ],
+   "onset": "n",
+   "rime": "ext",
+   "rime_say": "ext",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "next"
+  },
   "night": {
    "type": "decodable",
    "graphemes": [
@@ -4243,6 +9474,27 @@
    "needs_review": false,
    "word_say": "night"
   },
+  "no": {
+   "type": "decodable",
+   "graphemes": [
+    "n",
+    "o"
+   ],
+   "phonemes": [
+    "N",
+    "OW"
+   ],
+   "onset": "n",
+   "rime": "o",
+   "rime_say": "oh",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "no"
+  },
   "not": {
    "type": "decodable",
    "graphemes": [
@@ -4265,6 +9517,36 @@
    "emoji": "🪺",
    "needs_review": false,
    "word_say": "not"
+  },
+  "notebook": {
+   "type": "tricky",
+   "graphemes": [
+    "n",
+    "o",
+    "t",
+    "e(silent)",
+    "b",
+    "oo",
+    "k"
+   ],
+   "phonemes": [
+    "N",
+    "OW",
+    "T",
+    "B",
+    "UH",
+    "K"
+   ],
+   "onset": "n",
+   "rime": "otebook",
+   "rime_say": "otebook",
+   "onset_phonemes": [
+    "N"
+   ],
+   "keyword": "nest",
+   "emoji": "🪺",
+   "needs_review": false,
+   "word_say": "notebook"
   },
   "noticed": {
    "type": "decodable",
@@ -4334,6 +9616,69 @@
    "emoji": "☂️",
    "needs_review": false,
    "word_say": "of"
+  },
+  "off": {
+   "type": "decodable",
+   "graphemes": [
+    "o",
+    "ff"
+   ],
+   "phonemes": [
+    "AO",
+    "F"
+   ],
+   "onset": "",
+   "rime": "off",
+   "rime_say": "off",
+   "onset_phonemes": [],
+   "keyword": "autumn",
+   "emoji": "🍂",
+   "needs_review": false,
+   "word_say": "off"
+  },
+  "old": {
+   "type": "decodable",
+   "graphemes": [
+    "o",
+    "l",
+    "d"
+   ],
+   "phonemes": [
+    "OW",
+    "L",
+    "D"
+   ],
+   "onset": "",
+   "rime": "old",
+   "rime_say": "old",
+   "onset_phonemes": [],
+   "keyword": "ocean",
+   "emoji": "🌊",
+   "needs_review": false,
+   "word_say": "old"
+  },
+  "older": {
+   "type": "decodable",
+   "graphemes": [
+    "o",
+    "l",
+    "d",
+    "er"
+   ],
+   "phonemes": [
+    "OW",
+    "L",
+    "D",
+    "ER"
+   ],
+   "onset": "",
+   "rime": "older",
+   "rime_say": "older",
+   "onset_phonemes": [],
+   "keyword": "ocean",
+   "emoji": "🌊",
+   "needs_review": false,
+   "word_say": "older"
   },
   "on": {
    "type": "decodable",
@@ -4412,6 +9757,34 @@
    "needs_review": false,
    "word_say": "our"
   },
+  "ourselves": {
+   "type": "decodable",
+   "graphemes": [
+    "our",
+    "s",
+    "e",
+    "l",
+    "v",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "AW ER",
+    "S",
+    "EH",
+    "L",
+    "V",
+    "Z"
+   ],
+   "onset": "",
+   "rime": "ourselves",
+   "rime_say": "ourselves",
+   "onset_phonemes": [],
+   "keyword": "owl",
+   "emoji": "🦉",
+   "needs_review": false,
+   "word_say": "ourselves"
+  },
   "out": {
    "type": "decodable",
    "graphemes": [
@@ -4457,6 +9830,113 @@
    "needs_review": false,
    "word_say": "outside"
   },
+  "oven": {
+   "type": "decodable",
+   "graphemes": [
+    "o",
+    "v",
+    "e",
+    "n"
+   ],
+   "phonemes": [
+    "AH",
+    "V",
+    "AH",
+    "N"
+   ],
+   "onset": "",
+   "rime": "oven",
+   "rime_say": "oven",
+   "onset_phonemes": [],
+   "keyword": "umbrella",
+   "emoji": "☂️",
+   "needs_review": false,
+   "word_say": "oven"
+  },
+  "over": {
+   "type": "decodable",
+   "graphemes": [
+    "o",
+    "v",
+    "er"
+   ],
+   "phonemes": [
+    "OW",
+    "V",
+    "ER"
+   ],
+   "onset": "",
+   "rime": "over",
+   "rime_say": "over",
+   "onset_phonemes": [],
+   "keyword": "ocean",
+   "emoji": "🌊",
+   "needs_review": false,
+   "word_say": "over"
+  },
+  "own": {
+   "type": "decodable",
+   "graphemes": [
+    "ow",
+    "n"
+   ],
+   "phonemes": [
+    "OW",
+    "N"
+   ],
+   "onset": "",
+   "rime": "own",
+   "rime_say": "own",
+   "onset_phonemes": [],
+   "keyword": "ocean",
+   "emoji": "🌊",
+   "needs_review": false,
+   "word_say": "own"
+  },
+  "painted": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "ai",
+    "n",
+    "t",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "EY",
+    "N",
+    "T",
+    "IH D"
+   ],
+   "onset": "p",
+   "rime": "ainted",
+   "rime_say": "ainted",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "painted"
+  },
+  "paolo": {
+   "type": "tricky",
+   "graphemes": [
+    "paolo"
+   ],
+   "phonemes": [
+    "P AW L OW"
+   ],
+   "onset": "",
+   "rime": "paolo",
+   "rime_say": "paolo",
+   "onset_phonemes": [],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "paolo"
+  },
   "paper": {
    "type": "decodable",
    "graphemes": [
@@ -4481,6 +9961,268 @@
    "emoji": "🐷",
    "needs_review": false,
    "word_say": "paper"
+  },
+  "park": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "ar",
+    "k"
+   ],
+   "phonemes": [
+    "P",
+    "AA R",
+    "K"
+   ],
+   "onset": "p",
+   "rime": "ark",
+   "rime_say": "ark",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "park"
+  },
+  "partner": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "ar",
+    "t",
+    "n",
+    "er"
+   ],
+   "phonemes": [
+    "P",
+    "AA R",
+    "T",
+    "N",
+    "ER"
+   ],
+   "onset": "p",
+   "rime": "artner",
+   "rime_say": "artner",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "partner"
+  },
+  "pass": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "a",
+    "ss"
+   ],
+   "phonemes": [
+    "P",
+    "AE",
+    "S"
+   ],
+   "onset": "p",
+   "rime": "ass",
+   "rime_say": "ass",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pass"
+  },
+  "paw": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "aw"
+   ],
+   "phonemes": [
+    "P",
+    "AO"
+   ],
+   "onset": "p",
+   "rime": "aw",
+   "rime_say": "aw",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "paw"
+  },
+  "peanuts": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "ea",
+    "n",
+    "u",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "P",
+    "IY",
+    "N",
+    "AH",
+    "T",
+    "S"
+   ],
+   "onset": "p",
+   "rime": "eanuts",
+   "rime_say": "eanuts",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "peanuts"
+  },
+  "pedro": {
+   "type": "tricky",
+   "graphemes": [
+    "pedro"
+   ],
+   "phonemes": [
+    "P EY D R OW"
+   ],
+   "onset": "",
+   "rime": "pedro",
+   "rime_say": "pedro",
+   "onset_phonemes": [],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pedro"
+  },
+  "pen": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "e",
+    "n"
+   ],
+   "phonemes": [
+    "P",
+    "EH",
+    "N"
+   ],
+   "onset": "p",
+   "rime": "en",
+   "rime_say": "en",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pen"
+  },
+  "people": {
+   "type": "tricky",
+   "graphemes": [
+    "p",
+    "eo",
+    "p",
+    "le"
+   ],
+   "phonemes": [
+    "P",
+    "IY",
+    "P",
+    "AH L"
+   ],
+   "onset": "p",
+   "rime": "eople",
+   "rime_say": "eople",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "people"
+  },
+  "phones": {
+   "type": "decodable",
+   "graphemes": [
+    "ph",
+    "o",
+    "n",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "F",
+    "OW",
+    "N",
+    "Z"
+   ],
+   "onset": "ph",
+   "rime": "ones",
+   "rime_say": "ones",
+   "onset_phonemes": [
+    "F"
+   ],
+   "keyword": "fish",
+   "emoji": "🐟",
+   "needs_review": false,
+   "word_say": "phones"
+  },
+  "pick": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "i",
+    "ck"
+   ],
+   "phonemes": [
+    "P",
+    "IH",
+    "K"
+   ],
+   "onset": "p",
+   "rime": "ick",
+   "rime_say": "ick",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pick"
+  },
+  "picked": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "i",
+    "ck",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "IH",
+    "K",
+    "T"
+   ],
+   "onset": "p",
+   "rime": "icked",
+   "rime_say": "icked",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "picked"
   },
   "picture": {
    "type": "decodable",
@@ -4603,6 +10345,110 @@
    "needs_review": false,
    "word_say": "pip"
   },
+  "pit": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "i",
+    "t"
+   ],
+   "phonemes": [
+    "P",
+    "IH",
+    "T"
+   ],
+   "onset": "p",
+   "rime": "it",
+   "rime_say": "it",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pit"
+  },
+  "place": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "l",
+    "a",
+    "c",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "P",
+    "L",
+    "EY",
+    "S"
+   ],
+   "onset": "pl",
+   "rime": "ace",
+   "rime_say": "ace",
+   "onset_phonemes": [
+    "P",
+    "L"
+   ],
+   "keyword": "plane",
+   "emoji": "✈️",
+   "needs_review": false,
+   "word_say": "place"
+  },
+  "placed": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "l",
+    "a",
+    "c",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "L",
+    "EY",
+    "S",
+    "T"
+   ],
+   "onset": "pl",
+   "rime": "aced",
+   "rime_say": "aced",
+   "onset_phonemes": [
+    "P",
+    "L"
+   ],
+   "keyword": "plane",
+   "emoji": "✈️",
+   "needs_review": false,
+   "word_say": "placed"
+  },
+  "plan": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "l",
+    "a",
+    "n"
+   ],
+   "phonemes": [
+    "P",
+    "L",
+    "AE",
+    "N"
+   ],
+   "onset": "pl",
+   "rime": "an",
+   "rime_say": "an",
+   "onset_phonemes": [
+    "P",
+    "L"
+   ],
+   "keyword": "plane",
+   "emoji": "✈️",
+   "needs_review": false,
+   "word_say": "plan"
+  },
   "plant": {
    "type": "decodable",
    "graphemes": [
@@ -4691,6 +10537,38 @@
    "needs_review": false,
    "word_say": "plants"
   },
+  "plastic": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "l",
+    "a",
+    "s",
+    "t",
+    "i",
+    "c"
+   ],
+   "phonemes": [
+    "P",
+    "L",
+    "AE",
+    "S",
+    "T",
+    "IH",
+    "K"
+   ],
+   "onset": "pl",
+   "rime": "astic",
+   "rime_say": "astic",
+   "onset_phonemes": [
+    "P",
+    "L"
+   ],
+   "keyword": "plane",
+   "emoji": "✈️",
+   "needs_review": false,
+   "word_say": "plastic"
+  },
   "play": {
    "type": "decodable",
    "graphemes": [
@@ -4714,6 +10592,32 @@
    "emoji": "✈️",
    "needs_review": false,
    "word_say": "play"
+  },
+  "played": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "l",
+    "ay",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "L",
+    "EY",
+    "D"
+   ],
+   "onset": "pl",
+   "rime": "ayed",
+   "rime_say": "ayed",
+   "onset_phonemes": [
+    "P",
+    "L"
+   ],
+   "keyword": "plane",
+   "emoji": "✈️",
+   "needs_review": false,
+   "word_say": "played"
   },
   "plaza": {
    "type": "tricky",
@@ -4770,6 +10674,262 @@
    "needs_review": false,
    "word_say": "pointed"
   },
+  "pond": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "o",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "P",
+    "AA",
+    "N",
+    "D"
+   ],
+   "onset": "p",
+   "rime": "ond",
+   "rime_say": "ond",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pond"
+  },
+  "pop": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "o",
+    "p"
+   ],
+   "phonemes": [
+    "P",
+    "AA",
+    "P"
+   ],
+   "onset": "p",
+   "rime": "op",
+   "rime_say": "op",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pop"
+  },
+  "pots": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "o",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "P",
+    "AA",
+    "T",
+    "S"
+   ],
+   "onset": "p",
+   "rime": "ots",
+   "rime_say": "ots",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "pots"
+  },
+  "poured": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "our",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "AO R",
+    "D"
+   ],
+   "onset": "p",
+   "rime": "oured",
+   "rime_say": "oured",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "poured"
+  },
+  "practiced": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "r",
+    "a",
+    "c",
+    "t",
+    "i",
+    "c",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "R",
+    "AE",
+    "K",
+    "T",
+    "AH",
+    "S",
+    "T"
+   ],
+   "onset": "pr",
+   "rime": "acticed",
+   "rime_say": "acticed",
+   "onset_phonemes": [
+    "P",
+    "R"
+   ],
+   "keyword": "present",
+   "emoji": "🎁",
+   "needs_review": false,
+   "word_say": "practiced"
+  },
+  "pressed": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "r",
+    "e",
+    "ss",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "R",
+    "EH",
+    "S",
+    "T"
+   ],
+   "onset": "pr",
+   "rime": "essed",
+   "rime_say": "essed",
+   "onset_phonemes": [
+    "P",
+    "R"
+   ],
+   "keyword": "present",
+   "emoji": "🎁",
+   "needs_review": false,
+   "word_say": "pressed"
+  },
+  "principal": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "r",
+    "i",
+    "n",
+    "c",
+    "i",
+    "p",
+    "a",
+    "l"
+   ],
+   "phonemes": [
+    "P",
+    "R",
+    "IH",
+    "N",
+    "S",
+    "AH",
+    "P",
+    "AH",
+    "L"
+   ],
+   "onset": "pr",
+   "rime": "incipal",
+   "rime_say": "incipal",
+   "onset_phonemes": [
+    "P",
+    "R"
+   ],
+   "keyword": "present",
+   "emoji": "🎁",
+   "needs_review": false,
+   "word_say": "principal"
+  },
+  "prints": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "r",
+    "i",
+    "n",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "P",
+    "R",
+    "IH",
+    "N",
+    "T",
+    "S"
+   ],
+   "onset": "pr",
+   "rime": "ints",
+   "rime_say": "ints",
+   "onset_phonemes": [
+    "P",
+    "R"
+   ],
+   "keyword": "present",
+   "emoji": "🎁",
+   "needs_review": false,
+   "word_say": "prints"
+  },
+  "produced": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "r",
+    "o",
+    "d",
+    "u",
+    "c",
+    "ed"
+   ],
+   "phonemes": [
+    "P",
+    "R",
+    "AH",
+    "D",
+    "UW",
+    "S",
+    "T"
+   ],
+   "onset": "pr",
+   "rime": "oduced",
+   "rime_say": "oduced",
+   "onset_phonemes": [
+    "P",
+    "R"
+   ],
+   "keyword": "present",
+   "emoji": "🎁",
+   "needs_review": false,
+   "word_say": "produced"
+  },
   "protect": {
    "type": "decodable",
    "graphemes": [
@@ -4801,6 +10961,32 @@
    "emoji": "🎁",
    "needs_review": false,
    "word_say": "protect"
+  },
+  "proud": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "r",
+    "ou",
+    "d"
+   ],
+   "phonemes": [
+    "P",
+    "R",
+    "AW",
+    "D"
+   ],
+   "onset": "pr",
+   "rime": "oud",
+   "rime_say": "oud",
+   "onset_phonemes": [
+    "P",
+    "R"
+   ],
+   "keyword": "present",
+   "emoji": "🎁",
+   "needs_review": false,
+   "word_say": "proud"
   },
   "proudly": {
    "type": "decodable",
@@ -4880,6 +11066,31 @@
    "needs_review": false,
    "word_say": "pulled"
   },
+  "puppy": {
+   "type": "decodable",
+   "graphemes": [
+    "p",
+    "u",
+    "pp",
+    "y"
+   ],
+   "phonemes": [
+    "P",
+    "AH",
+    "P",
+    "IY"
+   ],
+   "onset": "p",
+   "rime": "uppy",
+   "rime_say": "uppy",
+   "onset_phonemes": [
+    "P"
+   ],
+   "keyword": "pig",
+   "emoji": "🐷",
+   "needs_review": false,
+   "word_say": "puppy"
+  },
   "pushed": {
    "type": "decodable",
    "graphemes": [
@@ -4928,6 +11139,32 @@
    "needs_review": false,
    "word_say": "put"
   },
+  "quiet": {
+   "type": "decodable",
+   "graphemes": [
+    "qu",
+    "i",
+    "e",
+    "t"
+   ],
+   "phonemes": [
+    "K W",
+    "AY",
+    "AH",
+    "T"
+   ],
+   "onset": "qu",
+   "rime": "iet",
+   "rime_say": "iet",
+   "onset_phonemes": [
+    "K",
+    "W"
+   ],
+   "keyword": "queen",
+   "emoji": "👑",
+   "needs_review": false,
+   "word_say": "quiet"
+  },
   "race": {
    "type": "decodable",
    "graphemes": [
@@ -4952,6 +11189,56 @@
    "needs_review": false,
    "word_say": "race"
   },
+  "radio": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "a",
+    "d",
+    "i",
+    "o"
+   ],
+   "phonemes": [
+    "R",
+    "EY",
+    "D",
+    "IY",
+    "OW"
+   ],
+   "onset": "r",
+   "rime": "adio",
+   "rime_say": "adio",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "radio"
+  },
+  "rag": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "a",
+    "g"
+   ],
+   "phonemes": [
+    "R",
+    "AE",
+    "G"
+   ],
+   "onset": "r",
+   "rime": "ag",
+   "rime_say": "ag",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "rag"
+  },
   "rain": {
    "type": "decodable",
    "graphemes": [
@@ -4974,6 +11261,37 @@
    "emoji": "🐰",
    "needs_review": false,
    "word_say": "rain"
+  },
+  "rainwater": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ai",
+    "n",
+    "w",
+    "a",
+    "t",
+    "er"
+   ],
+   "phonemes": [
+    "R",
+    "EY",
+    "N",
+    "W",
+    "AO",
+    "T",
+    "ER"
+   ],
+   "onset": "r",
+   "rime": "ainwater",
+   "rime_say": "ainwater",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "rainwater"
   },
   "rainy": {
    "type": "decodable",
@@ -5046,6 +11364,31 @@
    "needs_review": false,
    "word_say": "reach"
   },
+  "reached": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ea",
+    "ch",
+    "ed"
+   ],
+   "phonemes": [
+    "R",
+    "IY",
+    "CH",
+    "T"
+   ],
+   "onset": "r",
+   "rime": "eached",
+   "rime_say": "eached",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "reached"
+  },
   "read": {
    "type": "decodable",
    "graphemes": [
@@ -5069,6 +11412,54 @@
    "needs_review": false,
    "word_say": "read"
   },
+  "ready": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ea",
+    "d",
+    "y"
+   ],
+   "phonemes": [
+    "R",
+    "EH",
+    "D",
+    "IY"
+   ],
+   "onset": "r",
+   "rime": "eady",
+   "rime_say": "edy",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "ready"
+  },
+  "real": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ea",
+    "l"
+   ],
+   "phonemes": [
+    "R",
+    "IY",
+    "L"
+   ],
+   "onset": "r",
+   "rime": "eal",
+   "rime_say": "eal",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "real"
+  },
   "red": {
    "type": "decodable",
    "graphemes": [
@@ -5091,6 +11482,94 @@
    "emoji": "🐰",
    "needs_review": false,
    "word_say": "red"
+  },
+  "reduce": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ed",
+    "u",
+    "c",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "R",
+    "AH D",
+    "UW",
+    "S"
+   ],
+   "onset": "r",
+   "rime": "educe",
+   "rime_say": "educe",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "reduce"
+  },
+  "relieved": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "e",
+    "l",
+    "ie",
+    "v",
+    "ed"
+   ],
+   "phonemes": [
+    "R",
+    "IH",
+    "L",
+    "IY",
+    "V",
+    "D"
+   ],
+   "onset": "r",
+   "rime": "elieved",
+   "rime_say": "elieved",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "relieved"
+  },
+  "remembered": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "e",
+    "m",
+    "e",
+    "m",
+    "b",
+    "er",
+    "ed"
+   ],
+   "phonemes": [
+    "R",
+    "IH",
+    "M",
+    "EH",
+    "M",
+    "B",
+    "ER",
+    "D"
+   ],
+   "onset": "r",
+   "rime": "emembered",
+   "rime_say": "emembered",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "remembered"
   },
   "return": {
    "type": "decodable",
@@ -5119,6 +11598,33 @@
    "needs_review": false,
    "word_say": "return"
   },
+  "reused": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "e",
+    "u",
+    "s",
+    "ed"
+   ],
+   "phonemes": [
+    "R",
+    "IY",
+    "UW",
+    "Z",
+    "D"
+   ],
+   "onset": "r",
+   "rime": "eused",
+   "rime_say": "eused",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "reused"
+  },
   "rice": {
    "type": "decodable",
    "graphemes": [
@@ -5142,6 +11648,30 @@
    "emoji": "🐰",
    "needs_review": false,
    "word_say": "rice"
+  },
+  "ride": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "i",
+    "d",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "R",
+    "AY",
+    "D"
+   ],
+   "onset": "r",
+   "rime": "ide",
+   "rime_say": "ide",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "ride"
   },
   "right": {
    "type": "decodable",
@@ -5193,6 +11723,56 @@
    "needs_review": false,
    "word_say": "robot"
   },
+  "rocks": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "o",
+    "ck",
+    "s"
+   ],
+   "phonemes": [
+    "R",
+    "AA",
+    "K",
+    "S"
+   ],
+   "onset": "r",
+   "rime": "ocks",
+   "rime_say": "ocks",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "rocks"
+  },
+  "rocky": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "o",
+    "ck",
+    "y"
+   ],
+   "phonemes": [
+    "R",
+    "AA",
+    "K",
+    "IY"
+   ],
+   "onset": "r",
+   "rime": "ocky",
+   "rime_say": "ocky",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "rocky"
+  },
   "roots": {
    "type": "decodable",
    "graphemes": [
@@ -5217,6 +11797,79 @@
    "emoji": "🐰",
    "needs_review": false,
    "word_say": "roots"
+  },
+  "rosa": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "o",
+    "s",
+    "a"
+   ],
+   "phonemes": [
+    "R",
+    "OW",
+    "Z",
+    "AH"
+   ],
+   "onset": "r",
+   "rime": "osa",
+   "rime_say": "osa",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "rosa"
+  },
+  "rosas": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "o",
+    "s",
+    "a",
+    "s"
+   ],
+   "phonemes": [
+    "R",
+    "OW",
+    "Z",
+    "AH",
+    "Z"
+   ],
+   "onset": "r",
+   "rime": "osas",
+   "rime_say": "osas",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "rosas"
+  },
+  "row": {
+   "type": "decodable",
+   "graphemes": [
+    "r",
+    "ow"
+   ],
+   "phonemes": [
+    "R",
+    "OW"
+   ],
+   "onset": "r",
+   "rime": "ow",
+   "rime_say": "ow",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "row"
   },
   "running": {
    "type": "decodable",
@@ -5420,6 +12073,35 @@
    "needs_review": false,
    "word_say": "sand"
   },
+  "santos": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "a",
+    "n",
+    "t",
+    "o",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "AE",
+    "N",
+    "T",
+    "OW",
+    "S"
+   ],
+   "onset": "s",
+   "rime": "antos",
+   "rime_say": "antos",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "santos"
+  },
   "sat": {
    "type": "decodable",
    "graphemes": [
@@ -5442,6 +12124,47 @@
    "emoji": "☀️",
    "needs_review": false,
    "word_say": "sat"
+  },
+  "saturday": {
+   "type": "tricky",
+   "graphemes": [
+    "saturday"
+   ],
+   "phonemes": [
+    "S AE T IH D EY"
+   ],
+   "onset": "",
+   "rime": "saturday",
+   "rime_say": "saturday",
+   "onset_phonemes": [],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "saturday"
+  },
+  "save": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "a",
+    "v",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "EY",
+    "V"
+   ],
+   "onset": "s",
+   "rime": "ave",
+   "rime_say": "ave",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "save"
   },
   "saw": {
    "type": "decodable",
@@ -5490,6 +12213,66 @@
    "needs_review": false,
    "word_say": "school"
   },
+  "science": {
+   "type": "tricky",
+   "graphemes": [
+    "s(silent)",
+    "c",
+    "i",
+    "e",
+    "n",
+    "c",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "AY",
+    "AH",
+    "N",
+    "S"
+   ],
+   "onset": "sc",
+   "rime": "ience",
+   "rime_say": "ience",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "science"
+  },
+  "scraps": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "c",
+    "r",
+    "a",
+    "p",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "K",
+    "R",
+    "AE",
+    "P",
+    "S"
+   ],
+   "onset": "scr",
+   "rime": "aps",
+   "rime_say": "aps",
+   "onset_phonemes": [
+    "S",
+    "K",
+    "R"
+   ],
+   "keyword": "screw",
+   "emoji": "🔩",
+   "needs_review": false,
+   "word_say": "scraps"
+  },
   "sea": {
    "type": "decodable",
    "graphemes": [
@@ -5510,6 +12293,58 @@
    "emoji": "☀️",
    "needs_review": false,
    "word_say": "sea"
+  },
+  "searched": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "ear",
+    "ch",
+    "ed"
+   ],
+   "phonemes": [
+    "S",
+    "ER",
+    "CH",
+    "T"
+   ],
+   "onset": "s",
+   "rime": "earched",
+   "rime_say": "earched",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "searched"
+  },
+  "season": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "ea",
+    "s",
+    "o",
+    "n"
+   ],
+   "phonemes": [
+    "S",
+    "IY",
+    "Z",
+    "AH",
+    "N"
+   ],
+   "onset": "s",
+   "rime": "eason",
+   "rime_say": "eason",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "season"
   },
   "second": {
    "type": "decodable",
@@ -5540,6 +12375,94 @@
    "needs_review": false,
    "word_say": "second"
   },
+  "security": {
+   "type": "tricky",
+   "graphemes": [
+    "security"
+   ],
+   "phonemes": [
+    "S IH K Y UH R AH T IY"
+   ],
+   "onset": "",
+   "rime": "security",
+   "rime_say": "security",
+   "onset_phonemes": [],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "security"
+  },
+  "see": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "ee"
+   ],
+   "phonemes": [
+    "S",
+    "IY"
+   ],
+   "onset": "s",
+   "rime": "ee",
+   "rime_say": "ee",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "see"
+  },
+  "seeds": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "e",
+    "ed",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "IY",
+    "D",
+    "Z"
+   ],
+   "onset": "s",
+   "rime": "eeds",
+   "rime_say": "eeds",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "seeds"
+  },
+  "seeing": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "ee",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "S",
+    "IY",
+    "IH",
+    "NG"
+   ],
+   "onset": "s",
+   "rime": "eeing",
+   "rime_say": "eeing",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "seeing"
+  },
   "sell": {
    "type": "decodable",
    "graphemes": [
@@ -5562,6 +12485,52 @@
    "emoji": "☀️",
    "needs_review": false,
    "word_say": "sell"
+  },
+  "shaped": {
+   "type": "decodable",
+   "graphemes": [
+    "sh",
+    "a",
+    "p",
+    "ed"
+   ],
+   "phonemes": [
+    "SH",
+    "EY",
+    "P",
+    "T"
+   ],
+   "onset": "sh",
+   "rime": "aped",
+   "rime_say": "aped",
+   "onset_phonemes": [
+    "SH"
+   ],
+   "keyword": "shoe",
+   "emoji": "👟",
+   "needs_review": false,
+   "word_say": "shaped"
+  },
+  "share": {
+   "type": "decodable",
+   "graphemes": [
+    "sh",
+    "are"
+   ],
+   "phonemes": [
+    "SH",
+    "EH R"
+   ],
+   "onset": "sh",
+   "rime": "are",
+   "rime_say": "are",
+   "onset_phonemes": [
+    "SH"
+   ],
+   "keyword": "shoe",
+   "emoji": "👟",
+   "needs_review": false,
+   "word_say": "share"
   },
   "shared": {
    "type": "decodable",
@@ -5797,6 +12766,170 @@
    "needs_review": false,
    "word_say": "shouted"
   },
+  "sister": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "i",
+    "s",
+    "t",
+    "er"
+   ],
+   "phonemes": [
+    "S",
+    "IH",
+    "S",
+    "T",
+    "ER"
+   ],
+   "onset": "s",
+   "rime": "ister",
+   "rime_say": "ister",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "sister"
+  },
+  "sits": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "i",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "IH",
+    "T",
+    "S"
+   ],
+   "onset": "s",
+   "rime": "its",
+   "rime_say": "its",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "sits"
+  },
+  "skeleton": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "k",
+    "e",
+    "l",
+    "e",
+    "t",
+    "o",
+    "n"
+   ],
+   "phonemes": [
+    "S",
+    "K",
+    "EH",
+    "L",
+    "AH",
+    "T",
+    "AH",
+    "N"
+   ],
+   "onset": "sk",
+   "rime": "eleton",
+   "rime_say": "eleton",
+   "onset_phonemes": [
+    "S",
+    "K"
+   ],
+   "keyword": "skate",
+   "emoji": "⛸️",
+   "needs_review": false,
+   "word_say": "skeleton"
+  },
+  "sky": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "k",
+    "y"
+   ],
+   "phonemes": [
+    "S",
+    "K",
+    "AY"
+   ],
+   "onset": "sk",
+   "rime": "y",
+   "rime_say": "eye",
+   "onset_phonemes": [
+    "S",
+    "K"
+   ],
+   "keyword": "skate",
+   "emoji": "⛸️",
+   "needs_review": false,
+   "word_say": "sky"
+  },
+  "slice": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "l",
+    "i",
+    "c",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "L",
+    "AY",
+    "S"
+   ],
+   "onset": "sl",
+   "rime": "ice",
+   "rime_say": "ice",
+   "onset_phonemes": [
+    "S",
+    "L"
+   ],
+   "keyword": "sled",
+   "emoji": "🛷",
+   "needs_review": false,
+   "word_say": "slice"
+  },
+  "slide": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "l",
+    "i",
+    "d",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "L",
+    "AY",
+    "D"
+   ],
+   "onset": "sl",
+   "rime": "ide",
+   "rime_say": "ide",
+   "onset_phonemes": [
+    "S",
+    "L"
+   ],
+   "keyword": "sled",
+   "emoji": "🛷",
+   "needs_review": false,
+   "word_say": "slide"
+  },
   "slipping": {
    "type": "decodable",
    "graphemes": [
@@ -5881,6 +13014,34 @@
    "needs_review": false,
    "word_say": "small"
   },
+  "smelled": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "m",
+    "e",
+    "ll",
+    "ed"
+   ],
+   "phonemes": [
+    "S",
+    "M",
+    "EH",
+    "L",
+    "D"
+   ],
+   "onset": "sm",
+   "rime": "elled",
+   "rime_say": "elled",
+   "onset_phonemes": [
+    "S",
+    "M"
+   ],
+   "keyword": "smile",
+   "emoji": "😊",
+   "needs_review": false,
+   "word_say": "smelled"
+  },
   "smile": {
    "type": "decodable",
    "graphemes": [
@@ -5936,6 +13097,35 @@
    "needs_review": false,
    "word_say": "smiled"
   },
+  "smiles": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "m",
+    "i",
+    "l",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "M",
+    "AY",
+    "L",
+    "Z"
+   ],
+   "onset": "sm",
+   "rime": "iles",
+   "rime_say": "iles",
+   "onset_phonemes": [
+    "S",
+    "M"
+   ],
+   "keyword": "smile",
+   "emoji": "😊",
+   "needs_review": false,
+   "word_say": "smiles"
+  },
   "so": {
    "type": "decodable",
    "graphemes": [
@@ -5956,6 +13146,31 @@
    "emoji": "☀️",
    "needs_review": false,
    "word_say": "so"
+  },
+  "soda": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "o",
+    "d",
+    "a"
+   ],
+   "phonemes": [
+    "S",
+    "OW",
+    "D",
+    "AH"
+   ],
+   "onset": "s",
+   "rime": "oda",
+   "rime_say": "oda",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "soda"
   },
   "soft": {
    "type": "decodable",
@@ -6004,6 +13219,58 @@
    "emoji": "☀️",
    "needs_review": false,
    "word_say": "soil"
+  },
+  "someone": {
+   "type": "tricky",
+   "graphemes": [
+    "s",
+    "o",
+    "m",
+    "e(silent)",
+    "o",
+    "n",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "AH",
+    "M",
+    "W AH",
+    "N"
+   ],
+   "onset": "s",
+   "rime": "omeone",
+   "rime_say": "omeone",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "someone"
+  },
+  "soon": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "oo",
+    "n"
+   ],
+   "phonemes": [
+    "S",
+    "UW",
+    "N"
+   ],
+   "onset": "s",
+   "rime": "oon",
+   "rime_say": "oon",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "soon"
   },
   "sort": {
    "type": "decodable",
@@ -6054,6 +13321,160 @@
    "emoji": "☀️",
    "needs_review": false,
    "word_say": "sounded"
+  },
+  "soup": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "ou",
+    "p"
+   ],
+   "phonemes": [
+    "S",
+    "UW",
+    "P"
+   ],
+   "onset": "s",
+   "rime": "oup",
+   "rime_say": "oop",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "soup"
+  },
+  "special": {
+   "type": "tricky",
+   "graphemes": [
+    "special"
+   ],
+   "phonemes": [
+    "S P EH SH AH L"
+   ],
+   "onset": "",
+   "rime": "special",
+   "rime_say": "special",
+   "onset_phonemes": [],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "special"
+  },
+  "spiral": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "p",
+    "i",
+    "r",
+    "a",
+    "l"
+   ],
+   "phonemes": [
+    "S",
+    "P",
+    "AY",
+    "R",
+    "AH",
+    "L"
+   ],
+   "onset": "sp",
+   "rime": "iral",
+   "rime_say": "iral",
+   "onset_phonemes": [
+    "S",
+    "P"
+   ],
+   "keyword": "spoon",
+   "emoji": "🥄",
+   "needs_review": false,
+   "word_say": "spiral"
+  },
+  "squash": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "qu",
+    "a",
+    "sh"
+   ],
+   "phonemes": [
+    "S",
+    "K W",
+    "AA",
+    "SH"
+   ],
+   "onset": "squ",
+   "rime": "ash",
+   "rime_say": "osh",
+   "onset_phonemes": [
+    "S",
+    "K",
+    "W"
+   ],
+   "keyword": "squid",
+   "emoji": "🦑",
+   "needs_review": false,
+   "word_say": "squash"
+  },
+  "staircase": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "air",
+    "c",
+    "a",
+    "s",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "EH R",
+    "K",
+    "EY",
+    "S"
+   ],
+   "onset": "st",
+   "rime": "aircase",
+   "rime_say": "aircase",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "staircase"
+  },
+  "stairs": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "air",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "EH R",
+    "Z"
+   ],
+   "onset": "st",
+   "rime": "airs",
+   "rime_say": "airs",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "stairs"
   },
   "stalls": {
    "type": "decodable",
@@ -6139,6 +13560,30 @@
    "needs_review": false,
    "word_say": "stars"
   },
+  "stay": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "ay"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "EY"
+   ],
+   "onset": "st",
+   "rime": "ay",
+   "rime_say": "ay",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "stay"
+  },
   "stayed": {
    "type": "decodable",
    "graphemes": [
@@ -6164,6 +13609,32 @@
    "emoji": "⭐",
    "needs_review": false,
    "word_say": "stayed"
+  },
+  "steered": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "eer",
+    "ed"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "IH R",
+    "D"
+   ],
+   "onset": "st",
+   "rime": "eered",
+   "rime_say": "eered",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "steered"
   },
   "sticks": {
    "type": "decodable",
@@ -6221,6 +13692,35 @@
    "needs_review": false,
    "word_say": "stitched"
   },
+  "stones": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "o",
+    "n",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "OW",
+    "N",
+    "Z"
+   ],
+   "onset": "st",
+   "rime": "ones",
+   "rime_say": "ones",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "stones"
+  },
   "stopped": {
    "type": "decodable",
    "graphemes": [
@@ -6249,6 +13749,34 @@
    "needs_review": false,
    "word_say": "stopped"
   },
+  "stories": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "or",
+    "ie",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "AO R",
+    "IY",
+    "Z"
+   ],
+   "onset": "st",
+   "rime": "ories",
+   "rime_say": "ories",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "stories"
+  },
   "storm": {
    "type": "decodable",
    "graphemes": [
@@ -6275,6 +13803,34 @@
    "needs_review": false,
    "word_say": "storm"
   },
+  "stormy": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "or",
+    "m",
+    "y"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "AO R",
+    "M",
+    "IY"
+   ],
+   "onset": "st",
+   "rime": "ormy",
+   "rime_say": "ormy",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "stormy"
+  },
   "story": {
    "type": "decodable",
    "graphemes": [
@@ -6300,6 +13856,98 @@
    "emoji": "⭐",
    "needs_review": false,
    "word_say": "story"
+  },
+  "street": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "r",
+    "ee",
+    "t"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "R",
+    "IY",
+    "T"
+   ],
+   "onset": "str",
+   "rime": "eet",
+   "rime_say": "eet",
+   "onset_phonemes": [
+    "S",
+    "T",
+    "R"
+   ],
+   "keyword": "string",
+   "emoji": "🧵",
+   "needs_review": false,
+   "word_say": "street"
+  },
+  "streets": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "r",
+    "ee",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "R",
+    "IY",
+    "T",
+    "S"
+   ],
+   "onset": "str",
+   "rime": "eets",
+   "rime_say": "eets",
+   "onset_phonemes": [
+    "S",
+    "T",
+    "R"
+   ],
+   "keyword": "string",
+   "emoji": "🧵",
+   "needs_review": false,
+   "word_say": "streets"
+  },
+  "stripes": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "r",
+    "i",
+    "p",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "R",
+    "AY",
+    "P",
+    "S"
+   ],
+   "onset": "str",
+   "rime": "ipes",
+   "rime_say": "ipes",
+   "onset_phonemes": [
+    "S",
+    "T",
+    "R"
+   ],
+   "keyword": "string",
+   "emoji": "🧵",
+   "needs_review": false,
+   "word_say": "stripes"
   },
   "strong": {
    "type": "decodable",
@@ -6330,6 +13978,114 @@
    "needs_review": false,
    "word_say": "strong"
   },
+  "students": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "t",
+    "u",
+    "d",
+    "e",
+    "n",
+    "t",
+    "s"
+   ],
+   "phonemes": [
+    "S",
+    "T",
+    "UW",
+    "D",
+    "AH",
+    "N",
+    "T",
+    "S"
+   ],
+   "onset": "st",
+   "rime": "udents",
+   "rime_say": "udents",
+   "onset_phonemes": [
+    "S",
+    "T"
+   ],
+   "keyword": "star",
+   "emoji": "⭐",
+   "needs_review": false,
+   "word_say": "students"
+  },
+  "summer": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "u",
+    "mm",
+    "er"
+   ],
+   "phonemes": [
+    "S",
+    "AH",
+    "M",
+    "ER"
+   ],
+   "onset": "s",
+   "rime": "ummer",
+   "rime_say": "ummer",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sun",
+   "emoji": "☀️",
+   "needs_review": false,
+   "word_say": "summer"
+  },
+  "sun": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "u",
+    "n"
+   ],
+   "phonemes": [
+    "S",
+    "AH",
+    "N"
+   ],
+   "onset": "s",
+   "rime": "un",
+   "rime_say": "un",
+   "onset_phonemes": [
+    "S"
+   ],
+   "keyword": "sock",
+   "emoji": "🧦",
+   "needs_review": false,
+   "word_say": "sun"
+  },
+  "swam": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "w",
+    "a",
+    "m"
+   ],
+   "phonemes": [
+    "S",
+    "W",
+    "AE",
+    "M"
+   ],
+   "onset": "sw",
+   "rime": "am",
+   "rime_say": "am",
+   "onset_phonemes": [
+    "S",
+    "W"
+   ],
+   "keyword": "swan",
+   "emoji": "🦢",
+   "needs_review": false,
+   "word_say": "swam"
+  },
   "sweep": {
    "type": "decodable",
    "graphemes": [
@@ -6356,6 +14112,84 @@
    "needs_review": false,
    "word_say": "sweep"
   },
+  "sweet": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "w",
+    "ee",
+    "t"
+   ],
+   "phonemes": [
+    "S",
+    "W",
+    "IY",
+    "T"
+   ],
+   "onset": "sw",
+   "rime": "eet",
+   "rime_say": "eet",
+   "onset_phonemes": [
+    "S",
+    "W"
+   ],
+   "keyword": "swan",
+   "emoji": "🦢",
+   "needs_review": false,
+   "word_say": "sweet"
+  },
+  "swim": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "w",
+    "i",
+    "m"
+   ],
+   "phonemes": [
+    "S",
+    "W",
+    "IH",
+    "M"
+   ],
+   "onset": "sw",
+   "rime": "im",
+   "rime_say": "im",
+   "onset_phonemes": [
+    "S",
+    "W"
+   ],
+   "keyword": "swan",
+   "emoji": "🦢",
+   "needs_review": false,
+   "word_say": "swim"
+  },
+  "swing": {
+   "type": "decodable",
+   "graphemes": [
+    "s",
+    "w",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "S",
+    "W",
+    "IH",
+    "NG"
+   ],
+   "onset": "sw",
+   "rime": "ing",
+   "rime_say": "ing",
+   "onset_phonemes": [
+    "S",
+    "W"
+   ],
+   "keyword": "swan",
+   "emoji": "🦢",
+   "needs_review": false,
+   "word_say": "swing"
+  },
   "table": {
    "type": "decodable",
    "graphemes": [
@@ -6380,6 +14214,102 @@
    "emoji": "🐯",
    "needs_review": false,
    "word_say": "table"
+  },
+  "tall": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "a",
+    "ll"
+   ],
+   "phonemes": [
+    "T",
+    "AO",
+    "L"
+   ],
+   "onset": "t",
+   "rime": "all",
+   "rime_say": "all",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tall"
+  },
+  "tap": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "a",
+    "p"
+   ],
+   "phonemes": [
+    "T",
+    "AE",
+    "P"
+   ],
+   "onset": "t",
+   "rime": "ap",
+   "rime_say": "ap",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tap"
+  },
+  "tasty": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "a",
+    "s",
+    "t",
+    "y"
+   ],
+   "phonemes": [
+    "T",
+    "EY",
+    "S",
+    "T",
+    "IY"
+   ],
+   "onset": "t",
+   "rime": "asty",
+   "rime_say": "asty",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tasty"
+  },
+  "taught": {
+   "type": "tricky",
+   "graphemes": [
+    "t",
+    "augh",
+    "t"
+   ],
+   "phonemes": [
+    "T",
+    "AO",
+    "T"
+   ],
+   "onset": "t",
+   "rime": "aught",
+   "rime_say": "aught",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "taught"
   },
   "teach": {
    "type": "decodable",
@@ -6429,6 +14359,104 @@
    "needs_review": false,
    "word_say": "teacher"
   },
+  "teachers": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "ea",
+    "ch",
+    "er",
+    "s"
+   ],
+   "phonemes": [
+    "T",
+    "IY",
+    "CH",
+    "ER",
+    "Z"
+   ],
+   "onset": "t",
+   "rime": "eachers",
+   "rime_say": "eachers",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "teachers"
+  },
+  "teeth": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "ee",
+    "th"
+   ],
+   "phonemes": [
+    "T",
+    "IY",
+    "TH"
+   ],
+   "onset": "t",
+   "rime": "eeth",
+   "rime_say": "eeth",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "teeth"
+  },
+  "tell": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "e",
+    "ll"
+   ],
+   "phonemes": [
+    "T",
+    "EH",
+    "L"
+   ],
+   "onset": "t",
+   "rime": "ell",
+   "rime_say": "ell",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tell"
+  },
+  "tells": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "e",
+    "ll",
+    "s"
+   ],
+   "phonemes": [
+    "T",
+    "EH",
+    "L",
+    "Z"
+   ],
+   "onset": "t",
+   "rime": "ells",
+   "rime_say": "ells",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tells"
+  },
   "ten": {
    "type": "decodable",
    "graphemes": [
@@ -6451,6 +14479,35 @@
    "emoji": "🐯",
    "needs_review": false,
    "word_say": "ten"
+  },
+  "terrible": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "e",
+    "rr",
+    "i",
+    "b",
+    "le"
+   ],
+   "phonemes": [
+    "T",
+    "EH",
+    "R",
+    "AH",
+    "B",
+    "AH L"
+   ],
+   "onset": "t",
+   "rime": "errible",
+   "rime_say": "errible",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "terrible"
   },
   "than": {
    "type": "decodable",
@@ -6625,6 +14682,23 @@
    "needs_review": false,
    "word_say": "thea"
   },
+  "their": {
+   "type": "sight",
+   "graphemes": [
+    "their"
+   ],
+   "phonemes": [
+    "DH EH R"
+   ],
+   "onset": "",
+   "rime": "their",
+   "rime_say": "their",
+   "onset_phonemes": [],
+   "keyword": "this",
+   "emoji": "👉",
+   "needs_review": false,
+   "word_say": "their"
+  },
   "them": {
    "type": "decodable",
    "graphemes": [
@@ -6670,6 +14744,30 @@
    "emoji": "👉",
    "needs_review": false,
    "word_say": "then"
+  },
+  "there": {
+   "type": "sight",
+   "graphemes": [
+    "th",
+    "e",
+    "r",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "DH",
+    "EH",
+    "R"
+   ],
+   "onset": "th",
+   "rime": "ere",
+   "rime_say": "ere",
+   "onset_phonemes": [
+    "DH"
+   ],
+   "keyword": "this",
+   "emoji": "👉",
+   "needs_review": false,
+   "word_say": "there"
   },
   "they": {
    "type": "sight",
@@ -6860,6 +14958,29 @@
    "needs_review": false,
    "word_say": "tied"
   },
+  "tight": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "igh",
+    "t"
+   ],
+   "phonemes": [
+    "T",
+    "AY",
+    "T"
+   ],
+   "onset": "t",
+   "rime": "ight",
+   "rime_say": "ight",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tight"
+  },
   "times": {
    "type": "decodable",
    "graphemes": [
@@ -6961,6 +15082,109 @@
    "needs_review": false,
    "word_say": "together"
   },
+  "told": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "o",
+    "l",
+    "d"
+   ],
+   "phonemes": [
+    "T",
+    "OW",
+    "L",
+    "D"
+   ],
+   "onset": "t",
+   "rime": "old",
+   "rime_say": "old",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "told"
+  },
+  "tom": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "o",
+    "m"
+   ],
+   "phonemes": [
+    "T",
+    "AA",
+    "M"
+   ],
+   "onset": "t",
+   "rime": "om",
+   "rime_say": "om",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tom"
+  },
+  "tomatoes": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "o",
+    "m",
+    "a",
+    "t",
+    "oe",
+    "s"
+   ],
+   "phonemes": [
+    "T",
+    "AH",
+    "M",
+    "EY",
+    "T",
+    "OW",
+    "Z"
+   ],
+   "onset": "t",
+   "rime": "omatoes",
+   "rime_say": "omatoes",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tomatoes"
+  },
+  "tongue": {
+   "type": "tricky",
+   "graphemes": [
+    "t",
+    "o",
+    "ng",
+    "ue(silent)"
+   ],
+   "phonemes": [
+    "T",
+    "AH",
+    "NG"
+   ],
+   "onset": "t",
+   "rime": "ongue",
+   "rime_say": "ungue",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "tongue"
+  },
   "too": {
    "type": "decodable",
    "graphemes": [
@@ -7028,6 +15252,35 @@
    "needs_review": false,
    "word_say": "torn"
   },
+  "toward": {
+   "type": "tricky",
+   "graphemes": [
+    "t",
+    "o",
+    "w",
+    "a",
+    "r",
+    "d"
+   ],
+   "phonemes": [
+    "T",
+    "AH",
+    "W",
+    "AO",
+    "R",
+    "D"
+   ],
+   "onset": "t",
+   "rime": "oward",
+   "rime_say": "oward",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "toward"
+  },
   "town": {
    "type": "decodable",
    "graphemes": [
@@ -7050,6 +15303,32 @@
    "emoji": "🐯",
    "needs_review": false,
    "word_say": "town"
+  },
+  "trash": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "r",
+    "a",
+    "sh"
+   ],
+   "phonemes": [
+    "T",
+    "R",
+    "AE",
+    "SH"
+   ],
+   "onset": "tr",
+   "rime": "ash",
+   "rime_say": "ash",
+   "onset_phonemes": [
+    "T",
+    "R"
+   ],
+   "keyword": "tree",
+   "emoji": "🌳",
+   "needs_review": false,
+   "word_say": "trash"
   },
   "tree": {
    "type": "decodable",
@@ -7074,6 +15353,34 @@
    "emoji": "🚂",
    "needs_review": false,
    "word_say": "tree"
+  },
+  "tricked": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "r",
+    "i",
+    "ck",
+    "ed"
+   ],
+   "phonemes": [
+    "T",
+    "R",
+    "IH",
+    "K",
+    "T"
+   ],
+   "onset": "tr",
+   "rime": "icked",
+   "rime_say": "icked",
+   "onset_phonemes": [
+    "T",
+    "R"
+   ],
+   "keyword": "tree",
+   "emoji": "🌳",
+   "needs_review": false,
+   "word_say": "tricked"
   },
   "tried": {
    "type": "decodable",
@@ -7174,6 +15481,31 @@
    "needs_review": false,
    "word_say": "tub"
   },
+  "turned": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "ur",
+    "n",
+    "ed"
+   ],
+   "phonemes": [
+    "T",
+    "ER",
+    "N",
+    "D"
+   ],
+   "onset": "t",
+   "rime": "urned",
+   "rime_say": "urned",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "turned"
+  },
   "turns": {
    "type": "decodable",
    "graphemes": [
@@ -7226,6 +15558,31 @@
    "needs_review": false,
    "word_say": "turon"
   },
+  "turtle": {
+   "type": "decodable",
+   "graphemes": [
+    "t",
+    "ur",
+    "t",
+    "le"
+   ],
+   "phonemes": [
+    "T",
+    "ER",
+    "T",
+    "AH L"
+   ],
+   "onset": "t",
+   "rime": "urtle",
+   "rime_say": "urtle",
+   "onset_phonemes": [
+    "T"
+   ],
+   "keyword": "tiger",
+   "emoji": "🐯",
+   "needs_review": false,
+   "word_say": "turtle"
+  },
   "two": {
    "type": "sight",
    "graphemes": [
@@ -7276,6 +15633,79 @@
    "needs_review": false,
    "word_say": "typhoons"
   },
+  "uncle": {
+   "type": "decodable",
+   "graphemes": [
+    "u",
+    "n",
+    "c",
+    "le"
+   ],
+   "phonemes": [
+    "AH",
+    "NG",
+    "K",
+    "AH L"
+   ],
+   "onset": "",
+   "rime": "uncle",
+   "rime_say": "uncle",
+   "onset_phonemes": [],
+   "keyword": "umbrella",
+   "emoji": "☂️",
+   "needs_review": false,
+   "word_say": "uncle"
+  },
+  "under": {
+   "type": "decodable",
+   "graphemes": [
+    "u",
+    "n",
+    "d",
+    "er"
+   ],
+   "phonemes": [
+    "AH",
+    "N",
+    "D",
+    "ER"
+   ],
+   "onset": "",
+   "rime": "under",
+   "rime_say": "under",
+   "onset_phonemes": [],
+   "keyword": "umbrella",
+   "emoji": "☂️",
+   "needs_review": false,
+   "word_say": "under"
+  },
+  "uniform": {
+   "type": "decodable",
+   "graphemes": [
+    "u",
+    "n",
+    "i",
+    "f",
+    "or",
+    "m"
+   ],
+   "phonemes": [
+    "Y UW",
+    "N",
+    "AH",
+    "F",
+    "AO R",
+    "M"
+   ],
+   "onset": "",
+   "rime": "uniform",
+   "rime_say": "uniform",
+   "onset_phonemes": [],
+   "keyword": "yarn",
+   "emoji": "🧶",
+   "needs_review": false,
+   "word_say": "uniform"
+  },
   "up": {
    "type": "decodable",
    "graphemes": [
@@ -7314,6 +15744,52 @@
    "needs_review": false,
    "word_say": "us"
   },
+  "used": {
+   "type": "decodable",
+   "graphemes": [
+    "u",
+    "s",
+    "ed"
+   ],
+   "phonemes": [
+    "Y UW",
+    "Z",
+    "D"
+   ],
+   "onset": "",
+   "rime": "used",
+   "rime_say": "used",
+   "onset_phonemes": [],
+   "keyword": "yarn",
+   "emoji": "🧶",
+   "needs_review": false,
+   "word_say": "used"
+  },
+  "very": {
+   "type": "decodable",
+   "graphemes": [
+    "v",
+    "e",
+    "r",
+    "y"
+   ],
+   "phonemes": [
+    "V",
+    "EH",
+    "R",
+    "IY"
+   ],
+   "onset": "v",
+   "rime": "ery",
+   "rime_say": "ery",
+   "onset_phonemes": [
+    "V"
+   ],
+   "keyword": "van",
+   "emoji": "🚐",
+   "needs_review": false,
+   "word_say": "very"
+  },
   "village": {
    "type": "tricky",
    "graphemes": [
@@ -7341,6 +15817,126 @@
    "emoji": "🚐",
    "needs_review": false,
    "word_say": "village"
+  },
+  "vinegar": {
+   "type": "decodable",
+   "graphemes": [
+    "v",
+    "i",
+    "n",
+    "e",
+    "g",
+    "ar"
+   ],
+   "phonemes": [
+    "V",
+    "IH",
+    "N",
+    "AH",
+    "G",
+    "ER"
+   ],
+   "onset": "v",
+   "rime": "inegar",
+   "rime_say": "inegar",
+   "onset_phonemes": [
+    "V"
+   ],
+   "keyword": "van",
+   "emoji": "🚐",
+   "needs_review": false,
+   "word_say": "vinegar"
+  },
+  "volcano": {
+   "type": "decodable",
+   "graphemes": [
+    "v",
+    "o",
+    "l",
+    "c",
+    "a",
+    "n",
+    "o"
+   ],
+   "phonemes": [
+    "V",
+    "AA",
+    "L",
+    "K",
+    "EY",
+    "N",
+    "OW"
+   ],
+   "onset": "v",
+   "rime": "olcano",
+   "rime_say": "olcano",
+   "onset_phonemes": [
+    "V"
+   ],
+   "keyword": "van",
+   "emoji": "🚐",
+   "needs_review": false,
+   "word_say": "volcano"
+  },
+  "volcanoes": {
+   "type": "decodable",
+   "graphemes": [
+    "v",
+    "o",
+    "l",
+    "c",
+    "a",
+    "n",
+    "oe",
+    "s"
+   ],
+   "phonemes": [
+    "V",
+    "AA",
+    "L",
+    "K",
+    "EY",
+    "N",
+    "OW",
+    "Z"
+   ],
+   "onset": "v",
+   "rime": "olcanoes",
+   "rime_say": "olcanoes",
+   "onset_phonemes": [
+    "V"
+   ],
+   "keyword": "van",
+   "emoji": "🚐",
+   "needs_review": false,
+   "word_say": "volcanoes"
+  },
+  "waiting": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "ai",
+    "t",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "W",
+    "EY",
+    "T",
+    "IH",
+    "NG"
+   ],
+   "onset": "w",
+   "rime": "aiting",
+   "rime_say": "aiting",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "waiting"
   },
   "walked": {
    "type": "tricky",
@@ -7395,6 +15991,35 @@
    "needs_review": false,
    "word_say": "wallet"
   },
+  "wandered": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "a",
+    "n",
+    "d",
+    "er",
+    "ed"
+   ],
+   "phonemes": [
+    "W",
+    "AA",
+    "N",
+    "D",
+    "ER",
+    "D"
+   ],
+   "onset": "w",
+   "rime": "andered",
+   "rime_say": "andered",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wandered"
+  },
   "want": {
    "type": "decodable",
    "graphemes": [
@@ -7447,6 +16072,31 @@
    "needs_review": false,
    "word_say": "wanted"
   },
+  "warm": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "a",
+    "r",
+    "m"
+   ],
+   "phonemes": [
+    "W",
+    "AO",
+    "R",
+    "M"
+   ],
+   "onset": "w",
+   "rime": "arm",
+   "rime_say": "arm",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "warm"
+  },
   "was": {
    "type": "sight",
    "graphemes": [
@@ -7493,6 +16143,54 @@
    "needs_review": false,
    "word_say": "wash"
   },
+  "washed": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "a",
+    "sh",
+    "ed"
+   ],
+   "phonemes": [
+    "W",
+    "AA",
+    "SH",
+    "T"
+   ],
+   "onset": "w",
+   "rime": "ashed",
+   "rime_say": "oshed",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "washed"
+  },
+  "watch": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "a",
+    "tch"
+   ],
+   "phonemes": [
+    "W",
+    "AA",
+    "CH"
+   ],
+   "onset": "w",
+   "rime": "atch",
+   "rime_say": "otch",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "watch"
+  },
   "water": {
    "type": "sight",
    "graphemes": [
@@ -7517,6 +16215,33 @@
    "emoji": "🪟",
    "needs_review": false,
    "word_say": "water"
+  },
+  "watered": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "a",
+    "t",
+    "er",
+    "ed"
+   ],
+   "phonemes": [
+    "W",
+    "AO",
+    "T",
+    "ER",
+    "D"
+   ],
+   "onset": "w",
+   "rime": "atered",
+   "rime_say": "atered",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "watered"
   },
   "waved": {
    "type": "decodable",
@@ -7590,6 +16315,62 @@
    "needs_review": false,
    "word_say": "we"
   },
+  "wearing": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "ea",
+    "r",
+    "i",
+    "ng"
+   ],
+   "phonemes": [
+    "W",
+    "EH",
+    "R",
+    "IH",
+    "NG"
+   ],
+   "onset": "w",
+   "rime": "earing",
+   "rime_say": "ering",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wearing"
+  },
+  "weekend": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "ee",
+    "k",
+    "e",
+    "n",
+    "d"
+   ],
+   "phonemes": [
+    "W",
+    "IY",
+    "K",
+    "EH",
+    "N",
+    "D"
+   ],
+   "onset": "w",
+   "rime": "eekend",
+   "rime_say": "eekend",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "weekend"
+  },
   "weeks": {
    "type": "decodable",
    "graphemes": [
@@ -7640,6 +16421,28 @@
    "needs_review": false,
    "word_say": "went"
   },
+  "were": {
+   "type": "sight",
+   "graphemes": [
+    "w",
+    "er",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "W",
+    "ER"
+   ],
+   "onset": "w",
+   "rime": "ere",
+   "rime_say": "ere",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "were"
+  },
   "wet": {
    "type": "decodable",
    "graphemes": [
@@ -7663,6 +16466,53 @@
    "needs_review": false,
    "word_say": "wet"
   },
+  "whale": {
+   "type": "decodable",
+   "graphemes": [
+    "wh",
+    "a",
+    "l",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "W",
+    "EY",
+    "L"
+   ],
+   "onset": "wh",
+   "rime": "ale",
+   "rime_say": "ale",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "whale"
+  },
+  "what": {
+   "type": "sight",
+   "graphemes": [
+    "wh",
+    "a",
+    "t"
+   ],
+   "phonemes": [
+    "W",
+    "AH",
+    "T"
+   ],
+   "onset": "wh",
+   "rime": "at",
+   "rime_say": "at",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "what"
+  },
   "when": {
    "type": "decodable",
    "graphemes": [
@@ -7685,6 +16535,51 @@
    "emoji": "🪟",
    "needs_review": false,
    "word_say": "when"
+  },
+  "while": {
+   "type": "decodable",
+   "graphemes": [
+    "wh",
+    "i",
+    "l",
+    "e(silent)"
+   ],
+   "phonemes": [
+    "W",
+    "AY",
+    "L"
+   ],
+   "onset": "wh",
+   "rime": "ile",
+   "rime_say": "ile",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "while"
+  },
+  "who": {
+   "type": "sight",
+   "graphemes": [
+    "wh",
+    "o"
+   ],
+   "phonemes": [
+    "HH",
+    "UW"
+   ],
+   "onset": "wh",
+   "rime": "o",
+   "rime_say": "oo",
+   "onset_phonemes": [
+    "HH"
+   ],
+   "keyword": "hat",
+   "emoji": "🎩",
+   "needs_review": false,
+   "word_say": "who"
   },
   "whole": {
    "type": "tricky",
@@ -7781,6 +16676,33 @@
    "needs_review": false,
    "word_say": "with"
   },
+  "within": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "i",
+    "th",
+    "i",
+    "n"
+   ],
+   "phonemes": [
+    "W",
+    "IH",
+    "DH",
+    "IH",
+    "N"
+   ],
+   "onset": "w",
+   "rime": "ithin",
+   "rime_say": "ithin",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "within"
+  },
   "woman": {
    "type": "tricky",
    "graphemes": [
@@ -7831,6 +16753,33 @@
    "needs_review": false,
    "word_say": "won"
   },
+  "wooden": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "oo",
+    "d",
+    "e",
+    "n"
+   ],
+   "phonemes": [
+    "W",
+    "UH",
+    "D",
+    "AH",
+    "N"
+   ],
+   "onset": "w",
+   "rime": "ooden",
+   "rime_say": "ooden",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wooden"
+  },
   "words": {
    "type": "decodable",
    "graphemes": [
@@ -7855,6 +16804,27 @@
    "emoji": "🪟",
    "needs_review": false,
    "word_say": "words"
+  },
+  "wore": {
+   "type": "decodable",
+   "graphemes": [
+    "w",
+    "ore"
+   ],
+   "phonemes": [
+    "W",
+    "AO R"
+   ],
+   "onset": "w",
+   "rime": "ore",
+   "rime_say": "ore",
+   "onset_phonemes": [
+    "W"
+   ],
+   "keyword": "window",
+   "emoji": "🪟",
+   "needs_review": false,
+   "word_say": "wore"
   },
   "work": {
    "type": "sight",
@@ -7926,6 +16896,32 @@
    "needs_review": false,
    "word_say": "would"
   },
+  "writes": {
+   "type": "decodable",
+   "graphemes": [
+    "wr",
+    "i",
+    "t",
+    "e(silent)",
+    "s"
+   ],
+   "phonemes": [
+    "R",
+    "AY",
+    "T",
+    "S"
+   ],
+   "onset": "wr",
+   "rime": "ites",
+   "rime_say": "ites",
+   "onset_phonemes": [
+    "R"
+   ],
+   "keyword": "rabbit",
+   "emoji": "🐰",
+   "needs_review": false,
+   "word_say": "writes"
+  },
   "years": {
    "type": "decodable",
    "graphemes": [
@@ -7948,6 +16944,31 @@
    "emoji": "🧶",
    "needs_review": false,
    "word_say": "years"
+  },
+  "yellow": {
+   "type": "decodable",
+   "graphemes": [
+    "y",
+    "e",
+    "ll",
+    "ow"
+   ],
+   "phonemes": [
+    "Y",
+    "EH",
+    "L",
+    "OW"
+   ],
+   "onset": "y",
+   "rime": "ellow",
+   "rime_say": "ellow",
+   "onset_phonemes": [
+    "Y"
+   ],
+   "keyword": "yarn",
+   "emoji": "🧶",
+   "needs_review": false,
+   "word_say": "yellow"
   },
   "you": {
    "type": "sight",

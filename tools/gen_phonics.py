@@ -76,7 +76,9 @@ KEYWORDS = {
 ALT_KEYWORDS = {
     "F": ("fox", "🦊"), "K": ("key", "🔑"), "P": ("panda", "🐼"),
     "S M": ("smell", "👃"), "TH R": ("throw", "🥏"), "T R": ("train", "🚂"),
-    "S T R": ("straw", "🥤"),
+    "S T R": ("straw", "🥤"), "D": ("duck", "🦆"), "HH": ("horse", "🐴"),
+    "M": ("mouse", "🐭"), "S": ("sock", "🧦"), "B L": ("block", "🧱"),
+    "B R": ("broom", "🧹"), "F L": ("flag", "🚩"), "F R": ("fries", "🍟"),
 }
 
 # Words with several CMU pronunciations: the one the stories mean.
@@ -101,6 +103,14 @@ REVIEWED = {
     "during": None, "on": None, "when": None, "mangroves": None,
     "turon": None, "read": None,
     "honest": "tricky", "island": "tricky", "walked": "tricky",
+    # S21–S38
+    "advice": None, "buy": None, "caught": None, "climb": None,
+    "climbed": None, "edges": None, "elena": None, "enormous": None,
+    "erupt": None, "explanation": None, "garbage": None, "guard": None,
+    "judges": None, "laughed": None, "national": None, "ourselves": None,
+    "paolo": None, "pedro": None, "saturday": None, "science": None,
+    "security": None, "someone": None, "special": None, "whale": None,
+    "while": None, "amys": None, "their": "sight",
 }
 
 # One word read two ways in the same story: (story id, word before it,
@@ -115,7 +125,7 @@ MANUAL = {
     "pip": "P IH P", "jen": "JH EH N", "jens": "JH EH N Z", "thea": "TH IY AH",
     "lia": "L IY AH", "mia": "M IY AH", "turon": "T UW R AA N",
     "marco": "M AA R K OW", "marcos": "M AA R K OW S",
-    "mangroves": "M AE N G R OW V Z",
+    "mangroves": "M AE N G R OW V Z", "amys": "EY M IY Z",
 }
 
 # Letter groups -> sounds, with a cost: 0 = regular phonics, higher = less

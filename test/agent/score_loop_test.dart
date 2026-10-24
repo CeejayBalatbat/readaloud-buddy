@@ -72,12 +72,13 @@ void main() {
   double mean(Iterable<double> v) => v.reduce((a, b) => a + b) / v.length;
 
   // Children of different true ability, starting from a reading-check score
-  // that was too low, too high or right; 8 different random runs each.
+  // that was too low, too high or right; 20 different random runs each
+  // (8 was too few to see the trend for a weak reader on short books).
   const children = [(55.0, 10.0), (30.0, 70.0), (70.0, 40.0), (45.0, 45.0), (85.0, 60.0), (15.0, 30.0)];
   for (final (ability, start) in children) {
     test('true ability $ability, starting at $start: the score settles near it', () {
       final early = <double>[], late = <double>[];
-      for (var seed = 1; seed <= 8; seed++) {
+      for (var seed = 1; seed <= 20; seed++) {
         final r = run(ability: ability, startScore: start, seed: seed);
         expect((r.score - ability).abs(), lessThan(15), reason: 'seed $seed: score ${r.score}');
         early.add(mean(r.errors.take(5)));

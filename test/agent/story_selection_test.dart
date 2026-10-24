@@ -98,7 +98,7 @@ void main() {
       final s = shelf(score: 100, bias: 3);
       expect(s.picks, hasLength(4));
       expect(s.picks.every((p) => p.prediction.band == PhilIriLevel.independent), isTrue);
-      expect(s.picks.map((p) => p.story.id), containsAll(['S18', 'S16']));
+      expect(s.picks.map((p) => p.story.id), containsAll(['S36', 'S38']));
     });
 
     test('a higher reading score moves the shelf to harder books', () {

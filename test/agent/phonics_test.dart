@@ -102,7 +102,8 @@ void main() {
         // (fish → fox, kite → key).
         expect(value.length, lessThanOrEqualTo(2), reason: '$key: $value');
       }
-      expect(phonics['sun']?.keyword ?? phonics['sam']!.keyword, 'sun');
+      expect(phonics['sam']!.keyword, 'sun');
+      expect(phonics['sun']!.keyword, 'sock'); // "sun" can't start like sun
       expect(phonics['then']!.keyword, 'this'); // /ð/, not thumb's /θ/
       expect(phonics['thank']!.keyword, 'thumb');
     });

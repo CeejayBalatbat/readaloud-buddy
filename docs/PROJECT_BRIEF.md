@@ -27,7 +27,7 @@
 10. Parent weekly summary.
 
 ## MVP scope (build this first)
-In: screens 1–10 from `SCREENS.md`, EN + FIL, the 20 stories in `assets/data/stories.json`, full agent from `AGENT_SPEC.md`, local SQLite, offline-capable, shared-device profiles.
+In: screens 1–10 from `SCREENS.md`, EN + FIL, the 60 stories in `assets/data/stories.json` (6 per reading rank in each language), full agent from `AGENT_SPEC.md`, local SQLite, offline-capable, shared-device profiles.
 Later: parent summary (screen 11), teacher web dashboard (screens 12–13) + Firebase sync, Vosk offline speech, more stories (Let's Read library), mother-tongue languages, kinder letter-sound mode.
 
 ## Non-negotiables

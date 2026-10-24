@@ -9,7 +9,7 @@ python tools/add_stories.py my_stories.txt          # shows what it would add
 python tools/add_stories.py my_stories.txt --write  # adds them
 ```
 
-`add_stories.py` gives each story the next free id (S21, S22, …), splits
+`add_stories.py` gives each story the next free id (S61, S62, …), splits
 the text into words, tags every word with its sound patterns, syllables
 and difficulty, writes question ids, regenerates `assets/data/phonics.json`
 (English hints), computes every book's difficulty (AGENT_SPEC §11) and

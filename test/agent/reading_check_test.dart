@@ -25,7 +25,7 @@ void main() {
         ids.add(c.nextStory!.id);
         read(c, 0.99);
       }
-      expect(ids, ['S01', 'S08', 'S12']); // difficulty 18, 39, 58
+      expect(ids, ['S21', 'S08', 'S31']); // difficulty 15, 39, 63
     });
 
     test('Filipino readers get Filipino passages', () {
@@ -35,7 +35,7 @@ void main() {
         ids.add(c.nextStory!.id);
         read(c, 0.99);
       }
-      expect(ids, ['S05', 'S09', 'S15']); // difficulty 10, 41, 69
+      expect(ids, ['S41', 'S09', 'S54']); // difficulty 14, 41, 64
     });
 
     test('stops at the first Frustration (word accuracy < 90%)', () {
@@ -51,7 +51,7 @@ void main() {
       final p = read(check(), 0.97);
       expect(p.evidence.comprehensionPart, isNull);
       expect(p.evidence.masteryPart, isNull);
-      expect(p.evidence.value, closeTo(18 + 8.75, 1e-9));
+      expect(p.evidence.value, closeTo(15 + 8.75, 1e-9));
     });
 
     test('start score: last non-Frustration passage and the Frustration one, averaged', () {
@@ -66,7 +66,7 @@ void main() {
       read(c, 0.99);
       read(c, 0.99);
       final last = read(c, 0.95);
-      expect(c.startScore, last.evidence.value); // S12 (58) at 95%: about 62
+      expect(c.startScore, last.evidence.value); // S31 (63) at 95%: about 67
       expect(scorer.profileOf(c.startScore), ReadingProfile.transitioning);
     });
 
